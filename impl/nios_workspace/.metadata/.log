@@ -1,0 +1,16 @@
+!SESSION 2018-11-25 19:40:57.941 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-11-25 19:46:08.912
+!MESSAGE Indexed 'nios_bsp' (84 sources, 66 headers) in 1.56 sec: 1,412 declarations; 3,457 references; 103 unresolved inclusions; 6 syntax errors; 213 unresolved names (4.2%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-11-25 19:46:37.683
+!MESSAGE Indexed 'nios_proj' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-11-25 19:51:18.074
+!MESSAGE Indexed 'crypto_wallet' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)

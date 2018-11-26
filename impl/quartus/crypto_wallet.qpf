@@ -1,0 +1,6 @@
+DATE = "19:00:02 November 25, 2018"
+QUARTUS_VERSION = "16.0.2"
+
+# Revisions
+
+PROJECT_REVISION = "crypto_wallet"
