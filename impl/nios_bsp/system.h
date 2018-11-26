@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'crypto_wallet'
  * SOPC Builder design path: ../qsys/crypto_wallet.sopcinfo
  *
- * Generated: Sun Nov 25 19:46:06 EST 2018
+ * Generated: Sun Nov 25 22:54:03 EST 2018
  */
 
 /*

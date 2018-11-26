@@ -1,6 +1,18 @@
-19:46:38 **** Clean-only build of configuration Nios II for project nios_proj ****
-make clean 
-[nios_proj clean complete]
+23:50:56 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../nios_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../nios_bsp/
+[BSP build complete]
+Info: Compiling ../../software/src/wallet_main.c to obj/default/wallet_main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../nios_bsp//HAL/inc -I../nios_bsp/ -I../nios_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/wallet_main.o ../../software/src/wallet_main.c
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'../nios_bsp//linker.x' -msys-crt0='../nios_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../nios_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/wallet_main.o obj/default/wallet_system.o -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x4001850 --timestamp 1543192236 --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name crypto_wallet --sopcinfo C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_bsp/../qsys/crypto_wallet.sopcinfo
+Info: (nios_proj.elf) 29 KBytes program size (code + initialized data).
+Info:                 32735 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
 
-19:46:38 Build Finished (took 256ms)
+23:50:59 Build Finished (took 2s.583ms)
 

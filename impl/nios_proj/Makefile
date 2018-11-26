@@ -142,7 +142,8 @@ ACDS_VERSION := 18.1
 ELF := nios_proj.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS :=
+C_SRCS += ../../software/src/wallet_main.c
+C_SRCS += ../../software/src/wallet_system.c
 CXX_SRCS :=
 ASM_SRCS :=
 

@@ -1,0 +1,14 @@
+Instructions on how to run a simulation
+
+Notes
+1. All VHDL, Verilog, and/or Altera BSF files must be contained in the "<project_directory>\firmware" directory
+2. Quartus must be installed in the C:\intelFPGA_lite directory
+
+Steps
+1. Generate a testbench in "<project_directory>\test" named "tb_<module_under_test>" in either VHDL or Verilog
+2. In the "<project_directory>\sim" directory, add a "<module_under_test>.f" and "<module_under_test>_wave.do" files
+
+Run one of the following commands:
+    "python(3) runtest.py -v -g"    run sim, log results, and open modelsim gui
+    "python(3) runtest.py -v"       run sim in terminal, log results
+    "python(3) runtest.py -v -C"    compile only, log results
