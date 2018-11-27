@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 18.1 625 win32 2018.11.25.19:30:32
+# ACDS 18.1 625 win32 2018.11.26.20:41:28
 
 # ----------------------------------------
 # vcsmx - auto-generated simulation script
@@ -107,7 +107,7 @@
 # within the Quartus project, and generate a unified
 # script which supports all the Altera IP within the design.
 # ----------------------------------------
-# ACDS 18.1 625 win32 2018.11.25.19:30:32
+# ACDS 18.1 625 win32 2018.11.26.20:41:28
 # ----------------------------------------
 # initialize variables
 TOP_LEVEL_NAME="crypto_wallet"
@@ -153,14 +153,12 @@ mkdir -p ./libraries/avalon_st_adapter/
 mkdir -p ./libraries/sdram_s1_rsp_width_adapter/
 mkdir -p ./libraries/rsp_mux_001/
 mkdir -p ./libraries/rsp_mux/
-mkdir -p ./libraries/rsp_demux_004/
 mkdir -p ./libraries/rsp_demux/
 mkdir -p ./libraries/cmd_mux_004/
 mkdir -p ./libraries/cmd_mux/
 mkdir -p ./libraries/cmd_demux_001/
 mkdir -p ./libraries/cmd_demux/
 mkdir -p ./libraries/sdram_s1_burst_adapter/
-mkdir -p ./libraries/cpu_data_master_limiter/
 mkdir -p ./libraries/router_008/
 mkdir -p ./libraries/router_006/
 mkdir -p ./libraries/router_002/
@@ -195,15 +193,6 @@ mkdir -p ./libraries/cycloneive/
 # ----------------------------------------
 # copy RAM/ROM files to simulation directory
 if [ $SKIP_FILE_COPY -eq 0 ]; then
-  cp -f $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_bht_ram.dat ./
-  cp -f $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_bht_ram.hex ./
-  cp -f $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_bht_ram.mif ./
-  cp -f $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_dc_tag_ram.dat ./
-  cp -f $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_dc_tag_ram.hex ./
-  cp -f $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_dc_tag_ram.mif ./
-  cp -f $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_ic_tag_ram.dat ./
-  cp -f $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_ic_tag_ram.hex ./
-  cp -f $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_ic_tag_ram.mif ./
   cp -f $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_ociram_default_contents.dat ./
   cp -f $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_ociram_default_contents.hex ./
   cp -f $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_ociram_default_contents.mif ./
@@ -257,7 +246,6 @@ if [ $SKIP_COM -eq 0 ]; then
   vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_merlin_arbitrator.sv"                                              -work rsp_mux_001                                         
   vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/crypto_wallet_mm_interconnect_0_rsp_mux.sv"                               -work rsp_mux                                             
   vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_merlin_arbitrator.sv"                                              -work rsp_mux                                             
-  vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/crypto_wallet_mm_interconnect_0_rsp_demux_004.sv"                         -work rsp_demux_004                                       
   vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/crypto_wallet_mm_interconnect_0_rsp_demux.sv"                             -work rsp_demux                                           
   vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/crypto_wallet_mm_interconnect_0_cmd_mux_004.sv"                           -work cmd_mux_004                                         
   vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_merlin_arbitrator.sv"                                              -work cmd_mux_004                                         
@@ -275,10 +263,6 @@ if [ $SKIP_COM -eq 0 ]; then
   vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_merlin_address_alignment.sv"                                       -work sdram_s1_burst_adapter                              
   vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_avalon_st_pipeline_stage.sv"                                       -work sdram_s1_burst_adapter                              
   vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_avalon_st_pipeline_base.v"                                         -work sdram_s1_burst_adapter                              
-  vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_merlin_traffic_limiter.sv"                                         -work cpu_data_master_limiter                             
-  vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_merlin_reorder_memory.sv"                                          -work cpu_data_master_limiter                             
-  vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_avalon_sc_fifo.v"                                                  -work cpu_data_master_limiter                             
-  vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_avalon_st_pipeline_base.v"                                         -work cpu_data_master_limiter                             
   vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/crypto_wallet_mm_interconnect_0_router_008.sv"                            -work router_008                                          
   vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/crypto_wallet_mm_interconnect_0_router_006.sv"                            -work router_006                                          
   vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/crypto_wallet_mm_interconnect_0_router_002.sv"                            -work router_002                                          
@@ -290,11 +274,10 @@ if [ $SKIP_COM -eq 0 ]; then
   vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_merlin_master_agent.sv"                                            -work cpu_data_master_agent                               
   vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_merlin_slave_translator.sv"                                        -work buttons_pi_avalon_parallel_port_slave_translator    
   vlogan +v2k -sverilog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_merlin_master_translator.sv"                                       -work cpu_data_master_translator                          
-  vlogan +v2k $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS           "$QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu.vo"                                                 -work cpu                                                 
+  vlogan +v2k $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS           "$QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu.v"                                                  -work cpu                                                 
   vlogan +v2k $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS           "$QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_debug_slave_sysclk.v"                               -work cpu                                                 
   vlogan +v2k $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS           "$QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_debug_slave_tck.v"                                  -work cpu                                                 
   vlogan +v2k $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS           "$QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_debug_slave_wrapper.v"                              -work cpu                                                 
-  vlogan +v2k $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS           "$QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_mult_cell.v"                                        -work cpu                                                 
   vlogan +v2k $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS           "$QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_test_bench.v"                                       -work cpu                                                 
   vlogan +v2k $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS           "$QSYS_SIMDIR/submodules/altera_reset_controller.v"                                                -work rst_controller                                      
   vlogan +v2k $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS           "$QSYS_SIMDIR/submodules/altera_reset_synchronizer.v"                                              -work rst_controller                                      

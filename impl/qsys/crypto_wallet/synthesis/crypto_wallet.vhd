@@ -59,13 +59,11 @@ architecture rtl of crypto_wallet is
 			d_waitrequest                       : in  std_logic                     := 'X';             -- waitrequest
 			d_write                             : out std_logic;                                        -- write
 			d_writedata                         : out std_logic_vector(31 downto 0);                    -- writedata
-			d_readdatavalid                     : in  std_logic                     := 'X';             -- readdatavalid
 			debug_mem_slave_debugaccess_to_roms : out std_logic;                                        -- debugaccess
 			i_address                           : out std_logic_vector(26 downto 0);                    -- address
 			i_read                              : out std_logic;                                        -- read
 			i_readdata                          : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			i_waitrequest                       : in  std_logic                     := 'X';             -- waitrequest
-			i_readdatavalid                     : in  std_logic                     := 'X';             -- readdatavalid
 			irq                                 : in  std_logic_vector(31 downto 0) := (others => 'X'); -- irq
 			debug_reset_request                 : out std_logic;                                        -- reset
 			debug_mem_slave_address             : in  std_logic_vector(8 downto 0)  := (others => 'X'); -- address
@@ -189,7 +187,6 @@ architecture rtl of crypto_wallet is
 			cpu_data_master_byteenable                         : in  std_logic_vector(3 downto 0)  := (others => 'X'); -- byteenable
 			cpu_data_master_read                               : in  std_logic                     := 'X';             -- read
 			cpu_data_master_readdata                           : out std_logic_vector(31 downto 0);                    -- readdata
-			cpu_data_master_readdatavalid                      : out std_logic;                                        -- readdatavalid
 			cpu_data_master_write                              : in  std_logic                     := 'X';             -- write
 			cpu_data_master_writedata                          : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
 			cpu_data_master_debugaccess                        : in  std_logic                     := 'X';             -- debugaccess
@@ -197,7 +194,6 @@ architecture rtl of crypto_wallet is
 			cpu_instruction_master_waitrequest                 : out std_logic;                                        -- waitrequest
 			cpu_instruction_master_read                        : in  std_logic                     := 'X';             -- read
 			cpu_instruction_master_readdata                    : out std_logic_vector(31 downto 0);                    -- readdata
-			cpu_instruction_master_readdatavalid               : out std_logic;                                        -- readdatavalid
 			buttons_pi_avalon_parallel_port_slave_address      : out std_logic_vector(1 downto 0);                     -- address
 			buttons_pi_avalon_parallel_port_slave_write        : out std_logic;                                        -- write
 			buttons_pi_avalon_parallel_port_slave_read         : out std_logic;                                        -- read
@@ -336,14 +332,12 @@ architecture rtl of crypto_wallet is
 	signal cpu_data_master_address                                                   : std_logic_vector(26 downto 0); -- cpu:d_address -> mm_interconnect_0:cpu_data_master_address
 	signal cpu_data_master_byteenable                                                : std_logic_vector(3 downto 0);  -- cpu:d_byteenable -> mm_interconnect_0:cpu_data_master_byteenable
 	signal cpu_data_master_read                                                      : std_logic;                     -- cpu:d_read -> mm_interconnect_0:cpu_data_master_read
-	signal cpu_data_master_readdatavalid                                             : std_logic;                     -- mm_interconnect_0:cpu_data_master_readdatavalid -> cpu:d_readdatavalid
 	signal cpu_data_master_write                                                     : std_logic;                     -- cpu:d_write -> mm_interconnect_0:cpu_data_master_write
 	signal cpu_data_master_writedata                                                 : std_logic_vector(31 downto 0); -- cpu:d_writedata -> mm_interconnect_0:cpu_data_master_writedata
 	signal cpu_instruction_master_readdata                                           : std_logic_vector(31 downto 0); -- mm_interconnect_0:cpu_instruction_master_readdata -> cpu:i_readdata
 	signal cpu_instruction_master_waitrequest                                        : std_logic;                     -- mm_interconnect_0:cpu_instruction_master_waitrequest -> cpu:i_waitrequest
 	signal cpu_instruction_master_address                                            : std_logic_vector(26 downto 0); -- cpu:i_address -> mm_interconnect_0:cpu_instruction_master_address
 	signal cpu_instruction_master_read                                               : std_logic;                     -- cpu:i_read -> mm_interconnect_0:cpu_instruction_master_read
-	signal cpu_instruction_master_readdatavalid                                      : std_logic;                     -- mm_interconnect_0:cpu_instruction_master_readdatavalid -> cpu:i_readdatavalid
 	signal mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_chipselect        : std_logic;                     -- mm_interconnect_0:buttons_pi_avalon_parallel_port_slave_chipselect -> buttons_pi:chipselect
 	signal mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_readdata          : std_logic_vector(31 downto 0); -- buttons_pi:readdata -> mm_interconnect_0:buttons_pi_avalon_parallel_port_slave_readdata
 	signal mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_address           : std_logic_vector(1 downto 0);  -- mm_interconnect_0:buttons_pi_avalon_parallel_port_slave_address -> buttons_pi:address
@@ -441,13 +435,11 @@ begin
 			d_waitrequest                       => cpu_data_master_waitrequest,                       --                          .waitrequest
 			d_write                             => cpu_data_master_write,                             --                          .write
 			d_writedata                         => cpu_data_master_writedata,                         --                          .writedata
-			d_readdatavalid                     => cpu_data_master_readdatavalid,                     --                          .readdatavalid
 			debug_mem_slave_debugaccess_to_roms => cpu_data_master_debugaccess,                       --                          .debugaccess
 			i_address                           => cpu_instruction_master_address,                    --        instruction_master.address
 			i_read                              => cpu_instruction_master_read,                       --                          .read
 			i_readdata                          => cpu_instruction_master_readdata,                   --                          .readdata
 			i_waitrequest                       => cpu_instruction_master_waitrequest,                --                          .waitrequest
-			i_readdatavalid                     => cpu_instruction_master_readdatavalid,              --                          .readdatavalid
 			irq                                 => cpu_irq_irq,                                       --                       irq.irq
 			debug_reset_request                 => cpu_debug_reset_request_reset,                     --       debug_reset_request.reset
 			debug_mem_slave_address             => mm_interconnect_0_cpu_debug_mem_slave_address,     --           debug_mem_slave.address
@@ -564,7 +556,6 @@ begin
 			cpu_data_master_byteenable                         => cpu_data_master_byteenable,                                           --                                        .byteenable
 			cpu_data_master_read                               => cpu_data_master_read,                                                 --                                        .read
 			cpu_data_master_readdata                           => cpu_data_master_readdata,                                             --                                        .readdata
-			cpu_data_master_readdatavalid                      => cpu_data_master_readdatavalid,                                        --                                        .readdatavalid
 			cpu_data_master_write                              => cpu_data_master_write,                                                --                                        .write
 			cpu_data_master_writedata                          => cpu_data_master_writedata,                                            --                                        .writedata
 			cpu_data_master_debugaccess                        => cpu_data_master_debugaccess,                                          --                                        .debugaccess
@@ -572,7 +563,6 @@ begin
 			cpu_instruction_master_waitrequest                 => cpu_instruction_master_waitrequest,                                   --                                        .waitrequest
 			cpu_instruction_master_read                        => cpu_instruction_master_read,                                          --                                        .read
 			cpu_instruction_master_readdata                    => cpu_instruction_master_readdata,                                      --                                        .readdata
-			cpu_instruction_master_readdatavalid               => cpu_instruction_master_readdatavalid,                                 --                                        .readdatavalid
 			buttons_pi_avalon_parallel_port_slave_address      => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_address,      --   buttons_pi_avalon_parallel_port_slave.address
 			buttons_pi_avalon_parallel_port_slave_write        => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_write,        --                                        .write
 			buttons_pi_avalon_parallel_port_slave_read         => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_read,         --                                        .read

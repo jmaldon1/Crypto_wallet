@@ -1,8 +1,29 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
-preplace inst unsaved.clk_0 -pg 1 -lvl 1 -y 30
-preplace inst unsaved -pg 1 -lvl 1 -y 40 -regy -20
-preplace netloc EXPORT<net_container>unsaved</net_container>(SLAVE)unsaved.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
-preplace netloc EXPORT<net_container>unsaved</net_container>(SLAVE)clk_0.clk_in,(SLAVE)unsaved.clk) 1 0 1 NJ
-levelinfo -pg 1 0 50 270
-levelinfo -hier unsaved 60 90 260
+preplace inst crypto_wallet.buttons_pi -pg 1 -lvl 3 -y 60
+preplace inst crypto_wallet.sdram -pg 1 -lvl 3 -y 480
+preplace inst crypto_wallet.cpu.cpu -pg 1
+preplace inst crypto_wallet.cpu.reset_bridge -pg 1
+preplace inst crypto_wallet.sysid -pg 1 -lvl 3 -y 400
+preplace inst crypto_wallet.cpu.clock_bridge -pg 1
+preplace inst crypto_wallet.uart_0 -pg 1 -lvl 3 -y 280
+preplace inst crypto_wallet.epcs_flash_controller -pg 1 -lvl 3 -y 160
+preplace inst crypto_wallet.switch_pi -pg 1 -lvl 3 -y 580
+preplace inst crypto_wallet.clk_sys -pg 1 -lvl 1 -y 90
+preplace inst crypto_wallet -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst crypto_wallet.led_po -pg 1 -lvl 3 -y 680
+preplace inst crypto_wallet.cpu -pg 1 -lvl 2 -y 50
+preplace netloc EXPORT<net_container>crypto_wallet</net_container>(SLAVE)led_po.external_interface,(SLAVE)crypto_wallet.led_po) 1 0 3 NJ 730 NJ 730 NJ
+preplace netloc EXPORT<net_container>crypto_wallet</net_container>(SLAVE)crypto_wallet.epcs,(SLAVE)epcs_flash_controller.external) 1 0 3 NJ 210 NJ 210 NJ
+preplace netloc INTERCONNECT<net_container>crypto_wallet</net_container>(MASTER)clk_sys.clk_reset,(SLAVE)epcs_flash_controller.reset,(SLAVE)cpu.reset,(SLAVE)switch_pi.reset,(SLAVE)uart_0.reset,(SLAVE)sysid.reset,(SLAVE)led_po.reset,(MASTER)cpu.debug_reset_request,(SLAVE)buttons_pi.reset,(SLAVE)sdram.reset) 1 1 2 290 750 730
+preplace netloc FAN_OUT<net_container>crypto_wallet</net_container>(SLAVE)switch_pi.clk,(SLAVE)sdram.clk,(SLAVE)cpu.clk,(SLAVE)epcs_flash_controller.clk,(SLAVE)led_po.clk,(SLAVE)uart_0.clk,(SLAVE)buttons_pi.clk,(MASTER)clk_sys.clk,(SLAVE)sysid.clk) 1 1 2 310 670 770
+preplace netloc EXPORT<net_container>crypto_wallet</net_container>(SLAVE)crypto_wallet.buttons_pi,(SLAVE)buttons_pi.external_interface) 1 0 3 NJ 190 NJ 190 NJ
+preplace netloc INTERCONNECT<net_container>crypto_wallet</net_container>(SLAVE)switch_pi.avalon_parallel_port_slave,(SLAVE)led_po.avalon_parallel_port_slave,(SLAVE)sdram.s1,(SLAVE)buttons_pi.avalon_parallel_port_slave,(MASTER)cpu.instruction_master,(MASTER)cpu.data_master,(SLAVE)epcs_flash_controller.epcs_control_port,(SLAVE)sysid.control_slave,(SLAVE)cpu.debug_mem_slave,(SLAVE)uart_0.s1) 1 1 2 330 650 710
+preplace netloc EXPORT<net_container>crypto_wallet</net_container>(SLAVE)clk_sys.clk_in,(SLAVE)crypto_wallet.clk) 1 0 1 NJ
+preplace netloc EXPORT<net_container>crypto_wallet</net_container>(SLAVE)crypto_wallet.uart_0,(SLAVE)uart_0.external_connection) 1 0 3 NJ 310 NJ 310 NJ
+preplace netloc EXPORT<net_container>crypto_wallet</net_container>(SLAVE)switch_pi.external_interface,(SLAVE)crypto_wallet.switch_pi) 1 0 3 NJ 630 NJ 630 NJ
+preplace netloc FAN_OUT<net_container>crypto_wallet</net_container>(SLAVE)epcs_flash_controller.irq,(SLAVE)uart_0.irq,(MASTER)cpu.irq) 1 2 1 690
+preplace netloc EXPORT<net_container>crypto_wallet</net_container>(SLAVE)clk_sys.clk_in_reset,(SLAVE)crypto_wallet.reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>crypto_wallet</net_container>(SLAVE)sdram.wire,(SLAVE)crypto_wallet.sdram) 1 0 3 NJ 550 NJ 550 NJ
+levelinfo -pg 1 0 80 1010
+levelinfo -hier crypto_wallet 90 120 450 810 1000

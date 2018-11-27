@@ -1,0 +1,16 @@
+Fitter Status : Successful - Mon Nov 26 20:43:30 2018
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : crypto_wallet
+Top-level Entity Name : crypto_wallet_top
+Family : Cyclone IV E
+Device : EP4CE22F17C6
+Timing Models : Final
+Total logic elements : 2,538 / 22,320 ( 11 % )
+    Total combinational functions : 2,269 / 22,320 ( 10 % )
+    Dedicated logic registers : 1,561 / 22,320 ( 7 % )
+Total registers : 1630
+Total pins : 152 / 154 ( 99 % )
+Total virtual pins : 0
+Total memory bits : 18,432 / 608,256 ( 3 % )
+Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

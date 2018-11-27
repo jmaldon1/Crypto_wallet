@@ -49,7 +49,7 @@ module crypto_wallet_sysid (
 
   wire    [ 31: 0] readdata;
   //control_slave, which is an e_avalon_slave
-  assign readdata = address ? 1543192170 : 0;
+  assign readdata = address ? 1543282860 : 0;
 
 endmodule
 

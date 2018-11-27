@@ -1,0 +1,131 @@
+Flow report for crypto_wallet
+Mon Nov 26 20:43:44 2018
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Mon Nov 26 20:43:37 2018       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; crypto_wallet                               ;
+; Top-level Entity Name              ; crypto_wallet_top                           ;
+; Family                             ; Cyclone IV E                                ;
+; Device                             ; EP4CE22F17C6                                ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 2,538 / 22,320 ( 11 % )                     ;
+;     Total combinational functions  ; 2,269 / 22,320 ( 10 % )                     ;
+;     Dedicated logic registers      ; 1,561 / 22,320 ( 7 % )                      ;
+; Total registers                    ; 1630                                        ;
+; Total pins                         ; 152 / 154 ( 99 % )                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 18,432 / 608,256 ( 3 % )                    ;
+; Embedded Multiplier 9-bit elements ; 0 / 132 ( 0 % )                             ;
+; Total PLLs                         ; 0 / 4 ( 0 % )                               ;
++------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 11/26/2018 20:42:13 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; crypto_wallet       ;
++-------------------+---------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                       ;
++-------------------------------------+-----------------------------------------------------------------+---------------+-------------------+------------+
+; Assignment Name                     ; Value                                                           ; Default Value ; Entity Name       ; Section Id ;
++-------------------------------------+-----------------------------------------------------------------+---------------+-------------------+------------+
+; COMPILER_SIGNATURE_ID               ; 119580880346783.154328293219840                                 ; --            ; --                ; --         ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                              ; --            ; --                ; --         ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                               ; --            ; --                ; --         ;
+; MISC_FILE                           ; ../qsys/crypto_wallet/synthesis/../crypto_wallet.cmp            ; --            ; --                ; --         ;
+; MISC_FILE                           ; ../qsys/crypto_wallet/synthesis/../../crypto_wallet.qsys        ; --            ; --                ; --         ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                          ; --            ; crypto_wallet_top ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                          ; --            ; crypto_wallet_top ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                          ; --            ; crypto_wallet_top ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                             ; --            ; --                ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                           ; --            ; --                ; --         ;
+; SLD_FILE                            ; ../qsys/crypto_wallet/synthesis/crypto_wallet.regmap            ; --            ; --                ; --         ;
+; SLD_FILE                            ; ../qsys/crypto_wallet/synthesis/crypto_wallet.debuginfo         ; --            ; --                ; --         ;
+; SLD_INFO                            ; QSYS_NAME crypto_wallet HAS_SOPCINFO 1 GENERATION_ID 1543282891 ; --            ; --                ; --         ;
+; SOPCINFO_FILE                       ; ../qsys/crypto_wallet/synthesis/../../crypto_wallet.sopcinfo    ; --            ; --                ; --         ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                              ; --            ; --                ; --         ;
+; TOP_LEVEL_ENTITY                    ; crypto_wallet_top                                               ; crypto_wallet ; --                ; --         ;
++-------------------------------------+-----------------------------------------------------------------+---------------+-------------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:48     ; 1.0                     ; 4923 MB             ; 00:01:12                           ;
+; Fitter               ; 00:00:22     ; 1.1                     ; 5527 MB             ; 00:00:19                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4699 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.2                     ; 4823 MB             ; 00:00:05                           ;
+; Total                ; 00:01:17     ; --                      ; --                  ; 00:01:38                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; O507             ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; O507             ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; O507             ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; O507             ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off crypto_wallet -c crypto_wallet
+quartus_fit --read_settings_files=off --write_settings_files=off crypto_wallet -c crypto_wallet
+quartus_asm --read_settings_files=off --write_settings_files=off crypto_wallet -c crypto_wallet
+quartus_sta crypto_wallet -c crypto_wallet
+
+
+
