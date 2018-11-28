@@ -381,9 +381,6 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gpio1_IN[1]
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name QIP_FILE ../qsys/crypto_wallet/synthesis/crypto_wallet.qip
-set_global_assignment -name VHDL_FILE ../../firmware/crypto_wallet_top.vhd
-set_global_assignment -name SDC_FILE crypto_wallet.SDC
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO2_IN[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO2_IN[1]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO2[12]
@@ -400,4 +397,8 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO2[2]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO2[1]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO2[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO2_IN[2]
+set_global_assignment -name QIP_FILE ../qsys/crypto_wallet/synthesis/crypto_wallet.qip
+set_global_assignment -name VHDL_FILE ../../firmware/crypto_wallet_top.vhd
+set_global_assignment -name SDC_FILE crypto_wallet.SDC
+set_global_assignment -name QIP_FILE ../../firmware/altera_ip/sdram_pll.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

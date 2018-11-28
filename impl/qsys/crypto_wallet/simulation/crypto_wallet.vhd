@@ -8,51 +8,34 @@ use IEEE.numeric_std.all;
 
 entity crypto_wallet is
 	port (
-		buttons_pi_export : in    std_logic_vector(1 downto 0)  := (others => '0'); -- buttons_pi.export
-		clk_clk           : in    std_logic                     := '0';             --        clk.clk
-		epcs_dclk         : out   std_logic;                                        --       epcs.dclk
-		epcs_sce          : out   std_logic;                                        --           .sce
-		epcs_sdo          : out   std_logic;                                        --           .sdo
-		epcs_data0        : in    std_logic                     := '0';             --           .data0
-		led_po_export     : out   std_logic_vector(7 downto 0);                     --     led_po.export
-		reset_reset_n     : in    std_logic                     := '0';             --      reset.reset_n
-		sdram_addr        : out   std_logic_vector(12 downto 0);                    --      sdram.addr
-		sdram_ba          : out   std_logic_vector(1 downto 0);                     --           .ba
-		sdram_cas_n       : out   std_logic;                                        --           .cas_n
-		sdram_cke         : out   std_logic;                                        --           .cke
-		sdram_cs_n        : out   std_logic;                                        --           .cs_n
-		sdram_dq          : inout std_logic_vector(15 downto 0) := (others => '0'); --           .dq
-		sdram_dqm         : out   std_logic_vector(1 downto 0);                     --           .dqm
-		sdram_ras_n       : out   std_logic;                                        --           .ras_n
-		sdram_we_n        : out   std_logic;                                        --           .we_n
-		switch_pi_export  : in    std_logic_vector(3 downto 0)  := (others => '0'); --  switch_pi.export
-		uart_0_rxd        : in    std_logic                     := '0';             --     uart_0.rxd
-		uart_0_txd        : out   std_logic                                         --           .txd
+		clk_clk                           : in    std_logic                     := '0';             --                        clk.clk
+		epcs_flash_controller_dclk        : out   std_logic;                                        --      epcs_flash_controller.dclk
+		epcs_flash_controller_sce         : out   std_logic;                                        --                           .sce
+		epcs_flash_controller_sdo         : out   std_logic;                                        --                           .sdo
+		epcs_flash_controller_data0       : in    std_logic                     := '0';             --                           .data0
+		pi_key_external_connection_export : in    std_logic_vector(1 downto 0)  := (others => '0'); -- pi_key_external_connection.export
+		pi_sw_external_connection_export  : in    std_logic_vector(3 downto 0)  := (others => '0'); --  pi_sw_external_connection.export
+		po_led_external_connection_export : out   std_logic_vector(7 downto 0);                     -- po_led_external_connection.export
+		reset_n_reset_n                   : in    std_logic                     := '0';             --                    reset_n.reset_n
+		sdram_addr                        : out   std_logic_vector(12 downto 0);                    --                      sdram.addr
+		sdram_ba                          : out   std_logic_vector(1 downto 0);                     --                           .ba
+		sdram_cas_n                       : out   std_logic;                                        --                           .cas_n
+		sdram_cke                         : out   std_logic;                                        --                           .cke
+		sdram_cs_n                        : out   std_logic;                                        --                           .cs_n
+		sdram_dq                          : inout std_logic_vector(15 downto 0) := (others => '0'); --                           .dq
+		sdram_dqm                         : out   std_logic_vector(1 downto 0);                     --                           .dqm
+		sdram_ras_n                       : out   std_logic;                                        --                           .ras_n
+		sdram_we_n                        : out   std_logic                                         --                           .we_n
 	);
 end entity crypto_wallet;
 
 architecture rtl of crypto_wallet is
-	component crypto_wallet_buttons_pi is
-		port (
-			clk        : in  std_logic                     := 'X';             -- clk
-			reset      : in  std_logic                     := 'X';             -- reset
-			address    : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- address
-			byteenable : in  std_logic_vector(3 downto 0)  := (others => 'X'); -- byteenable
-			chipselect : in  std_logic                     := 'X';             -- chipselect
-			read       : in  std_logic                     := 'X';             -- read
-			write      : in  std_logic                     := 'X';             -- write
-			writedata  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
-			readdata   : out std_logic_vector(31 downto 0);                    -- readdata
-			KEY        : in  std_logic_vector(1 downto 0)  := (others => 'X')  -- export
-		);
-	end component crypto_wallet_buttons_pi;
-
 	component crypto_wallet_cpu is
 		port (
 			clk                                 : in  std_logic                     := 'X';             -- clk
 			reset_n                             : in  std_logic                     := 'X';             -- reset_n
 			reset_req                           : in  std_logic                     := 'X';             -- reset_req
-			d_address                           : out std_logic_vector(26 downto 0);                    -- address
+			d_address                           : out std_logic_vector(25 downto 0);                    -- address
 			d_byteenable                        : out std_logic_vector(3 downto 0);                     -- byteenable
 			d_read                              : out std_logic;                                        -- read
 			d_readdata                          : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
@@ -60,7 +43,7 @@ architecture rtl of crypto_wallet is
 			d_write                             : out std_logic;                                        -- write
 			d_writedata                         : out std_logic_vector(31 downto 0);                    -- writedata
 			debug_mem_slave_debugaccess_to_roms : out std_logic;                                        -- debugaccess
-			i_address                           : out std_logic_vector(26 downto 0);                    -- address
+			i_address                           : out std_logic_vector(25 downto 0);                    -- address
 			i_read                              : out std_logic;                                        -- read
 			i_readdata                          : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			i_waitrequest                       : in  std_logic                     := 'X';             -- waitrequest
@@ -97,20 +80,69 @@ architecture rtl of crypto_wallet is
 		);
 	end component crypto_wallet_epcs_flash_controller;
 
-	component crypto_wallet_led_po is
+	component crypto_wallet_jtag_uart is
+		port (
+			clk            : in  std_logic                     := 'X';             -- clk
+			rst_n          : in  std_logic                     := 'X';             -- reset_n
+			av_chipselect  : in  std_logic                     := 'X';             -- chipselect
+			av_address     : in  std_logic                     := 'X';             -- address
+			av_read_n      : in  std_logic                     := 'X';             -- read_n
+			av_readdata    : out std_logic_vector(31 downto 0);                    -- readdata
+			av_write_n     : in  std_logic                     := 'X';             -- write_n
+			av_writedata   : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			av_waitrequest : out std_logic;                                        -- waitrequest
+			av_irq         : out std_logic                                         -- irq
+		);
+	end component crypto_wallet_jtag_uart;
+
+	component crypto_wallet_onchip_memory2 is
 		port (
 			clk        : in  std_logic                     := 'X';             -- clk
-			reset      : in  std_logic                     := 'X';             -- reset
-			address    : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- address
-			byteenable : in  std_logic_vector(3 downto 0)  := (others => 'X'); -- byteenable
+			address    : in  std_logic_vector(12 downto 0) := (others => 'X'); -- address
+			clken      : in  std_logic                     := 'X';             -- clken
 			chipselect : in  std_logic                     := 'X';             -- chipselect
-			read       : in  std_logic                     := 'X';             -- read
 			write      : in  std_logic                     := 'X';             -- write
-			writedata  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
 			readdata   : out std_logic_vector(31 downto 0);                    -- readdata
-			LEDG       : out std_logic_vector(7 downto 0)                      -- export
+			writedata  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			byteenable : in  std_logic_vector(3 downto 0)  := (others => 'X'); -- byteenable
+			reset      : in  std_logic                     := 'X';             -- reset
+			reset_req  : in  std_logic                     := 'X';             -- reset_req
+			freeze     : in  std_logic                     := 'X'              -- freeze
 		);
-	end component crypto_wallet_led_po;
+	end component crypto_wallet_onchip_memory2;
+
+	component crypto_wallet_pi_key is
+		port (
+			clk      : in  std_logic                     := 'X';             -- clk
+			reset_n  : in  std_logic                     := 'X';             -- reset_n
+			address  : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			readdata : out std_logic_vector(31 downto 0);                    -- readdata
+			in_port  : in  std_logic_vector(1 downto 0)  := (others => 'X')  -- export
+		);
+	end component crypto_wallet_pi_key;
+
+	component crypto_wallet_pi_sw is
+		port (
+			clk      : in  std_logic                     := 'X';             -- clk
+			reset_n  : in  std_logic                     := 'X';             -- reset_n
+			address  : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			readdata : out std_logic_vector(31 downto 0);                    -- readdata
+			in_port  : in  std_logic_vector(3 downto 0)  := (others => 'X')  -- export
+		);
+	end component crypto_wallet_pi_sw;
+
+	component crypto_wallet_po_led is
+		port (
+			clk        : in  std_logic                     := 'X';             -- clk
+			reset_n    : in  std_logic                     := 'X';             -- reset_n
+			address    : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			write_n    : in  std_logic                     := 'X';             -- write_n
+			writedata  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			chipselect : in  std_logic                     := 'X';             -- chipselect
+			readdata   : out std_logic_vector(31 downto 0);                    -- readdata
+			out_port   : out std_logic_vector(7 downto 0)                      -- export
+		);
+	end component crypto_wallet_po_led;
 
 	component crypto_wallet_sdram is
 		port (
@@ -137,21 +169,6 @@ architecture rtl of crypto_wallet is
 		);
 	end component crypto_wallet_sdram;
 
-	component crypto_wallet_switch_pi is
-		port (
-			clk        : in  std_logic                     := 'X';             -- clk
-			reset      : in  std_logic                     := 'X';             -- reset
-			address    : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- address
-			byteenable : in  std_logic_vector(3 downto 0)  := (others => 'X'); -- byteenable
-			chipselect : in  std_logic                     := 'X';             -- chipselect
-			read       : in  std_logic                     := 'X';             -- read
-			write      : in  std_logic                     := 'X';             -- write
-			writedata  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
-			readdata   : out std_logic_vector(31 downto 0);                    -- readdata
-			DIP        : in  std_logic_vector(3 downto 0)  := (others => 'X')  -- export
-		);
-	end component crypto_wallet_switch_pi;
-
 	component crypto_wallet_sysid is
 		port (
 			clock    : in  std_logic                     := 'X'; -- clk
@@ -161,28 +178,11 @@ architecture rtl of crypto_wallet is
 		);
 	end component crypto_wallet_sysid;
 
-	component crypto_wallet_uart_0 is
-		port (
-			clk           : in  std_logic                     := 'X';             -- clk
-			reset_n       : in  std_logic                     := 'X';             -- reset_n
-			address       : in  std_logic_vector(2 downto 0)  := (others => 'X'); -- address
-			begintransfer : in  std_logic                     := 'X';             -- begintransfer
-			chipselect    : in  std_logic                     := 'X';             -- chipselect
-			read_n        : in  std_logic                     := 'X';             -- read_n
-			write_n       : in  std_logic                     := 'X';             -- write_n
-			writedata     : in  std_logic_vector(15 downto 0) := (others => 'X'); -- writedata
-			readdata      : out std_logic_vector(15 downto 0);                    -- readdata
-			rxd           : in  std_logic                     := 'X';             -- export
-			txd           : out std_logic;                                        -- export
-			irq           : out std_logic                                         -- irq
-		);
-	end component crypto_wallet_uart_0;
-
 	component crypto_wallet_mm_interconnect_0 is
 		port (
-			clk_sys_clk_clk                                    : in  std_logic                     := 'X';             -- clk
+			clk_50_clk_clk                                     : in  std_logic                     := 'X';             -- clk
 			cpu_reset_reset_bridge_in_reset_reset              : in  std_logic                     := 'X';             -- reset
-			cpu_data_master_address                            : in  std_logic_vector(26 downto 0) := (others => 'X'); -- address
+			cpu_data_master_address                            : in  std_logic_vector(25 downto 0) := (others => 'X'); -- address
 			cpu_data_master_waitrequest                        : out std_logic;                                        -- waitrequest
 			cpu_data_master_byteenable                         : in  std_logic_vector(3 downto 0)  := (others => 'X'); -- byteenable
 			cpu_data_master_read                               : in  std_logic                     := 'X';             -- read
@@ -190,17 +190,10 @@ architecture rtl of crypto_wallet is
 			cpu_data_master_write                              : in  std_logic                     := 'X';             -- write
 			cpu_data_master_writedata                          : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
 			cpu_data_master_debugaccess                        : in  std_logic                     := 'X';             -- debugaccess
-			cpu_instruction_master_address                     : in  std_logic_vector(26 downto 0) := (others => 'X'); -- address
+			cpu_instruction_master_address                     : in  std_logic_vector(25 downto 0) := (others => 'X'); -- address
 			cpu_instruction_master_waitrequest                 : out std_logic;                                        -- waitrequest
 			cpu_instruction_master_read                        : in  std_logic                     := 'X';             -- read
 			cpu_instruction_master_readdata                    : out std_logic_vector(31 downto 0);                    -- readdata
-			buttons_pi_avalon_parallel_port_slave_address      : out std_logic_vector(1 downto 0);                     -- address
-			buttons_pi_avalon_parallel_port_slave_write        : out std_logic;                                        -- write
-			buttons_pi_avalon_parallel_port_slave_read         : out std_logic;                                        -- read
-			buttons_pi_avalon_parallel_port_slave_readdata     : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
-			buttons_pi_avalon_parallel_port_slave_writedata    : out std_logic_vector(31 downto 0);                    -- writedata
-			buttons_pi_avalon_parallel_port_slave_byteenable   : out std_logic_vector(3 downto 0);                     -- byteenable
-			buttons_pi_avalon_parallel_port_slave_chipselect   : out std_logic;                                        -- chipselect
 			cpu_debug_mem_slave_address                        : out std_logic_vector(8 downto 0);                     -- address
 			cpu_debug_mem_slave_write                          : out std_logic;                                        -- write
 			cpu_debug_mem_slave_read                           : out std_logic;                                        -- read
@@ -215,13 +208,29 @@ architecture rtl of crypto_wallet is
 			epcs_flash_controller_epcs_control_port_readdata   : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			epcs_flash_controller_epcs_control_port_writedata  : out std_logic_vector(31 downto 0);                    -- writedata
 			epcs_flash_controller_epcs_control_port_chipselect : out std_logic;                                        -- chipselect
-			led_po_avalon_parallel_port_slave_address          : out std_logic_vector(1 downto 0);                     -- address
-			led_po_avalon_parallel_port_slave_write            : out std_logic;                                        -- write
-			led_po_avalon_parallel_port_slave_read             : out std_logic;                                        -- read
-			led_po_avalon_parallel_port_slave_readdata         : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
-			led_po_avalon_parallel_port_slave_writedata        : out std_logic_vector(31 downto 0);                    -- writedata
-			led_po_avalon_parallel_port_slave_byteenable       : out std_logic_vector(3 downto 0);                     -- byteenable
-			led_po_avalon_parallel_port_slave_chipselect       : out std_logic;                                        -- chipselect
+			jtag_uart_avalon_jtag_slave_address                : out std_logic_vector(0 downto 0);                     -- address
+			jtag_uart_avalon_jtag_slave_write                  : out std_logic;                                        -- write
+			jtag_uart_avalon_jtag_slave_read                   : out std_logic;                                        -- read
+			jtag_uart_avalon_jtag_slave_readdata               : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			jtag_uart_avalon_jtag_slave_writedata              : out std_logic_vector(31 downto 0);                    -- writedata
+			jtag_uart_avalon_jtag_slave_waitrequest            : in  std_logic                     := 'X';             -- waitrequest
+			jtag_uart_avalon_jtag_slave_chipselect             : out std_logic;                                        -- chipselect
+			onchip_memory2_s1_address                          : out std_logic_vector(12 downto 0);                    -- address
+			onchip_memory2_s1_write                            : out std_logic;                                        -- write
+			onchip_memory2_s1_readdata                         : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			onchip_memory2_s1_writedata                        : out std_logic_vector(31 downto 0);                    -- writedata
+			onchip_memory2_s1_byteenable                       : out std_logic_vector(3 downto 0);                     -- byteenable
+			onchip_memory2_s1_chipselect                       : out std_logic;                                        -- chipselect
+			onchip_memory2_s1_clken                            : out std_logic;                                        -- clken
+			pi_key_s1_address                                  : out std_logic_vector(1 downto 0);                     -- address
+			pi_key_s1_readdata                                 : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			pi_sw_s1_address                                   : out std_logic_vector(1 downto 0);                     -- address
+			pi_sw_s1_readdata                                  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			po_led_s1_address                                  : out std_logic_vector(1 downto 0);                     -- address
+			po_led_s1_write                                    : out std_logic;                                        -- write
+			po_led_s1_readdata                                 : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			po_led_s1_writedata                                : out std_logic_vector(31 downto 0);                    -- writedata
+			po_led_s1_chipselect                               : out std_logic;                                        -- chipselect
 			sdram_s1_address                                   : out std_logic_vector(23 downto 0);                    -- address
 			sdram_s1_write                                     : out std_logic;                                        -- write
 			sdram_s1_read                                      : out std_logic;                                        -- read
@@ -231,22 +240,8 @@ architecture rtl of crypto_wallet is
 			sdram_s1_readdatavalid                             : in  std_logic                     := 'X';             -- readdatavalid
 			sdram_s1_waitrequest                               : in  std_logic                     := 'X';             -- waitrequest
 			sdram_s1_chipselect                                : out std_logic;                                        -- chipselect
-			switch_pi_avalon_parallel_port_slave_address       : out std_logic_vector(1 downto 0);                     -- address
-			switch_pi_avalon_parallel_port_slave_write         : out std_logic;                                        -- write
-			switch_pi_avalon_parallel_port_slave_read          : out std_logic;                                        -- read
-			switch_pi_avalon_parallel_port_slave_readdata      : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
-			switch_pi_avalon_parallel_port_slave_writedata     : out std_logic_vector(31 downto 0);                    -- writedata
-			switch_pi_avalon_parallel_port_slave_byteenable    : out std_logic_vector(3 downto 0);                     -- byteenable
-			switch_pi_avalon_parallel_port_slave_chipselect    : out std_logic;                                        -- chipselect
 			sysid_control_slave_address                        : out std_logic_vector(0 downto 0);                     -- address
-			sysid_control_slave_readdata                       : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
-			uart_0_s1_address                                  : out std_logic_vector(2 downto 0);                     -- address
-			uart_0_s1_write                                    : out std_logic;                                        -- write
-			uart_0_s1_read                                     : out std_logic;                                        -- read
-			uart_0_s1_readdata                                 : in  std_logic_vector(15 downto 0) := (others => 'X'); -- readdata
-			uart_0_s1_writedata                                : out std_logic_vector(15 downto 0);                    -- writedata
-			uart_0_s1_begintransfer                            : out std_logic;                                        -- begintransfer
-			uart_0_s1_chipselect                               : out std_logic                                         -- chipselect
+			sysid_control_slave_readdata                       : in  std_logic_vector(31 downto 0) := (others => 'X')  -- readdata
 		);
 	end component crypto_wallet_mm_interconnect_0;
 
@@ -329,36 +324,22 @@ architecture rtl of crypto_wallet is
 	signal cpu_data_master_readdata                                                  : std_logic_vector(31 downto 0); -- mm_interconnect_0:cpu_data_master_readdata -> cpu:d_readdata
 	signal cpu_data_master_waitrequest                                               : std_logic;                     -- mm_interconnect_0:cpu_data_master_waitrequest -> cpu:d_waitrequest
 	signal cpu_data_master_debugaccess                                               : std_logic;                     -- cpu:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:cpu_data_master_debugaccess
-	signal cpu_data_master_address                                                   : std_logic_vector(26 downto 0); -- cpu:d_address -> mm_interconnect_0:cpu_data_master_address
+	signal cpu_data_master_address                                                   : std_logic_vector(25 downto 0); -- cpu:d_address -> mm_interconnect_0:cpu_data_master_address
 	signal cpu_data_master_byteenable                                                : std_logic_vector(3 downto 0);  -- cpu:d_byteenable -> mm_interconnect_0:cpu_data_master_byteenable
 	signal cpu_data_master_read                                                      : std_logic;                     -- cpu:d_read -> mm_interconnect_0:cpu_data_master_read
 	signal cpu_data_master_write                                                     : std_logic;                     -- cpu:d_write -> mm_interconnect_0:cpu_data_master_write
 	signal cpu_data_master_writedata                                                 : std_logic_vector(31 downto 0); -- cpu:d_writedata -> mm_interconnect_0:cpu_data_master_writedata
 	signal cpu_instruction_master_readdata                                           : std_logic_vector(31 downto 0); -- mm_interconnect_0:cpu_instruction_master_readdata -> cpu:i_readdata
 	signal cpu_instruction_master_waitrequest                                        : std_logic;                     -- mm_interconnect_0:cpu_instruction_master_waitrequest -> cpu:i_waitrequest
-	signal cpu_instruction_master_address                                            : std_logic_vector(26 downto 0); -- cpu:i_address -> mm_interconnect_0:cpu_instruction_master_address
+	signal cpu_instruction_master_address                                            : std_logic_vector(25 downto 0); -- cpu:i_address -> mm_interconnect_0:cpu_instruction_master_address
 	signal cpu_instruction_master_read                                               : std_logic;                     -- cpu:i_read -> mm_interconnect_0:cpu_instruction_master_read
-	signal mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_chipselect        : std_logic;                     -- mm_interconnect_0:buttons_pi_avalon_parallel_port_slave_chipselect -> buttons_pi:chipselect
-	signal mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_readdata          : std_logic_vector(31 downto 0); -- buttons_pi:readdata -> mm_interconnect_0:buttons_pi_avalon_parallel_port_slave_readdata
-	signal mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_address           : std_logic_vector(1 downto 0);  -- mm_interconnect_0:buttons_pi_avalon_parallel_port_slave_address -> buttons_pi:address
-	signal mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_read              : std_logic;                     -- mm_interconnect_0:buttons_pi_avalon_parallel_port_slave_read -> buttons_pi:read
-	signal mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_byteenable        : std_logic_vector(3 downto 0);  -- mm_interconnect_0:buttons_pi_avalon_parallel_port_slave_byteenable -> buttons_pi:byteenable
-	signal mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_write             : std_logic;                     -- mm_interconnect_0:buttons_pi_avalon_parallel_port_slave_write -> buttons_pi:write
-	signal mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_writedata         : std_logic_vector(31 downto 0); -- mm_interconnect_0:buttons_pi_avalon_parallel_port_slave_writedata -> buttons_pi:writedata
-	signal mm_interconnect_0_switch_pi_avalon_parallel_port_slave_chipselect         : std_logic;                     -- mm_interconnect_0:switch_pi_avalon_parallel_port_slave_chipselect -> switch_pi:chipselect
-	signal mm_interconnect_0_switch_pi_avalon_parallel_port_slave_readdata           : std_logic_vector(31 downto 0); -- switch_pi:readdata -> mm_interconnect_0:switch_pi_avalon_parallel_port_slave_readdata
-	signal mm_interconnect_0_switch_pi_avalon_parallel_port_slave_address            : std_logic_vector(1 downto 0);  -- mm_interconnect_0:switch_pi_avalon_parallel_port_slave_address -> switch_pi:address
-	signal mm_interconnect_0_switch_pi_avalon_parallel_port_slave_read               : std_logic;                     -- mm_interconnect_0:switch_pi_avalon_parallel_port_slave_read -> switch_pi:read
-	signal mm_interconnect_0_switch_pi_avalon_parallel_port_slave_byteenable         : std_logic_vector(3 downto 0);  -- mm_interconnect_0:switch_pi_avalon_parallel_port_slave_byteenable -> switch_pi:byteenable
-	signal mm_interconnect_0_switch_pi_avalon_parallel_port_slave_write              : std_logic;                     -- mm_interconnect_0:switch_pi_avalon_parallel_port_slave_write -> switch_pi:write
-	signal mm_interconnect_0_switch_pi_avalon_parallel_port_slave_writedata          : std_logic_vector(31 downto 0); -- mm_interconnect_0:switch_pi_avalon_parallel_port_slave_writedata -> switch_pi:writedata
-	signal mm_interconnect_0_led_po_avalon_parallel_port_slave_chipselect            : std_logic;                     -- mm_interconnect_0:led_po_avalon_parallel_port_slave_chipselect -> led_po:chipselect
-	signal mm_interconnect_0_led_po_avalon_parallel_port_slave_readdata              : std_logic_vector(31 downto 0); -- led_po:readdata -> mm_interconnect_0:led_po_avalon_parallel_port_slave_readdata
-	signal mm_interconnect_0_led_po_avalon_parallel_port_slave_address               : std_logic_vector(1 downto 0);  -- mm_interconnect_0:led_po_avalon_parallel_port_slave_address -> led_po:address
-	signal mm_interconnect_0_led_po_avalon_parallel_port_slave_read                  : std_logic;                     -- mm_interconnect_0:led_po_avalon_parallel_port_slave_read -> led_po:read
-	signal mm_interconnect_0_led_po_avalon_parallel_port_slave_byteenable            : std_logic_vector(3 downto 0);  -- mm_interconnect_0:led_po_avalon_parallel_port_slave_byteenable -> led_po:byteenable
-	signal mm_interconnect_0_led_po_avalon_parallel_port_slave_write                 : std_logic;                     -- mm_interconnect_0:led_po_avalon_parallel_port_slave_write -> led_po:write
-	signal mm_interconnect_0_led_po_avalon_parallel_port_slave_writedata             : std_logic_vector(31 downto 0); -- mm_interconnect_0:led_po_avalon_parallel_port_slave_writedata -> led_po:writedata
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_chipselect                  : std_logic;                     -- mm_interconnect_0:jtag_uart_avalon_jtag_slave_chipselect -> jtag_uart:av_chipselect
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_readdata                    : std_logic_vector(31 downto 0); -- jtag_uart:av_readdata -> mm_interconnect_0:jtag_uart_avalon_jtag_slave_readdata
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest                 : std_logic;                     -- jtag_uart:av_waitrequest -> mm_interconnect_0:jtag_uart_avalon_jtag_slave_waitrequest
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_address                     : std_logic_vector(0 downto 0);  -- mm_interconnect_0:jtag_uart_avalon_jtag_slave_address -> jtag_uart:av_address
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_read                        : std_logic;                     -- mm_interconnect_0:jtag_uart_avalon_jtag_slave_read -> mm_interconnect_0_jtag_uart_avalon_jtag_slave_read:in
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_write                       : std_logic;                     -- mm_interconnect_0:jtag_uart_avalon_jtag_slave_write -> mm_interconnect_0_jtag_uart_avalon_jtag_slave_write:in
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata                   : std_logic_vector(31 downto 0); -- mm_interconnect_0:jtag_uart_avalon_jtag_slave_writedata -> jtag_uart:av_writedata
 	signal mm_interconnect_0_sysid_control_slave_readdata                            : std_logic_vector(31 downto 0); -- sysid:readdata -> mm_interconnect_0:sysid_control_slave_readdata
 	signal mm_interconnect_0_sysid_control_slave_address                             : std_logic_vector(0 downto 0);  -- mm_interconnect_0:sysid_control_slave_address -> sysid:address
 	signal mm_interconnect_0_cpu_debug_mem_slave_readdata                            : std_logic_vector(31 downto 0); -- cpu:debug_mem_slave_readdata -> mm_interconnect_0:cpu_debug_mem_slave_readdata
@@ -375,6 +356,22 @@ architecture rtl of crypto_wallet is
 	signal mm_interconnect_0_epcs_flash_controller_epcs_control_port_read            : std_logic;                     -- mm_interconnect_0:epcs_flash_controller_epcs_control_port_read -> mm_interconnect_0_epcs_flash_controller_epcs_control_port_read:in
 	signal mm_interconnect_0_epcs_flash_controller_epcs_control_port_write           : std_logic;                     -- mm_interconnect_0:epcs_flash_controller_epcs_control_port_write -> mm_interconnect_0_epcs_flash_controller_epcs_control_port_write:in
 	signal mm_interconnect_0_epcs_flash_controller_epcs_control_port_writedata       : std_logic_vector(31 downto 0); -- mm_interconnect_0:epcs_flash_controller_epcs_control_port_writedata -> epcs_flash_controller:writedata
+	signal mm_interconnect_0_po_led_s1_chipselect                                    : std_logic;                     -- mm_interconnect_0:po_led_s1_chipselect -> po_led:chipselect
+	signal mm_interconnect_0_po_led_s1_readdata                                      : std_logic_vector(31 downto 0); -- po_led:readdata -> mm_interconnect_0:po_led_s1_readdata
+	signal mm_interconnect_0_po_led_s1_address                                       : std_logic_vector(1 downto 0);  -- mm_interconnect_0:po_led_s1_address -> po_led:address
+	signal mm_interconnect_0_po_led_s1_write                                         : std_logic;                     -- mm_interconnect_0:po_led_s1_write -> mm_interconnect_0_po_led_s1_write:in
+	signal mm_interconnect_0_po_led_s1_writedata                                     : std_logic_vector(31 downto 0); -- mm_interconnect_0:po_led_s1_writedata -> po_led:writedata
+	signal mm_interconnect_0_onchip_memory2_s1_chipselect                            : std_logic;                     -- mm_interconnect_0:onchip_memory2_s1_chipselect -> onchip_memory2:chipselect
+	signal mm_interconnect_0_onchip_memory2_s1_readdata                              : std_logic_vector(31 downto 0); -- onchip_memory2:readdata -> mm_interconnect_0:onchip_memory2_s1_readdata
+	signal mm_interconnect_0_onchip_memory2_s1_address                               : std_logic_vector(12 downto 0); -- mm_interconnect_0:onchip_memory2_s1_address -> onchip_memory2:address
+	signal mm_interconnect_0_onchip_memory2_s1_byteenable                            : std_logic_vector(3 downto 0);  -- mm_interconnect_0:onchip_memory2_s1_byteenable -> onchip_memory2:byteenable
+	signal mm_interconnect_0_onchip_memory2_s1_write                                 : std_logic;                     -- mm_interconnect_0:onchip_memory2_s1_write -> onchip_memory2:write
+	signal mm_interconnect_0_onchip_memory2_s1_writedata                             : std_logic_vector(31 downto 0); -- mm_interconnect_0:onchip_memory2_s1_writedata -> onchip_memory2:writedata
+	signal mm_interconnect_0_onchip_memory2_s1_clken                                 : std_logic;                     -- mm_interconnect_0:onchip_memory2_s1_clken -> onchip_memory2:clken
+	signal mm_interconnect_0_pi_key_s1_readdata                                      : std_logic_vector(31 downto 0); -- pi_key:readdata -> mm_interconnect_0:pi_key_s1_readdata
+	signal mm_interconnect_0_pi_key_s1_address                                       : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pi_key_s1_address -> pi_key:address
+	signal mm_interconnect_0_pi_sw_s1_readdata                                       : std_logic_vector(31 downto 0); -- pi_sw:readdata -> mm_interconnect_0:pi_sw_s1_readdata
+	signal mm_interconnect_0_pi_sw_s1_address                                        : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pi_sw_s1_address -> pi_sw:address
 	signal mm_interconnect_0_sdram_s1_chipselect                                     : std_logic;                     -- mm_interconnect_0:sdram_s1_chipselect -> sdram:az_cs
 	signal mm_interconnect_0_sdram_s1_readdata                                       : std_logic_vector(15 downto 0); -- sdram:za_data -> mm_interconnect_0:sdram_s1_readdata
 	signal mm_interconnect_0_sdram_s1_waitrequest                                    : std_logic;                     -- sdram:za_waitrequest -> mm_interconnect_0:sdram_s1_waitrequest
@@ -384,44 +381,24 @@ architecture rtl of crypto_wallet is
 	signal mm_interconnect_0_sdram_s1_readdatavalid                                  : std_logic;                     -- sdram:za_valid -> mm_interconnect_0:sdram_s1_readdatavalid
 	signal mm_interconnect_0_sdram_s1_write                                          : std_logic;                     -- mm_interconnect_0:sdram_s1_write -> mm_interconnect_0_sdram_s1_write:in
 	signal mm_interconnect_0_sdram_s1_writedata                                      : std_logic_vector(15 downto 0); -- mm_interconnect_0:sdram_s1_writedata -> sdram:az_data
-	signal mm_interconnect_0_uart_0_s1_chipselect                                    : std_logic;                     -- mm_interconnect_0:uart_0_s1_chipselect -> uart_0:chipselect
-	signal mm_interconnect_0_uart_0_s1_readdata                                      : std_logic_vector(15 downto 0); -- uart_0:readdata -> mm_interconnect_0:uart_0_s1_readdata
-	signal mm_interconnect_0_uart_0_s1_address                                       : std_logic_vector(2 downto 0);  -- mm_interconnect_0:uart_0_s1_address -> uart_0:address
-	signal mm_interconnect_0_uart_0_s1_read                                          : std_logic;                     -- mm_interconnect_0:uart_0_s1_read -> mm_interconnect_0_uart_0_s1_read:in
-	signal mm_interconnect_0_uart_0_s1_begintransfer                                 : std_logic;                     -- mm_interconnect_0:uart_0_s1_begintransfer -> uart_0:begintransfer
-	signal mm_interconnect_0_uart_0_s1_write                                         : std_logic;                     -- mm_interconnect_0:uart_0_s1_write -> mm_interconnect_0_uart_0_s1_write:in
-	signal mm_interconnect_0_uart_0_s1_writedata                                     : std_logic_vector(15 downto 0); -- mm_interconnect_0:uart_0_s1_writedata -> uart_0:writedata
-	signal irq_mapper_receiver0_irq                                                  : std_logic;                     -- uart_0:irq -> irq_mapper:receiver0_irq
-	signal irq_mapper_receiver1_irq                                                  : std_logic;                     -- epcs_flash_controller:irq -> irq_mapper:receiver1_irq
+	signal irq_mapper_receiver0_irq                                                  : std_logic;                     -- epcs_flash_controller:irq -> irq_mapper:receiver0_irq
+	signal irq_mapper_receiver1_irq                                                  : std_logic;                     -- jtag_uart:av_irq -> irq_mapper:receiver1_irq
 	signal cpu_irq_irq                                                               : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> cpu:irq
-	signal rst_controller_reset_out_reset                                            : std_logic;                     -- rst_controller:reset_out -> [buttons_pi:reset, irq_mapper:reset, led_po:reset, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, rst_controller_reset_out_reset:in, rst_translator:in_reset, switch_pi:reset]
-	signal rst_controller_reset_out_reset_req                                        : std_logic;                     -- rst_controller:reset_req -> [cpu:reset_req, epcs_flash_controller:reset_req, rst_translator:reset_req_in]
+	signal rst_controller_reset_out_reset                                            : std_logic;                     -- rst_controller:reset_out -> [irq_mapper:reset, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, onchip_memory2:reset, rst_controller_reset_out_reset:in, rst_translator:in_reset]
+	signal rst_controller_reset_out_reset_req                                        : std_logic;                     -- rst_controller:reset_req -> [cpu:reset_req, epcs_flash_controller:reset_req, onchip_memory2:reset_req, rst_translator:reset_req_in]
 	signal cpu_debug_reset_request_reset                                             : std_logic;                     -- cpu:debug_reset_request -> rst_controller:reset_in1
-	signal reset_reset_n_ports_inv                                                   : std_logic;                     -- reset_reset_n:inv -> rst_controller:reset_in0
+	signal reset_n_reset_n_ports_inv                                                 : std_logic;                     -- reset_n_reset_n:inv -> rst_controller:reset_in0
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_read_ports_inv              : std_logic;                     -- mm_interconnect_0_jtag_uart_avalon_jtag_slave_read:inv -> jtag_uart:av_read_n
+	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_write_ports_inv             : std_logic;                     -- mm_interconnect_0_jtag_uart_avalon_jtag_slave_write:inv -> jtag_uart:av_write_n
 	signal mm_interconnect_0_epcs_flash_controller_epcs_control_port_read_ports_inv  : std_logic;                     -- mm_interconnect_0_epcs_flash_controller_epcs_control_port_read:inv -> epcs_flash_controller:read_n
 	signal mm_interconnect_0_epcs_flash_controller_epcs_control_port_write_ports_inv : std_logic;                     -- mm_interconnect_0_epcs_flash_controller_epcs_control_port_write:inv -> epcs_flash_controller:write_n
+	signal mm_interconnect_0_po_led_s1_write_ports_inv                               : std_logic;                     -- mm_interconnect_0_po_led_s1_write:inv -> po_led:write_n
 	signal mm_interconnect_0_sdram_s1_read_ports_inv                                 : std_logic;                     -- mm_interconnect_0_sdram_s1_read:inv -> sdram:az_rd_n
 	signal mm_interconnect_0_sdram_s1_byteenable_ports_inv                           : std_logic_vector(1 downto 0);  -- mm_interconnect_0_sdram_s1_byteenable:inv -> sdram:az_be_n
 	signal mm_interconnect_0_sdram_s1_write_ports_inv                                : std_logic;                     -- mm_interconnect_0_sdram_s1_write:inv -> sdram:az_wr_n
-	signal mm_interconnect_0_uart_0_s1_read_ports_inv                                : std_logic;                     -- mm_interconnect_0_uart_0_s1_read:inv -> uart_0:read_n
-	signal mm_interconnect_0_uart_0_s1_write_ports_inv                               : std_logic;                     -- mm_interconnect_0_uart_0_s1_write:inv -> uart_0:write_n
-	signal rst_controller_reset_out_reset_ports_inv                                  : std_logic;                     -- rst_controller_reset_out_reset:inv -> [cpu:reset_n, epcs_flash_controller:reset_n, sdram:reset_n, sysid:reset_n, uart_0:reset_n]
+	signal rst_controller_reset_out_reset_ports_inv                                  : std_logic;                     -- rst_controller_reset_out_reset:inv -> [cpu:reset_n, epcs_flash_controller:reset_n, jtag_uart:rst_n, pi_key:reset_n, pi_sw:reset_n, po_led:reset_n, sdram:reset_n, sysid:reset_n]
 
 begin
-
-	buttons_pi : component crypto_wallet_buttons_pi
-		port map (
-			clk        => clk_clk,                                                            --                        clk.clk
-			reset      => rst_controller_reset_out_reset,                                     --                      reset.reset
-			address    => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_address,    -- avalon_parallel_port_slave.address
-			byteenable => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_byteenable, --                           .byteenable
-			chipselect => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_chipselect, --                           .chipselect
-			read       => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_read,       --                           .read
-			write      => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_write,      --                           .write
-			writedata  => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_writedata,  --                           .writedata
-			readdata   => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_readdata,   --                           .readdata
-			KEY        => buttons_pi_export                                                   --         external_interface.export
-		);
 
 	cpu : component crypto_wallet_cpu
 		port map (
@@ -464,25 +441,70 @@ begin
 			readdata   => mm_interconnect_0_epcs_flash_controller_epcs_control_port_readdata,        --                  .readdata
 			write_n    => mm_interconnect_0_epcs_flash_controller_epcs_control_port_write_ports_inv, --                  .write_n
 			writedata  => mm_interconnect_0_epcs_flash_controller_epcs_control_port_writedata,       --                  .writedata
-			irq        => irq_mapper_receiver1_irq,                                                  --               irq.irq
-			dclk       => epcs_dclk,                                                                 --          external.export
-			sce        => epcs_sce,                                                                  --                  .export
-			sdo        => epcs_sdo,                                                                  --                  .export
-			data0      => epcs_data0                                                                 --                  .export
+			irq        => irq_mapper_receiver0_irq,                                                  --               irq.irq
+			dclk       => epcs_flash_controller_dclk,                                                --          external.export
+			sce        => epcs_flash_controller_sce,                                                 --                  .export
+			sdo        => epcs_flash_controller_sdo,                                                 --                  .export
+			data0      => epcs_flash_controller_data0                                                --                  .export
 		);
 
-	led_po : component crypto_wallet_led_po
+	jtag_uart : component crypto_wallet_jtag_uart
 		port map (
-			clk        => clk_clk,                                                        --                        clk.clk
-			reset      => rst_controller_reset_out_reset,                                 --                      reset.reset
-			address    => mm_interconnect_0_led_po_avalon_parallel_port_slave_address,    -- avalon_parallel_port_slave.address
-			byteenable => mm_interconnect_0_led_po_avalon_parallel_port_slave_byteenable, --                           .byteenable
-			chipselect => mm_interconnect_0_led_po_avalon_parallel_port_slave_chipselect, --                           .chipselect
-			read       => mm_interconnect_0_led_po_avalon_parallel_port_slave_read,       --                           .read
-			write      => mm_interconnect_0_led_po_avalon_parallel_port_slave_write,      --                           .write
-			writedata  => mm_interconnect_0_led_po_avalon_parallel_port_slave_writedata,  --                           .writedata
-			readdata   => mm_interconnect_0_led_po_avalon_parallel_port_slave_readdata,   --                           .readdata
-			LEDG       => led_po_export                                                   --         external_interface.export
+			clk            => clk_clk,                                                       --               clk.clk
+			rst_n          => rst_controller_reset_out_reset_ports_inv,                      --             reset.reset_n
+			av_chipselect  => mm_interconnect_0_jtag_uart_avalon_jtag_slave_chipselect,      -- avalon_jtag_slave.chipselect
+			av_address     => mm_interconnect_0_jtag_uart_avalon_jtag_slave_address(0),      --                  .address
+			av_read_n      => mm_interconnect_0_jtag_uart_avalon_jtag_slave_read_ports_inv,  --                  .read_n
+			av_readdata    => mm_interconnect_0_jtag_uart_avalon_jtag_slave_readdata,        --                  .readdata
+			av_write_n     => mm_interconnect_0_jtag_uart_avalon_jtag_slave_write_ports_inv, --                  .write_n
+			av_writedata   => mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata,       --                  .writedata
+			av_waitrequest => mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest,     --                  .waitrequest
+			av_irq         => irq_mapper_receiver1_irq                                       --               irq.irq
+		);
+
+	onchip_memory2 : component crypto_wallet_onchip_memory2
+		port map (
+			clk        => clk_clk,                                        --   clk1.clk
+			address    => mm_interconnect_0_onchip_memory2_s1_address,    --     s1.address
+			clken      => mm_interconnect_0_onchip_memory2_s1_clken,      --       .clken
+			chipselect => mm_interconnect_0_onchip_memory2_s1_chipselect, --       .chipselect
+			write      => mm_interconnect_0_onchip_memory2_s1_write,      --       .write
+			readdata   => mm_interconnect_0_onchip_memory2_s1_readdata,   --       .readdata
+			writedata  => mm_interconnect_0_onchip_memory2_s1_writedata,  --       .writedata
+			byteenable => mm_interconnect_0_onchip_memory2_s1_byteenable, --       .byteenable
+			reset      => rst_controller_reset_out_reset,                 -- reset1.reset
+			reset_req  => rst_controller_reset_out_reset_req,             --       .reset_req
+			freeze     => '0'                                             -- (terminated)
+		);
+
+	pi_key : component crypto_wallet_pi_key
+		port map (
+			clk      => clk_clk,                                  --                 clk.clk
+			reset_n  => rst_controller_reset_out_reset_ports_inv, --               reset.reset_n
+			address  => mm_interconnect_0_pi_key_s1_address,      --                  s1.address
+			readdata => mm_interconnect_0_pi_key_s1_readdata,     --                    .readdata
+			in_port  => pi_key_external_connection_export         -- external_connection.export
+		);
+
+	pi_sw : component crypto_wallet_pi_sw
+		port map (
+			clk      => clk_clk,                                  --                 clk.clk
+			reset_n  => rst_controller_reset_out_reset_ports_inv, --               reset.reset_n
+			address  => mm_interconnect_0_pi_sw_s1_address,       --                  s1.address
+			readdata => mm_interconnect_0_pi_sw_s1_readdata,      --                    .readdata
+			in_port  => pi_sw_external_connection_export          -- external_connection.export
+		);
+
+	po_led : component crypto_wallet_po_led
+		port map (
+			clk        => clk_clk,                                     --                 clk.clk
+			reset_n    => rst_controller_reset_out_reset_ports_inv,    --               reset.reset_n
+			address    => mm_interconnect_0_po_led_s1_address,         --                  s1.address
+			write_n    => mm_interconnect_0_po_led_s1_write_ports_inv, --                    .write_n
+			writedata  => mm_interconnect_0_po_led_s1_writedata,       --                    .writedata
+			chipselect => mm_interconnect_0_po_led_s1_chipselect,      --                    .chipselect
+			readdata   => mm_interconnect_0_po_led_s1_readdata,        --                    .readdata
+			out_port   => po_led_external_connection_export            -- external_connection.export
 		);
 
 	sdram : component crypto_wallet_sdram
@@ -509,20 +531,6 @@ begin
 			zs_we_n        => sdram_we_n                                       --      .export
 		);
 
-	switch_pi : component crypto_wallet_switch_pi
-		port map (
-			clk        => clk_clk,                                                           --                        clk.clk
-			reset      => rst_controller_reset_out_reset,                                    --                      reset.reset
-			address    => mm_interconnect_0_switch_pi_avalon_parallel_port_slave_address,    -- avalon_parallel_port_slave.address
-			byteenable => mm_interconnect_0_switch_pi_avalon_parallel_port_slave_byteenable, --                           .byteenable
-			chipselect => mm_interconnect_0_switch_pi_avalon_parallel_port_slave_chipselect, --                           .chipselect
-			read       => mm_interconnect_0_switch_pi_avalon_parallel_port_slave_read,       --                           .read
-			write      => mm_interconnect_0_switch_pi_avalon_parallel_port_slave_write,      --                           .write
-			writedata  => mm_interconnect_0_switch_pi_avalon_parallel_port_slave_writedata,  --                           .writedata
-			readdata   => mm_interconnect_0_switch_pi_avalon_parallel_port_slave_readdata,   --                           .readdata
-			DIP        => switch_pi_export                                                   --         external_interface.export
-		);
-
 	sysid : component crypto_wallet_sysid
 		port map (
 			clock    => clk_clk,                                          --           clk.clk
@@ -531,25 +539,9 @@ begin
 			address  => mm_interconnect_0_sysid_control_slave_address(0)  --              .address
 		);
 
-	uart_0 : component crypto_wallet_uart_0
-		port map (
-			clk           => clk_clk,                                     --                 clk.clk
-			reset_n       => rst_controller_reset_out_reset_ports_inv,    --               reset.reset_n
-			address       => mm_interconnect_0_uart_0_s1_address,         --                  s1.address
-			begintransfer => mm_interconnect_0_uart_0_s1_begintransfer,   --                    .begintransfer
-			chipselect    => mm_interconnect_0_uart_0_s1_chipselect,      --                    .chipselect
-			read_n        => mm_interconnect_0_uart_0_s1_read_ports_inv,  --                    .read_n
-			write_n       => mm_interconnect_0_uart_0_s1_write_ports_inv, --                    .write_n
-			writedata     => mm_interconnect_0_uart_0_s1_writedata,       --                    .writedata
-			readdata      => mm_interconnect_0_uart_0_s1_readdata,        --                    .readdata
-			rxd           => uart_0_rxd,                                  -- external_connection.export
-			txd           => uart_0_txd,                                  --                    .export
-			irq           => irq_mapper_receiver0_irq                     --                 irq.irq
-		);
-
 	mm_interconnect_0 : component crypto_wallet_mm_interconnect_0
 		port map (
-			clk_sys_clk_clk                                    => clk_clk,                                                              --                             clk_sys_clk.clk
+			clk_50_clk_clk                                     => clk_clk,                                                              --                              clk_50_clk.clk
 			cpu_reset_reset_bridge_in_reset_reset              => rst_controller_reset_out_reset,                                       --         cpu_reset_reset_bridge_in_reset.reset
 			cpu_data_master_address                            => cpu_data_master_address,                                              --                         cpu_data_master.address
 			cpu_data_master_waitrequest                        => cpu_data_master_waitrequest,                                          --                                        .waitrequest
@@ -563,13 +555,6 @@ begin
 			cpu_instruction_master_waitrequest                 => cpu_instruction_master_waitrequest,                                   --                                        .waitrequest
 			cpu_instruction_master_read                        => cpu_instruction_master_read,                                          --                                        .read
 			cpu_instruction_master_readdata                    => cpu_instruction_master_readdata,                                      --                                        .readdata
-			buttons_pi_avalon_parallel_port_slave_address      => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_address,      --   buttons_pi_avalon_parallel_port_slave.address
-			buttons_pi_avalon_parallel_port_slave_write        => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_write,        --                                        .write
-			buttons_pi_avalon_parallel_port_slave_read         => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_read,         --                                        .read
-			buttons_pi_avalon_parallel_port_slave_readdata     => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_readdata,     --                                        .readdata
-			buttons_pi_avalon_parallel_port_slave_writedata    => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_writedata,    --                                        .writedata
-			buttons_pi_avalon_parallel_port_slave_byteenable   => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_byteenable,   --                                        .byteenable
-			buttons_pi_avalon_parallel_port_slave_chipselect   => mm_interconnect_0_buttons_pi_avalon_parallel_port_slave_chipselect,   --                                        .chipselect
 			cpu_debug_mem_slave_address                        => mm_interconnect_0_cpu_debug_mem_slave_address,                        --                     cpu_debug_mem_slave.address
 			cpu_debug_mem_slave_write                          => mm_interconnect_0_cpu_debug_mem_slave_write,                          --                                        .write
 			cpu_debug_mem_slave_read                           => mm_interconnect_0_cpu_debug_mem_slave_read,                           --                                        .read
@@ -584,13 +569,29 @@ begin
 			epcs_flash_controller_epcs_control_port_readdata   => mm_interconnect_0_epcs_flash_controller_epcs_control_port_readdata,   --                                        .readdata
 			epcs_flash_controller_epcs_control_port_writedata  => mm_interconnect_0_epcs_flash_controller_epcs_control_port_writedata,  --                                        .writedata
 			epcs_flash_controller_epcs_control_port_chipselect => mm_interconnect_0_epcs_flash_controller_epcs_control_port_chipselect, --                                        .chipselect
-			led_po_avalon_parallel_port_slave_address          => mm_interconnect_0_led_po_avalon_parallel_port_slave_address,          --       led_po_avalon_parallel_port_slave.address
-			led_po_avalon_parallel_port_slave_write            => mm_interconnect_0_led_po_avalon_parallel_port_slave_write,            --                                        .write
-			led_po_avalon_parallel_port_slave_read             => mm_interconnect_0_led_po_avalon_parallel_port_slave_read,             --                                        .read
-			led_po_avalon_parallel_port_slave_readdata         => mm_interconnect_0_led_po_avalon_parallel_port_slave_readdata,         --                                        .readdata
-			led_po_avalon_parallel_port_slave_writedata        => mm_interconnect_0_led_po_avalon_parallel_port_slave_writedata,        --                                        .writedata
-			led_po_avalon_parallel_port_slave_byteenable       => mm_interconnect_0_led_po_avalon_parallel_port_slave_byteenable,       --                                        .byteenable
-			led_po_avalon_parallel_port_slave_chipselect       => mm_interconnect_0_led_po_avalon_parallel_port_slave_chipselect,       --                                        .chipselect
+			jtag_uart_avalon_jtag_slave_address                => mm_interconnect_0_jtag_uart_avalon_jtag_slave_address,                --             jtag_uart_avalon_jtag_slave.address
+			jtag_uart_avalon_jtag_slave_write                  => mm_interconnect_0_jtag_uart_avalon_jtag_slave_write,                  --                                        .write
+			jtag_uart_avalon_jtag_slave_read                   => mm_interconnect_0_jtag_uart_avalon_jtag_slave_read,                   --                                        .read
+			jtag_uart_avalon_jtag_slave_readdata               => mm_interconnect_0_jtag_uart_avalon_jtag_slave_readdata,               --                                        .readdata
+			jtag_uart_avalon_jtag_slave_writedata              => mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata,              --                                        .writedata
+			jtag_uart_avalon_jtag_slave_waitrequest            => mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest,            --                                        .waitrequest
+			jtag_uart_avalon_jtag_slave_chipselect             => mm_interconnect_0_jtag_uart_avalon_jtag_slave_chipselect,             --                                        .chipselect
+			onchip_memory2_s1_address                          => mm_interconnect_0_onchip_memory2_s1_address,                          --                       onchip_memory2_s1.address
+			onchip_memory2_s1_write                            => mm_interconnect_0_onchip_memory2_s1_write,                            --                                        .write
+			onchip_memory2_s1_readdata                         => mm_interconnect_0_onchip_memory2_s1_readdata,                         --                                        .readdata
+			onchip_memory2_s1_writedata                        => mm_interconnect_0_onchip_memory2_s1_writedata,                        --                                        .writedata
+			onchip_memory2_s1_byteenable                       => mm_interconnect_0_onchip_memory2_s1_byteenable,                       --                                        .byteenable
+			onchip_memory2_s1_chipselect                       => mm_interconnect_0_onchip_memory2_s1_chipselect,                       --                                        .chipselect
+			onchip_memory2_s1_clken                            => mm_interconnect_0_onchip_memory2_s1_clken,                            --                                        .clken
+			pi_key_s1_address                                  => mm_interconnect_0_pi_key_s1_address,                                  --                               pi_key_s1.address
+			pi_key_s1_readdata                                 => mm_interconnect_0_pi_key_s1_readdata,                                 --                                        .readdata
+			pi_sw_s1_address                                   => mm_interconnect_0_pi_sw_s1_address,                                   --                                pi_sw_s1.address
+			pi_sw_s1_readdata                                  => mm_interconnect_0_pi_sw_s1_readdata,                                  --                                        .readdata
+			po_led_s1_address                                  => mm_interconnect_0_po_led_s1_address,                                  --                               po_led_s1.address
+			po_led_s1_write                                    => mm_interconnect_0_po_led_s1_write,                                    --                                        .write
+			po_led_s1_readdata                                 => mm_interconnect_0_po_led_s1_readdata,                                 --                                        .readdata
+			po_led_s1_writedata                                => mm_interconnect_0_po_led_s1_writedata,                                --                                        .writedata
+			po_led_s1_chipselect                               => mm_interconnect_0_po_led_s1_chipselect,                               --                                        .chipselect
 			sdram_s1_address                                   => mm_interconnect_0_sdram_s1_address,                                   --                                sdram_s1.address
 			sdram_s1_write                                     => mm_interconnect_0_sdram_s1_write,                                     --                                        .write
 			sdram_s1_read                                      => mm_interconnect_0_sdram_s1_read,                                      --                                        .read
@@ -600,22 +601,8 @@ begin
 			sdram_s1_readdatavalid                             => mm_interconnect_0_sdram_s1_readdatavalid,                             --                                        .readdatavalid
 			sdram_s1_waitrequest                               => mm_interconnect_0_sdram_s1_waitrequest,                               --                                        .waitrequest
 			sdram_s1_chipselect                                => mm_interconnect_0_sdram_s1_chipselect,                                --                                        .chipselect
-			switch_pi_avalon_parallel_port_slave_address       => mm_interconnect_0_switch_pi_avalon_parallel_port_slave_address,       --    switch_pi_avalon_parallel_port_slave.address
-			switch_pi_avalon_parallel_port_slave_write         => mm_interconnect_0_switch_pi_avalon_parallel_port_slave_write,         --                                        .write
-			switch_pi_avalon_parallel_port_slave_read          => mm_interconnect_0_switch_pi_avalon_parallel_port_slave_read,          --                                        .read
-			switch_pi_avalon_parallel_port_slave_readdata      => mm_interconnect_0_switch_pi_avalon_parallel_port_slave_readdata,      --                                        .readdata
-			switch_pi_avalon_parallel_port_slave_writedata     => mm_interconnect_0_switch_pi_avalon_parallel_port_slave_writedata,     --                                        .writedata
-			switch_pi_avalon_parallel_port_slave_byteenable    => mm_interconnect_0_switch_pi_avalon_parallel_port_slave_byteenable,    --                                        .byteenable
-			switch_pi_avalon_parallel_port_slave_chipselect    => mm_interconnect_0_switch_pi_avalon_parallel_port_slave_chipselect,    --                                        .chipselect
 			sysid_control_slave_address                        => mm_interconnect_0_sysid_control_slave_address,                        --                     sysid_control_slave.address
-			sysid_control_slave_readdata                       => mm_interconnect_0_sysid_control_slave_readdata,                       --                                        .readdata
-			uart_0_s1_address                                  => mm_interconnect_0_uart_0_s1_address,                                  --                               uart_0_s1.address
-			uart_0_s1_write                                    => mm_interconnect_0_uart_0_s1_write,                                    --                                        .write
-			uart_0_s1_read                                     => mm_interconnect_0_uart_0_s1_read,                                     --                                        .read
-			uart_0_s1_readdata                                 => mm_interconnect_0_uart_0_s1_readdata,                                 --                                        .readdata
-			uart_0_s1_writedata                                => mm_interconnect_0_uart_0_s1_writedata,                                --                                        .writedata
-			uart_0_s1_begintransfer                            => mm_interconnect_0_uart_0_s1_begintransfer,                            --                                        .begintransfer
-			uart_0_s1_chipselect                               => mm_interconnect_0_uart_0_s1_chipselect                                --                                        .chipselect
+			sysid_control_slave_readdata                       => mm_interconnect_0_sysid_control_slave_readdata                        --                                        .readdata
 		);
 
 	irq_mapper : component crypto_wallet_irq_mapper
@@ -655,7 +642,7 @@ begin
 			ADAPT_RESET_REQUEST       => 0
 		)
 		port map (
-			reset_in0      => reset_reset_n_ports_inv,            -- reset_in0.reset
+			reset_in0      => reset_n_reset_n_ports_inv,          -- reset_in0.reset
 			reset_in1      => cpu_debug_reset_request_reset,      -- reset_in1.reset
 			clk            => clk_clk,                            --       clk.clk
 			reset_out      => rst_controller_reset_out_reset,     -- reset_out.reset
@@ -692,21 +679,23 @@ begin
 			reset_req_in15 => '0'                                 -- (terminated)
 		);
 
-	reset_reset_n_ports_inv <= not reset_reset_n;
+	reset_n_reset_n_ports_inv <= not reset_n_reset_n;
+
+	mm_interconnect_0_jtag_uart_avalon_jtag_slave_read_ports_inv <= not mm_interconnect_0_jtag_uart_avalon_jtag_slave_read;
+
+	mm_interconnect_0_jtag_uart_avalon_jtag_slave_write_ports_inv <= not mm_interconnect_0_jtag_uart_avalon_jtag_slave_write;
 
 	mm_interconnect_0_epcs_flash_controller_epcs_control_port_read_ports_inv <= not mm_interconnect_0_epcs_flash_controller_epcs_control_port_read;
 
 	mm_interconnect_0_epcs_flash_controller_epcs_control_port_write_ports_inv <= not mm_interconnect_0_epcs_flash_controller_epcs_control_port_write;
+
+	mm_interconnect_0_po_led_s1_write_ports_inv <= not mm_interconnect_0_po_led_s1_write;
 
 	mm_interconnect_0_sdram_s1_read_ports_inv <= not mm_interconnect_0_sdram_s1_read;
 
 	mm_interconnect_0_sdram_s1_byteenable_ports_inv <= not mm_interconnect_0_sdram_s1_byteenable;
 
 	mm_interconnect_0_sdram_s1_write_ports_inv <= not mm_interconnect_0_sdram_s1_write;
-
-	mm_interconnect_0_uart_0_s1_read_ports_inv <= not mm_interconnect_0_uart_0_s1_read;
-
-	mm_interconnect_0_uart_0_s1_write_ports_inv <= not mm_interconnect_0_uart_0_s1_write;
 
 	rst_controller_reset_out_reset_ports_inv <= not rst_controller_reset_out_reset;
 

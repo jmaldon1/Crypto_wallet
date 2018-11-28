@@ -28,8 +28,8 @@
 // ------------------------------------------
 // Generation parameters:
 //   output_name:         crypto_wallet_mm_interconnect_0_rsp_demux
-//   ST_DATA_W:           103
-//   ST_CHANNEL_W:        8
+//   ST_DATA_W:           104
+//   ST_CHANNEL_W:        9
 //   NUM_OUTPUTS:         1
 //   VALID_WIDTH:         1
 // ------------------------------------------
@@ -46,8 +46,8 @@ module crypto_wallet_mm_interconnect_0_rsp_demux
     // Sink
     // -------------------
     input  [1-1      : 0]   sink_valid,
-    input  [103-1    : 0]   sink_data, // ST_DATA_W=103
-    input  [8-1 : 0]   sink_channel, // ST_CHANNEL_W=8
+    input  [104-1    : 0]   sink_data, // ST_DATA_W=104
+    input  [9-1 : 0]   sink_channel, // ST_CHANNEL_W=9
     input                         sink_startofpacket,
     input                         sink_endofpacket,
     output                        sink_ready,
@@ -56,8 +56,8 @@ module crypto_wallet_mm_interconnect_0_rsp_demux
     // Sources 
     // -------------------
     output reg                      src0_valid,
-    output reg [103-1    : 0] src0_data, // ST_DATA_W=103
-    output reg [8-1 : 0] src0_channel, // ST_CHANNEL_W=8
+    output reg [104-1    : 0] src0_data, // ST_DATA_W=104
+    output reg [9-1 : 0] src0_channel, // ST_CHANNEL_W=9
     output reg                      src0_startofpacket,
     output reg                      src0_endofpacket,
     input                           src0_ready,
@@ -94,7 +94,7 @@ module crypto_wallet_mm_interconnect_0_rsp_demux
     // -------------------
     assign ready_vector[0] = src0_ready;
 
-    assign sink_ready = |(sink_channel & {{7{1'b0}},{ready_vector[NUM_OUTPUTS - 1 : 0]}});
+    assign sink_ready = |(sink_channel & {{8{1'b0}},{ready_vector[NUM_OUTPUTS - 1 : 0]}});
 
 endmodule
 

@@ -264,7 +264,7 @@ end component crypto_wallet_sdram_input_efifo_module;
                 signal oe :  STD_LOGIC;
                 signal pending :  STD_LOGIC;
                 signal rd_strobe :  STD_LOGIC;
-                signal rd_valid :  STD_LOGIC_VECTOR (2 DOWNTO 0);
+                signal rd_valid :  STD_LOGIC_VECTOR (1 DOWNTO 0);
                 signal refresh_counter :  STD_LOGIC_VECTOR (13 DOWNTO 0);
                 signal refresh_request :  STD_LOGIC;
                 signal rnw_match :  STD_LOGIC;
@@ -320,7 +320,7 @@ begin
       refresh_counter <= std_logic_vector'("10011100010000");
     elsif clk'event and clk = '1' then
       if (std_logic_vector'("000000000000000000") & (refresh_counter)) = std_logic_vector'("00000000000000000000000000000000") then 
-        refresh_counter <= std_logic_vector'("00000110000110");
+        refresh_counter <= std_logic_vector'("00000000100101");
       else
         refresh_counter <= A_EXT (((std_logic_vector'("0") & (refresh_counter)) - (std_logic_vector'("00000000000000") & (A_TOSTDLOGICVECTOR(std_logic'('1'))))), 14);
       end if;
@@ -425,7 +425,7 @@ begin
           when std_logic_vector'("111") => 
               i_state <= std_logic_vector'("011");
               i_cmd <= Std_Logic_Vector'(A_ToStdLogicVector(std_logic'('0')) & std_logic_vector'("000"));
-              i_addr <= A_REP(std_logic'('0'), 3) & A_ToStdLogicVector(std_logic'('0')) & std_logic_vector'("00") & std_logic_vector'("011") & std_logic_vector'("0000");
+              i_addr <= A_REP(std_logic'('0'), 3) & A_ToStdLogicVector(std_logic'('0')) & std_logic_vector'("00") & std_logic_vector'("010") & std_logic_vector'("0000");
               i_count <= std_logic_vector'("100");
               i_next <= std_logic_vector'("101");
           -- when std_logic_vector'("111") 
@@ -535,7 +535,7 @@ begin
                 if std_logic'(refresh_request) = '1' then 
                   m_state <= std_logic_vector'("000000100");
                   m_next <= std_logic_vector'("000000001");
-                  m_count <= std_logic_vector'("010");
+                  m_count <= std_logic_vector'("001");
                 else
                   f_pop <= std_logic'('1');
                   active_cs_n <= f_cs_n;
@@ -619,9 +619,7 @@ begin
               m_cmd <= Std_Logic_Vector'(A_ToStdLogicVector(csn_decode) & std_logic_vector'("111"));
               --if we need to ARF, bail, else spin
               if std_logic'(refresh_request) = '1' then 
-                m_state <= std_logic_vector'("000000100");
-                m_next <= std_logic_vector'("000000001");
-                m_count <= std_logic_vector'("001");
+                m_state <= std_logic_vector'("000000001");
               --wait for fifo to have contents
               elsif std_logic'(NOT(f_empty)) = '1' then 
                 --Are we 'pending' yet?
@@ -634,9 +632,9 @@ begin
                   active_data <= f_data;
                   active_dqm <= f_dqm;
                 else
-                  m_state <= std_logic_vector'("000100000");
+                  m_state <= std_logic_vector'("001000000");
                   m_next <= std_logic_vector'("000000001");
-                  m_count <= std_logic_vector'("001");
+                  m_count <= std_logic_vector'("000");
                 end if;
               end if;
           -- when std_logic_vector'("100000000") 
@@ -658,9 +656,9 @@ begin
   process (clk, reset_n)
   begin
     if reset_n = '0' then
-      rd_valid <= A_REP(std_logic'('0'), 3);
+      rd_valid <= A_REP(std_logic'('0'), 2);
     elsif clk'event and clk = '1' then
-      rd_valid <= (A_SLL(rd_valid,std_logic_vector'("00000000000000000000000000000001"))) OR (A_REP(std_logic'('0'), 2) & A_ToStdLogicVector(rd_strobe));
+      rd_valid <= (A_SLL(rd_valid,std_logic_vector'("00000000000000000000000000000001"))) OR Std_Logic_Vector'(A_ToStdLogicVector(std_logic'('0')) & A_ToStdLogicVector(rd_strobe));
     end if;
 
   end process;
@@ -683,7 +681,7 @@ begin
       za_valid <= std_logic'('0');
     elsif clk'event and clk = '1' then
       if true then 
-        za_valid <= rd_valid(2);
+        za_valid <= rd_valid(1);
       end if;
     end if;
 

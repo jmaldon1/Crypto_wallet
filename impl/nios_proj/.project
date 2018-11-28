@@ -41,7 +41,7 @@
 		<link>
 			<name>Source</name>
 			<type>2</type>
-			<location>C:/Users/Class2018/Documents/Projects/Crypto_wallet/software/src</location>
+			<locationURI>PARENT-2-PROJECT_LOC/software/Source</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
