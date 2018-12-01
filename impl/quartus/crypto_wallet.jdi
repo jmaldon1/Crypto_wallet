@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="7f109d321b80be023102"/>
+    <hash md5_digest_80b="abd80bba41f10ef5ac8c"/>
   </project>
   <file_info>
     <file device="EP4CE22F17C6" path="crypto_wallet.sof" usercode="0xFFFFFFFF"/>
@@ -139,7 +139,7 @@
   <sld_infos>
     <sld_info hpath="crypto_wallet:wallet_cpu_inst" name="wallet_cpu_inst">
       <assignment_values>
-        <assignment_value text="QSYS_NAME crypto_wallet HAS_SOPCINFO 1 GENERATION_ID 1543376831"/>
+        <assignment_value text="QSYS_NAME crypto_wallet HAS_SOPCINFO 1 GENERATION_ID 1543457461"/>
       </assignment_values>
       <parameters/>
     </sld_info>

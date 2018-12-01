@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 18.1 625 win32 2018.11.27.22:47:08
+# ACDS 18.1 625 win32 2018.11.29.20:37:09
 
 # ----------------------------------------
 # vcsmx - auto-generated simulation script
@@ -107,7 +107,7 @@
 # within the Quartus project, and generate a unified
 # script which supports all the Altera IP within the design.
 # ----------------------------------------
-# ACDS 18.1 625 win32 2018.11.27.22:47:08
+# ACDS 18.1 625 win32 2018.11.29.20:37:09
 # ----------------------------------------
 # initialize variables
 TOP_LEVEL_NAME="crypto_wallet"
@@ -177,8 +177,12 @@ mkdir -p ./libraries/mm_interconnect_0/
 mkdir -p ./libraries/sysid/
 mkdir -p ./libraries/sdram/
 mkdir -p ./libraries/po_led/
+mkdir -p ./libraries/pio_gpio2/
+mkdir -p ./libraries/pio_gpio0_33to32/
+mkdir -p ./libraries/pio_gpio0_31to0/
 mkdir -p ./libraries/pi_sw/
-mkdir -p ./libraries/pi_key/
+mkdir -p ./libraries/pi_gpio2/
+mkdir -p ./libraries/pi_gpio0/
 mkdir -p ./libraries/onchip_memory2/
 mkdir -p ./libraries/jtag_uart/
 mkdir -p ./libraries/epcs_flash_controller/
@@ -293,8 +297,12 @@ if [ $SKIP_COM -eq 0 ]; then
   vlogan +v2k $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS           "$QSYS_SIMDIR/submodules/crypto_wallet_sysid.v"                                                    -work sysid                                     
   vhdlan -xlrm $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS             "$QSYS_SIMDIR/submodules/crypto_wallet_sdram.vhd"                                                  -work sdram                                     
   vhdlan -xlrm $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS             "$QSYS_SIMDIR/submodules/crypto_wallet_po_led.vhd"                                                 -work po_led                                    
+  vhdlan -xlrm $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS             "$QSYS_SIMDIR/submodules/crypto_wallet_pio_gpio2.vhd"                                              -work pio_gpio2                                 
+  vhdlan -xlrm $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS             "$QSYS_SIMDIR/submodules/crypto_wallet_pio_gpio0_33to32.vhd"                                       -work pio_gpio0_33to32                          
+  vhdlan -xlrm $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS             "$QSYS_SIMDIR/submodules/crypto_wallet_pio_gpio0_31to0.vhd"                                        -work pio_gpio0_31to0                           
   vhdlan -xlrm $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS             "$QSYS_SIMDIR/submodules/crypto_wallet_pi_sw.vhd"                                                  -work pi_sw                                     
-  vhdlan -xlrm $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS             "$QSYS_SIMDIR/submodules/crypto_wallet_pi_key.vhd"                                                 -work pi_key                                    
+  vhdlan -xlrm $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS             "$QSYS_SIMDIR/submodules/crypto_wallet_pi_gpio2.vhd"                                               -work pi_gpio2                                  
+  vhdlan -xlrm $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS             "$QSYS_SIMDIR/submodules/crypto_wallet_pi_gpio0.vhd"                                               -work pi_gpio0                                  
   vhdlan -xlrm $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS             "$QSYS_SIMDIR/submodules/crypto_wallet_onchip_memory2.vhd"                                         -work onchip_memory2                            
   vhdlan -xlrm $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS             "$QSYS_SIMDIR/submodules/crypto_wallet_jtag_uart.vhd"                                              -work jtag_uart                                 
   vhdlan -xlrm $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS             "$QSYS_SIMDIR/submodules/crypto_wallet_epcs_flash_controller.vhd"                                  -work epcs_flash_controller                     

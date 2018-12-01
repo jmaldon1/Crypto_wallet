@@ -1,9 +1,14 @@
-23:01:31 **** Incremental Build of configuration Nios II for project nios_proj ****
+20:31:56 **** Incremental Build of configuration Nios II for project nios_proj ****
 make all 
 Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
 [BSP build complete]
-[nios_proj build complete]
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/  -msmallc  -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/wallet_bip39.o obj/default/wallet_main.o -lm -msys-lib=m
+obj/default/wallet_main.o: In function `main':
+C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\nios_proj/../../software/Source/wallet_main.c:56: undefined reference to `FchrMenomicGenerate'
+collect2.exe: error: ld returned 1 exit status
+make: *** [nios_proj.elf] Error 1
 
-23:01:32 Build Finished (took 1s.720ms)
+20:32:00 Build Finished (took 3s.494ms)
 

@@ -32,8 +32,12 @@ mm_interconnect_0:                          ./libraries/mm_interconnect_0/
 sysid:                                      ./libraries/sysid/                                     
 sdram:                                      ./libraries/sdram/                                     
 po_led:                                     ./libraries/po_led/                                    
+pio_gpio2:                                  ./libraries/pio_gpio2/                                 
+pio_gpio0_33to32:                           ./libraries/pio_gpio0_33to32/                          
+pio_gpio0_31to0:                            ./libraries/pio_gpio0_31to0/                           
 pi_sw:                                      ./libraries/pi_sw/                                     
-pi_key:                                     ./libraries/pi_key/                                    
+pi_gpio2:                                   ./libraries/pi_gpio2/                                  
+pi_gpio0:                                   ./libraries/pi_gpio0/                                  
 onchip_memory2:                             ./libraries/onchip_memory2/                            
 jtag_uart:                                  ./libraries/jtag_uart/                                 
 epcs_flash_controller:                      ./libraries/epcs_flash_controller/                     

@@ -70,13 +70,14 @@ def cleanTestDir(testcase):
 def compileToVHDL(src, cover):
     # VHDL compiler command
     # vcom -f $src -2008 $cover -l compile.log -lint -nologo
-    os.system("vcom -f " + src + " -2008 " +
-              cover + "-l compile.log -lint -nologo")
+    print("vcom -f " + src + " -2008 " + cover + "-l compile.log -lint -nologo")
+    os.system("vcom -f " + src + " -2008 " + cover + "-l compile.log -lint -nologo")
 
 
 def compileToVerilog(src, cover):
     # Verilog compiler command
     # vlog -f $src $cover -l compile.log -lint -nologo -sv $define
+    print("vlog -f" + src + " " + cover + " -l compile.log -lint -nologo")
     os.system("vlog -f" + src + " " + cover + " -l compile.log -lint -nologo")
 
 

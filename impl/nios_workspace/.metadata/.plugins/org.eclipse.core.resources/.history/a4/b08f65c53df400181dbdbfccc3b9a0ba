@@ -1,0 +1,16 @@
+#include "..\Include\wallet_bip39.h"
+#include "..\Include\wallet_bip39_list.h"
+
+
+const char* FchrMnemonicGenerate(alt_32 P32Strength)
+{
+    if (P32Strength % 32 || P32Strength < 128 || P32Strength > 256)
+    {
+        return 0;
+    }
+    else
+    {
+    	return ECchrMenomicWorldListArrPtr[0];
+    }
+}
+

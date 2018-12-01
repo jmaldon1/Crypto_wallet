@@ -8,24 +8,32 @@ use IEEE.numeric_std.all;
 
 entity crypto_wallet is
 	port (
-		clk_clk                           : in    std_logic                     := '0';             --                        clk.clk
-		epcs_flash_controller_dclk        : out   std_logic;                                        --      epcs_flash_controller.dclk
-		epcs_flash_controller_sce         : out   std_logic;                                        --                           .sce
-		epcs_flash_controller_sdo         : out   std_logic;                                        --                           .sdo
-		epcs_flash_controller_data0       : in    std_logic                     := '0';             --                           .data0
-		pi_key_external_connection_export : in    std_logic_vector(1 downto 0)  := (others => '0'); -- pi_key_external_connection.export
-		pi_sw_external_connection_export  : in    std_logic_vector(3 downto 0)  := (others => '0'); --  pi_sw_external_connection.export
-		po_led_external_connection_export : out   std_logic_vector(7 downto 0);                     -- po_led_external_connection.export
-		reset_n_reset_n                   : in    std_logic                     := '0';             --                    reset_n.reset_n
-		sdram_addr                        : out   std_logic_vector(12 downto 0);                    --                      sdram.addr
-		sdram_ba                          : out   std_logic_vector(1 downto 0);                     --                           .ba
-		sdram_cas_n                       : out   std_logic;                                        --                           .cas_n
-		sdram_cke                         : out   std_logic;                                        --                           .cke
-		sdram_cs_n                        : out   std_logic;                                        --                           .cs_n
-		sdram_dq                          : inout std_logic_vector(15 downto 0) := (others => '0'); --                           .dq
-		sdram_dqm                         : out   std_logic_vector(1 downto 0);                     --                           .dqm
-		sdram_ras_n                       : out   std_logic;                                        --                           .ras_n
-		sdram_we_n                        : out   std_logic                                         --                           .we_n
+		clk_clk                                     : in    std_logic                     := '0';             --                                  clk.clk
+		epcs_flash_controller_dclk                  : out   std_logic;                                        --                epcs_flash_controller.dclk
+		epcs_flash_controller_sce                   : out   std_logic;                                        --                                     .sce
+		epcs_flash_controller_sdo                   : out   std_logic;                                        --                                     .sdo
+		epcs_flash_controller_data0                 : in    std_logic                     := '0';             --                                     .data0
+		pi_gpio0_external_connection_export         : in    std_logic_vector(1 downto 0)  := (others => '0'); --         pi_gpio0_external_connection.export
+		pi_gpio1_external_connection_export         : in    std_logic_vector(1 downto 0)  := (others => '0'); --         pi_gpio1_external_connection.export
+		pi_gpio2_external_connection_export         : in    std_logic_vector(2 downto 0)  := (others => '0'); --         pi_gpio2_external_connection.export
+		pi_key_external_connection_export           : in    std_logic_vector(1 downto 0)  := (others => '0'); --           pi_key_external_connection.export
+		pi_sw_external_connection_export            : in    std_logic_vector(3 downto 0)  := (others => '0'); --            pi_sw_external_connection.export
+		pio_gpio0_33to32_external_connection_export : inout std_logic_vector(1 downto 0)  := (others => '0'); -- pio_gpio0_33to32_external_connection.export
+		pio_gpio0_external_connection_export        : inout std_logic_vector(31 downto 0) := (others => '0'); --        pio_gpio0_external_connection.export
+		pio_gpio1_33to32_external_connection_export : inout std_logic_vector(1 downto 0)  := (others => '0'); -- pio_gpio1_33to32_external_connection.export
+		pio_gpio1_external_connection_export        : inout std_logic_vector(31 downto 0) := (others => '0'); --        pio_gpio1_external_connection.export
+		pio_gpio2_external_connection_export        : inout std_logic_vector(12 downto 0) := (others => '0'); --        pio_gpio2_external_connection.export
+		po_led_external_connection_export           : out   std_logic_vector(7 downto 0);                     --           po_led_external_connection.export
+		reset_n_reset_n                             : in    std_logic                     := '0';             --                              reset_n.reset_n
+		sdram_addr                                  : out   std_logic_vector(12 downto 0);                    --                                sdram.addr
+		sdram_ba                                    : out   std_logic_vector(1 downto 0);                     --                                     .ba
+		sdram_cas_n                                 : out   std_logic;                                        --                                     .cas_n
+		sdram_cke                                   : out   std_logic;                                        --                                     .cke
+		sdram_cs_n                                  : out   std_logic;                                        --                                     .cs_n
+		sdram_dq                                    : inout std_logic_vector(15 downto 0) := (others => '0'); --                                     .dq
+		sdram_dqm                                   : out   std_logic_vector(1 downto 0);                     --                                     .dqm
+		sdram_ras_n                                 : out   std_logic;                                        --                                     .ras_n
+		sdram_we_n                                  : out   std_logic                                         --                                     .we_n
 	);
 end entity crypto_wallet;
 
@@ -111,7 +119,7 @@ architecture rtl of crypto_wallet is
 		);
 	end component crypto_wallet_onchip_memory2;
 
-	component crypto_wallet_pi_key is
+	component crypto_wallet_pi_gpio0 is
 		port (
 			clk      : in  std_logic                     := 'X';             -- clk
 			reset_n  : in  std_logic                     := 'X';             -- reset_n
@@ -119,7 +127,17 @@ architecture rtl of crypto_wallet is
 			readdata : out std_logic_vector(31 downto 0);                    -- readdata
 			in_port  : in  std_logic_vector(1 downto 0)  := (others => 'X')  -- export
 		);
-	end component crypto_wallet_pi_key;
+	end component crypto_wallet_pi_gpio0;
+
+	component crypto_wallet_pi_gpio2 is
+		port (
+			clk      : in  std_logic                     := 'X';             -- clk
+			reset_n  : in  std_logic                     := 'X';             -- reset_n
+			address  : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			readdata : out std_logic_vector(31 downto 0);                    -- readdata
+			in_port  : in  std_logic_vector(2 downto 0)  := (others => 'X')  -- export
+		);
+	end component crypto_wallet_pi_gpio2;
 
 	component crypto_wallet_pi_sw is
 		port (
@@ -130,6 +148,45 @@ architecture rtl of crypto_wallet is
 			in_port  : in  std_logic_vector(3 downto 0)  := (others => 'X')  -- export
 		);
 	end component crypto_wallet_pi_sw;
+
+	component crypto_wallet_pio_gpio0_31to0 is
+		port (
+			clk        : in    std_logic                     := 'X';             -- clk
+			reset_n    : in    std_logic                     := 'X';             -- reset_n
+			address    : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			write_n    : in    std_logic                     := 'X';             -- write_n
+			writedata  : in    std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			chipselect : in    std_logic                     := 'X';             -- chipselect
+			readdata   : out   std_logic_vector(31 downto 0);                    -- readdata
+			bidir_port : inout std_logic_vector(31 downto 0) := (others => 'X')  -- export
+		);
+	end component crypto_wallet_pio_gpio0_31to0;
+
+	component crypto_wallet_pio_gpio0_33to32 is
+		port (
+			clk        : in    std_logic                     := 'X';             -- clk
+			reset_n    : in    std_logic                     := 'X';             -- reset_n
+			address    : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			write_n    : in    std_logic                     := 'X';             -- write_n
+			writedata  : in    std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			chipselect : in    std_logic                     := 'X';             -- chipselect
+			readdata   : out   std_logic_vector(31 downto 0);                    -- readdata
+			bidir_port : inout std_logic_vector(1 downto 0)  := (others => 'X')  -- export
+		);
+	end component crypto_wallet_pio_gpio0_33to32;
+
+	component crypto_wallet_pio_gpio2 is
+		port (
+			clk        : in    std_logic                     := 'X';             -- clk
+			reset_n    : in    std_logic                     := 'X';             -- reset_n
+			address    : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			write_n    : in    std_logic                     := 'X';             -- write_n
+			writedata  : in    std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			chipselect : in    std_logic                     := 'X';             -- chipselect
+			readdata   : out   std_logic_vector(31 downto 0);                    -- readdata
+			bidir_port : inout std_logic_vector(12 downto 0) := (others => 'X')  -- export
+		);
+	end component crypto_wallet_pio_gpio2;
 
 	component crypto_wallet_po_led is
 		port (
@@ -222,10 +279,41 @@ architecture rtl of crypto_wallet is
 			onchip_memory2_s1_byteenable                       : out std_logic_vector(3 downto 0);                     -- byteenable
 			onchip_memory2_s1_chipselect                       : out std_logic;                                        -- chipselect
 			onchip_memory2_s1_clken                            : out std_logic;                                        -- clken
+			pi_gpio0_s1_address                                : out std_logic_vector(1 downto 0);                     -- address
+			pi_gpio0_s1_readdata                               : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			pi_gpio1_s1_address                                : out std_logic_vector(1 downto 0);                     -- address
+			pi_gpio1_s1_readdata                               : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			pi_gpio2_s1_address                                : out std_logic_vector(1 downto 0);                     -- address
+			pi_gpio2_s1_readdata                               : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			pi_key_s1_address                                  : out std_logic_vector(1 downto 0);                     -- address
 			pi_key_s1_readdata                                 : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			pi_sw_s1_address                                   : out std_logic_vector(1 downto 0);                     -- address
 			pi_sw_s1_readdata                                  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			pio_gpio0_31to0_s1_address                         : out std_logic_vector(1 downto 0);                     -- address
+			pio_gpio0_31to0_s1_write                           : out std_logic;                                        -- write
+			pio_gpio0_31to0_s1_readdata                        : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			pio_gpio0_31to0_s1_writedata                       : out std_logic_vector(31 downto 0);                    -- writedata
+			pio_gpio0_31to0_s1_chipselect                      : out std_logic;                                        -- chipselect
+			pio_gpio0_33to32_s1_address                        : out std_logic_vector(1 downto 0);                     -- address
+			pio_gpio0_33to32_s1_write                          : out std_logic;                                        -- write
+			pio_gpio0_33to32_s1_readdata                       : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			pio_gpio0_33to32_s1_writedata                      : out std_logic_vector(31 downto 0);                    -- writedata
+			pio_gpio0_33to32_s1_chipselect                     : out std_logic;                                        -- chipselect
+			pio_gpio1_31to0_s1_address                         : out std_logic_vector(1 downto 0);                     -- address
+			pio_gpio1_31to0_s1_write                           : out std_logic;                                        -- write
+			pio_gpio1_31to0_s1_readdata                        : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			pio_gpio1_31to0_s1_writedata                       : out std_logic_vector(31 downto 0);                    -- writedata
+			pio_gpio1_31to0_s1_chipselect                      : out std_logic;                                        -- chipselect
+			pio_gpio1_33to32_s1_address                        : out std_logic_vector(1 downto 0);                     -- address
+			pio_gpio1_33to32_s1_write                          : out std_logic;                                        -- write
+			pio_gpio1_33to32_s1_readdata                       : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			pio_gpio1_33to32_s1_writedata                      : out std_logic_vector(31 downto 0);                    -- writedata
+			pio_gpio1_33to32_s1_chipselect                     : out std_logic;                                        -- chipselect
+			pio_gpio2_s1_address                               : out std_logic_vector(1 downto 0);                     -- address
+			pio_gpio2_s1_write                                 : out std_logic;                                        -- write
+			pio_gpio2_s1_readdata                              : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			pio_gpio2_s1_writedata                             : out std_logic_vector(31 downto 0);                    -- writedata
+			pio_gpio2_s1_chipselect                            : out std_logic;                                        -- chipselect
 			po_led_s1_address                                  : out std_logic_vector(1 downto 0);                     -- address
 			po_led_s1_write                                    : out std_logic;                                        -- write
 			po_led_s1_readdata                                 : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
@@ -381,6 +469,37 @@ architecture rtl of crypto_wallet is
 	signal mm_interconnect_0_sdram_s1_readdatavalid                                  : std_logic;                     -- sdram:za_valid -> mm_interconnect_0:sdram_s1_readdatavalid
 	signal mm_interconnect_0_sdram_s1_write                                          : std_logic;                     -- mm_interconnect_0:sdram_s1_write -> mm_interconnect_0_sdram_s1_write:in
 	signal mm_interconnect_0_sdram_s1_writedata                                      : std_logic_vector(15 downto 0); -- mm_interconnect_0:sdram_s1_writedata -> sdram:az_data
+	signal mm_interconnect_0_pi_gpio1_s1_readdata                                    : std_logic_vector(31 downto 0); -- pi_gpio1:readdata -> mm_interconnect_0:pi_gpio1_s1_readdata
+	signal mm_interconnect_0_pi_gpio1_s1_address                                     : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pi_gpio1_s1_address -> pi_gpio1:address
+	signal mm_interconnect_0_pi_gpio0_s1_readdata                                    : std_logic_vector(31 downto 0); -- pi_gpio0:readdata -> mm_interconnect_0:pi_gpio0_s1_readdata
+	signal mm_interconnect_0_pi_gpio0_s1_address                                     : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pi_gpio0_s1_address -> pi_gpio0:address
+	signal mm_interconnect_0_pi_gpio2_s1_readdata                                    : std_logic_vector(31 downto 0); -- pi_gpio2:readdata -> mm_interconnect_0:pi_gpio2_s1_readdata
+	signal mm_interconnect_0_pi_gpio2_s1_address                                     : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pi_gpio2_s1_address -> pi_gpio2:address
+	signal mm_interconnect_0_pio_gpio2_s1_chipselect                                 : std_logic;                     -- mm_interconnect_0:pio_gpio2_s1_chipselect -> pio_gpio2:chipselect
+	signal mm_interconnect_0_pio_gpio2_s1_readdata                                   : std_logic_vector(31 downto 0); -- pio_gpio2:readdata -> mm_interconnect_0:pio_gpio2_s1_readdata
+	signal mm_interconnect_0_pio_gpio2_s1_address                                    : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pio_gpio2_s1_address -> pio_gpio2:address
+	signal mm_interconnect_0_pio_gpio2_s1_write                                      : std_logic;                     -- mm_interconnect_0:pio_gpio2_s1_write -> mm_interconnect_0_pio_gpio2_s1_write:in
+	signal mm_interconnect_0_pio_gpio2_s1_writedata                                  : std_logic_vector(31 downto 0); -- mm_interconnect_0:pio_gpio2_s1_writedata -> pio_gpio2:writedata
+	signal mm_interconnect_0_pio_gpio0_31to0_s1_chipselect                           : std_logic;                     -- mm_interconnect_0:pio_gpio0_31to0_s1_chipselect -> pio_gpio0_31to0:chipselect
+	signal mm_interconnect_0_pio_gpio0_31to0_s1_readdata                             : std_logic_vector(31 downto 0); -- pio_gpio0_31to0:readdata -> mm_interconnect_0:pio_gpio0_31to0_s1_readdata
+	signal mm_interconnect_0_pio_gpio0_31to0_s1_address                              : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pio_gpio0_31to0_s1_address -> pio_gpio0_31to0:address
+	signal mm_interconnect_0_pio_gpio0_31to0_s1_write                                : std_logic;                     -- mm_interconnect_0:pio_gpio0_31to0_s1_write -> mm_interconnect_0_pio_gpio0_31to0_s1_write:in
+	signal mm_interconnect_0_pio_gpio0_31to0_s1_writedata                            : std_logic_vector(31 downto 0); -- mm_interconnect_0:pio_gpio0_31to0_s1_writedata -> pio_gpio0_31to0:writedata
+	signal mm_interconnect_0_pio_gpio1_31to0_s1_chipselect                           : std_logic;                     -- mm_interconnect_0:pio_gpio1_31to0_s1_chipselect -> pio_gpio1_31to0:chipselect
+	signal mm_interconnect_0_pio_gpio1_31to0_s1_readdata                             : std_logic_vector(31 downto 0); -- pio_gpio1_31to0:readdata -> mm_interconnect_0:pio_gpio1_31to0_s1_readdata
+	signal mm_interconnect_0_pio_gpio1_31to0_s1_address                              : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pio_gpio1_31to0_s1_address -> pio_gpio1_31to0:address
+	signal mm_interconnect_0_pio_gpio1_31to0_s1_write                                : std_logic;                     -- mm_interconnect_0:pio_gpio1_31to0_s1_write -> mm_interconnect_0_pio_gpio1_31to0_s1_write:in
+	signal mm_interconnect_0_pio_gpio1_31to0_s1_writedata                            : std_logic_vector(31 downto 0); -- mm_interconnect_0:pio_gpio1_31to0_s1_writedata -> pio_gpio1_31to0:writedata
+	signal mm_interconnect_0_pio_gpio0_33to32_s1_chipselect                          : std_logic;                     -- mm_interconnect_0:pio_gpio0_33to32_s1_chipselect -> pio_gpio0_33to32:chipselect
+	signal mm_interconnect_0_pio_gpio0_33to32_s1_readdata                            : std_logic_vector(31 downto 0); -- pio_gpio0_33to32:readdata -> mm_interconnect_0:pio_gpio0_33to32_s1_readdata
+	signal mm_interconnect_0_pio_gpio0_33to32_s1_address                             : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pio_gpio0_33to32_s1_address -> pio_gpio0_33to32:address
+	signal mm_interconnect_0_pio_gpio0_33to32_s1_write                               : std_logic;                     -- mm_interconnect_0:pio_gpio0_33to32_s1_write -> mm_interconnect_0_pio_gpio0_33to32_s1_write:in
+	signal mm_interconnect_0_pio_gpio0_33to32_s1_writedata                           : std_logic_vector(31 downto 0); -- mm_interconnect_0:pio_gpio0_33to32_s1_writedata -> pio_gpio0_33to32:writedata
+	signal mm_interconnect_0_pio_gpio1_33to32_s1_chipselect                          : std_logic;                     -- mm_interconnect_0:pio_gpio1_33to32_s1_chipselect -> pio_gpio1_33to32:chipselect
+	signal mm_interconnect_0_pio_gpio1_33to32_s1_readdata                            : std_logic_vector(31 downto 0); -- pio_gpio1_33to32:readdata -> mm_interconnect_0:pio_gpio1_33to32_s1_readdata
+	signal mm_interconnect_0_pio_gpio1_33to32_s1_address                             : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pio_gpio1_33to32_s1_address -> pio_gpio1_33to32:address
+	signal mm_interconnect_0_pio_gpio1_33to32_s1_write                               : std_logic;                     -- mm_interconnect_0:pio_gpio1_33to32_s1_write -> mm_interconnect_0_pio_gpio1_33to32_s1_write:in
+	signal mm_interconnect_0_pio_gpio1_33to32_s1_writedata                           : std_logic_vector(31 downto 0); -- mm_interconnect_0:pio_gpio1_33to32_s1_writedata -> pio_gpio1_33to32:writedata
 	signal irq_mapper_receiver0_irq                                                  : std_logic;                     -- epcs_flash_controller:irq -> irq_mapper:receiver0_irq
 	signal irq_mapper_receiver1_irq                                                  : std_logic;                     -- jtag_uart:av_irq -> irq_mapper:receiver1_irq
 	signal cpu_irq_irq                                                               : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> cpu:irq
@@ -396,7 +515,12 @@ architecture rtl of crypto_wallet is
 	signal mm_interconnect_0_sdram_s1_read_ports_inv                                 : std_logic;                     -- mm_interconnect_0_sdram_s1_read:inv -> sdram:az_rd_n
 	signal mm_interconnect_0_sdram_s1_byteenable_ports_inv                           : std_logic_vector(1 downto 0);  -- mm_interconnect_0_sdram_s1_byteenable:inv -> sdram:az_be_n
 	signal mm_interconnect_0_sdram_s1_write_ports_inv                                : std_logic;                     -- mm_interconnect_0_sdram_s1_write:inv -> sdram:az_wr_n
-	signal rst_controller_reset_out_reset_ports_inv                                  : std_logic;                     -- rst_controller_reset_out_reset:inv -> [cpu:reset_n, epcs_flash_controller:reset_n, jtag_uart:rst_n, pi_key:reset_n, pi_sw:reset_n, po_led:reset_n, sdram:reset_n, sysid:reset_n]
+	signal mm_interconnect_0_pio_gpio2_s1_write_ports_inv                            : std_logic;                     -- mm_interconnect_0_pio_gpio2_s1_write:inv -> pio_gpio2:write_n
+	signal mm_interconnect_0_pio_gpio0_31to0_s1_write_ports_inv                      : std_logic;                     -- mm_interconnect_0_pio_gpio0_31to0_s1_write:inv -> pio_gpio0_31to0:write_n
+	signal mm_interconnect_0_pio_gpio1_31to0_s1_write_ports_inv                      : std_logic;                     -- mm_interconnect_0_pio_gpio1_31to0_s1_write:inv -> pio_gpio1_31to0:write_n
+	signal mm_interconnect_0_pio_gpio0_33to32_s1_write_ports_inv                     : std_logic;                     -- mm_interconnect_0_pio_gpio0_33to32_s1_write:inv -> pio_gpio0_33to32:write_n
+	signal mm_interconnect_0_pio_gpio1_33to32_s1_write_ports_inv                     : std_logic;                     -- mm_interconnect_0_pio_gpio1_33to32_s1_write:inv -> pio_gpio1_33to32:write_n
+	signal rst_controller_reset_out_reset_ports_inv                                  : std_logic;                     -- rst_controller_reset_out_reset:inv -> [cpu:reset_n, epcs_flash_controller:reset_n, jtag_uart:rst_n, pi_gpio0:reset_n, pi_gpio1:reset_n, pi_gpio2:reset_n, pi_key:reset_n, pi_sw:reset_n, pio_gpio0_31to0:reset_n, pio_gpio0_33to32:reset_n, pio_gpio1_31to0:reset_n, pio_gpio1_33to32:reset_n, pio_gpio2:reset_n, po_led:reset_n, sdram:reset_n, sysid:reset_n]
 
 begin
 
@@ -477,7 +601,34 @@ begin
 			freeze     => '0'                                             -- (terminated)
 		);
 
-	pi_key : component crypto_wallet_pi_key
+	pi_gpio0 : component crypto_wallet_pi_gpio0
+		port map (
+			clk      => clk_clk,                                  --                 clk.clk
+			reset_n  => rst_controller_reset_out_reset_ports_inv, --               reset.reset_n
+			address  => mm_interconnect_0_pi_gpio0_s1_address,    --                  s1.address
+			readdata => mm_interconnect_0_pi_gpio0_s1_readdata,   --                    .readdata
+			in_port  => pi_gpio0_external_connection_export       -- external_connection.export
+		);
+
+	pi_gpio1 : component crypto_wallet_pi_gpio0
+		port map (
+			clk      => clk_clk,                                  --                 clk.clk
+			reset_n  => rst_controller_reset_out_reset_ports_inv, --               reset.reset_n
+			address  => mm_interconnect_0_pi_gpio1_s1_address,    --                  s1.address
+			readdata => mm_interconnect_0_pi_gpio1_s1_readdata,   --                    .readdata
+			in_port  => pi_gpio1_external_connection_export       -- external_connection.export
+		);
+
+	pi_gpio2 : component crypto_wallet_pi_gpio2
+		port map (
+			clk      => clk_clk,                                  --                 clk.clk
+			reset_n  => rst_controller_reset_out_reset_ports_inv, --               reset.reset_n
+			address  => mm_interconnect_0_pi_gpio2_s1_address,    --                  s1.address
+			readdata => mm_interconnect_0_pi_gpio2_s1_readdata,   --                    .readdata
+			in_port  => pi_gpio2_external_connection_export       -- external_connection.export
+		);
+
+	pi_key : component crypto_wallet_pi_gpio0
 		port map (
 			clk      => clk_clk,                                  --                 clk.clk
 			reset_n  => rst_controller_reset_out_reset_ports_inv, --               reset.reset_n
@@ -493,6 +644,66 @@ begin
 			address  => mm_interconnect_0_pi_sw_s1_address,       --                  s1.address
 			readdata => mm_interconnect_0_pi_sw_s1_readdata,      --                    .readdata
 			in_port  => pi_sw_external_connection_export          -- external_connection.export
+		);
+
+	pio_gpio0_31to0 : component crypto_wallet_pio_gpio0_31to0
+		port map (
+			clk        => clk_clk,                                              --                 clk.clk
+			reset_n    => rst_controller_reset_out_reset_ports_inv,             --               reset.reset_n
+			address    => mm_interconnect_0_pio_gpio0_31to0_s1_address,         --                  s1.address
+			write_n    => mm_interconnect_0_pio_gpio0_31to0_s1_write_ports_inv, --                    .write_n
+			writedata  => mm_interconnect_0_pio_gpio0_31to0_s1_writedata,       --                    .writedata
+			chipselect => mm_interconnect_0_pio_gpio0_31to0_s1_chipselect,      --                    .chipselect
+			readdata   => mm_interconnect_0_pio_gpio0_31to0_s1_readdata,        --                    .readdata
+			bidir_port => pio_gpio0_external_connection_export                  -- external_connection.export
+		);
+
+	pio_gpio0_33to32 : component crypto_wallet_pio_gpio0_33to32
+		port map (
+			clk        => clk_clk,                                               --                 clk.clk
+			reset_n    => rst_controller_reset_out_reset_ports_inv,              --               reset.reset_n
+			address    => mm_interconnect_0_pio_gpio0_33to32_s1_address,         --                  s1.address
+			write_n    => mm_interconnect_0_pio_gpio0_33to32_s1_write_ports_inv, --                    .write_n
+			writedata  => mm_interconnect_0_pio_gpio0_33to32_s1_writedata,       --                    .writedata
+			chipselect => mm_interconnect_0_pio_gpio0_33to32_s1_chipselect,      --                    .chipselect
+			readdata   => mm_interconnect_0_pio_gpio0_33to32_s1_readdata,        --                    .readdata
+			bidir_port => pio_gpio0_33to32_external_connection_export            -- external_connection.export
+		);
+
+	pio_gpio1_31to0 : component crypto_wallet_pio_gpio0_31to0
+		port map (
+			clk        => clk_clk,                                              --                 clk.clk
+			reset_n    => rst_controller_reset_out_reset_ports_inv,             --               reset.reset_n
+			address    => mm_interconnect_0_pio_gpio1_31to0_s1_address,         --                  s1.address
+			write_n    => mm_interconnect_0_pio_gpio1_31to0_s1_write_ports_inv, --                    .write_n
+			writedata  => mm_interconnect_0_pio_gpio1_31to0_s1_writedata,       --                    .writedata
+			chipselect => mm_interconnect_0_pio_gpio1_31to0_s1_chipselect,      --                    .chipselect
+			readdata   => mm_interconnect_0_pio_gpio1_31to0_s1_readdata,        --                    .readdata
+			bidir_port => pio_gpio1_external_connection_export                  -- external_connection.export
+		);
+
+	pio_gpio1_33to32 : component crypto_wallet_pio_gpio0_33to32
+		port map (
+			clk        => clk_clk,                                               --                 clk.clk
+			reset_n    => rst_controller_reset_out_reset_ports_inv,              --               reset.reset_n
+			address    => mm_interconnect_0_pio_gpio1_33to32_s1_address,         --                  s1.address
+			write_n    => mm_interconnect_0_pio_gpio1_33to32_s1_write_ports_inv, --                    .write_n
+			writedata  => mm_interconnect_0_pio_gpio1_33to32_s1_writedata,       --                    .writedata
+			chipselect => mm_interconnect_0_pio_gpio1_33to32_s1_chipselect,      --                    .chipselect
+			readdata   => mm_interconnect_0_pio_gpio1_33to32_s1_readdata,        --                    .readdata
+			bidir_port => pio_gpio1_33to32_external_connection_export            -- external_connection.export
+		);
+
+	pio_gpio2 : component crypto_wallet_pio_gpio2
+		port map (
+			clk        => clk_clk,                                        --                 clk.clk
+			reset_n    => rst_controller_reset_out_reset_ports_inv,       --               reset.reset_n
+			address    => mm_interconnect_0_pio_gpio2_s1_address,         --                  s1.address
+			write_n    => mm_interconnect_0_pio_gpio2_s1_write_ports_inv, --                    .write_n
+			writedata  => mm_interconnect_0_pio_gpio2_s1_writedata,       --                    .writedata
+			chipselect => mm_interconnect_0_pio_gpio2_s1_chipselect,      --                    .chipselect
+			readdata   => mm_interconnect_0_pio_gpio2_s1_readdata,        --                    .readdata
+			bidir_port => pio_gpio2_external_connection_export            -- external_connection.export
 		);
 
 	po_led : component crypto_wallet_po_led
@@ -583,10 +794,41 @@ begin
 			onchip_memory2_s1_byteenable                       => mm_interconnect_0_onchip_memory2_s1_byteenable,                       --                                        .byteenable
 			onchip_memory2_s1_chipselect                       => mm_interconnect_0_onchip_memory2_s1_chipselect,                       --                                        .chipselect
 			onchip_memory2_s1_clken                            => mm_interconnect_0_onchip_memory2_s1_clken,                            --                                        .clken
+			pi_gpio0_s1_address                                => mm_interconnect_0_pi_gpio0_s1_address,                                --                             pi_gpio0_s1.address
+			pi_gpio0_s1_readdata                               => mm_interconnect_0_pi_gpio0_s1_readdata,                               --                                        .readdata
+			pi_gpio1_s1_address                                => mm_interconnect_0_pi_gpio1_s1_address,                                --                             pi_gpio1_s1.address
+			pi_gpio1_s1_readdata                               => mm_interconnect_0_pi_gpio1_s1_readdata,                               --                                        .readdata
+			pi_gpio2_s1_address                                => mm_interconnect_0_pi_gpio2_s1_address,                                --                             pi_gpio2_s1.address
+			pi_gpio2_s1_readdata                               => mm_interconnect_0_pi_gpio2_s1_readdata,                               --                                        .readdata
 			pi_key_s1_address                                  => mm_interconnect_0_pi_key_s1_address,                                  --                               pi_key_s1.address
 			pi_key_s1_readdata                                 => mm_interconnect_0_pi_key_s1_readdata,                                 --                                        .readdata
 			pi_sw_s1_address                                   => mm_interconnect_0_pi_sw_s1_address,                                   --                                pi_sw_s1.address
 			pi_sw_s1_readdata                                  => mm_interconnect_0_pi_sw_s1_readdata,                                  --                                        .readdata
+			pio_gpio0_31to0_s1_address                         => mm_interconnect_0_pio_gpio0_31to0_s1_address,                         --                      pio_gpio0_31to0_s1.address
+			pio_gpio0_31to0_s1_write                           => mm_interconnect_0_pio_gpio0_31to0_s1_write,                           --                                        .write
+			pio_gpio0_31to0_s1_readdata                        => mm_interconnect_0_pio_gpio0_31to0_s1_readdata,                        --                                        .readdata
+			pio_gpio0_31to0_s1_writedata                       => mm_interconnect_0_pio_gpio0_31to0_s1_writedata,                       --                                        .writedata
+			pio_gpio0_31to0_s1_chipselect                      => mm_interconnect_0_pio_gpio0_31to0_s1_chipselect,                      --                                        .chipselect
+			pio_gpio0_33to32_s1_address                        => mm_interconnect_0_pio_gpio0_33to32_s1_address,                        --                     pio_gpio0_33to32_s1.address
+			pio_gpio0_33to32_s1_write                          => mm_interconnect_0_pio_gpio0_33to32_s1_write,                          --                                        .write
+			pio_gpio0_33to32_s1_readdata                       => mm_interconnect_0_pio_gpio0_33to32_s1_readdata,                       --                                        .readdata
+			pio_gpio0_33to32_s1_writedata                      => mm_interconnect_0_pio_gpio0_33to32_s1_writedata,                      --                                        .writedata
+			pio_gpio0_33to32_s1_chipselect                     => mm_interconnect_0_pio_gpio0_33to32_s1_chipselect,                     --                                        .chipselect
+			pio_gpio1_31to0_s1_address                         => mm_interconnect_0_pio_gpio1_31to0_s1_address,                         --                      pio_gpio1_31to0_s1.address
+			pio_gpio1_31to0_s1_write                           => mm_interconnect_0_pio_gpio1_31to0_s1_write,                           --                                        .write
+			pio_gpio1_31to0_s1_readdata                        => mm_interconnect_0_pio_gpio1_31to0_s1_readdata,                        --                                        .readdata
+			pio_gpio1_31to0_s1_writedata                       => mm_interconnect_0_pio_gpio1_31to0_s1_writedata,                       --                                        .writedata
+			pio_gpio1_31to0_s1_chipselect                      => mm_interconnect_0_pio_gpio1_31to0_s1_chipselect,                      --                                        .chipselect
+			pio_gpio1_33to32_s1_address                        => mm_interconnect_0_pio_gpio1_33to32_s1_address,                        --                     pio_gpio1_33to32_s1.address
+			pio_gpio1_33to32_s1_write                          => mm_interconnect_0_pio_gpio1_33to32_s1_write,                          --                                        .write
+			pio_gpio1_33to32_s1_readdata                       => mm_interconnect_0_pio_gpio1_33to32_s1_readdata,                       --                                        .readdata
+			pio_gpio1_33to32_s1_writedata                      => mm_interconnect_0_pio_gpio1_33to32_s1_writedata,                      --                                        .writedata
+			pio_gpio1_33to32_s1_chipselect                     => mm_interconnect_0_pio_gpio1_33to32_s1_chipselect,                     --                                        .chipselect
+			pio_gpio2_s1_address                               => mm_interconnect_0_pio_gpio2_s1_address,                               --                            pio_gpio2_s1.address
+			pio_gpio2_s1_write                                 => mm_interconnect_0_pio_gpio2_s1_write,                                 --                                        .write
+			pio_gpio2_s1_readdata                              => mm_interconnect_0_pio_gpio2_s1_readdata,                              --                                        .readdata
+			pio_gpio2_s1_writedata                             => mm_interconnect_0_pio_gpio2_s1_writedata,                             --                                        .writedata
+			pio_gpio2_s1_chipselect                            => mm_interconnect_0_pio_gpio2_s1_chipselect,                            --                                        .chipselect
 			po_led_s1_address                                  => mm_interconnect_0_po_led_s1_address,                                  --                               po_led_s1.address
 			po_led_s1_write                                    => mm_interconnect_0_po_led_s1_write,                                    --                                        .write
 			po_led_s1_readdata                                 => mm_interconnect_0_po_led_s1_readdata,                                 --                                        .readdata
@@ -696,6 +938,16 @@ begin
 	mm_interconnect_0_sdram_s1_byteenable_ports_inv <= not mm_interconnect_0_sdram_s1_byteenable;
 
 	mm_interconnect_0_sdram_s1_write_ports_inv <= not mm_interconnect_0_sdram_s1_write;
+
+	mm_interconnect_0_pio_gpio2_s1_write_ports_inv <= not mm_interconnect_0_pio_gpio2_s1_write;
+
+	mm_interconnect_0_pio_gpio0_31to0_s1_write_ports_inv <= not mm_interconnect_0_pio_gpio0_31to0_s1_write;
+
+	mm_interconnect_0_pio_gpio1_31to0_s1_write_ports_inv <= not mm_interconnect_0_pio_gpio1_31to0_s1_write;
+
+	mm_interconnect_0_pio_gpio0_33to32_s1_write_ports_inv <= not mm_interconnect_0_pio_gpio0_33to32_s1_write;
+
+	mm_interconnect_0_pio_gpio1_33to32_s1_write_ports_inv <= not mm_interconnect_0_pio_gpio1_33to32_s1_write;
 
 	rst_controller_reset_out_reset_ports_inv <= not rst_controller_reset_out_reset;
 

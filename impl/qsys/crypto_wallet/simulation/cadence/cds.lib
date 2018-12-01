@@ -39,8 +39,12 @@ DEFINE mm_interconnect_0                          ./libraries/mm_interconnect_0/
 DEFINE sysid                                      ./libraries/sysid/                                     
 DEFINE sdram                                      ./libraries/sdram/                                     
 DEFINE po_led                                     ./libraries/po_led/                                    
+DEFINE pio_gpio2                                  ./libraries/pio_gpio2/                                 
+DEFINE pio_gpio0_33to32                           ./libraries/pio_gpio0_33to32/                          
+DEFINE pio_gpio0_31to0                            ./libraries/pio_gpio0_31to0/                           
 DEFINE pi_sw                                      ./libraries/pi_sw/                                     
-DEFINE pi_key                                     ./libraries/pi_key/                                    
+DEFINE pi_gpio2                                   ./libraries/pi_gpio2/                                  
+DEFINE pi_gpio0                                   ./libraries/pi_gpio0/                                  
 DEFINE onchip_memory2                             ./libraries/onchip_memory2/                            
 DEFINE jtag_uart                                  ./libraries/jtag_uart/                                 
 DEFINE epcs_flash_controller                      ./libraries/epcs_flash_controller/                     

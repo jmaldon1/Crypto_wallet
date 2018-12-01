@@ -3,7 +3,7 @@
 # Machine generated for CPU 'cpu' in SOPC Builder design 'crypto_wallet'
 # SOPC Builder design path: C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet.sopcinfo
 #
-# Generated: Tue Nov 27 22:58:31 EST 2018
+# Generated: Wed Nov 28 18:53:48 EST 2018
 
 # DO NOT MODIFY THIS FILE
 #
@@ -50,7 +50,7 @@
 memory 0x0 0x2000000 cache
 
 # onchip_memory2
-memory 0x2000000 0x2006590 cache
+memory 0x2008000 0x200fd00 cache
 
 # epcs_flash_controller
-memory 0x2009000 0x2009800 cache
+memory 0x2011000 0x2011800 cache

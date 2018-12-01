@@ -94,7 +94,7 @@
 # within the Quartus project, and generate a unified
 # script which supports all the Altera IP within the design.
 # ----------------------------------------
-# ACDS 18.1 625 win32 2018.11.27.22:47:08
+# ACDS 18.1 625 win32 2018.11.29.20:37:09
 
 # ----------------------------------------
 # Initialize variables
@@ -247,10 +247,18 @@ ensure_lib                                            ./libraries/sdram/
 vmap       sdram                                      ./libraries/sdram/                                     
 ensure_lib                                            ./libraries/po_led/                                    
 vmap       po_led                                     ./libraries/po_led/                                    
+ensure_lib                                            ./libraries/pio_gpio2/                                 
+vmap       pio_gpio2                                  ./libraries/pio_gpio2/                                 
+ensure_lib                                            ./libraries/pio_gpio0_33to32/                          
+vmap       pio_gpio0_33to32                           ./libraries/pio_gpio0_33to32/                          
+ensure_lib                                            ./libraries/pio_gpio0_31to0/                           
+vmap       pio_gpio0_31to0                            ./libraries/pio_gpio0_31to0/                           
 ensure_lib                                            ./libraries/pi_sw/                                     
 vmap       pi_sw                                      ./libraries/pi_sw/                                     
-ensure_lib                                            ./libraries/pi_key/                                    
-vmap       pi_key                                     ./libraries/pi_key/                                    
+ensure_lib                                            ./libraries/pi_gpio2/                                  
+vmap       pi_gpio2                                   ./libraries/pi_gpio2/                                  
+ensure_lib                                            ./libraries/pi_gpio0/                                  
+vmap       pi_gpio0                                   ./libraries/pi_gpio0/                                  
 ensure_lib                                            ./libraries/onchip_memory2/                            
 vmap       onchip_memory2                             ./libraries/onchip_memory2/                            
 ensure_lib                                            ./libraries/jtag_uart/                                 
@@ -344,8 +352,12 @@ alias com {
   eval  vlog $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/submodules/crypto_wallet_sysid.v"                                                    -work sysid                                     
   eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS        "$QSYS_SIMDIR/submodules/crypto_wallet_sdram.vhd"                                                  -work sdram                                     
   eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS        "$QSYS_SIMDIR/submodules/crypto_wallet_po_led.vhd"                                                 -work po_led                                    
+  eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS        "$QSYS_SIMDIR/submodules/crypto_wallet_pio_gpio2.vhd"                                              -work pio_gpio2                                 
+  eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS        "$QSYS_SIMDIR/submodules/crypto_wallet_pio_gpio0_33to32.vhd"                                       -work pio_gpio0_33to32                          
+  eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS        "$QSYS_SIMDIR/submodules/crypto_wallet_pio_gpio0_31to0.vhd"                                        -work pio_gpio0_31to0                           
   eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS        "$QSYS_SIMDIR/submodules/crypto_wallet_pi_sw.vhd"                                                  -work pi_sw                                     
-  eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS        "$QSYS_SIMDIR/submodules/crypto_wallet_pi_key.vhd"                                                 -work pi_key                                    
+  eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS        "$QSYS_SIMDIR/submodules/crypto_wallet_pi_gpio2.vhd"                                               -work pi_gpio2                                  
+  eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS        "$QSYS_SIMDIR/submodules/crypto_wallet_pi_gpio0.vhd"                                               -work pi_gpio0                                  
   eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS        "$QSYS_SIMDIR/submodules/crypto_wallet_onchip_memory2.vhd"                                         -work onchip_memory2                            
   eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS        "$QSYS_SIMDIR/submodules/crypto_wallet_jtag_uart.vhd"                                              -work jtag_uart                                 
   eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS        "$QSYS_SIMDIR/submodules/crypto_wallet_epcs_flash_controller.vhd"                                  -work epcs_flash_controller                     
@@ -357,14 +369,14 @@ alias com {
 # Elaborate top level design
 alias elab {
   echo "\[exec\] elab"
-  eval vsim -t ps $ELAB_OPTIONS $USER_DEFINED_ELAB_OPTIONS -L work -L work_lib -L error_adapter_0 -L avalon_st_adapter_008 -L avalon_st_adapter -L sdram_s1_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L sdram_s1_burst_adapter -L router_010 -L router_004 -L router_002 -L router_001 -L router -L jtag_uart_avalon_jtag_slave_agent_rsp_fifo -L jtag_uart_avalon_jtag_slave_agent -L cpu_data_master_agent -L jtag_uart_avalon_jtag_slave_translator -L cpu_data_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L sysid -L sdram -L po_led -L pi_sw -L pi_key -L onchip_memory2 -L jtag_uart -L epcs_flash_controller -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive $TOP_LEVEL_NAME
+  eval vsim -t ps $ELAB_OPTIONS $USER_DEFINED_ELAB_OPTIONS -L work -L work_lib -L error_adapter_0 -L avalon_st_adapter_008 -L avalon_st_adapter -L sdram_s1_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L sdram_s1_burst_adapter -L router_010 -L router_004 -L router_002 -L router_001 -L router -L jtag_uart_avalon_jtag_slave_agent_rsp_fifo -L jtag_uart_avalon_jtag_slave_agent -L cpu_data_master_agent -L jtag_uart_avalon_jtag_slave_translator -L cpu_data_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L sysid -L sdram -L po_led -L pio_gpio2 -L pio_gpio0_33to32 -L pio_gpio0_31to0 -L pi_sw -L pi_gpio2 -L pi_gpio0 -L onchip_memory2 -L jtag_uart -L epcs_flash_controller -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive $TOP_LEVEL_NAME
 }
 
 # ----------------------------------------
 # Elaborate the top level design with novopt option
 alias elab_debug {
   echo "\[exec\] elab_debug"
-  eval vsim -novopt -t ps $ELAB_OPTIONS $USER_DEFINED_ELAB_OPTIONS -L work -L work_lib -L error_adapter_0 -L avalon_st_adapter_008 -L avalon_st_adapter -L sdram_s1_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L sdram_s1_burst_adapter -L router_010 -L router_004 -L router_002 -L router_001 -L router -L jtag_uart_avalon_jtag_slave_agent_rsp_fifo -L jtag_uart_avalon_jtag_slave_agent -L cpu_data_master_agent -L jtag_uart_avalon_jtag_slave_translator -L cpu_data_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L sysid -L sdram -L po_led -L pi_sw -L pi_key -L onchip_memory2 -L jtag_uart -L epcs_flash_controller -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive $TOP_LEVEL_NAME
+  eval vsim -novopt -t ps $ELAB_OPTIONS $USER_DEFINED_ELAB_OPTIONS -L work -L work_lib -L error_adapter_0 -L avalon_st_adapter_008 -L avalon_st_adapter -L sdram_s1_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L sdram_s1_burst_adapter -L router_010 -L router_004 -L router_002 -L router_001 -L router -L jtag_uart_avalon_jtag_slave_agent_rsp_fifo -L jtag_uart_avalon_jtag_slave_agent -L cpu_data_master_agent -L jtag_uart_avalon_jtag_slave_translator -L cpu_data_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L sysid -L sdram -L po_led -L pio_gpio2 -L pio_gpio0_33to32 -L pio_gpio0_31to0 -L pi_sw -L pi_gpio2 -L pi_gpio0 -L onchip_memory2 -L jtag_uart -L epcs_flash_controller -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive $TOP_LEVEL_NAME
 }
 
 # ----------------------------------------

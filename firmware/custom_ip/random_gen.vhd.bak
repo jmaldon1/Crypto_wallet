@@ -1,0 +1,46 @@
+----------------------------------------------------------------
+-- Company:
+-- Author: B. Silver
+-- 
+-- Create Date: 11/29/2018
+-- Module Name: random.vhd
+-- Revision: 
+-- Description: VHDL module for a 32bit integer random number generator
+----------------------------------------------------------------
+
+library IEEE;
+	  use IEEE.std_logic_1164.all;
+module crypto_wallet_pio_gpio0_31to0 (
+                                       // inputs:
+                                        address,
+                                        chipselect,
+                                        clk,
+                                        reset_n,
+                                        write_n,
+                                        writedata,
+
+                                       // outputs:
+                                        bidir_port,
+                                        readdata
+                                     )
+;
+
+  inout   [ 31: 0] bidir_port;
+  output  [ 31: 0] readdata;
+  input   [  1: 0] address;
+  input            chipselect;
+  input            clk;
+  input            reset_n;
+  input            write_n;
+  input   [ 31: 0] writedata;
+entity random_gen is
+    port(
+	 );
+end entity random_gen;
+
+architecture rtl of random_gen is
+
+begin
+
+
+end architecture rtl;

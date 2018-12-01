@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Tue Nov 27 22:48:58 2018
+Analysis & Synthesis Status : Successful - Thu Nov 29 20:15:58 2018
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : crypto_wallet
 Top-level Entity Name : crypto_wallet_top
 Family : Cyclone IV E
-Total logic elements : 2,888
-    Total combinational functions : 2,433
-    Dedicated logic registers : 1,634
-Total registers : 1634
+Total logic elements : 3,395
+    Total combinational functions : 2,668
+    Dedicated logic registers : 1,992
+Total registers : 1992
 Total pins : 152
 Total virtual pins : 0
-Total memory bits : 227,456
+Total memory bits : 275,456
 Embedded Multiplier 9-bit elements : 0
 Total PLLs : 1

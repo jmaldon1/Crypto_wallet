@@ -47,23 +47,23 @@ module crypto_wallet_mm_interconnect_0_router_default_decode
      parameter DEFAULT_CHANNEL = 8,
                DEFAULT_WR_CHANNEL = -1,
                DEFAULT_RD_CHANNEL = -1,
-               DEFAULT_DESTID = 7 
+               DEFAULT_DESTID = 15 
    )
-  (output [90 - 87 : 0] default_destination_id,
-   output [9-1 : 0] default_wr_channel,
-   output [9-1 : 0] default_rd_channel,
-   output [9-1 : 0] default_src_channel
+  (output [92 - 88 : 0] default_destination_id,
+   output [17-1 : 0] default_wr_channel,
+   output [17-1 : 0] default_rd_channel,
+   output [17-1 : 0] default_src_channel
   );
 
   assign default_destination_id = 
-    DEFAULT_DESTID[90 - 87 : 0];
+    DEFAULT_DESTID[92 - 88 : 0];
 
   generate
     if (DEFAULT_CHANNEL == -1) begin : no_default_channel_assignment
       assign default_src_channel = '0;
     end
     else begin : default_channel_assignment
-      assign default_src_channel = 9'b1 << DEFAULT_CHANNEL;
+      assign default_src_channel = 17'b1 << DEFAULT_CHANNEL;
     end
   endgenerate
 
@@ -73,8 +73,8 @@ module crypto_wallet_mm_interconnect_0_router_default_decode
       assign default_rd_channel = '0;
     end
     else begin : default_rw_channel_assignment
-      assign default_wr_channel = 9'b1 << DEFAULT_WR_CHANNEL;
-      assign default_rd_channel = 9'b1 << DEFAULT_RD_CHANNEL;
+      assign default_wr_channel = 17'b1 << DEFAULT_WR_CHANNEL;
+      assign default_rd_channel = 17'b1 << DEFAULT_RD_CHANNEL;
     end
   endgenerate
 
@@ -93,7 +93,7 @@ module crypto_wallet_mm_interconnect_0_router
     // Command Sink (Input)
     // -------------------
     input                       sink_valid,
-    input  [104-1 : 0]    sink_data,
+    input  [106-1 : 0]    sink_data,
     input                       sink_startofpacket,
     input                       sink_endofpacket,
     output                      sink_ready,
@@ -102,8 +102,8 @@ module crypto_wallet_mm_interconnect_0_router
     // Command Source (Output)
     // -------------------
     output                          src_valid,
-    output reg [104-1    : 0] src_data,
-    output reg [9-1 : 0] src_channel,
+    output reg [106-1    : 0] src_data,
+    output reg [17-1 : 0] src_channel,
     output                          src_startofpacket,
     output                          src_endofpacket,
     input                           src_ready
@@ -114,12 +114,12 @@ module crypto_wallet_mm_interconnect_0_router
     // -------------------------------------------------------
     localparam PKT_ADDR_H = 61;
     localparam PKT_ADDR_L = 36;
-    localparam PKT_DEST_ID_H = 90;
-    localparam PKT_DEST_ID_L = 87;
-    localparam PKT_PROTECTION_H = 94;
-    localparam PKT_PROTECTION_L = 92;
-    localparam ST_DATA_W = 104;
-    localparam ST_CHANNEL_W = 9;
+    localparam PKT_DEST_ID_H = 92;
+    localparam PKT_DEST_ID_L = 88;
+    localparam PKT_PROTECTION_H = 96;
+    localparam PKT_PROTECTION_L = 94;
+    localparam ST_DATA_W = 106;
+    localparam ST_CHANNEL_W = 17;
     localparam DECODER_TYPE = 0;
 
     localparam PKT_TRANS_WRITE = 64;
@@ -135,20 +135,28 @@ module crypto_wallet_mm_interconnect_0_router
     // during address decoding
     // -------------------------------------------------------
     localparam PAD0 = log2ceil(64'h2000000 - 64'h0); 
-    localparam PAD1 = log2ceil(64'h2008000 - 64'h2000000); 
-    localparam PAD2 = log2ceil(64'h2009800 - 64'h2009000); 
-    localparam PAD3 = log2ceil(64'h200a000 - 64'h2009800); 
-    localparam PAD4 = log2ceil(64'h200a010 - 64'h200a000); 
-    localparam PAD5 = log2ceil(64'h200a020 - 64'h200a010); 
-    localparam PAD6 = log2ceil(64'h200a030 - 64'h200a020); 
-    localparam PAD7 = log2ceil(64'h200a038 - 64'h200a030); 
-    localparam PAD8 = log2ceil(64'h200a040 - 64'h200a038); 
+    localparam PAD1 = log2ceil(64'h2010000 - 64'h2008000); 
+    localparam PAD2 = log2ceil(64'h2011800 - 64'h2011000); 
+    localparam PAD3 = log2ceil(64'h2012000 - 64'h2011800); 
+    localparam PAD4 = log2ceil(64'h2012010 - 64'h2012000); 
+    localparam PAD5 = log2ceil(64'h2012020 - 64'h2012010); 
+    localparam PAD6 = log2ceil(64'h2012030 - 64'h2012020); 
+    localparam PAD7 = log2ceil(64'h2012040 - 64'h2012030); 
+    localparam PAD8 = log2ceil(64'h2012050 - 64'h2012040); 
+    localparam PAD9 = log2ceil(64'h2012060 - 64'h2012050); 
+    localparam PAD10 = log2ceil(64'h2012070 - 64'h2012060); 
+    localparam PAD11 = log2ceil(64'h2012080 - 64'h2012070); 
+    localparam PAD12 = log2ceil(64'h2012090 - 64'h2012080); 
+    localparam PAD13 = log2ceil(64'h20120a0 - 64'h2012090); 
+    localparam PAD14 = log2ceil(64'h20120b0 - 64'h20120a0); 
+    localparam PAD15 = log2ceil(64'h20120b8 - 64'h20120b0); 
+    localparam PAD16 = log2ceil(64'h20120c0 - 64'h20120b8); 
     // -------------------------------------------------------
     // Work out which address bits are significant based on the
     // address range of the slaves. If the required width is too
     // large or too small, we use the address field width instead.
     // -------------------------------------------------------
-    localparam ADDR_RANGE = 64'h200a040;
+    localparam ADDR_RANGE = 64'h20120c0;
     localparam RANGE_ADDR_WIDTH = log2ceil(ADDR_RANGE);
     localparam OPTIMIZED_ADDR_H = (RANGE_ADDR_WIDTH > PKT_ADDR_W) ||
                                   (RANGE_ADDR_WIDTH == 0) ?
@@ -172,7 +180,7 @@ module crypto_wallet_mm_interconnect_0_router
     assign src_startofpacket = sink_startofpacket;
     assign src_endofpacket   = sink_endofpacket;
     wire [PKT_DEST_ID_W-1:0] default_destid;
-    wire [9-1 : 0] default_src_channel;
+    wire [17-1 : 0] default_src_channel;
 
 
 
@@ -203,56 +211,104 @@ module crypto_wallet_mm_interconnect_0_router
 
     // ( 0x0 .. 0x2000000 )
     if ( {address[RG:PAD0],{PAD0{1'b0}}} == 26'h0   ) begin
-            src_channel = 9'b100000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 7;
+            src_channel = 17'b00000000100000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 15;
     end
 
-    // ( 0x2000000 .. 0x2008000 )
-    if ( {address[RG:PAD1],{PAD1{1'b0}}} == 26'h2000000   ) begin
-            src_channel = 9'b000100000;
+    // ( 0x2008000 .. 0x2010000 )
+    if ( {address[RG:PAD1],{PAD1{1'b0}}} == 26'h2008000   ) begin
+            src_channel = 17'b00000000000100000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
     end
 
-    // ( 0x2009000 .. 0x2009800 )
-    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 26'h2009000   ) begin
-            src_channel = 9'b000001000;
+    // ( 0x2011000 .. 0x2011800 )
+    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 26'h2011000   ) begin
+            src_channel = 17'b00000000000001000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
     end
 
-    // ( 0x2009800 .. 0x200a000 )
-    if ( {address[RG:PAD3],{PAD3{1'b0}}} == 26'h2009800   ) begin
-            src_channel = 9'b000000100;
+    // ( 0x2011800 .. 0x2012000 )
+    if ( {address[RG:PAD3],{PAD3{1'b0}}} == 26'h2011800   ) begin
+            src_channel = 17'b00000000000000100;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 0;
     end
 
-    // ( 0x200a000 .. 0x200a010 )
-    if ( {address[RG:PAD4],{PAD4{1'b0}}} == 26'h200a000  && read_transaction  ) begin
-            src_channel = 9'b010000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 5;
+    // ( 0x2012000 .. 0x2012010 )
+    if ( {address[RG:PAD4],{PAD4{1'b0}}} == 26'h2012000   ) begin
+            src_channel = 17'b10000000000000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 12;
     end
 
-    // ( 0x200a010 .. 0x200a020 )
-    if ( {address[RG:PAD5],{PAD5{1'b0}}} == 26'h200a010  && read_transaction  ) begin
-            src_channel = 9'b001000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 4;
+    // ( 0x2012010 .. 0x2012020 )
+    if ( {address[RG:PAD5],{PAD5{1'b0}}} == 26'h2012010   ) begin
+            src_channel = 17'b01000000000000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 10;
     end
 
-    // ( 0x200a020 .. 0x200a030 )
-    if ( {address[RG:PAD6],{PAD6{1'b0}}} == 26'h200a020   ) begin
-            src_channel = 9'b000010000;
+    // ( 0x2012020 .. 0x2012030 )
+    if ( {address[RG:PAD6],{PAD6{1'b0}}} == 26'h2012020   ) begin
+            src_channel = 17'b00100000000000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 11;
+    end
+
+    // ( 0x2012030 .. 0x2012040 )
+    if ( {address[RG:PAD7],{PAD7{1'b0}}} == 26'h2012030   ) begin
+            src_channel = 17'b00010000000000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 9;
+    end
+
+    // ( 0x2012040 .. 0x2012050 )
+    if ( {address[RG:PAD8],{PAD8{1'b0}}} == 26'h2012040   ) begin
+            src_channel = 17'b00001000000000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 13;
+    end
+
+    // ( 0x2012050 .. 0x2012060 )
+    if ( {address[RG:PAD9],{PAD9{1'b0}}} == 26'h2012050  && read_transaction  ) begin
+            src_channel = 17'b00000100000000000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 6;
     end
 
-    // ( 0x200a030 .. 0x200a038 )
-    if ( {address[RG:PAD7],{PAD7{1'b0}}} == 26'h200a030   ) begin
-            src_channel = 9'b000000001;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
+    // ( 0x2012060 .. 0x2012070 )
+    if ( {address[RG:PAD10],{PAD10{1'b0}}} == 26'h2012060  && read_transaction  ) begin
+            src_channel = 17'b00000010000000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 4;
     end
 
-    // ( 0x200a038 .. 0x200a040 )
-    if ( {address[RG:PAD8],{PAD8{1'b0}}} == 26'h200a038  && read_transaction  ) begin
-            src_channel = 9'b000000010;
+    // ( 0x2012070 .. 0x2012080 )
+    if ( {address[RG:PAD11],{PAD11{1'b0}}} == 26'h2012070  && read_transaction  ) begin
+            src_channel = 17'b00000001000000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 5;
+    end
+
+    // ( 0x2012080 .. 0x2012090 )
+    if ( {address[RG:PAD12],{PAD12{1'b0}}} == 26'h2012080  && read_transaction  ) begin
+            src_channel = 17'b00000000010000000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 8;
+    end
+
+    // ( 0x2012090 .. 0x20120a0 )
+    if ( {address[RG:PAD13],{PAD13{1'b0}}} == 26'h2012090  && read_transaction  ) begin
+            src_channel = 17'b00000000001000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 7;
+    end
+
+    // ( 0x20120a0 .. 0x20120b0 )
+    if ( {address[RG:PAD14],{PAD14{1'b0}}} == 26'h20120a0   ) begin
+            src_channel = 17'b00000000000010000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 14;
+    end
+
+    // ( 0x20120b0 .. 0x20120b8 )
+    if ( {address[RG:PAD15],{PAD15{1'b0}}} == 26'h20120b0  && read_transaction  ) begin
+            src_channel = 17'b00000000000000010;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 16;
+    end
+
+    // ( 0x20120b8 .. 0x20120c0 )
+    if ( {address[RG:PAD16],{PAD16{1'b0}}} == 26'h20120b8   ) begin
+            src_channel = 17'b00000000000000001;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
     end
 
 end
