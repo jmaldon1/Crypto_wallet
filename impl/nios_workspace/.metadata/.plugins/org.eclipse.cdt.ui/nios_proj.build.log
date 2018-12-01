@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 20:31:56 **** Incremental Build of configuration Nios II for project nios_proj ****
+=======
+07:45:21 **** Incremental Build of configuration Nios II for project nios_proj ****
+>>>>>>> f5969070a85ee9c951bcafd19094333b8dea23b1
 make all 
 Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
@@ -10,5 +14,9 @@ C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\nios_proj/../../softwar
 collect2.exe: error: ld returned 1 exit status
 make: *** [nios_proj.elf] Error 1
 
+<<<<<<< HEAD
 20:32:00 Build Finished (took 3s.494ms)
+=======
+07:45:22 Build Finished (took 1s.103ms)
+>>>>>>> f5969070a85ee9c951bcafd19094333b8dea23b1
 

@@ -143,7 +143,17 @@ ELF := nios_proj.elf
 
 # Paths to C, C++, and assembly source files.
 C_SRCS += ../../software/Source/wallet_main.c
+<<<<<<< HEAD
 C_SRCS += ../../software/Source/wallet_bip39.c
+=======
+C_SRCS += ../../software/Source/bip39.c
+C_SRCS += ../../software/Source/hmac.c
+C_SRCS += ../../software/Source/memzero.c
+C_SRCS += ../../software/Source/pbkdf2.c
+C_SRCS += ../../software/Source/rand.c
+C_SRCS += ../../software/Source/sha2.c
+C_SRCS += ../../software/Source/wallet_system.c
+>>>>>>> f5969070a85ee9c951bcafd19094333b8dea23b1
 CXX_SRCS :=
 ASM_SRCS :=
 
