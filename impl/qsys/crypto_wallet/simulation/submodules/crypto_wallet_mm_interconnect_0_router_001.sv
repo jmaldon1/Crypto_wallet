@@ -50,9 +50,9 @@ module crypto_wallet_mm_interconnect_0_router_001_default_decode
                DEFAULT_DESTID = 3 
    )
   (output [92 - 88 : 0] default_destination_id,
-   output [17-1 : 0] default_wr_channel,
-   output [17-1 : 0] default_rd_channel,
-   output [17-1 : 0] default_src_channel
+   output [18-1 : 0] default_wr_channel,
+   output [18-1 : 0] default_rd_channel,
+   output [18-1 : 0] default_src_channel
   );
 
   assign default_destination_id = 
@@ -63,7 +63,7 @@ module crypto_wallet_mm_interconnect_0_router_001_default_decode
       assign default_src_channel = '0;
     end
     else begin : default_channel_assignment
-      assign default_src_channel = 17'b1 << DEFAULT_CHANNEL;
+      assign default_src_channel = 18'b1 << DEFAULT_CHANNEL;
     end
   endgenerate
 
@@ -73,8 +73,8 @@ module crypto_wallet_mm_interconnect_0_router_001_default_decode
       assign default_rd_channel = '0;
     end
     else begin : default_rw_channel_assignment
-      assign default_wr_channel = 17'b1 << DEFAULT_WR_CHANNEL;
-      assign default_rd_channel = 17'b1 << DEFAULT_RD_CHANNEL;
+      assign default_wr_channel = 18'b1 << DEFAULT_WR_CHANNEL;
+      assign default_rd_channel = 18'b1 << DEFAULT_RD_CHANNEL;
     end
   endgenerate
 
@@ -103,7 +103,7 @@ module crypto_wallet_mm_interconnect_0_router_001
     // -------------------
     output                          src_valid,
     output reg [106-1    : 0] src_data,
-    output reg [17-1 : 0] src_channel,
+    output reg [18-1 : 0] src_channel,
     output                          src_startofpacket,
     output                          src_endofpacket,
     input                           src_ready
@@ -119,7 +119,7 @@ module crypto_wallet_mm_interconnect_0_router_001
     localparam PKT_PROTECTION_H = 96;
     localparam PKT_PROTECTION_L = 94;
     localparam ST_DATA_W = 106;
-    localparam ST_CHANNEL_W = 17;
+    localparam ST_CHANNEL_W = 18;
     localparam DECODER_TYPE = 0;
 
     localparam PKT_TRANS_WRITE = 64;
@@ -166,7 +166,7 @@ module crypto_wallet_mm_interconnect_0_router_001
     assign src_startofpacket = sink_startofpacket;
     assign src_endofpacket   = sink_endofpacket;
     wire [PKT_DEST_ID_W-1:0] default_destid;
-    wire [17-1 : 0] default_src_channel;
+    wire [18-1 : 0] default_src_channel;
 
 
 
@@ -192,19 +192,19 @@ module crypto_wallet_mm_interconnect_0_router_001
 
     // ( 0x2008000 .. 0x2010000 )
     if ( {address[RG:PAD0],{PAD0{1'b0}}} == 26'h2008000   ) begin
-            src_channel = 17'b100;
+            src_channel = 18'b100;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
     end
 
     // ( 0x2011000 .. 0x2011800 )
     if ( {address[RG:PAD1],{PAD1{1'b0}}} == 26'h2011000   ) begin
-            src_channel = 17'b010;
+            src_channel = 18'b010;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
     end
 
     // ( 0x2011800 .. 0x2012000 )
     if ( {address[RG:PAD2],{PAD2{1'b0}}} == 26'h2011800   ) begin
-            src_channel = 17'b001;
+            src_channel = 18'b001;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 0;
     end
 

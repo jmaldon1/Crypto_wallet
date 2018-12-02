@@ -99,7 +99,7 @@ gpio0[33]                    : B12       : bidir  : 3.3-V LVTTL       :         
 LED[2]                       : B13       : output : 3.3-V LVTTL       :         : 7         : Y              
 ADC_SCLK                     : B14       : output : 3.3-V LVTTL       :         : 7         : Y              
 GND                          : B15       : gnd    :                   :         :           :                
-GPIO2[1]                     : B16       : bidir  : 3.3-V LVTTL       :         : 6         : N              
+GPIO2[10]                    : B16       : bidir  : 3.3-V LVTTL       :         : 6         : N              
 EPCS_ASDO                    : C1        : output : 3.3-V LVTTL       :         : 1         : Y              
 DRAM_WE_N                    : C2        : output : 3.3-V LVTTL       :         : 1         : Y              
 gpio0[1]                     : C3        : bidir  : 3.3-V LVTTL       :         : 8         : Y              
@@ -113,9 +113,9 @@ VCCIO7                       : C10       : power  :                   : 3.3V    
 gpio0[28]                    : C11       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
 GND                          : C12       : gnd    :                   :         :           :                
 VCCIO7                       : C13       : power  :                   : 3.3V    : 7         :                
-GPIO2[9]                     : C14       : bidir  : 3.3-V LVTTL       :         : 7         : N              
-GPIO2[12]                    : C15       : bidir  : 3.3-V LVTTL       :         : 6         : N              
-GPIO2[8]                     : C16       : bidir  : 3.3-V LVTTL       :         : 6         : N              
+GPIO2[2]                     : C14       : bidir  : 3.3-V LVTTL       :         : 7         : N              
+GPIO2[7]                     : C15       : bidir  : 3.3-V LVTTL       :         : 6         : N              
+GPIO2[9]                     : C16       : bidir  : 3.3-V LVTTL       :         : 6         : N              
 LED[4]                       : D1        : output : 3.3-V LVTTL       :         : 1         : Y              
 EPCS_NCSO                    : D2        : output : 3.3-V LVTTL       :         : 1         : Y              
 gpio0[0]                     : D3        : bidir  : 3.3-V LVTTL       :         : 8         : Y              
@@ -129,9 +129,9 @@ GND                          : D10       : gnd    :                   :         
 gpio0[31]                    : D11       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
 gpio0[32]                    : D12       : bidir  : 3.3-V LVTTL       :         : 7         : Y              
 VCCD_PLL2                    : D13       : power  :                   : 1.2V    :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : D14       :        :                   :         : 7         :                
-GPIO2[4]                     : D15       : bidir  : 3.3-V LVTTL       :         : 6         : N              
-GPIO2[7]                     : D16       : bidir  : 3.3-V LVTTL       :         : 6         : N              
+GPIO2[12]                    : D14       : bidir  : 3.3-V LVTTL       :         : 7         : N              
+GPIO2[0]                     : D15       : bidir  : 3.3-V LVTTL       :         : 6         : N              
+GPIO2[4]                     : D16       : bidir  : 3.3-V LVTTL       :         : 6         : N              
 KEY[1]                       : E1        : input  : 3.3-V LVTTL       :         : 1         : Y              
 GND                          : E2        : gnd    :                   :         :           :                
 VCCIO1                       : E3        : power  :                   : 3.3V    : 1         :                
@@ -162,13 +162,13 @@ VCCINT                       : F11       : power  :                   : 1.2V    
 VCCA2                        : F12       : power  :                   : 2.5V    :           :                
 gpio1[0]                     : F13       : bidir  : 3.3-V LVTTL       :         : 6         : Y              
 GPIO2[11]                    : F14       : bidir  : 3.3-V LVTTL       :         : 6         : N              
-GPIO2[2]                     : F15       : bidir  : 3.3-V LVTTL       :         : 6         : N              
-GPIO2[0]                     : F16       : bidir  : 3.3-V LVTTL       :         : 6         : N              
+GPIO2[1]                     : F15       : bidir  : 3.3-V LVTTL       :         : 6         : N              
+GPIO2[5]                     : F16       : bidir  : 3.3-V LVTTL       :         : 6         : N              
 DRAM_DQ[1]                   : G1        : bidir  : 3.3-V LVTTL       :         : 1         : Y              
 DRAM_DQ[0]                   : G2        : bidir  : 3.3-V LVTTL       :         : 1         : Y              
 VCCIO1                       : G3        : power  :                   : 3.3V    : 1         :                
 GND                          : G4        : gnd    :                   :         :           :                
-GPIO2[10]                    : G5        : bidir  : 3.3-V LVTTL       :         : 1         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : G5        :        :                   :         : 1         :                
 VCCINT                       : G6        : power  :                   : 1.2V    :           :                
 VCCINT                       : G7        : power  :                   : 1.2V    :           :                
 VCCINT                       : G8        : power  :                   : 1.2V    :           :                
@@ -178,7 +178,7 @@ GND                          : G11       : gnd    :                   :         
 MSEL2                        : G12       :        :                   :         : 6         :                
 GND                          : G13       : gnd    :                   :         :           :                
 VCCIO6                       : G14       : power  :                   : 3.3V    : 6         :                
-GPIO2[5]                     : G15       : bidir  : 3.3-V LVTTL       :         : 6         : N              
+GPIO2[8]                     : G15       : bidir  : 3.3-V LVTTL       :         : 6         : N              
 GPIO2[6]                     : G16       : bidir  : 3.3-V LVTTL       :         : 6         : N              
 EPCS_DCLK                    : H1        : output : 3.3-V LVTTL       :         : 1         : Y              
 EPCS_DATA0                   : H2        : input  : 3.3-V LVTTL       :         : 1         : Y              

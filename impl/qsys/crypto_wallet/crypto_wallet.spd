@@ -273,6 +273,10 @@
    type="VHDL"
    library="pi_sw" />
  <file
+   path="simulation/submodules/crypto_wallet_pi_random.vhd"
+   type="VHDL"
+   library="pi_random" />
+ <file
    path="simulation/submodules/crypto_wallet_pi_gpio2.vhd"
    type="VHDL"
    library="pi_gpio2" />

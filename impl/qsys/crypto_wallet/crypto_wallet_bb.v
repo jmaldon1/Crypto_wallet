@@ -25,7 +25,9 @@ module crypto_wallet (
 	sdram_dq,
 	sdram_dqm,
 	sdram_ras_n,
-	sdram_we_n);	
+	sdram_we_n,
+	pi_random_external_connection_export,
+	reset_out_reset_n);	
 
 	input		clk_clk;
 	output		epcs_flash_controller_dclk;
@@ -53,4 +55,6 @@ module crypto_wallet (
 	output	[1:0]	sdram_dqm;
 	output		sdram_ras_n;
 	output		sdram_we_n;
+	input	[31:0]	pi_random_external_connection_export;
+	output		reset_out_reset_n;
 endmodule

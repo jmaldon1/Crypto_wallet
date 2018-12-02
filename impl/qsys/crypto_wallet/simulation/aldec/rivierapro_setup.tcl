@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 18.1 625 win32 2018.11.29.20:37:09
+# ACDS 18.1 625 win32 2018.12.02.15:41:38
 # ----------------------------------------
 # Auto-generated simulation script rivierapro_setup.tcl
 # ----------------------------------------
@@ -263,6 +263,8 @@ ensure_lib                                            ./libraries/pio_gpio0_31to
 vmap       pio_gpio0_31to0                            ./libraries/pio_gpio0_31to0                           
 ensure_lib                                            ./libraries/pi_sw                                     
 vmap       pi_sw                                      ./libraries/pi_sw                                     
+ensure_lib                                            ./libraries/pi_random                                 
+vmap       pi_random                                  ./libraries/pi_random                                 
 ensure_lib                                            ./libraries/pi_gpio2                                  
 vmap       pi_gpio2                                   ./libraries/pi_gpio2                                  
 ensure_lib                                            ./libraries/pi_gpio0                                  
@@ -362,6 +364,7 @@ alias com {
   eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS          "$QSYS_SIMDIR/submodules/crypto_wallet_pio_gpio0_33to32.vhd"                                       -work pio_gpio0_33to32                          
   eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS          "$QSYS_SIMDIR/submodules/crypto_wallet_pio_gpio0_31to0.vhd"                                        -work pio_gpio0_31to0                           
   eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS          "$QSYS_SIMDIR/submodules/crypto_wallet_pi_sw.vhd"                                                  -work pi_sw                                     
+  eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS          "$QSYS_SIMDIR/submodules/crypto_wallet_pi_random.vhd"                                              -work pi_random                                 
   eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS          "$QSYS_SIMDIR/submodules/crypto_wallet_pi_gpio2.vhd"                                               -work pi_gpio2                                  
   eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS          "$QSYS_SIMDIR/submodules/crypto_wallet_pi_gpio0.vhd"                                               -work pi_gpio0                                  
   eval  vcom $USER_DEFINED_VHDL_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS          "$QSYS_SIMDIR/submodules/crypto_wallet_onchip_memory2.vhd"                                         -work onchip_memory2                            
@@ -375,14 +378,14 @@ alias com {
 # Elaborate top level design
 alias elab {
   echo "\[exec\] elab"
-  eval vsim +access +r -t ps $ELAB_OPTIONS -L work -L error_adapter_0 -L avalon_st_adapter_008 -L avalon_st_adapter -L sdram_s1_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L sdram_s1_burst_adapter -L router_010 -L router_004 -L router_002 -L router_001 -L router -L jtag_uart_avalon_jtag_slave_agent_rsp_fifo -L jtag_uart_avalon_jtag_slave_agent -L cpu_data_master_agent -L jtag_uart_avalon_jtag_slave_translator -L cpu_data_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L sysid -L sdram -L po_led -L pio_gpio2 -L pio_gpio0_33to32 -L pio_gpio0_31to0 -L pi_sw -L pi_gpio2 -L pi_gpio0 -L onchip_memory2 -L jtag_uart -L epcs_flash_controller -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive $TOP_LEVEL_NAME
+  eval vsim +access +r -t ps $ELAB_OPTIONS -L work -L error_adapter_0 -L avalon_st_adapter_008 -L avalon_st_adapter -L sdram_s1_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L sdram_s1_burst_adapter -L router_010 -L router_004 -L router_002 -L router_001 -L router -L jtag_uart_avalon_jtag_slave_agent_rsp_fifo -L jtag_uart_avalon_jtag_slave_agent -L cpu_data_master_agent -L jtag_uart_avalon_jtag_slave_translator -L cpu_data_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L sysid -L sdram -L po_led -L pio_gpio2 -L pio_gpio0_33to32 -L pio_gpio0_31to0 -L pi_sw -L pi_random -L pi_gpio2 -L pi_gpio0 -L onchip_memory2 -L jtag_uart -L epcs_flash_controller -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive $TOP_LEVEL_NAME
 }
 
 # ----------------------------------------
 # Elaborate the top level design with -dbg -O2 option
 alias elab_debug {
   echo "\[exec\] elab_debug"
-  eval vsim -dbg -O2 +access +r -t ps $ELAB_OPTIONS -L work -L error_adapter_0 -L avalon_st_adapter_008 -L avalon_st_adapter -L sdram_s1_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L sdram_s1_burst_adapter -L router_010 -L router_004 -L router_002 -L router_001 -L router -L jtag_uart_avalon_jtag_slave_agent_rsp_fifo -L jtag_uart_avalon_jtag_slave_agent -L cpu_data_master_agent -L jtag_uart_avalon_jtag_slave_translator -L cpu_data_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L sysid -L sdram -L po_led -L pio_gpio2 -L pio_gpio0_33to32 -L pio_gpio0_31to0 -L pi_sw -L pi_gpio2 -L pi_gpio0 -L onchip_memory2 -L jtag_uart -L epcs_flash_controller -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive $TOP_LEVEL_NAME
+  eval vsim -dbg -O2 +access +r -t ps $ELAB_OPTIONS -L work -L error_adapter_0 -L avalon_st_adapter_008 -L avalon_st_adapter -L sdram_s1_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L sdram_s1_burst_adapter -L router_010 -L router_004 -L router_002 -L router_001 -L router -L jtag_uart_avalon_jtag_slave_agent_rsp_fifo -L jtag_uart_avalon_jtag_slave_agent -L cpu_data_master_agent -L jtag_uart_avalon_jtag_slave_translator -L cpu_data_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L sysid -L sdram -L po_led -L pio_gpio2 -L pio_gpio0_33to32 -L pio_gpio0_31to0 -L pi_sw -L pi_random -L pi_gpio2 -L pi_gpio0 -L onchip_memory2 -L jtag_uart -L epcs_flash_controller -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive $TOP_LEVEL_NAME
 }
 
 # ----------------------------------------

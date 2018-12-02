@@ -1,5 +1,5 @@
 Flow report for crypto_wallet
-Fri Nov 30 21:43:44 2018
+Sun Dec 02 16:12:05 2018
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,17 +40,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Nov 30 21:43:36 2018       ;
+; Flow Status                        ; Successful - Sun Dec 02 16:11:54 2018       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; crypto_wallet                               ;
 ; Top-level Entity Name              ; crypto_wallet_top                           ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE22F17C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 3,130 / 22,320 ( 14 % )                     ;
-;     Total combinational functions  ; 2,670 / 22,320 ( 12 % )                     ;
-;     Dedicated logic registers      ; 1,950 / 22,320 ( 9 % )                      ;
-; Total registers                    ; 2019                                        ;
+; Total logic elements               ; 3,256 / 22,320 ( 15 % )                     ;
+;     Total combinational functions  ; 2,738 / 22,320 ( 12 % )                     ;
+;     Dedicated logic registers      ; 2,051 / 22,320 ( 9 % )                      ;
+; Total registers                    ; 2120                                        ;
 ; Total pins                         ; 152 / 154 ( 99 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 275,456 / 608,256 ( 45 % )                  ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/30/2018 21:42:15 ;
+; Start date & time ; 12/02/2018 16:10:39 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; crypto_wallet       ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+-----------------------------------------------------------------+---------------+-------------------+------------+
 ; Assignment Name                     ; Value                                                           ; Default Value ; Entity Name       ; Section Id ;
 +-------------------------------------+-----------------------------------------------------------------+---------------+-------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 119580880346783.154363213403436                                 ; --            ; --                ; --         ;
+; COMPILER_SIGNATURE_ID               ; 119580880346783.154378503817156                                 ; --            ; --                ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                              ; --            ; --                ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                               ; --            ; --                ; --         ;
 ; MISC_FILE                           ; ../qsys/crypto_wallet/synthesis/../crypto_wallet.cmp            ; --            ; --                ; --         ;
@@ -89,7 +89,7 @@ refer to the applicable agreement for further details.
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                           ; --            ; --                ; --         ;
 ; SLD_FILE                            ; ../qsys/crypto_wallet/synthesis/crypto_wallet.regmap            ; --            ; --                ; --         ;
 ; SLD_FILE                            ; ../qsys/crypto_wallet/synthesis/crypto_wallet.debuginfo         ; --            ; --                ; --         ;
-; SLD_INFO                            ; QSYS_NAME crypto_wallet HAS_SOPCINFO 1 GENERATION_ID 1543541832 ; --            ; --                ; --         ;
+; SLD_INFO                            ; QSYS_NAME crypto_wallet HAS_SOPCINFO 1 GENERATION_ID 1543783302 ; --            ; --                ; --         ;
 ; SOPCINFO_FILE                       ; ../qsys/crypto_wallet/synthesis/../../crypto_wallet.sopcinfo    ; --            ; --                ; --         ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                                              ; --            ; --                ; --         ;
 ; TOP_LEVEL_ENTITY                    ; crypto_wallet_top                                               ; crypto_wallet ; --                ; --         ;
@@ -101,11 +101,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:52     ; 1.0                     ; 4979 MB             ; 00:01:23                           ;
-; Fitter               ; 00:00:19     ; 1.1                     ; 5532 MB             ; 00:00:24                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4704 MB             ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:06     ; 1.3                     ; 4835 MB             ; 00:00:06                           ;
-; Total                ; 00:01:19     ; --                      ; --                  ; 00:01:55                           ;
+; Analysis & Synthesis ; 00:00:45     ; 1.0                     ; 4967 MB             ; 00:01:16                           ;
+; Fitter               ; 00:00:21     ; 1.1                     ; 5537 MB             ; 00:00:27                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4705 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:10     ; 1.2                     ; 4834 MB             ; 00:00:06                           ;
+; Total                ; 00:01:18     ; --                      ; --                  ; 00:01:51                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

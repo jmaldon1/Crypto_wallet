@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'crypto_wallet'
  * SOPC Builder design path: C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet.sopcinfo
  *
- * Generated: Fri Nov 30 22:01:53 EST 2018
+ * Generated: Sun Dec 02 15:46:29 EST 2018
  */
 
 /*
@@ -158,19 +158,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart"
-#define ALT_STDERR_BASE 0x20120b8
+#define ALT_STDERR_BASE 0x20120c8
 #define ALT_STDERR_DEV jtag_uart
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart"
-#define ALT_STDIN_BASE 0x20120b8
+#define ALT_STDIN_BASE 0x20120c8
 #define ALT_STDIN_DEV jtag_uart
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart"
-#define ALT_STDOUT_BASE 0x20120b8
+#define ALT_STDOUT_BASE 0x20120c8
 #define ALT_STDOUT_DEV jtag_uart
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -210,7 +210,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart altera_avalon_jtag_uart
-#define JTAG_UART_BASE 0x20120b8
+#define JTAG_UART_BASE 0x20120c8
 #define JTAG_UART_IRQ 1
 #define JTAG_UART_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_NAME "/dev/jtag_uart"
@@ -257,7 +257,7 @@
  */
 
 #define ALT_MODULE_CLASS_pi_gpio0 altera_avalon_pio
-#define PI_GPIO0_BASE 0x2012060
+#define PI_GPIO0_BASE 0x2012070
 #define PI_GPIO0_BIT_CLEARING_EDGE_REGISTER 0
 #define PI_GPIO0_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define PI_GPIO0_CAPTURE 0
@@ -284,7 +284,7 @@
  */
 
 #define ALT_MODULE_CLASS_pi_gpio1 altera_avalon_pio
-#define PI_GPIO1_BASE 0x2012070
+#define PI_GPIO1_BASE 0x2012080
 #define PI_GPIO1_BIT_CLEARING_EDGE_REGISTER 0
 #define PI_GPIO1_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define PI_GPIO1_CAPTURE 0
@@ -311,7 +311,7 @@
  */
 
 #define ALT_MODULE_CLASS_pi_gpio2 altera_avalon_pio
-#define PI_GPIO2_BASE 0x2012050
+#define PI_GPIO2_BASE 0x2012060
 #define PI_GPIO2_BIT_CLEARING_EDGE_REGISTER 0
 #define PI_GPIO2_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define PI_GPIO2_CAPTURE 0
@@ -338,7 +338,7 @@
  */
 
 #define ALT_MODULE_CLASS_pi_key altera_avalon_pio
-#define PI_KEY_BASE 0x2012090
+#define PI_KEY_BASE 0x20120a0
 #define PI_KEY_BIT_CLEARING_EDGE_REGISTER 0
 #define PI_KEY_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define PI_KEY_CAPTURE 0
@@ -360,12 +360,39 @@
 
 
 /*
+ * pi_random configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_pi_random altera_avalon_pio
+#define PI_RANDOM_BASE 0x2012000
+#define PI_RANDOM_BIT_CLEARING_EDGE_REGISTER 0
+#define PI_RANDOM_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define PI_RANDOM_CAPTURE 0
+#define PI_RANDOM_DATA_WIDTH 32
+#define PI_RANDOM_DO_TEST_BENCH_WIRING 0
+#define PI_RANDOM_DRIVEN_SIM_VALUE 0
+#define PI_RANDOM_EDGE_TYPE "NONE"
+#define PI_RANDOM_FREQ 50000000
+#define PI_RANDOM_HAS_IN 1
+#define PI_RANDOM_HAS_OUT 0
+#define PI_RANDOM_HAS_TRI 0
+#define PI_RANDOM_IRQ -1
+#define PI_RANDOM_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PI_RANDOM_IRQ_TYPE "NONE"
+#define PI_RANDOM_NAME "/dev/pi_random"
+#define PI_RANDOM_RESET_VALUE 0
+#define PI_RANDOM_SPAN 16
+#define PI_RANDOM_TYPE "altera_avalon_pio"
+
+
+/*
  * pi_sw configuration
  *
  */
 
 #define ALT_MODULE_CLASS_pi_sw altera_avalon_pio
-#define PI_SW_BASE 0x2012080
+#define PI_SW_BASE 0x2012090
 #define PI_SW_BIT_CLEARING_EDGE_REGISTER 0
 #define PI_SW_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define PI_SW_CAPTURE 0
@@ -392,7 +419,7 @@
  */
 
 #define ALT_MODULE_CLASS_pio_gpio0_31to0 altera_avalon_pio
-#define PIO_GPIO0_31TO0_BASE 0x2012030
+#define PIO_GPIO0_31TO0_BASE 0x2012040
 #define PIO_GPIO0_31TO0_BIT_CLEARING_EDGE_REGISTER 0
 #define PIO_GPIO0_31TO0_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define PIO_GPIO0_31TO0_CAPTURE 0
@@ -419,7 +446,7 @@
  */
 
 #define ALT_MODULE_CLASS_pio_gpio0_33to32 altera_avalon_pio
-#define PIO_GPIO0_33TO32_BASE 0x2012010
+#define PIO_GPIO0_33TO32_BASE 0x2012020
 #define PIO_GPIO0_33TO32_BIT_CLEARING_EDGE_REGISTER 0
 #define PIO_GPIO0_33TO32_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define PIO_GPIO0_33TO32_CAPTURE 0
@@ -446,7 +473,7 @@
  */
 
 #define ALT_MODULE_CLASS_pio_gpio1_31to0 altera_avalon_pio
-#define PIO_GPIO1_31TO0_BASE 0x2012020
+#define PIO_GPIO1_31TO0_BASE 0x2012030
 #define PIO_GPIO1_31TO0_BIT_CLEARING_EDGE_REGISTER 0
 #define PIO_GPIO1_31TO0_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define PIO_GPIO1_31TO0_CAPTURE 0
@@ -473,7 +500,7 @@
  */
 
 #define ALT_MODULE_CLASS_pio_gpio1_33to32 altera_avalon_pio
-#define PIO_GPIO1_33TO32_BASE 0x2012000
+#define PIO_GPIO1_33TO32_BASE 0x2012010
 #define PIO_GPIO1_33TO32_BIT_CLEARING_EDGE_REGISTER 0
 #define PIO_GPIO1_33TO32_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define PIO_GPIO1_33TO32_CAPTURE 0
@@ -500,7 +527,7 @@
  */
 
 #define ALT_MODULE_CLASS_pio_gpio2 altera_avalon_pio
-#define PIO_GPIO2_BASE 0x2012040
+#define PIO_GPIO2_BASE 0x2012050
 #define PIO_GPIO2_BIT_CLEARING_EDGE_REGISTER 0
 #define PIO_GPIO2_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define PIO_GPIO2_CAPTURE 0
@@ -527,7 +554,7 @@
  */
 
 #define ALT_MODULE_CLASS_po_led altera_avalon_pio
-#define PO_LED_BASE 0x20120a0
+#define PO_LED_BASE 0x20120b0
 #define PO_LED_BIT_CLEARING_EDGE_REGISTER 0
 #define PO_LED_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define PO_LED_CAPTURE 0
@@ -593,13 +620,13 @@
  */
 
 #define ALT_MODULE_CLASS_sysid altera_avalon_sysid_qsys
-#define SYSID_BASE 0x20120b0
+#define SYSID_BASE 0x20120c0
 #define SYSID_ID 0
 #define SYSID_IRQ -1
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/sysid"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1543541832
+#define SYSID_TIMESTAMP 1543783302
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 #endif /* __SYSTEM_H_ */

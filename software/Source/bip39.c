@@ -4,8 +4,8 @@
 
 #include "..\Include\options.h"
 #include "..\Include\bip39.h"
-#include "..\Include\hmac.h"
-#include "..\Include\pbkdf2.h"
+//#include "..\Include\hmac.h"
+//#include "..\Include\pbkdf2.h"
 #include "..\Include\rand.h"
 #include "..\Include\sha2.h"
 #include "..\Include\bip39_english.h"
@@ -33,12 +33,12 @@ const char *mnemonic_generate(int strength)
 	}
 	uint8_t data[32];
 	random_buffer(data, 32);
-
-	const char *r = mnemonic_from_data(data, strength / 8);
-	memzero(data, sizeof(data));
+	const char *r = data[0];
+//	const char *r = mnemonic_from_data(data, strength / 8);
+//	memzero(data, sizeof(data));
 	return r;
 }
-
+/*
 const char *mnemonic_from_data(const uint8_t *data, int len)
 {
 	if (len % 4 || len < 16 || len > 32) {
@@ -119,3 +119,4 @@ void mnemonic_to_seed(const char *mnemonic, const char *passphrase, uint8_t seed
 	}
 #endif
 }
+*/

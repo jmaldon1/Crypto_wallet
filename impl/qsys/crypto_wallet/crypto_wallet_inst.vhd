@@ -25,7 +25,9 @@
 			sdram_dq                                    : inout std_logic_vector(15 downto 0) := (others => 'X'); -- dq
 			sdram_dqm                                   : out   std_logic_vector(1 downto 0);                     -- dqm
 			sdram_ras_n                                 : out   std_logic;                                        -- ras_n
-			sdram_we_n                                  : out   std_logic                                         -- we_n
+			sdram_we_n                                  : out   std_logic;                                        -- we_n
+			pi_random_external_connection_export        : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
+			reset_out_reset_n                           : out   std_logic                                         -- reset_n
 		);
 	end component crypto_wallet;
 
@@ -56,6 +58,8 @@
 			sdram_dq                                    => CONNECTED_TO_sdram_dq,                                    --                                     .dq
 			sdram_dqm                                   => CONNECTED_TO_sdram_dqm,                                   --                                     .dqm
 			sdram_ras_n                                 => CONNECTED_TO_sdram_ras_n,                                 --                                     .ras_n
-			sdram_we_n                                  => CONNECTED_TO_sdram_we_n                                   --                                     .we_n
+			sdram_we_n                                  => CONNECTED_TO_sdram_we_n,                                  --                                     .we_n
+			pi_random_external_connection_export        => CONNECTED_TO_pi_random_external_connection_export,        --        pi_random_external_connection.export
+			reset_out_reset_n                           => CONNECTED_TO_reset_out_reset_n                            --                            reset_out.reset_n
 		);
 

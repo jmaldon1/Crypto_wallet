@@ -61,7 +61,7 @@
    {
       datum baseAddress
       {
-         value = "33628344";
+         value = "33628360";
          type = "String";
       }
    }
@@ -93,7 +93,7 @@
    {
       datum baseAddress
       {
-         value = "33628256";
+         value = "33628272";
          type = "String";
       }
    }
@@ -109,7 +109,7 @@
    {
       datum baseAddress
       {
-         value = "33628272";
+         value = "33628288";
          type = "String";
       }
    }
@@ -125,7 +125,7 @@
    {
       datum baseAddress
       {
-         value = "33628240";
+         value = "33628256";
          type = "String";
       }
    }
@@ -141,7 +141,23 @@
    {
       datum baseAddress
       {
-         value = "33628304";
+         value = "33628320";
+         type = "String";
+      }
+   }
+   element pi_random
+   {
+      datum _sortIndex
+      {
+         value = "18";
+         type = "int";
+      }
+   }
+   element pi_random.s1
+   {
+      datum baseAddress
+      {
+         value = "33628160";
          type = "String";
       }
    }
@@ -157,7 +173,7 @@
    {
       datum baseAddress
       {
-         value = "33628288";
+         value = "33628304";
          type = "String";
       }
    }
@@ -173,7 +189,7 @@
    {
       datum baseAddress
       {
-         value = "33628208";
+         value = "33628224";
          type = "String";
       }
    }
@@ -189,7 +205,7 @@
    {
       datum baseAddress
       {
-         value = "33628176";
+         value = "33628192";
          type = "String";
       }
    }
@@ -205,7 +221,7 @@
    {
       datum baseAddress
       {
-         value = "33628192";
+         value = "33628208";
          type = "String";
       }
    }
@@ -221,7 +237,7 @@
    {
       datum baseAddress
       {
-         value = "33628160";
+         value = "33628176";
          type = "String";
       }
    }
@@ -237,7 +253,7 @@
    {
       datum baseAddress
       {
-         value = "33628224";
+         value = "33628240";
          type = "String";
       }
    }
@@ -253,7 +269,7 @@
    {
       datum baseAddress
       {
-         value = "33628320";
+         value = "33628336";
          type = "String";
       }
    }
@@ -298,7 +314,7 @@
    {
       datum baseAddress
       {
-         value = "33628336";
+         value = "33628352";
          type = "String";
       }
    }
@@ -350,6 +366,11 @@
    type="conduit"
    dir="end" />
  <interface
+   name="pi_random_external_connection"
+   internal="pi_random.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
    name="pi_sw_external_connection"
    internal="pi_sw.external_connection"
    type="conduit"
@@ -385,6 +406,7 @@
    type="conduit"
    dir="end" />
  <interface name="reset_n" internal="clk_50.clk_in_reset" type="reset" dir="end" />
+ <interface name="reset_out" internal="clk_50.clk_reset" type="reset" dir="start" />
  <interface name="sdram" internal="sdram.wire" type="conduit" dir="end" />
  <module name="clk_50" kind="clock_source" version="18.1" enabled="1">
   <parameter name="clockFrequency" value="50000000" />
@@ -412,7 +434,7 @@
   <parameter name="dataAddrWidth" value="26" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x0' end='0x2000000' type='altera_avalon_new_sdram_controller.s1' /><slave name='onchip_memory2.s1' start='0x2008000' end='0x200FD00' type='altera_avalon_onchip_memory2.s1' /><slave name='epcs_flash_controller.epcs_control_port' start='0x2011000' end='0x2011800' type='altera_avalon_epcs_flash_controller.epcs_control_port' /><slave name='cpu.debug_mem_slave' start='0x2011800' end='0x2012000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='pio_gpio1_33to32.s1' start='0x2012000' end='0x2012010' type='altera_avalon_pio.s1' /><slave name='pio_gpio0_33to32.s1' start='0x2012010' end='0x2012020' type='altera_avalon_pio.s1' /><slave name='pio_gpio1_31to0.s1' start='0x2012020' end='0x2012030' type='altera_avalon_pio.s1' /><slave name='pio_gpio0_31to0.s1' start='0x2012030' end='0x2012040' type='altera_avalon_pio.s1' /><slave name='pio_gpio2.s1' start='0x2012040' end='0x2012050' type='altera_avalon_pio.s1' /><slave name='pi_gpio2.s1' start='0x2012050' end='0x2012060' type='altera_avalon_pio.s1' /><slave name='pi_gpio0.s1' start='0x2012060' end='0x2012070' type='altera_avalon_pio.s1' /><slave name='pi_gpio1.s1' start='0x2012070' end='0x2012080' type='altera_avalon_pio.s1' /><slave name='pi_sw.s1' start='0x2012080' end='0x2012090' type='altera_avalon_pio.s1' /><slave name='pi_key.s1' start='0x2012090' end='0x20120A0' type='altera_avalon_pio.s1' /><slave name='po_led.s1' start='0x20120A0' end='0x20120B0' type='altera_avalon_pio.s1' /><slave name='sysid.control_slave' start='0x20120B0' end='0x20120B8' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart.avalon_jtag_slave' start='0x20120B8' end='0x20120C0' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x0' end='0x2000000' type='altera_avalon_new_sdram_controller.s1' /><slave name='onchip_memory2.s1' start='0x2008000' end='0x200FD00' type='altera_avalon_onchip_memory2.s1' /><slave name='epcs_flash_controller.epcs_control_port' start='0x2011000' end='0x2011800' type='altera_avalon_epcs_flash_controller.epcs_control_port' /><slave name='cpu.debug_mem_slave' start='0x2011800' end='0x2012000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='pi_random.s1' start='0x2012000' end='0x2012010' type='altera_avalon_pio.s1' /><slave name='pio_gpio1_33to32.s1' start='0x2012010' end='0x2012020' type='altera_avalon_pio.s1' /><slave name='pio_gpio0_33to32.s1' start='0x2012020' end='0x2012030' type='altera_avalon_pio.s1' /><slave name='pio_gpio1_31to0.s1' start='0x2012030' end='0x2012040' type='altera_avalon_pio.s1' /><slave name='pio_gpio0_31to0.s1' start='0x2012040' end='0x2012050' type='altera_avalon_pio.s1' /><slave name='pio_gpio2.s1' start='0x2012050' end='0x2012060' type='altera_avalon_pio.s1' /><slave name='pi_gpio2.s1' start='0x2012060' end='0x2012070' type='altera_avalon_pio.s1' /><slave name='pi_gpio0.s1' start='0x2012070' end='0x2012080' type='altera_avalon_pio.s1' /><slave name='pi_gpio1.s1' start='0x2012080' end='0x2012090' type='altera_avalon_pio.s1' /><slave name='pi_sw.s1' start='0x2012090' end='0x20120A0' type='altera_avalon_pio.s1' /><slave name='pi_key.s1' start='0x20120A0' end='0x20120B0' type='altera_avalon_pio.s1' /><slave name='po_led.s1' start='0x20120B0' end='0x20120C0' type='altera_avalon_pio.s1' /><slave name='sysid.control_slave' start='0x20120C0' end='0x20120C8' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart.avalon_jtag_slave' start='0x20120C8' end='0x20120D0' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -689,6 +711,20 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="2" />
  </module>
+ <module name="pi_random" kind="altera_avalon_pio" version="18.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="32" />
+ </module>
  <module name="pi_sw" kind="altera_avalon_pio" version="18.1" enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
@@ -845,7 +881,7 @@
    start="cpu.data_master"
    end="jtag_uart.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x020120b8" />
+  <parameter name="baseAddress" value="0x020120c8" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -854,7 +890,7 @@
    start="cpu.data_master"
    end="sysid.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x020120b0" />
+  <parameter name="baseAddress" value="0x020120c0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -877,7 +913,7 @@
  </connection>
  <connection kind="avalon" version="18.1" start="cpu.data_master" end="po_led.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x020120a0" />
+  <parameter name="baseAddress" value="0x020120b0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -891,12 +927,12 @@
  </connection>
  <connection kind="avalon" version="18.1" start="cpu.data_master" end="pi_key.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x02012090" />
+  <parameter name="baseAddress" value="0x020120a0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="avalon" version="18.1" start="cpu.data_master" end="pi_sw.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x02012080" />
+  <parameter name="baseAddress" value="0x02012090" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="avalon" version="18.1" start="cpu.data_master" end="sdram.s1">
@@ -910,7 +946,7 @@
    start="cpu.data_master"
    end="pi_gpio1.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x02012070" />
+  <parameter name="baseAddress" value="0x02012080" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -919,7 +955,7 @@
    start="cpu.data_master"
    end="pi_gpio0.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x02012060" />
+  <parameter name="baseAddress" value="0x02012070" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -928,7 +964,7 @@
    start="cpu.data_master"
    end="pi_gpio2.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x02012050" />
+  <parameter name="baseAddress" value="0x02012060" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -937,7 +973,7 @@
    start="cpu.data_master"
    end="pio_gpio2.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x02012040" />
+  <parameter name="baseAddress" value="0x02012050" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -946,7 +982,7 @@
    start="cpu.data_master"
    end="pio_gpio0_31to0.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x02012030" />
+  <parameter name="baseAddress" value="0x02012040" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -955,7 +991,7 @@
    start="cpu.data_master"
    end="pio_gpio1_31to0.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x02012020" />
+  <parameter name="baseAddress" value="0x02012030" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -964,7 +1000,7 @@
    start="cpu.data_master"
    end="pio_gpio0_33to32.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x02012010" />
+  <parameter name="baseAddress" value="0x02012020" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -972,6 +1008,15 @@
    version="18.1"
    start="cpu.data_master"
    end="pio_gpio1_33to32.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x02012010" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="cpu.data_master"
+   end="pi_random.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x02012000" />
   <parameter name="defaultConnection" value="false" />
@@ -1039,6 +1084,7 @@
    version="18.1"
    start="clk_50.clk"
    end="pio_gpio1_33to32.clk" />
+ <connection kind="clock" version="18.1" start="clk_50.clk" end="pi_random.clk" />
  <connection
    kind="clock"
    version="18.1"
@@ -1054,87 +1100,6 @@
  <connection kind="interrupt" version="18.1" start="cpu.irq" end="jtag_uart.irq">
   <parameter name="irqNumber" value="1" />
  </connection>
- <connection kind="reset" version="18.1" start="clk_50.clk_reset" end="cpu.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="sysid.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="epcs_flash_controller.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="jtag_uart.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="po_led.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="pi_sw.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="pi_key.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="sdram.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="pi_gpio1.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="pi_gpio0.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="pi_gpio2.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="pio_gpio2.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="pio_gpio0_31to0.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="pio_gpio1_31to0.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="pio_gpio0_33to32.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="pio_gpio1_33to32.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="clk_50.clk_reset"
-   end="onchip_memory2.reset1" />
  <connection
    kind="reset"
    version="18.1"
@@ -1215,6 +1180,11 @@
    version="18.1"
    start="cpu.debug_reset_request"
    end="pio_gpio1_33to32.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="cpu.debug_reset_request"
+   end="pi_random.reset" />
  <connection
    kind="reset"
    version="18.1"

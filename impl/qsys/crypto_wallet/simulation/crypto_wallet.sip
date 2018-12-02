@@ -52,6 +52,7 @@ set_global_assignment -library "lib_crypto_wallet" -name MISC_FILE [file join $:
 set_global_assignment -library "lib_crypto_wallet" -name MISC_FILE [file join $::quartus(sip_path) "submodules/crypto_wallet_pio_gpio0_33to32.vhd"]
 set_global_assignment -library "lib_crypto_wallet" -name MISC_FILE [file join $::quartus(sip_path) "submodules/crypto_wallet_pio_gpio0_31to0.vhd"]
 set_global_assignment -library "lib_crypto_wallet" -name MISC_FILE [file join $::quartus(sip_path) "submodules/crypto_wallet_pi_sw.vhd"]
+set_global_assignment -library "lib_crypto_wallet" -name MISC_FILE [file join $::quartus(sip_path) "submodules/crypto_wallet_pi_random.vhd"]
 set_global_assignment -library "lib_crypto_wallet" -name MISC_FILE [file join $::quartus(sip_path) "submodules/crypto_wallet_pi_gpio2.vhd"]
 set_global_assignment -library "lib_crypto_wallet" -name MISC_FILE [file join $::quartus(sip_path) "submodules/crypto_wallet_pi_gpio0.vhd"]
 set_global_assignment -library "lib_crypto_wallet" -name MISC_FILE [file join $::quartus(sip_path) "submodules/crypto_wallet_onchip_memory2.hex"]

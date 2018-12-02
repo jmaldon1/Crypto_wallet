@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Nov 30, 2018 10:03:59 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1543633439267</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Dec 2, 2018 4:12:31 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1543785151862</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\nios_proj_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\qsys\crypto_wallet.sopcinfo</SopcDesignFile>
@@ -917,80 +917,86 @@
                 <attributes>flash, memory, non-volatile</attributes>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pio_gpio1_33to32</slaveDescriptor>
+                <slaveDescriptor>pi_random</slaveDescriptor>
                 <addressRange>0x02012000 - 0x0201200F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pio_gpio0_33to32</slaveDescriptor>
+                <slaveDescriptor>pio_gpio1_33to32</slaveDescriptor>
                 <addressRange>0x02012010 - 0x0201201F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pio_gpio1_31to0</slaveDescriptor>
+                <slaveDescriptor>pio_gpio0_33to32</slaveDescriptor>
                 <addressRange>0x02012020 - 0x0201202F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pio_gpio0_31to0</slaveDescriptor>
+                <slaveDescriptor>pio_gpio1_31to0</slaveDescriptor>
                 <addressRange>0x02012030 - 0x0201203F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pio_gpio2</slaveDescriptor>
+                <slaveDescriptor>pio_gpio0_31to0</slaveDescriptor>
                 <addressRange>0x02012040 - 0x0201204F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pi_gpio2</slaveDescriptor>
+                <slaveDescriptor>pio_gpio2</slaveDescriptor>
                 <addressRange>0x02012050 - 0x0201205F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pi_gpio0</slaveDescriptor>
+                <slaveDescriptor>pi_gpio2</slaveDescriptor>
                 <addressRange>0x02012060 - 0x0201206F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pi_gpio1</slaveDescriptor>
+                <slaveDescriptor>pi_gpio0</slaveDescriptor>
                 <addressRange>0x02012070 - 0x0201207F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pi_sw</slaveDescriptor>
+                <slaveDescriptor>pi_gpio1</slaveDescriptor>
                 <addressRange>0x02012080 - 0x0201208F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>pi_key</slaveDescriptor>
+                <slaveDescriptor>pi_sw</slaveDescriptor>
                 <addressRange>0x02012090 - 0x0201209F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>po_led</slaveDescriptor>
+                <slaveDescriptor>pi_key</slaveDescriptor>
                 <addressRange>0x020120A0 - 0x020120AF</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>po_led</slaveDescriptor>
+                <addressRange>0x020120B0 - 0x020120BF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>sysid</slaveDescriptor>
-                <addressRange>0x020120B0 - 0x020120B7</addressRange>
+                <addressRange>0x020120C0 - 0x020120C7</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart</slaveDescriptor>
-                <addressRange>0x020120B8 - 0x020120BF</addressRange>
+                <addressRange>0x020120C8 - 0x020120CF</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>

@@ -17,6 +17,7 @@ entity crypto_wallet is
 		pi_gpio1_external_connection_export         : in    std_logic_vector(1 downto 0)  := (others => '0'); --         pi_gpio1_external_connection.export
 		pi_gpio2_external_connection_export         : in    std_logic_vector(2 downto 0)  := (others => '0'); --         pi_gpio2_external_connection.export
 		pi_key_external_connection_export           : in    std_logic_vector(1 downto 0)  := (others => '0'); --           pi_key_external_connection.export
+		pi_random_external_connection_export        : in    std_logic_vector(31 downto 0) := (others => '0'); --        pi_random_external_connection.export
 		pi_sw_external_connection_export            : in    std_logic_vector(3 downto 0)  := (others => '0'); --            pi_sw_external_connection.export
 		pio_gpio0_33to32_external_connection_export : inout std_logic_vector(1 downto 0)  := (others => '0'); -- pio_gpio0_33to32_external_connection.export
 		pio_gpio0_external_connection_export        : inout std_logic_vector(31 downto 0) := (others => '0'); --        pio_gpio0_external_connection.export
@@ -25,6 +26,7 @@ entity crypto_wallet is
 		pio_gpio2_external_connection_export        : inout std_logic_vector(12 downto 0) := (others => '0'); --        pio_gpio2_external_connection.export
 		po_led_external_connection_export           : out   std_logic_vector(7 downto 0);                     --           po_led_external_connection.export
 		reset_n_reset_n                             : in    std_logic                     := '0';             --                              reset_n.reset_n
+		reset_out_reset_n                           : out   std_logic;                                        --                            reset_out.reset_n
 		sdram_addr                                  : out   std_logic_vector(12 downto 0);                    --                                sdram.addr
 		sdram_ba                                    : out   std_logic_vector(1 downto 0);                     --                                     .ba
 		sdram_cas_n                                 : out   std_logic;                                        --                                     .cas_n
@@ -138,6 +140,16 @@ architecture rtl of crypto_wallet is
 			in_port  : in  std_logic_vector(2 downto 0)  := (others => 'X')  -- export
 		);
 	end component crypto_wallet_pi_gpio2;
+
+	component crypto_wallet_pi_random is
+		port (
+			clk      : in  std_logic                     := 'X';             -- clk
+			reset_n  : in  std_logic                     := 'X';             -- reset_n
+			address  : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			readdata : out std_logic_vector(31 downto 0);                    -- readdata
+			in_port  : in  std_logic_vector(31 downto 0) := (others => 'X')  -- export
+		);
+	end component crypto_wallet_pi_random;
 
 	component crypto_wallet_pi_sw is
 		port (
@@ -287,6 +299,8 @@ architecture rtl of crypto_wallet is
 			pi_gpio2_s1_readdata                               : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			pi_key_s1_address                                  : out std_logic_vector(1 downto 0);                     -- address
 			pi_key_s1_readdata                                 : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			pi_random_s1_address                               : out std_logic_vector(1 downto 0);                     -- address
+			pi_random_s1_readdata                              : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			pi_sw_s1_address                                   : out std_logic_vector(1 downto 0);                     -- address
 			pi_sw_s1_readdata                                  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
 			pio_gpio0_31to0_s1_address                         : out std_logic_vector(1 downto 0);                     -- address
@@ -372,11 +386,11 @@ architecture rtl of crypto_wallet is
 		);
 		port (
 			reset_in0      : in  std_logic := 'X'; -- reset
-			reset_in1      : in  std_logic := 'X'; -- reset
 			clk            : in  std_logic := 'X'; -- clk
 			reset_out      : out std_logic;        -- reset
 			reset_req      : out std_logic;        -- reset_req
 			reset_req_in0  : in  std_logic := 'X'; -- reset_req
+			reset_in1      : in  std_logic := 'X'; -- reset
 			reset_req_in1  : in  std_logic := 'X'; -- reset_req
 			reset_in2      : in  std_logic := 'X'; -- reset
 			reset_req_in2  : in  std_logic := 'X'; -- reset_req
@@ -500,13 +514,14 @@ architecture rtl of crypto_wallet is
 	signal mm_interconnect_0_pio_gpio1_33to32_s1_address                             : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pio_gpio1_33to32_s1_address -> pio_gpio1_33to32:address
 	signal mm_interconnect_0_pio_gpio1_33to32_s1_write                               : std_logic;                     -- mm_interconnect_0:pio_gpio1_33to32_s1_write -> mm_interconnect_0_pio_gpio1_33to32_s1_write:in
 	signal mm_interconnect_0_pio_gpio1_33to32_s1_writedata                           : std_logic_vector(31 downto 0); -- mm_interconnect_0:pio_gpio1_33to32_s1_writedata -> pio_gpio1_33to32:writedata
+	signal mm_interconnect_0_pi_random_s1_readdata                                   : std_logic_vector(31 downto 0); -- pi_random:readdata -> mm_interconnect_0:pi_random_s1_readdata
+	signal mm_interconnect_0_pi_random_s1_address                                    : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pi_random_s1_address -> pi_random:address
 	signal irq_mapper_receiver0_irq                                                  : std_logic;                     -- epcs_flash_controller:irq -> irq_mapper:receiver0_irq
 	signal irq_mapper_receiver1_irq                                                  : std_logic;                     -- jtag_uart:av_irq -> irq_mapper:receiver1_irq
 	signal cpu_irq_irq                                                               : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> cpu:irq
 	signal rst_controller_reset_out_reset                                            : std_logic;                     -- rst_controller:reset_out -> [irq_mapper:reset, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, onchip_memory2:reset, rst_controller_reset_out_reset:in, rst_translator:in_reset]
 	signal rst_controller_reset_out_reset_req                                        : std_logic;                     -- rst_controller:reset_req -> [cpu:reset_req, epcs_flash_controller:reset_req, onchip_memory2:reset_req, rst_translator:reset_req_in]
-	signal cpu_debug_reset_request_reset                                             : std_logic;                     -- cpu:debug_reset_request -> rst_controller:reset_in1
-	signal reset_n_reset_n_ports_inv                                                 : std_logic;                     -- reset_n_reset_n:inv -> rst_controller:reset_in0
+	signal cpu_debug_reset_request_reset                                             : std_logic;                     -- cpu:debug_reset_request -> rst_controller:reset_in0
 	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_read_ports_inv              : std_logic;                     -- mm_interconnect_0_jtag_uart_avalon_jtag_slave_read:inv -> jtag_uart:av_read_n
 	signal mm_interconnect_0_jtag_uart_avalon_jtag_slave_write_ports_inv             : std_logic;                     -- mm_interconnect_0_jtag_uart_avalon_jtag_slave_write:inv -> jtag_uart:av_write_n
 	signal mm_interconnect_0_epcs_flash_controller_epcs_control_port_read_ports_inv  : std_logic;                     -- mm_interconnect_0_epcs_flash_controller_epcs_control_port_read:inv -> epcs_flash_controller:read_n
@@ -520,7 +535,7 @@ architecture rtl of crypto_wallet is
 	signal mm_interconnect_0_pio_gpio1_31to0_s1_write_ports_inv                      : std_logic;                     -- mm_interconnect_0_pio_gpio1_31to0_s1_write:inv -> pio_gpio1_31to0:write_n
 	signal mm_interconnect_0_pio_gpio0_33to32_s1_write_ports_inv                     : std_logic;                     -- mm_interconnect_0_pio_gpio0_33to32_s1_write:inv -> pio_gpio0_33to32:write_n
 	signal mm_interconnect_0_pio_gpio1_33to32_s1_write_ports_inv                     : std_logic;                     -- mm_interconnect_0_pio_gpio1_33to32_s1_write:inv -> pio_gpio1_33to32:write_n
-	signal rst_controller_reset_out_reset_ports_inv                                  : std_logic;                     -- rst_controller_reset_out_reset:inv -> [cpu:reset_n, epcs_flash_controller:reset_n, jtag_uart:rst_n, pi_gpio0:reset_n, pi_gpio1:reset_n, pi_gpio2:reset_n, pi_key:reset_n, pi_sw:reset_n, pio_gpio0_31to0:reset_n, pio_gpio0_33to32:reset_n, pio_gpio1_31to0:reset_n, pio_gpio1_33to32:reset_n, pio_gpio2:reset_n, po_led:reset_n, sdram:reset_n, sysid:reset_n]
+	signal rst_controller_reset_out_reset_ports_inv                                  : std_logic;                     -- rst_controller_reset_out_reset:inv -> [cpu:reset_n, epcs_flash_controller:reset_n, jtag_uart:rst_n, pi_gpio0:reset_n, pi_gpio1:reset_n, pi_gpio2:reset_n, pi_key:reset_n, pi_random:reset_n, pi_sw:reset_n, pio_gpio0_31to0:reset_n, pio_gpio0_33to32:reset_n, pio_gpio1_31to0:reset_n, pio_gpio1_33to32:reset_n, pio_gpio2:reset_n, po_led:reset_n, sdram:reset_n, sysid:reset_n]
 
 begin
 
@@ -635,6 +650,15 @@ begin
 			address  => mm_interconnect_0_pi_key_s1_address,      --                  s1.address
 			readdata => mm_interconnect_0_pi_key_s1_readdata,     --                    .readdata
 			in_port  => pi_key_external_connection_export         -- external_connection.export
+		);
+
+	pi_random : component crypto_wallet_pi_random
+		port map (
+			clk      => clk_clk,                                  --                 clk.clk
+			reset_n  => rst_controller_reset_out_reset_ports_inv, --               reset.reset_n
+			address  => mm_interconnect_0_pi_random_s1_address,   --                  s1.address
+			readdata => mm_interconnect_0_pi_random_s1_readdata,  --                    .readdata
+			in_port  => pi_random_external_connection_export      -- external_connection.export
 		);
 
 	pi_sw : component crypto_wallet_pi_sw
@@ -802,6 +826,8 @@ begin
 			pi_gpio2_s1_readdata                               => mm_interconnect_0_pi_gpio2_s1_readdata,                               --                                        .readdata
 			pi_key_s1_address                                  => mm_interconnect_0_pi_key_s1_address,                                  --                               pi_key_s1.address
 			pi_key_s1_readdata                                 => mm_interconnect_0_pi_key_s1_readdata,                                 --                                        .readdata
+			pi_random_s1_address                               => mm_interconnect_0_pi_random_s1_address,                               --                            pi_random_s1.address
+			pi_random_s1_readdata                              => mm_interconnect_0_pi_random_s1_readdata,                              --                                        .readdata
 			pi_sw_s1_address                                   => mm_interconnect_0_pi_sw_s1_address,                                   --                                pi_sw_s1.address
 			pi_sw_s1_readdata                                  => mm_interconnect_0_pi_sw_s1_readdata,                                  --                                        .readdata
 			pio_gpio0_31to0_s1_address                         => mm_interconnect_0_pio_gpio0_31to0_s1_address,                         --                      pio_gpio0_31to0_s1.address
@@ -858,7 +884,7 @@ begin
 
 	rst_controller : component altera_reset_controller
 		generic map (
-			NUM_RESET_INPUTS          => 2,
+			NUM_RESET_INPUTS          => 1,
 			OUTPUT_RESET_SYNC_EDGES   => "deassert",
 			SYNC_DEPTH                => 2,
 			RESET_REQUEST_PRESENT     => 1,
@@ -884,12 +910,12 @@ begin
 			ADAPT_RESET_REQUEST       => 0
 		)
 		port map (
-			reset_in0      => reset_n_reset_n_ports_inv,          -- reset_in0.reset
-			reset_in1      => cpu_debug_reset_request_reset,      -- reset_in1.reset
+			reset_in0      => cpu_debug_reset_request_reset,      -- reset_in0.reset
 			clk            => clk_clk,                            --       clk.clk
 			reset_out      => rst_controller_reset_out_reset,     -- reset_out.reset
 			reset_req      => rst_controller_reset_out_reset_req, --          .reset_req
 			reset_req_in0  => '0',                                -- (terminated)
+			reset_in1      => '0',                                -- (terminated)
 			reset_req_in1  => '0',                                -- (terminated)
 			reset_in2      => '0',                                -- (terminated)
 			reset_req_in2  => '0',                                -- (terminated)
@@ -921,8 +947,6 @@ begin
 			reset_req_in15 => '0'                                 -- (terminated)
 		);
 
-	reset_n_reset_n_ports_inv <= not reset_n_reset_n;
-
 	mm_interconnect_0_jtag_uart_avalon_jtag_slave_read_ports_inv <= not mm_interconnect_0_jtag_uart_avalon_jtag_slave_read;
 
 	mm_interconnect_0_jtag_uart_avalon_jtag_slave_write_ports_inv <= not mm_interconnect_0_jtag_uart_avalon_jtag_slave_write;
@@ -950,5 +974,7 @@ begin
 	mm_interconnect_0_pio_gpio1_33to32_s1_write_ports_inv <= not mm_interconnect_0_pio_gpio1_33to32_s1_write;
 
 	rst_controller_reset_out_reset_ports_inv <= not rst_controller_reset_out_reset;
+
+	reset_out_reset_n <= reset_n_reset_n;
 
 end architecture rtl; -- of crypto_wallet

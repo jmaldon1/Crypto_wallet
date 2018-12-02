@@ -36,6 +36,7 @@ pio_gpio2:                                  ./libraries/pio_gpio2/
 pio_gpio0_33to32:                           ./libraries/pio_gpio0_33to32/                          
 pio_gpio0_31to0:                            ./libraries/pio_gpio0_31to0/                           
 pi_sw:                                      ./libraries/pi_sw/                                     
+pi_random:                                  ./libraries/pi_random/                                 
 pi_gpio2:                                   ./libraries/pi_gpio2/                                  
 pi_gpio0:                                   ./libraries/pi_gpio0/                                  
 onchip_memory2:                             ./libraries/onchip_memory2/                            

@@ -43,6 +43,7 @@ DEFINE pio_gpio2                                  ./libraries/pio_gpio2/
 DEFINE pio_gpio0_33to32                           ./libraries/pio_gpio0_33to32/                          
 DEFINE pio_gpio0_31to0                            ./libraries/pio_gpio0_31to0/                           
 DEFINE pi_sw                                      ./libraries/pi_sw/                                     
+DEFINE pi_random                                  ./libraries/pi_random/                                 
 DEFINE pi_gpio2                                   ./libraries/pi_gpio2/                                  
 DEFINE pi_gpio0                                   ./libraries/pi_gpio0/                                  
 DEFINE onchip_memory2                             ./libraries/onchip_memory2/                            

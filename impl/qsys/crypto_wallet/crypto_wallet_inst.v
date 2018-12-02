@@ -24,6 +24,8 @@
 		.sdram_dq                                    (<connected-to-sdram_dq>),                                    //                                     .dq
 		.sdram_dqm                                   (<connected-to-sdram_dqm>),                                   //                                     .dqm
 		.sdram_ras_n                                 (<connected-to-sdram_ras_n>),                                 //                                     .ras_n
-		.sdram_we_n                                  (<connected-to-sdram_we_n>)                                   //                                     .we_n
+		.sdram_we_n                                  (<connected-to-sdram_we_n>),                                  //                                     .we_n
+		.pi_random_external_connection_export        (<connected-to-pi_random_external_connection_export>),        //        pi_random_external_connection.export
+		.reset_out_reset_n                           (<connected-to-reset_out_reset_n>)                            //                            reset_out.reset_n
 	);
 

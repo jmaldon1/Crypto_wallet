@@ -82,6 +82,7 @@ architecture rtl of crypto_wallet_top is
 		port (
 			clk_clk                                     : in    std_logic                     := 'X';             -- clk
 			reset_n_reset_n                             : in    std_logic                     := 'X';             -- reset_n
+			reset_out_reset_n                           : out   std_logic;                                         -- reset_n
 			epcs_flash_controller_dclk                  : out   std_logic;                                        -- dclk
 			epcs_flash_controller_sce                   : out   std_logic;                                        -- sce
 			epcs_flash_controller_sdo                   : out   std_logic;                                        -- sdo
@@ -105,7 +106,8 @@ architecture rtl of crypto_wallet_top is
 			pio_gpio0_external_connection_export        : inout std_logic_vector(31 downto 0) := (others => 'X'); -- export
 			pio_gpio1_external_connection_export        : inout std_logic_vector(31 downto 0) := (others => 'X'); -- export
 			pio_gpio0_33to32_external_connection_export : inout std_logic_vector( 1 downto 0) := (others => 'X'); -- export
-			pio_gpio1_33to32_external_connection_export : inout std_logic_vector( 1 downto 0) := (others => 'X') -- export                                    -- scl_oe
+			pio_gpio1_33to32_external_connection_export : inout std_logic_vector( 1 downto 0) := (others => 'X'); -- export                                    -- scl_oe
+			pi_random_external_connection_export        : in    std_logic_vector(31 downto 0) := (others => 'X')  -- export
 		);
 	end component crypto_wallet;
 
@@ -118,10 +120,26 @@ architecture rtl of crypto_wallet_top is
 		);
 	end component;
 
+	-- random number generator
+    component wallet_random_gen
+    port (
+        -- Inputs
+        i_clk             : in std_logic;
+        i_reset_n         : in std_logic;
+        iv_seed           : in std_logic_vector (31 downto 0);
+
+        -- Outputs
+        ov_out            : out std_logic_vector (31 downto 0)
+    );
+    end component;
+	 
+	 
 	--------------------------------
 	-- Signals
 	--------------------------------
-	
+	signal sl_reset				: std_logic;
+	signal slv_random_number	: std_logic_vector (31 downto 0)	:= (others => '0');
+	signal slv_random_seed		: std_logic_vector (31 downto 0)	:= X"A1583CFB";		-- random seed
 	
 begin
 	--------------------------------
@@ -131,6 +149,7 @@ begin
 		port map (
 			clk_clk                                     => CLOCK_50,					-- clk.clk
 			reset_n_reset_n                             => '1',						-- reset_n.reset_n
+			reset_out_reset_n                           => open,					-- reset_out.reset_n
 			epcs_flash_controller_dclk                  => EPCS_DCLK,				-- epcs_flash_controller.dclk
 			epcs_flash_controller_sce                   => EPCS_NCSO,				-- .sce
 			epcs_flash_controller_sdo                   => EPCS_ASDO,				-- .sdo
@@ -154,18 +173,31 @@ begin
 			pio_gpio0_external_connection_export        => gpio0(31 downto 0),	-- pio_gpio0_external_connection.export
 			pio_gpio1_external_connection_export        => gpio1(31 downto 0),	-- pio_gpio1_external_connection.export
 			pio_gpio0_33to32_external_connection_export => gpio0(33 downto 32), 	-- pio_gpio0_33to32_external_connection.export
-			pio_gpio1_33to32_external_connection_export => gpio1(33 downto 32)	-- pio_gpio1_33to32_external_connection.export
+			pio_gpio1_33to32_external_connection_export => gpio1(33 downto 32),	-- pio_gpio1_33to32_external_connection.export
+			pi_random_external_connection_export        => slv_random_number		-- pi_random_external_connection.export
 		);
 		
 	sdram_pll_inst : sdram_pll
 		port map (
-			inclk0										=> CLOCK_50,		--: in std_logic;
-			c0												=> DRAM_CLK			--: out std_logic 
+			inclk0													=> CLOCK_50,		--: in std_logic;
+			c0															=> DRAM_CLK			--: out std_logic 
 		);
 
+	random_inst : wallet_random_gen
+		port map(
+			-- Inputs
+        i_clk                                         => CLOCK_50,            --: in std_logic;
+        i_reset_n													=> sl_reset,
+        iv_seed													=> slv_random_seed,
+
+        -- Outputs
+        ov_out														=> slv_random_number
+    );
+	 
+	 sl_reset <= '1' after 100 ns;
 	--------------------------------
 	-- Processes
 	--------------------------------
-	
+
 
 end architecture rtl;
