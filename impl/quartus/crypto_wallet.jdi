@@ -139,7 +139,7 @@
   <sld_infos>
     <sld_info hpath="crypto_wallet:wallet_cpu_inst" name="wallet_cpu_inst">
       <assignment_values>
-        <assignment_value text="QSYS_NAME crypto_wallet HAS_SOPCINFO 1 GENERATION_ID 1543457461"/>
+        <assignment_value text="QSYS_NAME crypto_wallet HAS_SOPCINFO 1 GENERATION_ID 1543541832"/>
       </assignment_values>
       <parameters/>
     </sld_info>

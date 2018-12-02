@@ -12,9 +12,10 @@
 #define __WALLET_STATUS_H__
 
 // some sort of error catching enum
-//typedef enum
-//{
-//
-//} ;
+typedef enum
+{
+	WALLET_NO_ERROR,
+	WALLET_MNEMONIC_SIZE_ERROR
+} ;
 
 #endif

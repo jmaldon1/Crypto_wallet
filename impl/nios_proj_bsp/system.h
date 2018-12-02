@@ -4,11 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'crypto_wallet'
  * SOPC Builder design path: C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet.sopcinfo
  *
-<<<<<<< HEAD
- * Generated: Wed Nov 28 21:20:42 EST 2018
-=======
- * Generated: Mon Nov 26 11:21:44 EST 2018
->>>>>>> f5969070a85ee9c951bcafd19094333b8dea23b1
+ * Generated: Fri Nov 30 22:01:53 EST 2018
  */
 
 /*
@@ -603,7 +599,7 @@
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/sysid"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1543457461
+#define SYSID_TIMESTAMP 1543541832
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 #endif /* __SYSTEM_H_ */

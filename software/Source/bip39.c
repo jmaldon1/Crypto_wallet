@@ -25,20 +25,6 @@ static CONFIDENTIAL struct {
 
 #endif
 
-//int main() {
-//	uint8_t seed[64];
-//	const char *mnemonic_phrase = mnemonic_generate(128);
-//
-//	mnemonic_to_seed(mnemonic_phrase, "TEST", seed, 0);
-//
-//	printf("Mnemonic Phrase: %s\n", bip39_cache[0].mnemonic);
-//	printf("Seed: ");
-//   	for(int i = 0; i < 64; i++){
-//		printf("%x", seed[i]);
-//	}
-//	printf("\n");
-//    return 0;
-//}
 
 const char *mnemonic_generate(int strength)
 {
@@ -47,9 +33,7 @@ const char *mnemonic_generate(int strength)
 	}
 	uint8_t data[32];
 	random_buffer(data, 32);
-	// for(int i = 0; i < 32; i++){
-	// 	printf("%x\n", data[i]);
-	// }
+
 	const char *r = mnemonic_from_data(data, strength / 8);
 	memzero(data, sizeof(data));
 	return r;

@@ -1,0 +1,7 @@
+# vsim tb_sha256 -c -do "log -r /*; vcd file vsim.vcd; ; run -a; quit" -l vsim.log ..\sha256_wave.do 
+# Start time: 22:25:09 on Nov 30,2018
+# ** Error (suppressible): (vsim-19) Failed to access library '.' at ".".
+# No such file or directory. (errno = ENOENT)
+# Error loading design
+# End time: 22:25:09 on Nov 30,2018, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0

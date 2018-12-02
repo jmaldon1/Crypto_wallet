@@ -1943,11 +1943,7 @@ Contains: Could not delete: C:\Users\Class2018\Documents\Projects\Crypto_wallet\
 
 !ENTRY com.altera.sbtgui.launch 1 0 2018-11-27 23:01:36.171
 !MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x200a038 --id=0x0 --timestamp=1543376831 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
-<<<<<<< HEAD
-!SESSION 2018-11-28 18:40:04.823 -----------------------------------------------
-=======
 !SESSION 2018-11-26 11:20:56.140 -----------------------------------------------
->>>>>>> f5969070a85ee9c951bcafd19094333b8dea23b1
 eclipse.buildId=4.5.2.M20160212-1500
 java.version=1.8.0_05
 java.vendor=Oracle Corporation
@@ -1955,23 +1951,6 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
 Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
 
-<<<<<<< HEAD
-!ENTRY org.eclipse.cdt.core 1 0 2018-11-28 18:53:51.259
-!MESSAGE Indexed 'nios_proj_bsp' (83 sources, 66 headers) in 1.67 sec: 1,401 declarations; 3,382 references; 114 unresolved inclusions; 6 syntax errors; 198 unresolved names (4%)
-
-!ENTRY org.eclipse.cdt.core 1 0 2018-11-28 18:53:55.218
-!MESSAGE Indexed 'nios_proj' (1 sources, 21 headers) in 0.109 sec: 983 declarations; 1,599 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
-
-!ENTRY org.eclipse.cdt.core 1 0 2018-11-28 18:54:36.652
-!MESSAGE Indexed 'nios_proj' (1 sources, 21 headers) in 0.093 sec: 983 declarations; 1,599 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
-
-!ENTRY com.altera.sbtgui.launch 1 0 2018-11-28 18:58:12.386
-!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x2012030 --id=0x0 --timestamp=1543448926]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2018-11-28 18:58:14.890
-!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x2012030 --id=0x0 --timestamp=1543448926 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
-!SESSION 2018-11-28 21:16:02.632 -----------------------------------------------
-=======
 !ENTRY com.altera.sbtgui.launch 4 0 2018-11-26 11:23:25.543
 !MESSAGE Unable to validate connection settings.
 !STACK 0
@@ -2032,7 +2011,6 @@ java.lang.Exception: Connected system ID hash not found on target at expected ba
 	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 !SESSION 2018-11-26 11:43:16.345 -----------------------------------------------
->>>>>>> f5969070a85ee9c951bcafd19094333b8dea23b1
 eclipse.buildId=4.5.2.M20160212-1500
 java.version=1.8.0_05
 java.vendor=Oracle Corporation
@@ -2040,30 +2018,12 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
 Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
 
-<<<<<<< HEAD
-!ENTRY org.eclipse.core.resources 2 10035 2018-11-28 21:19:31.945
-!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
-
-!ENTRY com.altera.sbtgui.launch 1 0 2018-11-28 21:26:52.746
-!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x20120b0 --id=0x0 --timestamp=1543457461]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2018-11-28 21:26:55.291
-!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x20120b0 --id=0x0 --timestamp=1543457461 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2018-11-28 21:28:08.373
-!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x20120b0 --id=0x0 --timestamp=1543457461]
-
-!ENTRY com.altera.sbtgui.launch 1 0 2018-11-28 21:28:10.978
-!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x20120b0 --id=0x0 --timestamp=1543457461 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
-!SESSION 2018-11-29 19:00:20.562 -----------------------------------------------
-=======
 !ENTRY com.altera.sbtgui.launch 1 0 2018-11-26 11:44:00.162
 !MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x200a038 --id=0x0 --timestamp=1543376831]
 
 !ENTRY com.altera.sbtgui.launch 1 0 2018-11-26 11:44:02.844
 !MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x200a038 --id=0x0 --timestamp=1543376831 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
 !SESSION 2018-11-28 07:01:28.510 -----------------------------------------------
->>>>>>> f5969070a85ee9c951bcafd19094333b8dea23b1
 eclipse.buildId=4.5.2.M20160212-1500
 java.version=1.8.0_05
 java.vendor=Oracle Corporation
@@ -2071,12 +2031,6 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
 Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
 
-<<<<<<< HEAD
-!ENTRY org.eclipse.core.resources 2 10035 2018-11-29 19:00:24.223
-!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
-
-!ENTRY org.eclipse.ui 4 0 2018-11-29 20:03:36.751
-=======
 !ENTRY org.eclipse.core.jobs 4 2 2018-11-28 07:09:32.161
 !MESSAGE An internal error occurred during: "Compute launch button tooltip".
 !STACK 0
@@ -2108,7 +2062,6 @@ java.lang.NullPointerException
 !MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x200a038 --id=0x0 --timestamp=1543376831 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
 
 !ENTRY org.eclipse.ui 4 0 2018-11-28 07:31:47.758
->>>>>>> f5969070a85ee9c951bcafd19094333b8dea23b1
 !MESSAGE Unhandled event loop exception
 !STACK 0
 org.eclipse.e4.core.di.InjectionException: java.lang.NullPointerException
@@ -2155,21 +2108,13 @@ Caused by: java.lang.NullPointerException
 	at com.altera.sbtgui.project.makefile.AddToBuildHandler.execute(AddToBuildHandler.java:197)
 	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:295)
 	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
-<<<<<<< HEAD
-	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
-=======
 	at sun.reflect.GeneratedMethodAccessor47.invoke(Unknown Source)
->>>>>>> f5969070a85ee9c951bcafd19094333b8dea23b1
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
 	... 38 more
 
-<<<<<<< HEAD
-!ENTRY org.eclipse.ui 4 0 2018-11-29 20:30:08.738
-=======
 !ENTRY org.eclipse.ui 4 0 2018-11-28 07:31:55.368
->>>>>>> f5969070a85ee9c951bcafd19094333b8dea23b1
 !MESSAGE Unhandled event loop exception
 !STACK 0
 org.eclipse.e4.core.di.InjectionException: java.lang.NullPointerException
@@ -2216,17 +2161,11 @@ Caused by: java.lang.NullPointerException
 	at com.altera.sbtgui.project.makefile.AddToBuildHandler.execute(AddToBuildHandler.java:197)
 	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:295)
 	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
-<<<<<<< HEAD
-	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
-=======
 	at sun.reflect.GeneratedMethodAccessor47.invoke(Unknown Source)
->>>>>>> f5969070a85ee9c951bcafd19094333b8dea23b1
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
 	... 38 more
-<<<<<<< HEAD
-=======
 
 !ENTRY com.altera.sbtgui.launch 1 0 2018-11-28 07:34:41.431
 !MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
@@ -2299,4 +2238,65 @@ Caused by: java.lang.NullPointerException
 
 !ENTRY com.altera.sbtgui.launch 1 0 2018-11-28 07:45:25.816
 !MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x200a038 --id=0x0 --timestamp=1543376831 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
->>>>>>> f5969070a85ee9c951bcafd19094333b8dea23b1
+!SESSION 2018-11-30 21:45:26.466 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY com.altera.sbtgui.launch 1 0 2018-11-30 21:47:20.969
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x20120b0 --id=0x0 --timestamp=1543541832]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2018-11-30 21:47:23.577
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x20120b0 --id=0x0 --timestamp=1543541832 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2018-11-30 21:52:59.132
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x20120b0 --id=0x0 --timestamp=1543541832]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2018-11-30 21:53:01.607
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x20120b0 --id=0x0 --timestamp=1543541832 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2018-11-30 21:55:04.876
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x20120b0 --id=0x0 --timestamp=1543541832]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2018-11-30 21:55:07.398
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x20120b0 --id=0x0 --timestamp=1543541832 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2018-11-30 21:55:46.907
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2018-11-30 21:55:47.725
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x20120b0 --id=0x0 --timestamp=1543541832]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2018-11-30 21:55:50.208
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x20120b0 --id=0x0 --timestamp=1543541832 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2018-11-30 21:59:54.110
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x20120b0 --id=0x0 --timestamp=1543541832]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2018-11-30 21:59:56.554
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x20120b0 --id=0x0 --timestamp=1543541832 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+!SESSION 2018-11-30 22:00:09.570 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY com.altera.sbtgui.launch 1 0 2018-11-30 22:00:32.891
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x20120b0 --id=0x0 --timestamp=1543541832]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2018-11-30 22:00:35.378
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x20120b0 --id=0x0 --timestamp=1543541832 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-11-30 22:01:55.893
+!MESSAGE Indexed 'nios_proj_bsp' (83 sources, 66 headers) in 1.51 sec: 1,401 declarations; 3,382 references; 114 unresolved inclusions; 6 syntax errors; 198 unresolved names (4%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-11-30 22:01:57.660
+!MESSAGE Indexed 'nios_proj' (1 sources, 0 headers) in 0.004 sec: 1 declarations; 1 references; 1 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-11-30 22:02:28.128
+!MESSAGE Indexed 'nios_proj' (1 sources, 21 headers) in 0.094 sec: 983 declarations; 1,599 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)

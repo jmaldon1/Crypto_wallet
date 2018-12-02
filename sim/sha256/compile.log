@@ -1,0 +1,26 @@
+Start time: 22:25:08 on Nov 30,2018
+vcom -f ..\sha256.f -2008 -l compile.log -lint -nologo 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package sha256_types
+-- Loading package sha256_types
+-- Compiling package sha256_constants
+-- Loading package NUMERIC_STD
+-- Loading package sha256_constants
+-- Compiling package sha256_functions
+-- Compiling package body sha256_functions
+-- Loading package sha256_functions
+-- Loading package sha256_functions
+-- Compiling entity sha256
+-- Compiling architecture behaviour of sha256
+-- Compiling entity tb_sha256
+-- Compiling architecture Behavorial of tb_sha256
+-- Loading entity sha256
+** Error: ..\..\test\tb_sha256.vhd(69): (vcom-1035) Formal port "enable" has OPEN or no actual associated with it.
+** Error: (vcom-11) Could not find work.testrom.
+** Error (suppressible): ..\..\test\tb_sha256.vhd(72): (vcom-1195) Cannot find expanded name "work.testrom".
+** Error: ..\..\test\tb_sha256.vhd(72): Unknown expanded name.
+** Error: ..\..\test\tb_sha256.vhd(152): VHDL Compiler exiting
+End time: 22:25:08 on Nov 30,2018, Elapsed time: 0:00:00
+Errors: 5, Warnings: 0

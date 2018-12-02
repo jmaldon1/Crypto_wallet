@@ -1,0 +1,11 @@
+Start time: 14:48:40 on Dec 02,2018
+vcom -f ..\random_gen.f -2008 -l compile.log -lint -nologo 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_random_gen
+-- Compiling architecture behavorial of tb_random_gen
+-- Compiling entity random_gen
+-- Compiling architecture rtl of random_gen
+End time: 14:48:40 on Dec 02,2018, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

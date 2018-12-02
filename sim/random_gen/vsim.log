@@ -1,0 +1,19 @@
+# Reading C:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# vsim tb_random_gen -gui -do "log -r /*; vcd file vsim.vcd; ; run -a; " -l vsim.log 
+# Start time: 14:48:45 on Dec 02,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_random_gen(behavorial)
+# Loading work.random_gen(rtl)
+# OpenFile ../random_gen_wave.do
+# log -r /*
+#  vcd file vsim.vcd
+#  
+#  run -a
+add wave -position end  sim:/tb_random_gen/slv_random
+add wave -position end  sim:/tb_random_gen/sl_reset_n
+add wave -position end  sim:/tb_random_gen/sl_clk
+#  
+# End time: 14:50:02 on Dec 02,2018, Elapsed time: 0:01:17
+# Errors: 0, Warnings: 0
