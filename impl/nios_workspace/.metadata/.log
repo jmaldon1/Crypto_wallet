@@ -2238,3 +2238,16 @@ Caused by: java.lang.NullPointerException
 
 !ENTRY com.altera.sbtgui.launch 1 0 2018-11-28 07:45:25.816
 !MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x200a038 --id=0x0 --timestamp=1543376831 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+!SESSION 2018-12-02 13:29:47.538 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY com.altera.sbtgui.launch 1 0 2018-12-02 13:30:42.414
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x200a038 --id=0x0 --timestamp=1543376831]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2018-12-02 13:30:45.535
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x200a038 --id=0x0 --timestamp=1543376831 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
