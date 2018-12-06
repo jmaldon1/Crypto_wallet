@@ -26,19 +26,11 @@ int main()
 	printf("Hello World from NIOS II\n");
 	printf("Software Version: %d.%d.%d\n\n", SOFTWARE_VERSION_MAJOR, SOFTWARE_VERSION_MINOR, SOFTWARE_VERSION_REV);
 
-//	int delay = 0;
-//	while(delay < 2000000)
-//	{
-//		delay++;
-//	}
-	uint32_t rand_val = random32();
-	printf("Random value: 0x%08lx\n", rand_val);
-
 //	uint8_t seed[64];
-
+//
 //    const char *mnemonic_phrase = mnemonic_generate(128);
 //    printf("MNEMONIC PHRASE: %s", mnemonic_phrase);
-
+//
 //    mnemonic_to_seed(mnemonic_phrase, "TEST", seed, 0);
 //
 //	printf("Seed: ");
@@ -46,6 +38,22 @@ int main()
 //		printf("%x", seed[i]);
 //	}
 //	printf("\n");
-	while(1){}
-	return 0;
+
+
+    int count = 0;
+    int delay;
+    alt_u32 rand_val;
+
+    while(1) {
+    	rand_val = random32();
+    	printf("Random value: 0x%08lx\n", rand_val);
+        IOWR_ALTERA_AVALON_PIO_DATA(PO_LED_BASE, count & 0x01);
+
+        delay = 0;
+        while(delay < 200000)
+            delay++;
+        count++;
+    }
+
+  return 0;
 }

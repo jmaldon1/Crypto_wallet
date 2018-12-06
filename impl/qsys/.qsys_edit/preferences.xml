@@ -5,11 +5,8 @@
   <columns>
    <connections preferredWidth="143" />
    <irq preferredWidth="34" />
-   <inputclock preferredWidth="127" />
   </columns>
  </systemtable>
- <library
-   expandedCategories="Library/Interface Protocols,Library/Interface Protocols/PCI Express/QSYS Example Designs,Library,Library/Processors and Peripherals/Peripherals,Library/Processors and Peripherals,Project,Library/Interface Protocols/PCI Express" />
- <window width="1938" height="1048" x="-9" y="-9" />
- <generation synthesis="VHDL" simulation="VHDL" path="_PROJECT_NAME_" />
+ <library expandedCategories="Library,Project" />
+ <window width="1100" height="800" x="0" y="0" />
 </preferences>

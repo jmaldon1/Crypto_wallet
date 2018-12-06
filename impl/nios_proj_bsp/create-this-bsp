@@ -5,7 +5,7 @@
 BSP_TYPE=hal
 BSP_DIR=.
 SOPC_DIR=C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/
-SOPC_FILE=C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet.sopcinfo
+SOPC_FILE=C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/nios_wallet.sopcinfo
 NIOS2_BSP_ARGS=""
 CPU_NAME=
 

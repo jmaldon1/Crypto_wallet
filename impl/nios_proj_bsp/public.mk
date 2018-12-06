@@ -86,7 +86,7 @@ ACDS_VERSION := 18.1
 
 # Qsys--generated SOPCINFO file. Required for resolving node instance ID's with 
 # design component names. 
-SOPCINFO_FILE := C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet.sopcinfo
+SOPCINFO_FILE := C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/nios_wallet.sopcinfo
 
 # Big-Endian operation. 
 # setting BIG_ENDIAN is false
@@ -118,12 +118,12 @@ CPU_NAME = cpu
 ELF_PATCH_FLAG  += --cpu_name $(CPU_NAME)
 
 # Hardware Divider present. 
-# setting HARDWARE_DIVIDE is false
-ALT_CFLAGS += -mno-hw-div
+# setting HARDWARE_DIVIDE is true
+ALT_CFLAGS += -mhw-div
 
 # Hardware Multiplier present. 
-# setting HARDWARE_MULTIPLY is false
-ALT_CFLAGS += -mno-hw-mul
+# setting HARDWARE_MULTIPLY is true
+ALT_CFLAGS += -mhw-mul
 
 # Hardware Mulx present. 
 # setting HARDWARE_MULX is false
@@ -139,8 +139,8 @@ QSYS := 1
 ELF_PATCH_FLAG += --qsys true
 
 # Design Name 
-# setting SOPC_NAME is crypto_wallet
-SOPC_NAME := crypto_wallet
+# setting SOPC_NAME is nios_wallet
+SOPC_NAME := nios_wallet
 
 # SopcBuilder Simulation Enabled 
 # setting SOPC_SIMULATION_ENABLED is false
@@ -152,14 +152,14 @@ SOPC_SYSID_FLAG += --id=0
 ELF_PATCH_FLAG  += --id 0
 
 # The SOPC System ID Base Address 
-# setting SOPC_SYSID_BASE_ADDRESS is 0x20120c0
-SOPC_SYSID_FLAG += --sidp=0x20120c0
-ELF_PATCH_FLAG  += --sidp 0x20120c0
+# setting SOPC_SYSID_BASE_ADDRESS is 0x4011010
+SOPC_SYSID_FLAG += --sidp=0x4011010
+ELF_PATCH_FLAG  += --sidp 0x4011010
 
 # The SOPC Timestamp 
-# setting SOPC_TIMESTAMP is 1543783302
-SOPC_SYSID_FLAG += --timestamp=1543783302
-ELF_PATCH_FLAG  += --timestamp 1543783302
+# setting SOPC_TIMESTAMP is 1544056564
+SOPC_SYSID_FLAG += --timestamp=1544056564
+ELF_PATCH_FLAG  += --timestamp 1544056564
 
 # Enable JTAG UART driver to recover when host is inactive causing buffer to 
 # full without returning error. Printf will not fail with this recovery. none 

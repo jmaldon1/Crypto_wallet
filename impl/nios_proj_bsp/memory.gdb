@@ -1,9 +1,9 @@
 # memory.gdb - GDB memory region definitions
 #
-# Machine generated for CPU 'cpu' in SOPC Builder design 'crypto_wallet'
-# SOPC Builder design path: C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet.sopcinfo
+# Machine generated for CPU 'cpu' in SOPC Builder design 'nios_wallet'
+# SOPC Builder design path: C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/nios_wallet.sopcinfo
 #
-# Generated: Sun Dec 02 15:34:16 EST 2018
+# Generated: Wed Dec 05 19:29:06 EST 2018
 
 # DO NOT MODIFY THIS FILE
 #
@@ -47,10 +47,7 @@
 # by allowing GDB to cache memory contents on the host.
 
 # sdram
-memory 0x0 0x2000000 cache
+memory 0x2000000 0x4000000 cache
 
 # onchip_memory2
-memory 0x2008000 0x200fd00 cache
-
-# epcs_flash_controller
-memory 0x2011000 0x2011800 cache
+memory 0x4008000 0x400e590 cache

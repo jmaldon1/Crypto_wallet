@@ -1,10 +1,10 @@
 /*
  * alt_sys_init.c - HAL initialization source
  *
- * Machine generated for CPU 'cpu' in SOPC Builder design 'crypto_wallet'
- * SOPC Builder design path: C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet.sopcinfo
+ * Machine generated for CPU 'cpu' in SOPC Builder design 'nios_wallet'
+ * SOPC Builder design path: C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/nios_wallet.sopcinfo
  *
- * Generated: Sun Dec 02 15:34:16 EST 2018
+ * Generated: Wed Dec 05 19:29:06 EST 2018
  */
 
 /*
@@ -59,7 +59,6 @@
  */
 
 #include "altera_nios2_gen2_irq.h"
-#include "altera_avalon_epcs_flash_controller.h"
 #include "altera_avalon_jtag_uart.h"
 #include "altera_avalon_sysid_qsys.h"
 
@@ -68,7 +67,6 @@
  */
 
 ALTERA_NIOS2_GEN2_IRQ_INSTANCE ( CPU, cpu);
-ALTERA_AVALON_EPCS_FLASH_CONTROLLER_INSTANCE ( EPCS_FLASH_CONTROLLER, epcs_flash_controller);
 ALTERA_AVALON_JTAG_UART_INSTANCE ( JTAG_UART, jtag_uart);
 ALTERA_AVALON_SYSID_QSYS_INSTANCE ( SYSID, sysid);
 
@@ -93,7 +91,6 @@ void alt_irq_init ( const void* base )
 
 void alt_sys_init( void )
 {
-    ALTERA_AVALON_EPCS_FLASH_CONTROLLER_INIT ( EPCS_FLASH_CONTROLLER, epcs_flash_controller);
     ALTERA_AVALON_JTAG_UART_INIT ( JTAG_UART, jtag_uart);
     ALTERA_AVALON_SYSID_QSYS_INIT ( SYSID, sysid);
 }

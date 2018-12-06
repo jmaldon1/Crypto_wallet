@@ -8,66 +8,27 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/Class2018/Documents/Projects/Crypto_wallet/sim/random_gen
-Erandom_gen
-Z1 w1543780112
+Etb_random_gen
+Z1 w1543780048
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z4 8..\..\firmware\random_gen.vhd
-Z5 F..\..\firmware\random_gen.vhd
+Z4 8..\..\test\tb_random_gen.vhd
+Z5 F..\..\test\tb_random_gen.vhd
 l0
-L14
-VE3z?VLEG]6C[08C<NheEC1
-!s100 k=j_?[<UFS8[D2K6]K2g02
+L15
+Vb@ge:Uz=Q=DBI4nAgB3i@1
+!s100 D2fFjVUUJ2hW[o:LZHR7X0
 Z6 OV;C;10.5b;63
 33
-Z7 !s110 1543780120
+Z7 !s110 1543885368
 !i10b 1
-Z8 !s108 1543780120.000000
+Z8 !s108 1543885367.000000
 Z9 !s90 -f|..\random_gen.f|-2008|-l|compile.log|-lint|-nologo|
 Z10 !s107 ..\..\firmware\random_gen.vhd|..\..\test\tb_random_gen.vhd|
 !i113 1
 Z11 o-nologo -2008 -lint
 Z12 tExplicit 1 CvgOpt 0
-Artl
-R2
-R3
-DEx4 work 10 random_gen 0 22 E3z?VLEG]6C[08C<NheEC1
-l45
-L26
-VZf3OP4hP:4<8QeUkFBl3S2
-!s100 5e;]OSBoJZc50NRoYYZ?U0
-R6
-33
-R7
-!i10b 1
-R8
-R9
-R10
-!i113 1
-R11
-R12
-Etb_random_gen
-Z13 w1543780048
-R2
-R3
-R0
-Z14 8..\..\test\tb_random_gen.vhd
-Z15 F..\..\test\tb_random_gen.vhd
-l0
-L15
-Vb@ge:Uz=Q=DBI4nAgB3i@1
-!s100 D2fFjVUUJ2hW[o:LZHR7X0
-R6
-33
-R7
-!i10b 1
-R8
-R9
-R10
-!i113 1
-R11
-R12
 Abehavorial
 R2
 R3

@@ -26,7 +26,6 @@
 #ifndef RAND_PLATFORM_INDEPENDENT
 
 
-#pragma message("NOT SUITABLE FOR PRODUCTION USE!")
 
 // The following code is not supposed to be used in a production environment.
 // It's included only to make the library testable.
@@ -41,17 +40,14 @@
 #include "system.h"
 #include "altera_avalon_pio_regs.h"
 
-uint32_t random32(void)
+alt_u32 random32(void)
 {
-//	uint32_t random_val = IORD_ALTERA_AVALON_PIO_DATA(PI_RANDOM_BASE);
-//	return random_val;
-
 	static int initialized = 0;
 	if (!initialized) {
 		srand((unsigned)time(NULL));
 		initialized = 1;
 	}
-	return ((rand() & 0xFF) | ((rand() & 0xFF) << 8) | ((rand() & 0xFF) << 16) | ((uint32_t) (rand() & 0xFF) << 24));
+	return ((rand() & 0xFF) | ((rand() & 0xFF) << 8) | ((rand() & 0xFF) << 16) | ((alt_u32) (rand() & 0xFF) << 24));
 }
 
 #endif /* RAND_PLATFORM_INDEPENDENT */
@@ -62,9 +58,9 @@ uint32_t random32(void)
 
 //With __attribute__((weak)) I can declare a function which will be overridden by a 
 // function with the same name, but without __attribute__((weak)) parameter.
-void __attribute__((weak)) random_buffer(uint8_t *buf, size_t len)
+void __attribute__((weak)) random_buffer(alt_u8 *buf, size_t len)
 {
-	uint32_t r = 0;
+	alt_u32 r = 0;
 	for (size_t i = 0; i < len; i++) {
 		if (i % 4 == 0) {
 			r = random32();

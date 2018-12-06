@@ -1,10 +1,10 @@
 /*
  * linker.x - Linker script
  *
- * Machine generated for CPU 'cpu' in SOPC Builder design 'crypto_wallet'
- * SOPC Builder design path: C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet.sopcinfo
+ * Machine generated for CPU 'cpu' in SOPC Builder design 'nios_wallet'
+ * SOPC Builder design path: C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/nios_wallet.sopcinfo
  *
- * Generated: Sun Dec 02 15:34:16 EST 2018
+ * Generated: Wed Dec 05 19:29:06 EST 2018
  */
 
 /*
@@ -50,16 +50,14 @@
 
 MEMORY
 {
-    sdram : ORIGIN = 0x0, LENGTH = 33554432
-    reset : ORIGIN = 0x2008000, LENGTH = 32
-    onchip_memory2 : ORIGIN = 0x2008020, LENGTH = 31968
-    epcs_flash_controller : ORIGIN = 0x2011000, LENGTH = 2048
+    reset : ORIGIN = 0x2000000, LENGTH = 32
+    sdram : ORIGIN = 0x2000020, LENGTH = 33554400
+    onchip_memory2 : ORIGIN = 0x4008000, LENGTH = 26000
 }
 
 /* Define symbols for each memory base-address */
-__alt_mem_sdram = 0x0;
-__alt_mem_onchip_memory2 = 0x2008000;
-__alt_mem_epcs_flash_controller = 0x2011000;
+__alt_mem_sdram = 0x2000000;
+__alt_mem_onchip_memory2 = 0x4008000;
 
 OUTPUT_FORMAT( "elf32-littlenios2",
                "elf32-littlenios2",
@@ -115,7 +113,7 @@ SECTIONS
         KEEP (*(.exceptions.exit));
         KEEP (*(.exceptions));
         PROVIDE (__ram_exceptions_end = ABSOLUTE(.));
-    } > onchip_memory2
+    } > sdram
 
     PROVIDE (__flash_exceptions_start = LOADADDR(.exceptions));
 
@@ -211,16 +209,9 @@ SECTIONS
         PROVIDE (__DTOR_END__ = ABSOLUTE(.));
         KEEP (*(.jcr))
         . = ALIGN(4);
-    } > onchip_memory2 = 0x3a880100 /* NOP instruction (always in big-endian byte ordering) */
+    } > sdram = 0x3a880100 /* NOP instruction (always in big-endian byte ordering) */
 
-    /*
-     *
-     * This section's LMA is set to the .text region.
-     * crt0 will copy to this section's specified mapped region virtual memory address (VMA)
-     *
-     */
-
-    .rodata : AT ( LOADADDR (.text) + SIZEOF (.text) )
+    .rodata :
     {
         PROVIDE (__ram_rodata_start = ABSOLUTE(.));
         . = ALIGN(4);
@@ -237,9 +228,13 @@ SECTIONS
      * This section's LMA is set to the .text region.
      * crt0 will copy to this section's specified mapped region virtual memory address (VMA)
      *
+     * .rwdata region equals the .text region, and is set to be loaded into .text region.
+     * This requires two copies of .rwdata in the .text region. One read writable at VMA.
+     * and one read-only at LMA. crt0 will copy from LMA to VMA on reset
+     *
      */
 
-    .rwdata : AT ( LOADADDR (.rodata) + SIZEOF (.rodata) )
+    .rwdata LOADADDR (.rodata) + SIZEOF (.rodata) : AT ( LOADADDR (.rodata) + SIZEOF (.rodata)+ SIZEOF (.rwdata) )
     {
         PROVIDE (__ram_rwdata_start = ABSOLUTE(.));
         . = ALIGN(4);
@@ -262,7 +257,14 @@ SECTIONS
 
     PROVIDE (__flash_rwdata_start = LOADADDR(.rwdata));
 
-    .bss :
+    /*
+     *
+     * This section's LMA is set to the .text region.
+     * crt0 will copy to this section's specified mapped region virtual memory address (VMA)
+     *
+     */
+
+    .bss LOADADDR (.rwdata) + SIZEOF (.rwdata) : AT ( LOADADDR (.rwdata) + SIZEOF (.rwdata) )
     {
         __bss_start = ABSOLUTE(.);
         PROVIDE (__sbss_start = ABSOLUTE(.));
@@ -307,7 +309,7 @@ SECTIONS
      *
      */
 
-    .sdram : AT ( LOADADDR (.rwdata) + SIZEOF (.rwdata) )
+    .sdram LOADADDR (.bss) + SIZEOF (.bss) : AT ( LOADADDR (.bss) + SIZEOF (.bss) )
     {
         PROVIDE (_alt_partition_sdram_start = ABSOLUTE(.));
         *(.sdram .sdram. sdram.*)
@@ -327,7 +329,7 @@ SECTIONS
      *
      */
 
-    .onchip_memory2 LOADADDR (.sdram) + SIZEOF (.sdram) : AT ( LOADADDR (.sdram) + SIZEOF (.sdram) )
+    .onchip_memory2 : AT ( LOADADDR (.sdram) + SIZEOF (.sdram) )
     {
         PROVIDE (_alt_partition_onchip_memory2_start = ABSOLUTE(.));
         *(.onchip_memory2 .onchip_memory2. onchip_memory2.*)
@@ -336,23 +338,6 @@ SECTIONS
     } > onchip_memory2
 
     PROVIDE (_alt_partition_onchip_memory2_load_addr = LOADADDR(.onchip_memory2));
-
-    /*
-     *
-     * This section's LMA is set to the .text region.
-     * crt0 will copy to this section's specified mapped region virtual memory address (VMA)
-     *
-     */
-
-    .epcs_flash_controller : AT ( LOADADDR (.onchip_memory2) + SIZEOF (.onchip_memory2) )
-    {
-        PROVIDE (_alt_partition_epcs_flash_controller_start = ABSOLUTE(.));
-        *(.epcs_flash_controller .epcs_flash_controller. epcs_flash_controller.*)
-        . = ALIGN(4);
-        PROVIDE (_alt_partition_epcs_flash_controller_end = ABSOLUTE(.));
-    } > epcs_flash_controller
-
-    PROVIDE (_alt_partition_epcs_flash_controller_load_addr = LOADADDR(.epcs_flash_controller));
 
     /*
      * Stabs debugging sections.
@@ -401,7 +386,7 @@ SECTIONS
 /*
  * Don't override this, override the __alt_stack_* symbols instead.
  */
-__alt_data_end = 0x2000000;
+__alt_data_end = 0x4000000;
 
 /*
  * The next two symbols define the location of the default stack.  You can
@@ -417,4 +402,4 @@ PROVIDE( __alt_stack_limit   = __alt_stack_base );
  * Override this symbol to put the heap in a different memory.
  */
 PROVIDE( __alt_heap_start    = end );
-PROVIDE( __alt_heap_limit    = 0x2000000 );
+PROVIDE( __alt_heap_limit    = 0x4000000 );

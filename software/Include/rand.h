@@ -1,10 +1,11 @@
 #ifndef __RAND_H__
 #define __RAND_H__
 
-#include <stdint.h>
 #include <stdlib.h>
+#include "alt_types.h"
 
-uint32_t random32(void);
-void random_buffer(uint8_t *buf, size_t len);
+alt_u32 random32(void);
+
+void random_buffer(alt_u8 *buf, size_t len);
 
 #endif

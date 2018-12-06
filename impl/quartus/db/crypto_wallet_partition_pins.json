@@ -36,547 +36,155 @@
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_ADDR[0]",
+					"name" : "SDRAM_ADDR[0]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_ADDR[1]",
+					"name" : "SDRAM_ADDR[1]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_ADDR[2]",
+					"name" : "SDRAM_ADDR[2]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_ADDR[3]",
+					"name" : "SDRAM_ADDR[3]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_ADDR[4]",
+					"name" : "SDRAM_ADDR[4]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_ADDR[5]",
+					"name" : "SDRAM_ADDR[5]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_ADDR[6]",
+					"name" : "SDRAM_ADDR[6]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_ADDR[7]",
+					"name" : "SDRAM_ADDR[7]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_ADDR[8]",
+					"name" : "SDRAM_ADDR[8]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_ADDR[9]",
+					"name" : "SDRAM_ADDR[9]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_ADDR[10]",
+					"name" : "SDRAM_ADDR[10]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_ADDR[11]",
+					"name" : "SDRAM_ADDR[11]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_ADDR[12]",
+					"name" : "SDRAM_ADDR[12]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_BA[0]",
+					"name" : "SDRAM_BA[0]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_BA[1]",
+					"name" : "SDRAM_BA[1]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_CAS_N",
+					"name" : "SDRAM_CAS_N",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_CS_N",
+					"name" : "SDRAM_CS_N",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQM[0]",
+					"name" : "SDRAM_DQM[0]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQM[1]",
+					"name" : "SDRAM_DQM[1]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_RAS_N",
+					"name" : "SDRAM_RAS_N",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_WE_N",
+					"name" : "SDRAM_WE_N",
 					"strict" : false
 				},
 				{
-					"name" : "EPCS_ASDO",
+					"name" : "SDRAM_DQ[0]",
 					"strict" : false
 				},
 				{
-					"name" : "EPCS_DCLK",
+					"name" : "SDRAM_DQ[1]",
 					"strict" : false
 				},
 				{
-					"name" : "EPCS_NCSO",
+					"name" : "SDRAM_DQ[2]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[0]",
+					"name" : "SDRAM_DQ[3]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[1]",
+					"name" : "SDRAM_DQ[4]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[2]",
+					"name" : "SDRAM_DQ[5]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[3]",
+					"name" : "SDRAM_DQ[6]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[4]",
+					"name" : "SDRAM_DQ[7]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[5]",
+					"name" : "SDRAM_DQ[8]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[6]",
+					"name" : "SDRAM_DQ[9]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[7]",
+					"name" : "SDRAM_DQ[10]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[8]",
+					"name" : "SDRAM_DQ[11]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[9]",
+					"name" : "SDRAM_DQ[12]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[10]",
+					"name" : "SDRAM_DQ[13]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[11]",
+					"name" : "SDRAM_DQ[14]",
 					"strict" : false
 				},
 				{
-					"name" : "DRAM_DQ[12]",
-					"strict" : false
-				},
-				{
-					"name" : "DRAM_DQ[13]",
-					"strict" : false
-				},
-				{
-					"name" : "DRAM_DQ[14]",
-					"strict" : false
-				},
-				{
-					"name" : "DRAM_DQ[15]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2[0]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2[1]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2[2]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2[3]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2[4]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2[5]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2[6]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2[7]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2[8]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2[9]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2[10]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2[11]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2[12]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[0]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[1]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[2]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[3]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[4]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[5]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[6]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[7]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[8]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[9]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[10]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[11]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[12]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[13]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[14]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[15]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[16]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[17]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[18]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[19]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[20]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[21]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[22]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[23]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[24]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[25]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[26]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[27]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[28]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[29]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[30]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[31]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[32]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0[33]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[0]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[1]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[2]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[3]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[4]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[5]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[6]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[7]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[8]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[9]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[10]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[11]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[12]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[13]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[14]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[15]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[16]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[17]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[18]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[19]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[20]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[21]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[22]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[23]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[24]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[25]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[26]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[27]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[28]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[29]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[30]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[31]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[32]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1[33]",
+					"name" : "SDRAM_DQ[15]",
 					"strict" : false
 				},
 				{
 					"name" : "CLOCK_50",
-					"strict" : false
-				},
-				{
-					"name" : "SW[0]",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[0]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0_IN[0]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1_IN[0]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2_IN[0]",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[1]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio1_IN[1]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[1]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2_IN[1]",
-					"strict" : false
-				},
-				{
-					"name" : "gpio0_IN[1]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[2]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO2_IN[2]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[3]",
-					"strict" : false
-				},
-				{
-					"name" : "EPCS_DATA0",
 					"strict" : false
 				},
 				{

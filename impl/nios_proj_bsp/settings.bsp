@@ -2,11 +2,11 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Dec 2, 2018 4:12:31 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1543785151862</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Dec 5, 2018 7:40:15 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1544056815444</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\nios_proj_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
-        <SopcDesignFile>C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\qsys\crypto_wallet.sopcinfo</SopcDesignFile>
+        <SopcDesignFile>C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\qsys\nios_wallet.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>cpu</Cpu>
         <SchemaVersion>1.9</SchemaVersion>
@@ -86,7 +86,7 @@
                 <SettingName>hal.linker.enable_alt_load_copy_rodata</SettingName>
                 <Identifier>none</Identifier>
                 <Type>Boolean</Type>
-                <Value>1</Value>
+                <Value>0</Value>
                 <DefaultValue>0</DefaultValue>
                 <DestinationFile>none</DestinationFile>
                 <Description>Causes the alt_load() facility to copy the .rodata section. If true, this setting defines the macro ALT_LOAD_COPY_RODATA in linker.h.</Description>
@@ -146,7 +146,7 @@
                 <SettingName>hal.linker.exception_stack_memory_region_name</SettingName>
                 <Identifier>none</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>onchip_memory2</Value>
+                <Value>sdram</Value>
                 <DefaultValue>none</DefaultValue>
                 <DestinationFile>none</DestinationFile>
                 <Description>Name of the existing memory region that will be divided up to create the 'exception_stack' memory region. The selected region name will be adjusted automatically when the BSP is generated to create the 'exception_stack' memory region.</Description>
@@ -182,7 +182,7 @@
                 <SettingName>hal.linker.interrupt_stack_memory_region_name</SettingName>
                 <Identifier>none</Identifier>
                 <Type>UnquotedString</Type>
-                <Value>onchip_memory2</Value>
+                <Value>sdram</Value>
                 <DefaultValue>none</DefaultValue>
                 <DestinationFile>none</DestinationFile>
                 <Description>Name of the existing memory region that will be divided up to create the 'interrupt_stack' memory region. The selected region name will be adjusted automatically when the BSP is generated to create the 'interrupt_stack' memory region.</Description>
@@ -900,109 +900,37 @@
         </Setting>
         <MemoryMap>
                 <slaveDescriptor>sdram</slaveDescriptor>
-                <addressRange>0x00000000 - 0x01FFFFFF</addressRange>
+                <addressRange>0x02000000 - 0x03FFFFFF</addressRange>
                 <addressSpan>33554432</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>onchip_memory2</slaveDescriptor>
-                <addressRange>0x02008000 - 0x0200FCFF</addressRange>
-                <addressSpan>32000</addressSpan>
+                <addressRange>0x04008000 - 0x0400E58F</addressRange>
+                <addressSpan>26000</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>epcs_flash_controller</slaveDescriptor>
-                <addressRange>0x02011000 - 0x020117FF</addressRange>
-                <addressSpan>2048</addressSpan>
-                <attributes>flash, memory, non-volatile</attributes>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>pi_random</slaveDescriptor>
-                <addressRange>0x02012000 - 0x0201200F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>pio_gpio1_33to32</slaveDescriptor>
-                <addressRange>0x02012010 - 0x0201201F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>pio_gpio0_33to32</slaveDescriptor>
-                <addressRange>0x02012020 - 0x0201202F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>pio_gpio1_31to0</slaveDescriptor>
-                <addressRange>0x02012030 - 0x0201203F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>pio_gpio0_31to0</slaveDescriptor>
-                <addressRange>0x02012040 - 0x0201204F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>pio_gpio2</slaveDescriptor>
-                <addressRange>0x02012050 - 0x0201205F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>pi_gpio2</slaveDescriptor>
-                <addressRange>0x02012060 - 0x0201206F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>pi_gpio0</slaveDescriptor>
-                <addressRange>0x02012070 - 0x0201207F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>pi_gpio1</slaveDescriptor>
-                <addressRange>0x02012080 - 0x0201208F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>pi_sw</slaveDescriptor>
-                <addressRange>0x02012090 - 0x0201209F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>pi_key</slaveDescriptor>
-                <addressRange>0x020120A0 - 0x020120AF</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
                 <slaveDescriptor>po_led</slaveDescriptor>
-                <addressRange>0x020120B0 - 0x020120BF</addressRange>
+                <addressRange>0x04011000 - 0x0401100F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sysid</slaveDescriptor>
-                <addressRange>0x020120C0 - 0x020120C7</addressRange>
+                <addressRange>0x04011010 - 0x04011017</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart</slaveDescriptor>
-                <addressRange>0x020120C8 - 0x020120CF</addressRange>
+                <addressRange>0x04011018 - 0x0401101F</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
         <LinkerSection>
                 <sectionName>.text</sectionName>
-                <regionName>onchip_memory2</regionName>
+                <regionName>sdram</regionName>
         </LinkerSection>
         <LinkerSection>
                 <sectionName>.rodata</sectionName>
