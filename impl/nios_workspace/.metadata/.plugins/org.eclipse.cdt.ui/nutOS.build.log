@@ -1,0 +1,6 @@
+18:25:43 **** Clean-only build of configuration Nios II for project nutOS ****
+make clean 
+[nutOS clean complete]
+
+18:25:43 Build Finished (took 462ms)
+

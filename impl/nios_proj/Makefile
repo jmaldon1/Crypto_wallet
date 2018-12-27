@@ -148,8 +148,12 @@ C_SRCS += ../../software/Source/hmac.c
 C_SRCS += ../../software/Source/memzero.c
 C_SRCS += ../../software/Source/pbkdf2.c
 C_SRCS += ../../software/Source/rand.c
-C_SRCS += ../../software/Source/sha2.c
+C_SRCS += ../../software/Source/sha2mnemonic.c
 C_SRCS += ../../software/Source/wallet_system.c
+C_SRCS += ../../software/Source/chainparams.c
+C_SRCS += ../../software/Source/commontools.c
+C_SRCS += ../../software/Source/bip32.c
+C_SRCS += ../../software/Source/sha2.c
 CXX_SRCS :=
 ASM_SRCS :=
 

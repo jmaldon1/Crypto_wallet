@@ -1,0 +1,56 @@
+18:37:51 **** Incremental Build of configuration Nios II for project nutos_v4103 ****
+make all 
+Info: Building ../../impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling nut/arch/nios2/board/altera_de0_nano.c to obj/default/nut/arch/nios2/board/altera_de0_nano.o
+nios2-elf-gcc -xc -MP -MMD -c -Inut/cfg_include -Inut/include -I../../impl/nios_proj_bsp//HAL/inc -I../../impl/nios_proj_bsp/ -I../../impl/nios_proj_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DSMALL_C_LIB -DALT_SINGLE_THREADED  -DALTERA_DE0_NANO  -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/nut/arch/nios2/board/altera_de0_nano.o nut/arch/nios2/board/altera_de0_nano.c
+In file included from nut/include/arch/nios2.h:38:0,
+                 from nut/include/compiler.h:85,
+                 from nut/include/sys/types.h:163,
+                 from nut/include/stdio.h:81,
+                 from nut/arch/nios2/board/altera_de0_nano.c:40:
+nut/arch/nios2/board/altera_de0_nano.c: In function 'NutBoardInit':
+nut/include/arch/nios2/board/altera_de0_nano.h:82:32: error: 'DM9000E_BASE' undeclared (first use in this function)
+ #define NIC_RESET_PORT        (DM9000E_BASE+8)
+                                ^
+nut/include/arch/nios2/nios_io.h:52:23: note: in definition of macro '__IO_CALC_ADDRESS_DYNAMIC'
+   ((void *)(((alt_u8*)BASE) + (OFFSET)))
+                       ^
+nut/include/arch/nios2.h:75:28: note: in expansion of macro 'IOWR_16DIRECT'
+ #define outw(_reg, _val)   IOWR_16DIRECT(_reg, 0, _val)
+                            ^
+nut/arch/nios2/board/altera_de0_nano.c:79:4: note: in expansion of macro 'outw'
+    outw(NIC_RESET_PORT, ~NIC_RESET_PORT_BIT);    
+    ^
+nut/arch/nios2/board/altera_de0_nano.c:79:9: note: in expansion of macro 'NIC_RESET_PORT'
+    outw(NIC_RESET_PORT, ~NIC_RESET_PORT_BIT);    
+         ^
+nut/include/arch/nios2/board/altera_de0_nano.h:82:32: note: each undeclared identifier is reported only once for each function it appears in
+ #define NIC_RESET_PORT        (DM9000E_BASE+8)
+                                ^
+nut/include/arch/nios2/nios_io.h:52:23: note: in definition of macro '__IO_CALC_ADDRESS_DYNAMIC'
+   ((void *)(((alt_u8*)BASE) + (OFFSET)))
+                       ^
+nut/include/arch/nios2.h:75:28: note: in expansion of macro 'IOWR_16DIRECT'
+ #define outw(_reg, _val)   IOWR_16DIRECT(_reg, 0, _val)
+                            ^
+nut/arch/nios2/board/altera_de0_nano.c:79:4: note: in expansion of macro 'outw'
+    outw(NIC_RESET_PORT, ~NIC_RESET_PORT_BIT);    
+    ^
+nut/arch/nios2/board/altera_de0_nano.c:79:9: note: in expansion of macro 'NIC_RESET_PORT'
+    outw(NIC_RESET_PORT, ~NIC_RESET_PORT_BIT);    
+         ^
+nut/arch/nios2/board/altera_de0_nano.c:91:26: error: 'UART_0_IRQ' undeclared (first use in this function)
+    alt_ic_irq_disable(0, UART_0_IRQ);
+                          ^
+nut/arch/nios2/board/altera_de0_nano.c:92:4: warning: implicit declaration of function 'IOWR_ALTERA_AVALON_UART_CONTROL' [-Wimplicit-function-declaration]
+    IOWR_ALTERA_AVALON_UART_CONTROL(UART_0_BASE, 0);
+    ^
+nut/arch/nios2/board/altera_de0_nano.c:92:36: error: 'UART_0_BASE' undeclared (first use in this function)
+    IOWR_ALTERA_AVALON_UART_CONTROL(UART_0_BASE, 0);
+                                    ^
+make: *** [obj/default/nut/arch/nios2/board/altera_de0_nano.o] Error 1
+
+18:37:52 Build Finished (took 1s.308ms)
+

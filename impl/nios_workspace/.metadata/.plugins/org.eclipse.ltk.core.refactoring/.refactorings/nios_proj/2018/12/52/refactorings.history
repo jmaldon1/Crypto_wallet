@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;nios_proj/Source/sha2.c&apos; to &apos;sha2mnemonic.c&apos;" description="Rename resource &apos;sha2.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Source/sha2.c" name="sha2mnemonic.c" stamp="1545891570886" updateReferences="true"/>
+</session>

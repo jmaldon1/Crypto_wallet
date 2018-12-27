@@ -9,4 +9,7 @@
 		<item value="183" key="DIALOG_Y_ORIGIN"/>
 		<item value="true" key="BUILD_NOW"/>
 	</section>
+	<section name="org.eclipse.ui.internal.ide.dialogs.ProjectContentsLocationArea">
+		<item value="C:\Users\Class2018\Documents\Projects\Crypto_wallet\software\libbtc-with-mnemonic-phrases" key="OUTSIDE_LOCATION"/>
+	</section>
 </section>

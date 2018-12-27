@@ -10,7 +10,12 @@
 
 #include "..\Include\wallet_main.h"
 #include "..\Include\wallet_status.h"
+
 #include "..\Include\bip39.h"
+#include "..\Include\chainparams.h"
+#include "..\Include\tool.h"
+#include "..\Include\sha2mnemonic.h"
+
 #include "alt_types.h"
 #include "system.h"
 #include "altera_avalon_pio_regs.h"
@@ -27,18 +32,28 @@ int main()
 	void *lots_of_memory = malloc(1024 * 1024 * 10);	// attempt to allocate 10MB
     printf("SDRAM malloc returned 0x%08lx\n", (alt_u32)lots_of_memory);
 
-    uint8_t seed[64];
+    const btc_chainparams* chain = &btc_chainparams_test;
 
+    size_t sizeout = 128;
+	char masterkey[sizeout];
+
+	/* generate a new hd master key */
+	hd_gen_master(chain, masterkey, sizeout);
+
+    printf("byte: %d\n", BYTE_ORDER);
+
+//    uint8_t seed[64];
+//
     const char *mnemonic_phrase = mnemonic_generate(128);
     printf("MNEMONIC PHRASE: %s", mnemonic_phrase);
 
-    mnemonic_to_seed(mnemonic_phrase, "TEST", seed, 0);
-
-	printf("Seed: ");
-	for(int i = 0; i < 64; i++){
-		printf("%x", seed[i]);
-	}
-	printf("\n");
+//    mnemonic_to_seed(mnemonic_phrase, "TEST", seed, 0);
+//
+//	printf("Seed: ");
+//	for(int i = 0; i < 64; i++){
+//		printf("%x", seed[i]);
+//	}
+//	printf("\n");
 
 
     int count = 0;

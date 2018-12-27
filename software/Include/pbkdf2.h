@@ -25,7 +25,7 @@
 #define __PBKDF2_H__
 
 #include <stdint.h>
-#include "sha2.h"
+#include "sha2mnemonic.h"
 
 typedef struct _PBKDF2_HMAC_SHA256_CTX {
 	uint32_t odig[SHA256_DIGEST_LENGTH / sizeof(uint32_t)];
