@@ -154,6 +154,8 @@ C_SRCS += ../../software/Source/chainparams.c
 C_SRCS += ../../software/Source/commontools.c
 C_SRCS += ../../software/Source/bip32.c
 C_SRCS += ../../software/Source/sha2.c
+C_SRCS += ../../software/Source/ecc_libsecp256k1.c
+C_SRCS += ../../software/Source/secp256k1.c
 CXX_SRCS :=
 ASM_SRCS :=
 

@@ -104,12 +104,13 @@ btc_bool btc_hdnode_from_seed(const uint8_t* seed, int seed_len, btc_hdnode* out
 //		printf("%x", out->private_key[i]);
 //	}
 //
-//    if (!btc_ecc_verify_privatekey(out->private_key)) {
-//        memset(I, 0, sizeof(I));
-//        return false;
-//    }
-//
-//    memcpy(out->chain_code, I + BTC_ECKEY_PKEY_LENGTH, BTC_BIP32_CHAINCODE_SIZE);
+    if (!btc_ecc_verify_privatekey(out->private_key)) {
+        memset(I, 0, sizeof(I));
+        return false;
+    }
+
+    printf("%s", out->private_key);
+    memcpy(out->chain_code, I + BTC_ECKEY_PKEY_LENGTH, BTC_BIP32_CHAINCODE_SIZE);
 //    btc_hdnode_fill_public_key(out);
 //    memset(I, 0, sizeof(I));
     return true;
@@ -209,15 +210,15 @@ btc_bool btc_hdnode_from_seed(const uint8_t* seed, int seed_len, btc_hdnode* out
 //    memset(z, 0, sizeof(z));
 //    return true;
 //}
-//
-//
-//void btc_hdnode_fill_public_key(btc_hdnode* node)
-//{
-//    size_t outsize = BTC_ECKEY_COMPRESSED_LENGTH;
+
+
+void btc_hdnode_fill_public_key(btc_hdnode* node)
+{
+    size_t outsize = BTC_ECKEY_COMPRESSED_LENGTH;
 //    btc_ecc_get_pubkey(node->private_key, node->public_key, &outsize, true);
-//}
-//
-//
+}
+
+
 //static void btc_hdnode_serialize(const btc_hdnode* node, uint32_t version, char use_public, char* str, int strsize)
 //{
 //    uint8_t node_data[78];

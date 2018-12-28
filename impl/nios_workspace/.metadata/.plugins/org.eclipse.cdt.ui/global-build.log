@@ -1,21 +1,400 @@
-01:40:38 **** Incremental Build of configuration Nios II for project nios_proj ****
+20:17:30 **** Incremental Build of configuration Nios II for project nios_proj ****
 make all 
 Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
 [BSP build complete]
-Info: Compiling ../../software/Source/bip32.c to obj/default/bip32.o
-nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/bip32.o ../../software/Source/bip32.c
-Info: Linking nios_proj.elf
-nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/  -msmallc  -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/bip32.o obj/default/bip39.o obj/default/chainparams.o obj/default/commontools.o obj/default/hmac.o obj/default/memzero.o obj/default/pbkdf2.o obj/default/rand.o obj/default/sha2.o obj/default/sha2mnemonic.o obj/default/wallet_main.o obj/default/wallet_system.o -lm -msys-lib=m
-nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x200a038 --timestamp 1543376831 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet.sopcinfo
-Info: (nios_proj.elf) 99 KBytes program size (code + initialized data).
-Info:                 32663 KBytes free for stack + heap.
-Info: Creating nios_proj.objdump
-nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
-[nios_proj build complete]
-01:40:43 **** Incremental Build of configuration Nios II for project nios_proj ****
-make all 
-Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
-C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
-[BSP build complete]
-[nios_proj build complete]
+Info: Compiling ../../software/Source/secp256k1.c to obj/default/secp256k1.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/secp256k1.o ../../software/Source/secp256k1.c
+In file included from ../../software/Source/..\Include\scalar_impl.h:21:0,
+                 from ../../software/Source/secp256k1.c:12:
+../../software/Source/..\Include\scalar_8x32_impl.h:266:1: warning: multi-line comment [-Wcomment]
+ //#define muladd(a,b) { \
+ ^
+../../software/Source/..\Include\scalar_8x32_impl.h:281:1: warning: multi-line comment [-Wcomment]
+ //#define muladd_fast(a,b) { \
+ ^
+../../software/Source/..\Include\scalar_8x32_impl.h:295:1: warning: multi-line comment [-Wcomment]
+ //#define muladd2(a,b) { \
+ ^
+../../software/Source/..\Include\scalar_8x32_impl.h:317:1: warning: multi-line comment [-Wcomment]
+ //#define sumadd(a) { \
+ ^
+../../software/Source/..\Include\scalar_8x32_impl.h:326:1: warning: multi-line comment [-Wcomment]
+ //#define sumadd_fast(a) { \
+ ^
+../../software/Source/..\Include\scalar_8x32_impl.h:334:1: warning: multi-line comment [-Wcomment]
+ //#define extract(n) { \
+ ^
+../../software/Source/..\Include\scalar_8x32_impl.h:342:1: warning: multi-line comment [-Wcomment]
+ //#define extract_fast(n) { \
+ ^
+In file included from ../../software/Source/secp256k1.c:14:0:
+../../software/Source/..\Include\group_impl.h:17:14: error: unknown type name 'secp256k1_ge'
+ static const secp256k1_ge secp256k1_ge_const_g = SECP256K1_GE_CONST(
+              ^
+../../software/Source/..\Include\group_impl.h:17:50: warning: implicit declaration of function 'SECP256K1_GE_CONST' [-Wimplicit-function-declaration]
+ static const secp256k1_ge secp256k1_ge_const_g = SECP256K1_GE_CONST(
+                                                  ^
+../../software/Source/..\Include\group_impl.h:17:50: error: initializer element is not constant
+../../software/Source/..\Include\group_impl.h:24:39: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_ge_set_gej_zinv(secp256k1_ge *r, const secp256k1_gej *a, const secp256k1_fe *zi) {
+                                       ^
+../../software/Source/..\Include\group_impl.h:24:62: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_ge_set_gej_zinv(secp256k1_ge *r, const secp256k1_gej *a, const secp256k1_fe *zi) {
+                                                              ^
+../../software/Source/..\Include\group_impl.h:34:33: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_ge_set_xy(secp256k1_ge *r, const secp256k1_fe *x, const secp256k1_fe *y) {
+                                 ^
+../../software/Source/..\Include\group_impl.h:40:43: error: unknown type name 'secp256k1_ge'
+ static int secp256k1_ge_is_infinity(const secp256k1_ge *a) {
+                                           ^
+../../software/Source/..\Include\group_impl.h: In function 'secp256k1_ge_is_infinity':
+../../software/Source/..\Include\group_impl.h:41:13: error: request for member 'infinity' in something not a structure or union
+     return a->infinity;
+             ^
+../../software/Source/..\Include\group_impl.h: At top level:
+../../software/Source/..\Include\group_impl.h:44:30: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_ge_neg(secp256k1_ge *r, const secp256k1_ge *a) {
+                              ^
+../../software/Source/..\Include\group_impl.h:44:53: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_ge_neg(secp256k1_ge *r, const secp256k1_ge *a) {
+                                                     ^
+../../software/Source/..\Include\group_impl.h:50:34: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_ge_set_gej(secp256k1_ge *r, secp256k1_gej *a) {
+                                  ^
+../../software/Source/..\Include\group_impl.h:50:51: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_ge_set_gej(secp256k1_ge *r, secp256k1_gej *a) {
+                                                   ^
+../../software/Source/..\Include\group_impl.h:63:38: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_ge_set_gej_var(secp256k1_ge *r, secp256k1_gej *a) {
+                                      ^
+../../software/Source/..\Include\group_impl.h:63:55: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_ge_set_gej_var(secp256k1_ge *r, secp256k1_gej *a) {
+                                                       ^
+../../software/Source/..\Include\group_impl.h:79:54: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_ge_set_all_gej_var(size_t len, secp256k1_ge *r, const secp256k1_gej *a, const secp256k1_callback *cb) {
+                                                      ^
+../../software/Source/..\Include\group_impl.h:79:77: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_ge_set_all_gej_var(size_t len, secp256k1_ge *r, const secp256k1_gej *a, const secp256k1_callback *cb) {
+                                                                             ^
+../../software/Source/..\Include\group_impl.h:105:56: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_ge_set_table_gej_var(size_t len, secp256k1_ge *r, const secp256k1_gej *a, const secp256k1_fe *zr) {
+                                                        ^
+../../software/Source/..\Include\group_impl.h:105:79: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_ge_set_table_gej_var(size_t len, secp256k1_ge *r, const secp256k1_gej *a, const secp256k1_fe *zr) {
+                                                                               ^
+../../software/Source/..\Include\group_impl.h:123:60: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_ge_globalz_set_table_gej(size_t len, secp256k1_ge *r, secp256k1_fe *globalz, const secp256k1_gej *a, const secp256k1_fe *zr) {
+                                                            ^
+../../software/Source/..\Include\group_impl.h:123:106: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_ge_globalz_set_table_gej(size_t len, secp256k1_ge *r, secp256k1_fe *globalz, const secp256k1_gej *a, const secp256k1_fe *zr) {
+                                                                                                          ^
+In file included from ../../software/Source/secp256k1.c:14:0:
+../../software/Source/..\Include\group_impl.h:146:40: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_set_infinity(secp256k1_gej *r) {
+                                        ^
+../../software/Source/..\Include\group_impl.h:153:33: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_clear(secp256k1_gej *r) {
+                                 ^
+../../software/Source/..\Include\group_impl.h:160:32: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_ge_clear(secp256k1_ge *r) {
+                                ^
+../../software/Source/..\Include\group_impl.h:166:35: error: unknown type name 'secp256k1_ge'
+ static int secp256k1_ge_set_xquad(secp256k1_ge *r, const secp256k1_fe *x) {
+                                   ^
+../../software/Source/..\Include\group_impl.h:177:36: error: unknown type name 'secp256k1_ge'
+ static int secp256k1_ge_set_xo_var(secp256k1_ge *r, const secp256k1_fe *x, int odd) {
+                                    ^
+../../software/Source/..\Include\group_impl.h:189:34: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_set_ge(secp256k1_gej *r, const secp256k1_ge *a) {
+                                  ^
+../../software/Source/..\Include\group_impl.h:189:58: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_gej_set_ge(secp256k1_gej *r, const secp256k1_ge *a) {
+                                                          ^
+../../software/Source/..\Include\group_impl.h:196:64: error: unknown type name 'secp256k1_gej'
+ static int secp256k1_gej_eq_x_var(const secp256k1_fe *x, const secp256k1_gej *a) {
+                                                                ^
+In file included from ../../software/Source/secp256k1.c:9:0:
+../../software/Source/..\Include\group_impl.h: In function 'secp256k1_gej_eq_x_var':
+../../software/Source/..\Include\group_impl.h:198:20: error: request for member 'infinity' in something not a structure or union
+     VERIFY_CHECK(!a->infinity);
+                    ^
+../../software/Source/..\Include\util.h:64:40: note: in definition of macro 'VERIFY_CHECK'
+ #define VERIFY_CHECK(cond) do { (void)(cond); } while(0)
+                                        ^
+In file included from ../../software/Source/secp256k1.c:14:0:
+../../software/Source/..\Include\group_impl.h:199:28: error: request for member 'z' in something not a structure or union
+     secp256k1_fe_sqr(&r, &a->z); secp256k1_fe_mul(&r, &r, x);
+                            ^
+../../software/Source/..\Include\group_impl.h:200:11: error: request for member 'x' in something not a structure or union
+     r2 = a->x; secp256k1_fe_normalize_weak(&r2);
+           ^
+../../software/Source/..\Include\group_impl.h: At top level:
+../../software/Source/..\Include\group_impl.h:204:31: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_neg(secp256k1_gej *r, const secp256k1_gej *a) {
+                               ^
+../../software/Source/..\Include\group_impl.h:204:55: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_neg(secp256k1_gej *r, const secp256k1_gej *a) {
+                                                       ^
+../../software/Source/..\Include\group_impl.h:213:44: error: unknown type name 'secp256k1_gej'
+ static int secp256k1_gej_is_infinity(const secp256k1_gej *a) {
+                                            ^
+../../software/Source/..\Include\group_impl.h: In function 'secp256k1_gej_is_infinity':
+../../software/Source/..\Include\group_impl.h:214:13: error: request for member 'infinity' in something not a structure or union
+     return a->infinity;
+             ^
+../../software/Source/..\Include\group_impl.h: At top level:
+../../software/Source/..\Include\group_impl.h:217:45: error: unknown type name 'secp256k1_gej'
+ static int secp256k1_gej_is_valid_var(const secp256k1_gej *a) {
+                                             ^
+../../software/Source/..\Include\group_impl.h: In function 'secp256k1_gej_is_valid_var':
+../../software/Source/..\Include\group_impl.h:219:10: error: request for member 'infinity' in something not a structure or union
+     if (a->infinity) {
+          ^
+../../software/Source/..\Include\group_impl.h:227:29: error: request for member 'y' in something not a structure or union
+     secp256k1_fe_sqr(&y2, &a->y);
+                             ^
+../../software/Source/..\Include\group_impl.h:228:29: error: request for member 'x' in something not a structure or union
+     secp256k1_fe_sqr(&x3, &a->x); secp256k1_fe_mul(&x3, &x3, &a->x);
+                             ^
+../../software/Source/..\Include\group_impl.h:228:64: error: request for member 'x' in something not a structure or union
+     secp256k1_fe_sqr(&x3, &a->x); secp256k1_fe_mul(&x3, &x3, &a->x);
+                                                                ^
+../../software/Source/..\Include\group_impl.h:229:29: error: request for member 'z' in something not a structure or union
+     secp256k1_fe_sqr(&z2, &a->z);
+                             ^
+../../software/Source/..\Include\group_impl.h: At top level:
+../../software/Source/..\Include\group_impl.h:237:44: error: unknown type name 'secp256k1_ge'
+ static int secp256k1_ge_is_valid_var(const secp256k1_ge *a) {
+                                            ^
+../../software/Source/..\Include\group_impl.h: In function 'secp256k1_ge_is_valid_var':
+../../software/Source/..\Include\group_impl.h:239:10: error: request for member 'infinity' in something not a structure or union
+     if (a->infinity) {
+          ^
+../../software/Source/..\Include\group_impl.h:243:29: error: request for member 'y' in something not a structure or union
+     secp256k1_fe_sqr(&y2, &a->y);
+                             ^
+../../software/Source/..\Include\group_impl.h:244:29: error: request for member 'x' in something not a structure or union
+     secp256k1_fe_sqr(&x3, &a->x); secp256k1_fe_mul(&x3, &x3, &a->x);
+                             ^
+../../software/Source/..\Include\group_impl.h:244:64: error: request for member 'x' in something not a structure or union
+     secp256k1_fe_sqr(&x3, &a->x); secp256k1_fe_mul(&x3, &x3, &a->x);
+                                                                ^
+../../software/Source/..\Include\group_impl.h: At top level:
+../../software/Source/..\Include\group_impl.h:251:38: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_double_var(secp256k1_gej *r, const secp256k1_gej *a, secp256k1_fe *rzr) {
+                                      ^
+../../software/Source/..\Include\group_impl.h:251:62: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_double_var(secp256k1_gej *r, const secp256k1_gej *a, secp256k1_fe *rzr) {
+                                                              ^
+../../software/Source/..\Include\group_impl.h:306:59: error: unknown type name 'secp256k1_gej'
+ static SECP256K1_INLINE void secp256k1_gej_double_nonzero(secp256k1_gej *r, const secp256k1_gej *a, secp256k1_fe *rzr) {
+                                                           ^
+../../software/Source/..\Include\group_impl.h:306:83: error: unknown type name 'secp256k1_gej'
+ static SECP256K1_INLINE void secp256k1_gej_double_nonzero(secp256k1_gej *r, const secp256k1_gej *a, secp256k1_fe *rzr) {
+                                                                                   ^
+../../software/Source/..\Include\group_impl.h:311:35: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_add_var(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_gej *b, secp256k1_fe *rzr) {
+                                   ^
+../../software/Source/..\Include\group_impl.h:311:59: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_add_var(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_gej *b, secp256k1_fe *rzr) {
+                                                           ^
+../../software/Source/..\Include\group_impl.h:311:83: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_add_var(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_gej *b, secp256k1_fe *rzr) {
+                                                                                   ^
+../../software/Source/..\Include\group_impl.h:364:38: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_add_ge_var(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_ge *b, secp256k1_fe *rzr) {
+                                      ^
+../../software/Source/..\Include\group_impl.h:364:62: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_add_ge_var(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_ge *b, secp256k1_fe *rzr) {
+                                                              ^
+../../software/Source/..\Include\group_impl.h:364:86: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_gej_add_ge_var(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_ge *b, secp256k1_fe *rzr) {
+                                                                                      ^
+../../software/Source/..\Include\group_impl.h:413:40: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_add_zinv_var(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_ge *b, const secp256k1_fe *bzinv) {
+                                        ^
+../../software/Source/..\Include\group_impl.h:413:64: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_add_zinv_var(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_ge *b, const secp256k1_fe *bzinv) {
+                                                                ^
+../../software/Source/..\Include\group_impl.h:413:88: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_gej_add_zinv_var(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_ge *b, const secp256k1_fe *bzinv) {
+                                                                                        ^
+../../software/Source/..\Include\group_impl.h:470:34: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_add_ge(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_ge *b) {
+                                  ^
+../../software/Source/..\Include\group_impl.h:470:58: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_add_ge(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_ge *b) {
+                                                          ^
+../../software/Source/..\Include\group_impl.h:470:82: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_gej_add_ge(secp256k1_gej *r, const secp256k1_gej *a, const secp256k1_ge *b) {
+                                                                                  ^
+../../software/Source/..\Include\group_impl.h:592:35: error: unknown type name 'secp256k1_gej'
+ static void secp256k1_gej_rescale(secp256k1_gej *r, const secp256k1_fe *s) {
+                                   ^
+../../software/Source/..\Include\group_impl.h:603:37: error: unknown type name 'secp256k1_ge_storage'
+ static void secp256k1_ge_to_storage(secp256k1_ge_storage *r, const secp256k1_ge *a) {
+                                     ^
+../../software/Source/..\Include\group_impl.h:603:68: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_ge_to_storage(secp256k1_ge_storage *r, const secp256k1_ge *a) {
+                                                                    ^
+../../software/Source/..\Include\group_impl.h:614:39: error: unknown type name 'secp256k1_ge'
+ static void secp256k1_ge_from_storage(secp256k1_ge *r, const secp256k1_ge_storage *a) {
+                                       ^
+../../software/Source/..\Include\group_impl.h:614:62: error: unknown type name 'secp256k1_ge_storage'
+ static void secp256k1_ge_from_storage(secp256k1_ge *r, const secp256k1_ge_storage *a) {
+                                                              ^
+../../software/Source/..\Include\group_impl.h:620:56: error: unknown type name 'secp256k1_ge_storage'
+ static SECP256K1_INLINE void secp256k1_ge_storage_cmov(secp256k1_ge_storage *r, const secp256k1_ge_storage *a, int flag) {
+                                                        ^
+../../software/Source/..\Include\group_impl.h:620:87: error: unknown type name 'secp256k1_ge_storage'
+ static SECP256K1_INLINE void secp256k1_ge_storage_cmov(secp256k1_ge_storage *r, const secp256k1_ge_storage *a, int flag) {
+                                                                                       ^
+../../software/Source/..\Include\group_impl.h:636:47: error: unknown type name 'secp256k1_gej'
+ static int secp256k1_gej_has_quad_y_var(const secp256k1_gej *a) {
+                                               ^
+../../software/Source/..\Include\group_impl.h: In function 'secp256k1_gej_has_quad_y_var':
+../../software/Source/..\Include\group_impl.h:639:10: error: request for member 'infinity' in something not a structure or union
+     if (a->infinity) {
+          ^
+../../software/Source/..\Include\group_impl.h:646:29: error: request for member 'y' in something not a structure or union
+     secp256k1_fe_mul(&yz, &a->y, &a->z);
+                             ^
+../../software/Source/..\Include\group_impl.h:646:36: error: request for member 'z' in something not a structure or union
+     secp256k1_fe_mul(&yz, &a->y, &a->z);
+                                    ^
+../../software/Source/secp256k1.c: In function 'secp256k1_ec_pubkey_create':
+../../software/Source/secp256k1.c:406:5: error: unknown type name 'secp256k1_gej'
+     secp256k1_gej pj;
+     ^
+../../software/Source/secp256k1.c:407:5: error: unknown type name 'secp256k1_ge'
+     secp256k1_ge p;
+     ^
+../../software/Source/secp256k1.c:408:22: warning: unused variable 'sec' [-Wunused-variable]
+     secp256k1_scalar sec;
+                      ^
+../../software/Source/secp256k1.c:407:18: warning: unused variable 'p' [-Wunused-variable]
+     secp256k1_ge p;
+                  ^
+../../software/Source/secp256k1.c:406:19: warning: unused variable 'pj' [-Wunused-variable]
+     secp256k1_gej pj;
+                   ^
+In file included from ../../software/Source/..\Include\group_impl.h:11:0,
+                 from ../../software/Source/secp256k1.c:14:
+../../software/Source/secp256k1.c: At top level:
+../../software/Source/..\Include\field.h:39:13: warning: 'secp256k1_fe_normalize_weak' used but never defined
+ static void secp256k1_fe_normalize_weak(secp256k1_fe *r);
+             ^
+../../software/Source/..\Include\field.h:53:13: warning: 'secp256k1_fe_set_int' used but never defined
+ static void secp256k1_fe_set_int(secp256k1_fe *r, int a);
+             ^
+../../software/Source/..\Include\field.h:65:12: warning: 'secp256k1_fe_equal_var' used but never defined
+ static int secp256k1_fe_equal_var(const secp256k1_fe *a, const secp256k1_fe *b);
+            ^
+../../software/Source/..\Include\field.h:82:13: warning: 'secp256k1_fe_mul_int' used but never defined
+ static void secp256k1_fe_mul_int(secp256k1_fe *r, int a);
+             ^
+../../software/Source/..\Include\field.h:85:13: warning: 'secp256k1_fe_add' used but never defined
+ static void secp256k1_fe_add(secp256k1_fe *r, const secp256k1_fe *a);
+             ^
+../../software/Source/..\Include\field.h:89:13: warning: 'secp256k1_fe_mul' used but never defined
+ static void secp256k1_fe_mul(secp256k1_fe *r, const secp256k1_fe *a, const secp256k1_fe * SECP256K1_RESTRICT b);
+             ^
+../../software/Source/..\Include\field.h:93:13: warning: 'secp256k1_fe_sqr' used but never defined
+ static void secp256k1_fe_sqr(secp256k1_fe *r, const secp256k1_fe *a);
+             ^
+../../software/Source/..\Include\field.h:103:12: warning: 'secp256k1_fe_is_quad_var' used but never defined
+ static int secp256k1_fe_is_quad_var(const secp256k1_fe *a);
+            ^
+../../software/Source/..\Include\field.h:36:13: warning: 'secp256k1_fe_normalize' declared 'static' but never defined [-Wunused-function]
+ static void secp256k1_fe_normalize(secp256k1_fe *r);
+             ^
+../../software/Source/..\Include\field.h:42:13: warning: 'secp256k1_fe_normalize_var' declared 'static' but never defined [-Wunused-function]
+ static void secp256k1_fe_normalize_var(secp256k1_fe *r);
+             ^
+../../software/Source/..\Include\field.h:46:12: warning: 'secp256k1_fe_normalizes_to_zero' declared 'static' but never defined [-Wunused-function]
+ static int secp256k1_fe_normalizes_to_zero(secp256k1_fe *r);
+            ^
+../../software/Source/..\Include\field.h:50:12: warning: 'secp256k1_fe_normalizes_to_zero_var' declared 'static' but never defined [-Wunused-function]
+ static int secp256k1_fe_normalizes_to_zero_var(secp256k1_fe *r);
+            ^
+../../software/Source/..\Include\field.h:56:12: warning: 'secp256k1_fe_is_zero' declared 'static' but never defined [-Wunused-function]
+ static int secp256k1_fe_is_zero(const secp256k1_fe *a);
+            ^
+../../software/Source/..\Include\field.h:59:12: warning: 'secp256k1_fe_is_odd' declared 'static' but never defined [-Wunused-function]
+ static int secp256k1_fe_is_odd(const secp256k1_fe *a);
+            ^
+../../software/Source/..\Include\field.h:62:12: warning: 'secp256k1_fe_equal' declared 'static' but never defined [-Wunused-function]
+ static int secp256k1_fe_equal(const secp256k1_fe *a, const secp256k1_fe *b);
+            ^
+../../software/Source/..\Include\field.h:68:12: warning: 'secp256k1_fe_cmp_var' declared 'static' but never defined [-Wunused-function]
+ static int secp256k1_fe_cmp_var(const secp256k1_fe *a, const secp256k1_fe *b);
+            ^
+../../software/Source/..\Include\field.h:71:12: warning: 'secp256k1_fe_set_b32' declared 'static' but never defined [-Wunused-function]
+ static int secp256k1_fe_set_b32(secp256k1_fe *r, const unsigned char *a);
+            ^
+../../software/Source/..\Include\field.h:74:13: warning: 'secp256k1_fe_get_b32' declared 'static' but never defined [-Wunused-function]
+ static void secp256k1_fe_get_b32(unsigned char *r, const secp256k1_fe *a);
+             ^
+../../software/Source/..\Include\field.h:78:13: warning: 'secp256k1_fe_negate' declared 'static' but never defined [-Wunused-function]
+ static void secp256k1_fe_negate(secp256k1_fe *r, const secp256k1_fe *a, int m);
+             ^
+../../software/Source/..\Include\field.h:100:12: warning: 'secp256k1_fe_sqrt' declared 'static' but never defined [-Wunused-function]
+ static int secp256k1_fe_sqrt(secp256k1_fe *r, const secp256k1_fe *a);
+            ^
+../../software/Source/..\Include\field.h:107:13: warning: 'secp256k1_fe_inv' declared 'static' but never defined [-Wunused-function]
+ static void secp256k1_fe_inv(secp256k1_fe *r, const secp256k1_fe *a);
+             ^
+../../software/Source/..\Include\field.h:110:13: warning: 'secp256k1_fe_inv_var' declared 'static' but never defined [-Wunused-function]
+ static void secp256k1_fe_inv_var(secp256k1_fe *r, const secp256k1_fe *a);
+             ^
+../../software/Source/..\Include\field.h:115:13: warning: 'secp256k1_fe_inv_all_var' declared 'static' but never defined [-Wunused-function]
+ static void secp256k1_fe_inv_all_var(size_t len, secp256k1_fe *r, const secp256k1_fe *a);
+             ^
+../../software/Source/..\Include\field.h:118:13: warning: 'secp256k1_fe_to_storage' declared 'static' but never defined [-Wunused-function]
+ static void secp256k1_fe_to_storage(secp256k1_fe_storage *r, const secp256k1_fe *a);
+             ^
+../../software/Source/..\Include\field.h:121:13: warning: 'secp256k1_fe_from_storage' declared 'static' but never defined [-Wunused-function]
+ static void secp256k1_fe_from_storage(secp256k1_fe *r, const secp256k1_fe_storage *a);
+             ^
+../../software/Source/..\Include\field.h:124:13: warning: 'secp256k1_fe_storage_cmov' declared 'static' but never defined [-Wunused-function]
+ static void secp256k1_fe_storage_cmov(secp256k1_fe_storage *r, const secp256k1_fe_storage *a, int flag);
+             ^
+../../software/Source/..\Include\field.h:127:13: warning: 'secp256k1_fe_cmov' declared 'static' but never defined [-Wunused-function]
+ static void secp256k1_fe_cmov(secp256k1_fe *r, const secp256k1_fe *a, int flag);
+             ^
+In file included from ../../software/Source/secp256k1.c:14:0:
+../../software/Source/..\Include\group_impl.h:40:12: warning: 'secp256k1_ge_is_infinity' defined but not used [-Wunused-function]
+ static int secp256k1_ge_is_infinity(const secp256k1_ge *a) {
+            ^
+In file included from ../../software/Source/secp256k1.c:14:0:
+../../software/Source/..\Include\group_impl.h:196:12: warning: 'secp256k1_gej_eq_x_var' defined but not used [-Wunused-function]
+ static int secp256k1_gej_eq_x_var(const secp256k1_fe *x, const secp256k1_gej *a) {
+            ^
+../../software/Source/..\Include\group_impl.h:213:12: warning: 'secp256k1_gej_is_infinity' defined but not used [-Wunused-function]
+ static int secp256k1_gej_is_infinity(const secp256k1_gej *a) {
+            ^
+../../software/Source/..\Include\group_impl.h:217:12: warning: 'secp256k1_gej_is_valid_var' defined but not used [-Wunused-function]
+ static int secp256k1_gej_is_valid_var(const secp256k1_gej *a) {
+            ^
+../../software/Source/..\Include\group_impl.h:237:12: warning: 'secp256k1_ge_is_valid_var' defined but not used [-Wunused-function]
+ static int secp256k1_ge_is_valid_var(const secp256k1_ge *a) {
+            ^
+../../software/Source/..\Include\group_impl.h:636:12: warning: 'secp256k1_gej_has_quad_y_var' defined but not used [-Wunused-function]
+ static int secp256k1_gej_has_quad_y_var(const secp256k1_gej *a) {
+            ^
+In file included from ../../software/Source/secp256k1.c:14:0:
+../../software/Source/..\Include\group_impl.h: In function 'secp256k1_ge_is_infinity':
+../../software/Source/..\Include\group_impl.h:42:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+In file included from ../../software/Source/secp256k1.c:14:0:
+../../software/Source/..\Include\group_impl.h: In function 'secp256k1_gej_is_infinity':
+../../software/Source/..\Include\group_impl.h:215:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+../../software/Source/secp256k1.c: In function 'secp256k1_ec_pubkey_create':
+../../software/Source/secp256k1.c:426:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [obj/default/secp256k1.o] Error 1
