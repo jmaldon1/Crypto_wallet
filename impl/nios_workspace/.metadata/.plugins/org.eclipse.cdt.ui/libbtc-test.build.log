@@ -1,0 +1,12 @@
+23:54:28 **** Build of configuration Nios II for project libbtc-test ****
+make all 
+make[1]: Entering directory `C:/Users/Class2018/Desktop/btc-test/libbtc-master'
+process_begin: CreateProcess(NULL, /bin/mkdir -p src, ...) failed.
+make[1]: Leaving directory `C:/Users/Class2018/Desktop/btc-test/libbtc-master'
+make (e=2): The system cannot find the file specified.
+
+make[1]: *** [src/.dirstamp] Error 2
+make: *** [all-recursive] Error 1
+
+23:54:28 Build Finished (took 347ms)
+

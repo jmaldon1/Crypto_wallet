@@ -1,0 +1,6 @@
+19:31:43 **** Clean-only build of configuration Nios II for project pause ****
+make clean 
+[pause clean complete]
+
+19:31:43 Build Finished (took 430ms)
+

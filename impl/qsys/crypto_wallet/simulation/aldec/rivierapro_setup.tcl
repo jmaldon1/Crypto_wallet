@@ -1,5 +1,5 @@
 
-# (C) 2001-2018 Altera Corporation. All rights reserved.
+# (C) 2001-2019 Altera Corporation. All rights reserved.
 # Your use of Altera Corporation's design tools, logic functions and 
 # other software and tools, and its AMPP partner logic functions, and 
 # any output files any of the foregoing (including device programming 
@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 18.1 625 win32 2018.11.27.22:47:08
+# ACDS 18.1 625 win32 2019.01.01.15:29:16
 # ----------------------------------------
 # Auto-generated simulation script rivierapro_setup.tcl
 # ----------------------------------------
@@ -152,6 +152,15 @@ if { [ string match "Active" $Aldec ] } {
 # Copy ROM/RAM files to simulation directory
 alias file_copy {
   echo "\[exec\] file_copy"
+  file copy -force $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_bht_ram.dat ./
+  file copy -force $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_bht_ram.hex ./
+  file copy -force $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_bht_ram.mif ./
+  file copy -force $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_dc_tag_ram.dat ./
+  file copy -force $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_dc_tag_ram.hex ./
+  file copy -force $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_dc_tag_ram.mif ./
+  file copy -force $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_ic_tag_ram.dat ./
+  file copy -force $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_ic_tag_ram.hex ./
+  file copy -force $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_ic_tag_ram.mif ./
   file copy -force $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_ociram_default_contents.dat ./
   file copy -force $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_ociram_default_contents.hex ./
   file copy -force $QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_ociram_default_contents.mif ./
@@ -221,6 +230,8 @@ ensure_lib                                            ./libraries/cmd_demux
 vmap       cmd_demux                                  ./libraries/cmd_demux                                 
 ensure_lib                                            ./libraries/sdram_s1_burst_adapter                    
 vmap       sdram_s1_burst_adapter                     ./libraries/sdram_s1_burst_adapter                    
+ensure_lib                                            ./libraries/cpu_data_master_limiter                   
+vmap       cpu_data_master_limiter                    ./libraries/cpu_data_master_limiter                   
 ensure_lib                                            ./libraries/router_010                                
 vmap       router_010                                 ./libraries/router_010                                
 ensure_lib                                            ./libraries/router_004                                
@@ -327,6 +338,10 @@ alias com {
   eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/submodules/altera_merlin_address_alignment.sv"                                       -work sdram_s1_burst_adapter                    
   eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/submodules/altera_avalon_st_pipeline_stage.sv"                                       -work sdram_s1_burst_adapter                    
   eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/submodules/altera_avalon_st_pipeline_base.v"                                         -work sdram_s1_burst_adapter                    
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/submodules/altera_merlin_traffic_limiter.sv"                                         -work cpu_data_master_limiter                   
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/submodules/altera_merlin_reorder_memory.sv"                                          -work cpu_data_master_limiter                   
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/submodules/altera_avalon_sc_fifo.v"                                                  -work cpu_data_master_limiter                   
+  eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/submodules/altera_avalon_st_pipeline_base.v"                                         -work cpu_data_master_limiter                   
   eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/submodules/crypto_wallet_mm_interconnect_0_router_010.sv"                            -work router_010                                
   eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/submodules/crypto_wallet_mm_interconnect_0_router_004.sv"                            -work router_004                                
   eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/submodules/crypto_wallet_mm_interconnect_0_router_002.sv"                            -work router_002                                
@@ -338,10 +353,11 @@ alias com {
   eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/submodules/altera_merlin_master_agent.sv"                                            -work cpu_data_master_agent                     
   eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/submodules/altera_merlin_slave_translator.sv"                                        -work jtag_uart_avalon_jtag_slave_translator    
   eval  vlog  $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS      "$QSYS_SIMDIR/submodules/altera_merlin_master_translator.sv"                                       -work cpu_data_master_translator                
-  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu.v"                                                  -work cpu                                       
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu.vo"                                                 -work cpu                                       
   eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_debug_slave_sysclk.v"                               -work cpu                                       
   eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_debug_slave_tck.v"                                  -work cpu                                       
   eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_debug_slave_wrapper.v"                              -work cpu                                       
+  eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_mult_cell.v"                                        -work cpu                                       
   eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/crypto_wallet_cpu_cpu_test_bench.v"                                       -work cpu                                       
   eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_reset_controller.v"                                                -work rst_controller                            
   eval  vlog -v2k5 $USER_DEFINED_VERILOG_COMPILE_OPTIONS $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_reset_synchronizer.v"                                              -work rst_controller                            
@@ -363,14 +379,14 @@ alias com {
 # Elaborate top level design
 alias elab {
   echo "\[exec\] elab"
-  eval vsim +access +r -t ps $ELAB_OPTIONS -L work -L error_adapter_0 -L avalon_st_adapter_008 -L avalon_st_adapter -L sdram_s1_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L sdram_s1_burst_adapter -L router_010 -L router_004 -L router_002 -L router_001 -L router -L jtag_uart_avalon_jtag_slave_agent_rsp_fifo -L jtag_uart_avalon_jtag_slave_agent -L cpu_data_master_agent -L jtag_uart_avalon_jtag_slave_translator -L cpu_data_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L sysid -L sdram -L po_led -L pi_sw -L pi_key -L onchip_memory2 -L jtag_uart -L epcs_flash_controller -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive $TOP_LEVEL_NAME
+  eval vsim +access +r -t ps $ELAB_OPTIONS -L work -L error_adapter_0 -L avalon_st_adapter_008 -L avalon_st_adapter -L sdram_s1_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L sdram_s1_burst_adapter -L cpu_data_master_limiter -L router_010 -L router_004 -L router_002 -L router_001 -L router -L jtag_uart_avalon_jtag_slave_agent_rsp_fifo -L jtag_uart_avalon_jtag_slave_agent -L cpu_data_master_agent -L jtag_uart_avalon_jtag_slave_translator -L cpu_data_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L sysid -L sdram -L po_led -L pi_sw -L pi_key -L onchip_memory2 -L jtag_uart -L epcs_flash_controller -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive $TOP_LEVEL_NAME
 }
 
 # ----------------------------------------
 # Elaborate the top level design with -dbg -O2 option
 alias elab_debug {
   echo "\[exec\] elab_debug"
-  eval vsim -dbg -O2 +access +r -t ps $ELAB_OPTIONS -L work -L error_adapter_0 -L avalon_st_adapter_008 -L avalon_st_adapter -L sdram_s1_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L sdram_s1_burst_adapter -L router_010 -L router_004 -L router_002 -L router_001 -L router -L jtag_uart_avalon_jtag_slave_agent_rsp_fifo -L jtag_uart_avalon_jtag_slave_agent -L cpu_data_master_agent -L jtag_uart_avalon_jtag_slave_translator -L cpu_data_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L sysid -L sdram -L po_led -L pi_sw -L pi_key -L onchip_memory2 -L jtag_uart -L epcs_flash_controller -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive $TOP_LEVEL_NAME
+  eval vsim -dbg -O2 +access +r -t ps $ELAB_OPTIONS -L work -L error_adapter_0 -L avalon_st_adapter_008 -L avalon_st_adapter -L sdram_s1_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L sdram_s1_burst_adapter -L cpu_data_master_limiter -L router_010 -L router_004 -L router_002 -L router_001 -L router -L jtag_uart_avalon_jtag_slave_agent_rsp_fifo -L jtag_uart_avalon_jtag_slave_agent -L cpu_data_master_agent -L jtag_uart_avalon_jtag_slave_translator -L cpu_data_master_translator -L cpu -L rst_controller -L irq_mapper -L mm_interconnect_0 -L sysid -L sdram -L po_led -L pi_sw -L pi_key -L onchip_memory2 -L jtag_uart -L epcs_flash_controller -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive $TOP_LEVEL_NAME
 }
 
 # ----------------------------------------

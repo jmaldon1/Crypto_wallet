@@ -187,7 +187,7 @@ SYS_LIB :=
 BSP_ROOT_DIR := C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
 
 # List of application specific include directories, library directories and library names
-APP_INCLUDE_DIRS :=
+APP_INCLUDE_DIRS := ../../../btclib/btc/include/btc
 APP_LIBRARY_DIRS :=
 APP_LIBRARY_NAMES :=
 
@@ -198,6 +198,8 @@ BUILD_POST_PROCESS :=
 QUARTUS_PROJECT_DIR := C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/
 
 
+ALT_LIBRARY_ROOT_DIR := ../../../btclib
+include ../../../btclib/public.mk
 #END GENERATED
 
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -299,7 +301,7 @@ endif
 APP_LDDEPS := $(ALT_LDDEPS) $(LDDEPS)
 
 # Take lists and add required prefixes.
-APP_INC_DIRS := $(addprefix -I, $(ALT_INCLUDE_DIRS) $(APP_INCLUDE_DIRS) $(INC_DIRS))
+APP_INC_DIRS := $(addprefix -I, $(APP_INCLUDE_DIRS) $(ALT_INCLUDE_DIRS) $(INC_DIRS))
 ASM_INC_PREFIX := -Wa,-I
 APP_ASM_INC_DIRS := $(addprefix $(ASM_INC_PREFIX), $(ALT_INCLUDE_DIRS) $(APP_INCLUDE_DIRS) $(INC_DIRS))
 APP_LIB_DIRS := $(addprefix -L, $(ALT_LIBRARY_DIRS) $(APP_LIBRARY_DIRS) $(LIB_DIRS))

@@ -22,6 +22,7 @@ DEFINE cmd_mux                                    ./libraries/cmd_mux/
 DEFINE cmd_demux_001                              ./libraries/cmd_demux_001/                             
 DEFINE cmd_demux                                  ./libraries/cmd_demux/                                 
 DEFINE sdram_s1_burst_adapter                     ./libraries/sdram_s1_burst_adapter/                    
+DEFINE cpu_data_master_limiter                    ./libraries/cpu_data_master_limiter/                   
 DEFINE router_010                                 ./libraries/router_010/                                
 DEFINE router_004                                 ./libraries/router_004/                                
 DEFINE router_002                                 ./libraries/router_002/                                

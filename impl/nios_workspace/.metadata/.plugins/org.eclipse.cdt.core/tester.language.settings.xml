@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project>
+	<configuration id="org.eclipse.linuxtools.cdt.autotools.core.configuration.build.2118464227" name="Build (GNU)">
+		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
+			<provider id="org.eclipse.cdt.autotools.core.LibtoolGCCBuildCommandParser">
+				<language id="org.eclipse.cdt.core.gcc">
+					<resource project-relative-path="src/tester.c">
+						<entry kind="includePath" name="/${ProjName}/src">
+							<flag value="VALUE_WORKSPACE_PATH"/>
+						</entry>
+						<entry kind="includePath" name="/C/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_workspace/tester/src"/>
+						<entry kind="macro" name="PACKAGE" value="&quot;tester&quot;"/>
+						<entry kind="macro" name="PACKAGE_BUGREPORT" value="&quot;&quot;"/>
+						<entry kind="macro" name="PACKAGE_NAME" value="&quot;tester&quot;"/>
+						<entry kind="macro" name="PACKAGE_STRING" value="&quot;tester\ 1.0&quot;"/>
+						<entry kind="macro" name="PACKAGE_TARNAME" value="&quot;tester&quot;"/>
+						<entry kind="macro" name="PACKAGE_URL" value="&quot;&quot;"/>
+						<entry kind="macro" name="PACKAGE_VERSION" value="&quot;1.0&quot;"/>
+						<entry kind="macro" name="VERSION" value="&quot;1.0&quot;"/>
+					</resource>
+				</language>
+			</provider>
+		</extension>
+	</configuration>
+</project>

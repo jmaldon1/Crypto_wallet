@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;libbtc-test/Makefile&apos; to &apos;Makefile-temp&apos;" description="Rename resource &apos;Makefile&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Makefile" name="Makefile-temp" stamp="1546231482453" updateReferences="true"/>
+</session>

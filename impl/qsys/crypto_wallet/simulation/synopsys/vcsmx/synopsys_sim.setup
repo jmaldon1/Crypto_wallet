@@ -15,6 +15,7 @@ cmd_mux:                                    ./libraries/cmd_mux/
 cmd_demux_001:                              ./libraries/cmd_demux_001/                             
 cmd_demux:                                  ./libraries/cmd_demux/                                 
 sdram_s1_burst_adapter:                     ./libraries/sdram_s1_burst_adapter/                    
+cpu_data_master_limiter:                    ./libraries/cpu_data_master_limiter/                   
 router_010:                                 ./libraries/router_010/                                
 router_004:                                 ./libraries/router_004/                                
 router_002:                                 ./libraries/router_002/                                

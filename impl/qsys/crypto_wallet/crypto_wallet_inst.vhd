@@ -5,10 +5,10 @@
 			epcs_flash_controller_sce         : out   std_logic;                                        -- sce
 			epcs_flash_controller_sdo         : out   std_logic;                                        -- sdo
 			epcs_flash_controller_data0       : in    std_logic                     := 'X';             -- data0
-			reset_n_reset_n                   : in    std_logic                     := 'X';             -- reset_n
-			po_led_external_connection_export : out   std_logic_vector(7 downto 0);                     -- export
-			pi_sw_external_connection_export  : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- export
 			pi_key_external_connection_export : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- export
+			pi_sw_external_connection_export  : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- export
+			po_led_external_connection_export : out   std_logic_vector(7 downto 0);                     -- export
+			reset_n_reset_n                   : in    std_logic                     := 'X';             -- reset_n
 			sdram_addr                        : out   std_logic_vector(12 downto 0);                    -- addr
 			sdram_ba                          : out   std_logic_vector(1 downto 0);                     -- ba
 			sdram_cas_n                       : out   std_logic;                                        -- cas_n
@@ -28,10 +28,10 @@
 			epcs_flash_controller_sce         => CONNECTED_TO_epcs_flash_controller_sce,         --                           .sce
 			epcs_flash_controller_sdo         => CONNECTED_TO_epcs_flash_controller_sdo,         --                           .sdo
 			epcs_flash_controller_data0       => CONNECTED_TO_epcs_flash_controller_data0,       --                           .data0
-			reset_n_reset_n                   => CONNECTED_TO_reset_n_reset_n,                   --                    reset_n.reset_n
-			po_led_external_connection_export => CONNECTED_TO_po_led_external_connection_export, -- po_led_external_connection.export
-			pi_sw_external_connection_export  => CONNECTED_TO_pi_sw_external_connection_export,  --  pi_sw_external_connection.export
 			pi_key_external_connection_export => CONNECTED_TO_pi_key_external_connection_export, -- pi_key_external_connection.export
+			pi_sw_external_connection_export  => CONNECTED_TO_pi_sw_external_connection_export,  --  pi_sw_external_connection.export
+			po_led_external_connection_export => CONNECTED_TO_po_led_external_connection_export, -- po_led_external_connection.export
+			reset_n_reset_n                   => CONNECTED_TO_reset_n_reset_n,                   --                    reset_n.reset_n
 			sdram_addr                        => CONNECTED_TO_sdram_addr,                        --                      sdram.addr
 			sdram_ba                          => CONNECTED_TO_sdram_ba,                          --                           .ba
 			sdram_cas_n                       => CONNECTED_TO_sdram_cas_n,                       --                           .cas_n

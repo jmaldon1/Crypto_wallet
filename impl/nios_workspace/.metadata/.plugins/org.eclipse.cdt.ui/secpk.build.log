@@ -1,0 +1,139 @@
+23:09:14 **** Incremental Build of configuration Nios II for project secpk ****
+make all 
+Building file: ../src/protocol.c
+Invoking: Nios II GCC C Compiler
+nios2-elf-gcc -O2 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/protocol.d" -MT"src/protocol.o" -o "src/protocol.o" "../src/protocol.c"
+Finished building: ../src/protocol.c
+ 
+Building file: ../src/random.c
+Invoking: Nios II GCC C Compiler
+nios2-elf-gcc -O2 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/random.d" -MT"src/random.o" -o "src/random.o" "../src/random.c"
+Finished building: ../src/random.c
+ 
+Building file: ../src/ripemd160.c
+Invoking: Nios II GCC C Compiler
+nios2-elf-gcc -O2 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ripemd160.d" -MT"src/ripemd160.o" -o "src/ripemd160.o" "../src/ripemd160.c"
+Finished building: ../src/ripemd160.c
+ 
+Building file: ../src/script.c
+Invoking: Nios II GCC C Compiler
+nios2-elf-gcc -O2 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/script.d" -MT"src/script.o" -o "src/script.o" "../src/script.c"
+../src/script.c: In function 'btc_script_append_pushdata':
+../src/script.c:377:22: warning: implicit declaration of function 'htole16' [-Wimplicit-function-declaration]
+         uint16_t v = htole16(datalen);
+                      ^
+../src/script.c:381:22: warning: implicit declaration of function 'htole32' [-Wimplicit-function-declaration]
+         uint32_t v = htole32(datalen);
+                      ^
+Finished building: ../src/script.c
+ 
+Building file: ../src/segwit_addr.c
+Invoking: Nios II GCC C Compiler
+nios2-elf-gcc -O2 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/segwit_addr.d" -MT"src/segwit_addr.o" -o "src/segwit_addr.o" "../src/segwit_addr.c"
+Finished building: ../src/segwit_addr.c
+ 
+Building file: ../src/serialize.c
+Invoking: Nios II GCC C Compiler
+nios2-elf-gcc -O2 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/serialize.d" -MT"src/serialize.o" -o "src/serialize.o" "../src/serialize.c"
+../src/serialize.c: In function 'ser_u16':
+../src/serialize.c:18:18: warning: implicit declaration of function 'htole16' [-Wimplicit-function-declaration]
+     uint16_t v = htole16(v_);
+                  ^
+../src/serialize.c: In function 'ser_u32':
+../src/serialize.c:24:18: warning: implicit declaration of function 'htole32' [-Wimplicit-function-declaration]
+     uint32_t v = htole32(v_);
+                  ^
+../src/serialize.c: In function 'ser_u64':
+../src/serialize.c:35:18: warning: implicit declaration of function 'htole64' [-Wimplicit-function-declaration]
+     uint64_t v = htole64(v_);
+                  ^
+../src/serialize.c: In function 'deser_u16':
+../src/serialize.c:128:11: warning: implicit declaration of function 'le16toh' [-Wimplicit-function-declaration]
+     *vo = le16toh(v);
+           ^
+../src/serialize.c: In function 'deser_s32':
+../src/serialize.c:139:11: warning: implicit declaration of function 'le32toh' [-Wimplicit-function-declaration]
+     *vo = le32toh(v);
+           ^
+../src/serialize.c: In function 'deser_u64':
+../src/serialize.c:161:11: warning: implicit declaration of function 'le64toh' [-Wimplicit-function-declaration]
+     *vo = le64toh(v);
+           ^
+Finished building: ../src/serialize.c
+ 
+Building file: ../src/sha2.c
+Invoking: Nios II GCC C Compiler
+nios2-elf-gcc -O2 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/sha2.d" -MT"src/sha2.o" -o "src/sha2.o" "../src/sha2.c"
+Finished building: ../src/sha2.c
+ 
+Building file: ../src/tx.c
+Invoking: Nios II GCC C Compiler
+nios2-elf-gcc -O2 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/tx.d" -MT"src/tx.o" -o "src/tx.o" "../src/tx.c"
+Finished building: ../src/tx.c
+ 
+Building file: ../src/utils.c
+Invoking: Nios II GCC C Compiler
+nios2-elf-gcc -O2 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/utils.d" -MT"src/utils.o" -o "src/utils.o" "../src/utils.c"
+../src/utils.c: In function 'utils_hex_to_bin':
+../src/utils.c:80:13: warning: variable 'c' set but not used [-Wunused-but-set-variable]
+     uint8_t c;
+             ^
+Finished building: ../src/utils.c
+ 
+Building file: ../src/vector.c
+Invoking: Nios II GCC C Compiler
+nios2-elf-gcc -O2 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/vector.d" -MT"src/vector.o" -o "src/vector.o" "../src/vector.c"
+Finished building: ../src/vector.c
+ 
+Building file: ../src/wallet.c
+Invoking: Nios II GCC C Compiler
+nios2-elf-gcc -O2 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/wallet.d" -MT"src/wallet.o" -o "src/wallet.o" "../src/wallet.c"
+../src/wallet.c: In function 'btc_wallet_load':
+../src/wallet.c:309:22: warning: implicit declaration of function 'htole32' [-Wimplicit-function-declaration]
+         uint32_t v = htole32(current_version);
+                      ^
+../src/wallet.c:328:13: warning: implicit declaration of function 'le32toh' [-Wimplicit-function-declaration]
+         if (le32toh(*(buf+sizeof(file_hdr_magic))) > current_version) {
+             ^
+../src/wallet.c:356:21: warning: unused variable 'i' [-Wunused-variable]
+                 int i = 0;
+                     ^
+../src/wallet.c:352:24: warning: unused variable 'test' [-Wunused-variable]
+                 size_t test = strlen(strbuf);
+                        ^
+../src/wallet.c:386:36: warning: unused variable 'checknode' [-Wunused-variable]
+                 btc_wallet_hdnode* checknode = tsearch(whdnode, &wallet->hdkeys_rbtree, btc_wallet_hdnode_compare);
+                                    ^
+../src/wallet.c: In function 'btc_wallet_next_key':
+../src/wallet.c:444:24: warning: unused variable 'checknode' [-Wunused-variable]
+     btc_wallet_hdnode* checknode = tsearch(whdnode, &wallet->hdkeys_rbtree, btc_wallet_hdnode_compare);
+                        ^
+../src/wallet.c: In function 'btc_wallet_add_wtx_move':
+../src/wallet.c:537:18: warning: unused variable 'checkwtx' [-Wunused-variable]
+         btc_wtx* checkwtx = tsearch(wtx, &wallet->wtxes_rbtree, btc_wtx_compare);
+                  ^
+../src/wallet.c: In function 'btc_wallet_check_transaction':
+../src/wallet.c:749:13: warning: unused variable 'i' [-Wunused-variable]
+         int i = 0;
+             ^
+../src/wallet.c: At top level:
+../src/wallet.c:53:20: warning: 'hdkey_key' defined but not used [-Wunused-variable]
+ static const char* hdkey_key = "hdkey";
+                    ^
+../src/wallet.c:54:20: warning: 'hdmasterkey_key' defined but not used [-Wunused-variable]
+ static const char* hdmasterkey_key = "mstkey";
+                    ^
+../src/wallet.c:55:20: warning: 'tx_key' defined but not used [-Wunused-variable]
+ static const char* tx_key = "tx";
+                    ^
+Finished building: ../src/wallet.c
+ 
+Building target: lib
+Invoking: Nios II GCC Archiver
+nios2-elf-ar -r  "lib"  ./test/aes_tests.o ./test/base58check_tests.o ./test/bip32_tests.o ./test/block_tests.o ./test/buffer_tests.o ./test/cstr_tests.o ./test/ecc_tests.o ./test/eckey_tests.o ./test/hash_tests.o ./test/memory_tests.o ./test/net_tests.o ./test/netspv_tests.o ./test/protocol_tests.o ./test/random_tests.o ./test/serialize_tests.o ./test/sha2_tests.o ./test/tool_tests.o ./test/tx_tests.o ./test/unittester.o ./test/utils_tests.o ./test/vector_tests.o ./test/wallet_tests.o  ./src/tools/bitcoin-send-tx.o ./src/tools/bitcoin-spv.o ./src/tools/bitcointool.o  ./src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.o ./src/secp256k1/src/java/org_bitcoin_Secp256k1Context.o  ./src/secp256k1/src/bench_ecdh.o ./src/secp256k1/src/bench_internal.o ./src/secp256k1/src/bench_recover.o ./src/secp256k1/src/bench_schnorr_verify.o ./src/secp256k1/src/bench_sign.o ./src/secp256k1/src/bench_verify.o ./src/secp256k1/src/gen_context.o ./src/secp256k1/src/secp256k1.o ./src/secp256k1/src/tests.o  ./src/secp256k1/contrib/lax_der_parsing.o ./src/secp256k1/contrib/lax_der_privatekey_parsing.o  ./src/logdb/test/logdb_tests.o ./src/logdb/test/tests_red_black_tree.o  ./src/logdb/logdb_core.o ./src/logdb/logdb_memdb_llist.o ./src/logdb/logdb_memdb_rbtree.o ./src/logdb/logdb_rec.o ./src/logdb/red_black_tree.o  ./src/aes256_cbc.o ./src/base58.o ./src/bip32.o ./src/block.o ./src/buffer.o ./src/chainparams.o ./src/commontools.o ./src/cstr.o ./src/ctaes.o ./src/ecc_key.o ./src/ecc_libsecp256k1.o ./src/headersdb.o ./src/headersdb_file.o ./src/memory.o ./src/net.o ./src/netspv.o ./src/protocol.o ./src/random.o ./src/ripemd160.o ./src/script.o ./src/segwit_addr.o ./src/serialize.o ./src/sha2.o ./src/tx.o ./src/utils.o ./src/vector.o ./src/wallet.o   
+C:\intelFPGA_lite\18.1\nios2eds\bin\gnu\H-x86_64-mingw32\bin\nios2-elf-ar.exe: creating lib
+Finished building target: lib
+ 
+
+23:09:19 Build Finished (took 4s.639ms)
+

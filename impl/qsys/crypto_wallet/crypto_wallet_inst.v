@@ -4,10 +4,10 @@
 		.epcs_flash_controller_sce         (<connected-to-epcs_flash_controller_sce>),         //                           .sce
 		.epcs_flash_controller_sdo         (<connected-to-epcs_flash_controller_sdo>),         //                           .sdo
 		.epcs_flash_controller_data0       (<connected-to-epcs_flash_controller_data0>),       //                           .data0
-		.reset_n_reset_n                   (<connected-to-reset_n_reset_n>),                   //                    reset_n.reset_n
-		.po_led_external_connection_export (<connected-to-po_led_external_connection_export>), // po_led_external_connection.export
-		.pi_sw_external_connection_export  (<connected-to-pi_sw_external_connection_export>),  //  pi_sw_external_connection.export
 		.pi_key_external_connection_export (<connected-to-pi_key_external_connection_export>), // pi_key_external_connection.export
+		.pi_sw_external_connection_export  (<connected-to-pi_sw_external_connection_export>),  //  pi_sw_external_connection.export
+		.po_led_external_connection_export (<connected-to-po_led_external_connection_export>), // po_led_external_connection.export
+		.reset_n_reset_n                   (<connected-to-reset_n_reset_n>),                   //                    reset_n.reset_n
 		.sdram_addr                        (<connected-to-sdram_addr>),                        //                      sdram.addr
 		.sdram_ba                          (<connected-to-sdram_ba>),                          //                           .ba
 		.sdram_cas_n                       (<connected-to-sdram_cas_n>),                       //                           .cas_n

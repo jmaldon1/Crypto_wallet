@@ -117,6 +117,22 @@
    type="SYSTEM_VERILOG"
    library="sdram_s1_burst_adapter" />
  <file
+   path="simulation/submodules/altera_merlin_traffic_limiter.sv"
+   type="SYSTEM_VERILOG"
+   library="cpu_data_master_limiter" />
+ <file
+   path="simulation/submodules/altera_merlin_reorder_memory.sv"
+   type="SYSTEM_VERILOG"
+   library="cpu_data_master_limiter" />
+ <file
+   path="simulation/submodules/altera_avalon_sc_fifo.v"
+   type="SYSTEM_VERILOG"
+   library="cpu_data_master_limiter" />
+ <file
+   path="simulation/submodules/altera_avalon_st_pipeline_base.v"
+   type="SYSTEM_VERILOG"
+   library="cpu_data_master_limiter" />
+ <file
    path="simulation/submodules/crypto_wallet_mm_interconnect_0_router_010.sv"
    type="SYSTEM_VERILOG"
    library="router_010" />
@@ -165,8 +181,32 @@
    type="SDC"
    library="cpu" />
  <file
-   path="simulation/submodules/crypto_wallet_cpu_cpu.v"
+   path="simulation/submodules/crypto_wallet_cpu_cpu.vo"
    type="VERILOG"
+   library="cpu" />
+ <file
+   path="simulation/submodules/crypto_wallet_cpu_cpu_bht_ram.dat"
+   type="DAT"
+   library="cpu" />
+ <file
+   path="simulation/submodules/crypto_wallet_cpu_cpu_bht_ram.hex"
+   type="HEX"
+   library="cpu" />
+ <file
+   path="simulation/submodules/crypto_wallet_cpu_cpu_bht_ram.mif"
+   type="MIF"
+   library="cpu" />
+ <file
+   path="simulation/submodules/crypto_wallet_cpu_cpu_dc_tag_ram.dat"
+   type="DAT"
+   library="cpu" />
+ <file
+   path="simulation/submodules/crypto_wallet_cpu_cpu_dc_tag_ram.hex"
+   type="HEX"
+   library="cpu" />
+ <file
+   path="simulation/submodules/crypto_wallet_cpu_cpu_dc_tag_ram.mif"
+   type="MIF"
    library="cpu" />
  <file
    path="simulation/submodules/crypto_wallet_cpu_cpu_debug_slave_sysclk.v"
@@ -178,6 +218,22 @@
    library="cpu" />
  <file
    path="simulation/submodules/crypto_wallet_cpu_cpu_debug_slave_wrapper.v"
+   type="VERILOG"
+   library="cpu" />
+ <file
+   path="simulation/submodules/crypto_wallet_cpu_cpu_ic_tag_ram.dat"
+   type="DAT"
+   library="cpu" />
+ <file
+   path="simulation/submodules/crypto_wallet_cpu_cpu_ic_tag_ram.hex"
+   type="HEX"
+   library="cpu" />
+ <file
+   path="simulation/submodules/crypto_wallet_cpu_cpu_ic_tag_ram.mif"
+   type="MIF"
+   library="cpu" />
+ <file
+   path="simulation/submodules/crypto_wallet_cpu_cpu_mult_cell.v"
    type="VERILOG"
    library="cpu" />
  <file

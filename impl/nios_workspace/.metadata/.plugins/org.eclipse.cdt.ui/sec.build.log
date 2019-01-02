@@ -1,0 +1,10 @@
+19:55:57 **** Incremental Build of configuration Nios II for project sec ****
+make all 
+Info: Building ../Crypto_wallet/impl/nios_proj_bsp/
+make --no-print-directory -C ../Crypto_wallet/impl/nios_proj_bsp/
+/bin/sh: cygpath: command not found
+make[1]: *** No rule to make target `/system.h', needed by `all'.  Stop.
+make: *** [../Crypto_wallet/impl/nios_proj_bsp/-recurs-make-lib] Error 2
+
+19:56:01 Build Finished (took 4s.41ms)
+

@@ -1,0 +1,12 @@
+19:34:02 **** Incremental Build of configuration Build (GNU) for project tester ****
+make all 
+Making all in src
+make[1]: Entering directory `/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_workspace/tester/src'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_workspace/tester/src'
+make[1]: Entering directory `/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_workspace/tester'
+make[1]: Nothing to be done for `all-am'.
+make[1]: Leaving directory `/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_workspace/tester'
+
+19:34:02 Build Finished (took 394ms)
+
