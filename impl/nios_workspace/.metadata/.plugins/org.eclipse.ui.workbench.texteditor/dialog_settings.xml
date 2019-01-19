@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="get_pub" key="selection"/>
+		<item value="LIB_INC_DIR" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="lib_inc_dir"/>
+			<item value="lib_include"/>
 			<item value="get_pub"/>
 			<item value="app_inc"/>
 			<item value="lib_inc"/>
 			<item value="lib_includ"/>
 			<item value="lib_"/>
 			<item value="mkdir"/>
-			<item value="create"/>
-			<item value="-test.a"/>
 		</list>
 		<list key="replacehistory">
 		</list>

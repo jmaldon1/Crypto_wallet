@@ -1,0 +1,271 @@
+/*
+ * Company:
+ * Author: B. Silver
+ *
+ * Create Date: 11/25/2018
+ * Module Name: wallet_main.c
+ * Revision:
+ * Description: Main source file
+ */
+
+#include "..\Include\wallet_main.h"
+#include "..\Include\wallet_status.h"
+#include "..\Include\bip39.h"
+#include "alt_types.h"
+#include "system.h"
+#include "altera_avalon_pio_regs.h"
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdbool.h>
+
+#include <tool.h>
+#include <chainparams.h>
+#include <ecc.h>
+
+static bool showError(const char* er)
+{
+    printf("Error: %s\n", er);
+    btc_ecc_stop();
+    return 1;
+}
+
+static bool derive_child(const btc_chainparams* chain, char* pkey, char* keypath){
+	size_t sizeout = 128;
+	char newextkey[sizeout];
+
+	//check if we derive a range of keys
+	unsigned int maxlen = 1024;
+	int posanum = -1;
+	int posbnum = -1;
+	int end = -1;
+	uint64_t from;
+	uint64_t to;
+
+	static char digits[] = "0123456789";
+	for (unsigned int i = 0; i<strlen(keypath); i++) {
+		if (i > maxlen) {
+			break;
+		}
+		if (posanum > -1 && posbnum == -1) {
+			if (keypath[i] == '-') {
+				if (i-posanum >= 9) {
+					break;
+				}
+				posbnum = i+1;
+				char buf[9] = {0};
+				memcpy (buf, &keypath[posanum], i-posanum);
+				from = strtoull(buf, NULL, 10);
+			}
+			else if (!strchr(digits, keypath[i])) {
+				posanum = -1;
+				break;
+			}
+		}
+		else if (posanum > -1 && posbnum > -1) {
+			if (keypath[i] == ']' || keypath[i] == ')') {
+				if (i-posbnum >= 9) {
+					break;
+				}
+				char buf[9] = {0};
+				memcpy (buf, &keypath[posbnum], i-posbnum);
+				to = strtoull(buf, NULL, 10);
+				end = i+1;
+				break;
+			}
+			else if (!strchr(digits, keypath[i])) {
+				posbnum = -1;
+				posanum = -1;
+				break;
+			}
+		}
+		if (keypath[i] == '[' || keypath[i] == '(') {
+			posanum = i+1;
+		}
+	}
+
+	if (end > -1 && from <= to) {
+		for (uint64_t i = from; i <= to; i++) {
+			char keypathnew[strlen(keypath)+16];
+			memcpy(keypathnew, keypath, posanum-1);
+			char index[9] = {0};
+			sprintf(index, "%lld", i);
+			memcpy(keypathnew+posanum-1, index, strlen(index));
+			memcpy(keypathnew+posanum-1+strlen(index), &keypath[end], strlen(keypath)-end);
+
+
+			if (!hd_derive(chain, pkey, keypathnew, newextkey, sizeout))
+				return showError("Deriving child key failed\n");
+			else
+				hd_print_node(chain, newextkey);
+		}
+	}
+	else {
+		if (!hd_derive(chain, pkey, keypath, newextkey, sizeout))
+			return showError("Deriving child key failed\n");
+		else
+			hd_print_node(chain, newextkey);
+	}
+
+	return 1;
+}
+
+static bool sign_tx(char* txhex, char* scripthex, char* pkey, const btc_chainparams* chain){
+	if(!txhex || !scripthex) {
+		return showError("Missing tx-hex or script-hex (use -x, -s)\n");
+	}
+
+	if (strlen(txhex) > 1024*100) { //don't accept tx larger then 100kb
+		return showError("tx too large (max 100kb)\n");
+	}
+
+	int inputindex = 0;
+	int sighashtype = 1;
+	uint64_t amount = 0;
+
+	//deserialize transaction
+	btc_tx* tx = btc_tx_new();
+	uint8_t* data_bin = btc_malloc(strlen(txhex) / 2 + 1);
+	int outlen = 0;
+	utils_hex_to_bin(txhex, data_bin, strlen(txhex), &outlen);
+	if (!btc_tx_deserialize(data_bin, outlen, tx, NULL, true)) {
+		free(data_bin);
+		btc_tx_free(tx);
+		return showError("Invalid tx hex");
+	}
+	free(data_bin);
+
+	if ((size_t)inputindex >= tx->vin->len) {
+		btc_tx_free(tx);
+		return showError("Inputindex out of range");
+	}
+
+	btc_tx_in *tx_in = vector_idx(tx->vin, inputindex);
+
+	uint8_t script_data[strlen(scripthex) / 2 + 1];
+	utils_hex_to_bin(scripthex, script_data, strlen(scripthex), &outlen);
+	cstring* script = cstr_new_buf(script_data, outlen);
+
+	uint256 sighash;
+	memset(sighash, 0, sizeof(sighash));
+	btc_tx_sighash(tx, script, inputindex, sighashtype, 0, SIGVERSION_BASE, sighash);
+
+	char *hex = utils_uint8_to_hex(sighash, 32);
+	utils_reverse_hex(hex, 64);
+
+	enum btc_tx_out_type type = btc_script_classify(script, NULL);
+	printf("script: %s\n", scripthex);
+	printf("script-type: %s\n", btc_tx_out_type_to_str(type));
+	printf("inputindex: %d\n", inputindex);
+	printf("sighashtype: %d\n", sighashtype);
+	printf("hash: %s\n", hex);
+
+	// sign
+	btc_bool sign = false;
+	btc_key key;
+	btc_privkey_init(&key);
+	if (btc_privkey_decode_wif(pkey, chain, &key)) {
+		sign = true;
+	}
+	else {
+		if (strlen(pkey) > 50) {
+			btc_tx_free(tx);
+			cstr_free(script, true);
+			return showError("Invalid wif privkey\n");
+		}
+		printf("No private key provided, signing will not happen\n");
+	}
+	if (sign) {
+		uint8_t sigcompact[64] = {0};
+		int sigderlen = 74+1; //&hashtype
+		uint8_t sigder_plus_hashtype[75] = {0};
+		enum btc_tx_sign_result res = btc_tx_sign_input(tx, script, amount, &key, inputindex, sighashtype, sigcompact, sigder_plus_hashtype, &sigderlen);
+		cstr_free(script, true);
+
+		if (res != BTC_SIGN_OK) {
+			printf("!!!Sign error:%s\n", btc_tx_sign_result_to_str(res));
+		}
+
+		char sigcompacthex[64*2+1] = {0};
+		utils_bin_to_hex((unsigned char *)sigcompact, 64, sigcompacthex);
+
+		char sigderhex[74*2+2+1]; //74 der, 2 hashtype, 1 nullbyte
+		memset(sigderhex, 0, sizeof(sigderhex));
+		utils_bin_to_hex((unsigned char *)sigder_plus_hashtype, sigderlen, sigderhex);
+
+		printf("\nSignature created:\n");
+		printf("signature compact: %s\n", sigcompacthex);
+		printf("signature DER (+hashtype): %s\n", sigderhex);
+
+		cstring* signed_tx = cstr_new_sz(1024);
+		btc_tx_serialize(signed_tx, tx, true);
+
+		char signed_tx_hex[signed_tx->len*2+1];
+		utils_bin_to_hex((unsigned char *)signed_tx->str, signed_tx->len, signed_tx_hex);
+		printf("signed TX: %s\n", signed_tx_hex);
+		cstr_free(signed_tx, true);
+	}
+	btc_tx_free(tx);
+}
+
+int main()
+{
+	printf("Hello World from NIOS II\n");
+	printf("Software Version: %d.%d.%d\n\n", SOFTWARE_VERSION_MAJOR, SOFTWARE_VERSION_MINOR, SOFTWARE_VERSION_REV);
+
+	void *lots_of_memory = malloc(1024 * 1024 * 10);	// attempt to allocate 10MB
+    printf("SDRAM malloc returned 0x%08lx\n", (alt_u32)lots_of_memory);
+
+    char* keypath = "m/44h/0h/0h/0/0";
+//    uint8_t seed[64];
+//
+//    const char *mnemonic_phrase = mnemonic_generate(128);
+//    printf("MNEMONIC PHRASE: %s", mnemonic_phrase);
+
+    btc_ecc_start();
+
+    const btc_chainparams* chain = &btc_chainparams_test;
+    size_t sizeout = 128;
+    char masterkey[sizeout];
+    hd_gen_master(chain, masterkey, sizeout);
+    printf("masterkey: %s\n", masterkey);
+
+    hd_print_node(chain, masterkey);
+
+    derive_child(chain, masterkey, keypath);
+
+    char* txhex = "01000000016401933f7dceea414d9d51f902d7ad7480aeca70bf839560889ba0df177ce85f0000000000ffffffff0200093d00000000001976a9145e837d15e79b3cd487d5b2b7055c72dfb2a8203788ac166e9f00000000001976a914b65899a761f70bf4f98e1e624dfdc1eb0821886c88ac00000000";
+    char* scripthex = "76a914c8c46ef5dc68197cb4ffa10a232a46f74653d8eb88ac";
+    char* pkey = " cRbb6m3ykeD4B6eomH1hucGSqnTnThTFrvNUetyEKoSGC6AsV2MZ";
+
+    sign_tx(txhex, scripthex, pkey, chain);
+
+
+//    mnemonic_to_seed(mnemonic_phrase, "TEST", seed, 0);
+////
+//	printf("Seed: ");
+//	for(int i = 0; i < 64; i++){
+//		printf("%x", seed[i]);
+//	}
+//	printf("\n");
+//
+//
+//    int count = 0;
+//    int delay;
+//
+//    // main loop
+//    while(1)
+//    {
+//        IOWR_ALTERA_AVALON_PIO_DATA(PO_LED_BASE, count & 0xFF);
+//        delay = 0;
+//        while(delay < 200000)
+//        {
+//            delay++;
+//        }
+//        count++;
+//    }
+
+    btc_ecc_stop();
+
+	return 0;
+}

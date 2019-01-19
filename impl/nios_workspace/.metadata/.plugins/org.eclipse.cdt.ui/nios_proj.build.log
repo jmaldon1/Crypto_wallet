@@ -1,24 +1,61 @@
-15:51:32 **** Incremental Build of configuration Nios II for project nios_proj ****
+14:46:02 **** Incremental Build of configuration Nios II for project nios_proj ****
 make all 
-Info: Building ../../../btclib
-C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../../btclib
-Info: Building ../Crypto_wallet/impl/nios_proj_bsp/
-C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../Crypto_wallet/impl/nios_proj_bsp/
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
 [BSP build complete]
 cp -f obj/default/libbtclib.a libbtclib.a
 Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
 [BSP build complete]
 Info: Compiling ../../software/Source/wallet_main.c to obj/default/wallet_main.o
-nios2-elf-gcc -xc -MP -MMD -c -I../../../btclib/btc/include/btc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/wallet_main.o ../../software/Source/wallet_main.c
+nios2-elf-gcc -xc -MP -MMD -c -I../../software/libbtc/btc/include/btc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/wallet_main.o ../../software/Source/wallet_main.c
+../../software/Source/wallet_main.c: In function 'sign_tx':
+../../software/Source/wallet_main.c:130:2: warning: implicit declaration of function 'utils_hex_to_bin' [-Wimplicit-function-declaration]
+  utils_hex_to_bin(txhex, data_bin, strlen(txhex), &outlen);
+  ^
+../../software/Source/wallet_main.c:153:14: warning: implicit declaration of function 'utils_uint8_to_hex' [-Wimplicit-function-declaration]
+  char *hex = utils_uint8_to_hex(sighash, 32);
+              ^
+../../software/Source/wallet_main.c:153:14: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+../../software/Source/wallet_main.c:154:2: warning: implicit declaration of function 'utils_reverse_hex' [-Wimplicit-function-declaration]
+  utils_reverse_hex(hex, 64);
+  ^
+../../software/Source/wallet_main.c:190:3: warning: implicit declaration of function 'utils_bin_to_hex' [-Wimplicit-function-declaration]
+   utils_bin_to_hex((unsigned char *)sigcompact, 64, sigcompacthex);
+   ^
+../../software/Source/wallet_main.c:143:13: warning: unused variable 'tx_in' [-Wunused-variable]
+  btc_tx_in *tx_in = vector_idx(tx->vin, inputindex);
+             ^
+../../software/Source/wallet_main.c: In function 'main':
+../../software/Source/wallet_main.c:245:11: warning: unused variable 'pkey' [-Wunused-variable]
+     char* pkey = "cRbb6m3ykeD4B6eomH1hucGSqnTnThTFrvNUetyEKoSGC6AsV2MZ"; //This is created in hd_print_node, we need to find a way to pull it out of that function
+           ^
+../../software/Source/wallet_main.c:244:11: warning: unused variable 'scripthex' [-Wunused-variable]
+     char* scripthex = "76a914c8c46ef5dc68197cb4ffa10a232a46f74653d8eb88ac";
+           ^
+../../software/Source/wallet_main.c:243:11: warning: unused variable 'txhex' [-Wunused-variable]
+     char* txhex = "01000000016401933f7dceea414d9d51f902d7ad7480aeca70bf839560889ba0df177ce85f0000000000ffffffff0200093d00000000001976a9145e837d15e79b3cd487d5b2b7055c72dfb2a8203788ac166e9f00000000001976a914b65899a761f70bf4f98e1e624dfdc1eb0821886c88ac00000000";
+           ^
+../../software/Source/wallet_main.c:220:11: warning: unused variable 'keypath' [-Wunused-variable]
+     char* keypath = "m/44h/0h/0h/0/0";
+           ^
+../../software/Source/wallet_main.c: At top level:
+../../software/Source/wallet_main.c:33:13: warning: 'derive_child' defined but not used [-Wunused-function]
+ static bool derive_child(const btc_chainparams* chain, char* pkey, char* keypath){
+             ^
+../../software/Source/wallet_main.c:113:13: warning: 'sign_tx' defined but not used [-Wunused-function]
+ static bool sign_tx(char* txhex, char* scripthex, char* pkey, const btc_chainparams* chain){
+             ^
 Info: Linking nios_proj.elf
-nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../../btclib -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/  -msmallc  -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/bip39.o obj/default/hmac.o obj/default/memzero.o obj/default/pbkdf2.o obj/default/rand.o obj/default/sha2.o obj/default/wallet_main.o obj/default/wallet_system.o -lbtclib -lm -msys-lib=m
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/  -msmallc  -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/bip39.o obj/default/hmac.o obj/default/memzero.o obj/default/pbkdf2.o obj/default/rand.o obj/default/sha2.o obj/default/wallet_main.o obj/default/wallet_system.o -lbtclib -lm -msys-lib=m
 nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x200a038 --timestamp 1546374559 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet.sopcinfo
-Info: (nios_proj.elf) 359 KBytes program size (code + initialized data).
-Info:                 32403 KBytes free for stack + heap.
+Info: (nios_proj.elf) 374 KBytes program size (code + initialized data).
+Info:                 32388 KBytes free for stack + heap.
 Info: Creating nios_proj.objdump
 nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
 [nios_proj build complete]
 
-15:51:37 Build Finished (took 5s.50ms)
+14:46:07 Build Finished (took 4s.990ms)
 

@@ -2636,7 +2636,7 @@
 						<entry kind="macro" name="__hal__" value=""/>
 					</resource>
 					<resource project-relative-path="Source/wallet_main.c">
-						<entry kind="includePath" name="/btclib/btc/include/btc">
+						<entry kind="includePath" name="/libbtc/btc/include/btc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
 						<entry kind="includePath" name="/nios_proj_bsp/HAL/inc">
