@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+
+#include "system.h"
+#include "altera_avalon_pio_regs.h"
+#include "sys/alt_sys_wrappers.h"
+#include "alt_types.h"
+
+#include "uart_usb.h"
+//#include "bip39.h"
+
+int main()
+{
+    printf("Hello from Nios II!\n");
+
+    alt_u32 randSeed = 0x12345678;
+
+    initRandom(randSeed);
+
+    initUart();
+    PutStrUart("Hello from NIOS II UART console\n");
+
+//	const char *mnemonic_phrase = mnemonic_generate(128);
+//	printf("MNEMONIC PHRASE: %s\n", mnemonic_phrase);
+//
+//	char buffer[2048];
+//	sprintf(buffer, "Menmonic phrase: %s\n", mnemonic_phrase);
+//	PutStrUart((char *)&(buffer[0]));
+
+	alt_u8 count = 0;
+	alt_u32 randVal;
+	char buffer[1024];
+    while(1)
+    {
+    	uartGetLine();
+		count++;
+		if ((count % 1000000000) == 0)
+		{
+	    	randVal = u32getRandom();
+	    	IOWR_ALTERA_AVALON_PIO_DATA(PO_LED_BASE, randVal & 0xFF);
+	    	sprintf(buffer, "Random value: 0x%08x\n", randVal);
+	    	PutStrUart((char *)&(buffer[0]));
+		}
+		ALT_USLEEP(100);
+    }
+    closeUart();
+    return 0;
+}
+

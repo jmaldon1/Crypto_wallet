@@ -1,0 +1,178 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\qsys\crypto_wallet2_nios.qsys --block-symbol-file --output-directory=C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\qsys\crypto_wallet2_nios --family="Cyclone IV E" --part=EP4CE22F17C6
+Progress: Loading qsys/crypto_wallet2_nios.qsys
+Progress: Reading input file
+Progress: Adding clk_50 [clock_source 18.1]
+Progress: Parameterizing module clk_50
+Progress: Adding cpu [altera_nios2_gen2 18.1]
+Progress: Parameterizing module cpu
+Progress: Adding epcs_flash_controller [altera_avalon_epcs_flash_controller 18.1]
+Progress: Parameterizing module epcs_flash_controller
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 18.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding onchip_memory2 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module onchip_memory2
+Progress: Adding pi_random_value [altera_avalon_pio 18.1]
+Progress: Parameterizing module pi_random_value
+Progress: Adding po_led [altera_avalon_pio 18.1]
+Progress: Parameterizing module po_led
+Progress: Adding po_random_seed [altera_avalon_pio 18.1]
+Progress: Parameterizing module po_random_seed
+Progress: Adding po_system_control [altera_avalon_pio 18.1]
+Progress: Parameterizing module po_system_control
+Progress: Adding sdram [altera_avalon_new_sdram_controller 18.1]
+Progress: Parameterizing module sdram
+Progress: Adding sysid [altera_avalon_sysid_qsys 18.1]
+Progress: Parameterizing module sysid
+Progress: Adding uart [altera_avalon_uart 18.1]
+Progress: Parameterizing module uart
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: crypto_wallet2_nios.epcs_flash_controller: Legacy EPCS/EPCQx1 Flash Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: crypto_wallet2_nios.epcs_flash_controller: Dedicated AS interface is not supported, signals are exported to top level design.
+Info: crypto_wallet2_nios.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: crypto_wallet2_nios.pi_random_value: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: crypto_wallet2_nios.sdram: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: crypto_wallet2_nios.sysid: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: crypto_wallet2_nios.sysid: Time stamp will be automatically updated when this component is generated.
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\qsys\crypto_wallet2_nios.qsys --synthesis=VERILOG --output-directory=C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\qsys\crypto_wallet2_nios\synthesis --family="Cyclone IV E" --part=EP4CE22F17C6
+Progress: Loading qsys/crypto_wallet2_nios.qsys
+Progress: Reading input file
+Progress: Adding clk_50 [clock_source 18.1]
+Progress: Parameterizing module clk_50
+Progress: Adding cpu [altera_nios2_gen2 18.1]
+Progress: Parameterizing module cpu
+Progress: Adding epcs_flash_controller [altera_avalon_epcs_flash_controller 18.1]
+Progress: Parameterizing module epcs_flash_controller
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 18.1]
+Progress: Parameterizing module jtag_uart
+Progress: Adding onchip_memory2 [altera_avalon_onchip_memory2 18.1]
+Progress: Parameterizing module onchip_memory2
+Progress: Adding pi_random_value [altera_avalon_pio 18.1]
+Progress: Parameterizing module pi_random_value
+Progress: Adding po_led [altera_avalon_pio 18.1]
+Progress: Parameterizing module po_led
+Progress: Adding po_random_seed [altera_avalon_pio 18.1]
+Progress: Parameterizing module po_random_seed
+Progress: Adding po_system_control [altera_avalon_pio 18.1]
+Progress: Parameterizing module po_system_control
+Progress: Adding sdram [altera_avalon_new_sdram_controller 18.1]
+Progress: Parameterizing module sdram
+Progress: Adding sysid [altera_avalon_sysid_qsys 18.1]
+Progress: Parameterizing module sysid
+Progress: Adding uart [altera_avalon_uart 18.1]
+Progress: Parameterizing module uart
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: crypto_wallet2_nios.epcs_flash_controller: Legacy EPCS/EPCQx1 Flash Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: crypto_wallet2_nios.epcs_flash_controller: Dedicated AS interface is not supported, signals are exported to top level design.
+Info: crypto_wallet2_nios.jtag_uart: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
+Info: crypto_wallet2_nios.pi_random_value: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
+Info: crypto_wallet2_nios.sdram: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Info: crypto_wallet2_nios.sysid: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: crypto_wallet2_nios.sysid: Time stamp will be automatically updated when this component is generated.
+Info: crypto_wallet2_nios: Generating crypto_wallet2_nios "crypto_wallet2_nios" for QUARTUS_SYNTH
+Info: cpu: "crypto_wallet2_nios" instantiated altera_nios2_gen2 "cpu"
+Info: epcs_flash_controller: Starting RTL generation for module 'crypto_wallet2_nios_epcs_flash_controller'
+Info: epcs_flash_controller:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_epcs_flash_controller -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_epcs_flash_controller/generate_rtl.pl --name=crypto_wallet2_nios_epcs_flash_controller --dir=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0205_epcs_flash_controller_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0205_epcs_flash_controller_gen//crypto_wallet2_nios_epcs_flash_controller_component_configuration.pl  --do_build_sim=0  ]
+Info: epcs_flash_controller: Done RTL generation for module 'crypto_wallet2_nios_epcs_flash_controller'
+Info: epcs_flash_controller: "crypto_wallet2_nios" instantiated altera_avalon_epcs_flash_controller "epcs_flash_controller"
+Info: jtag_uart: Starting RTL generation for module 'crypto_wallet2_nios_jtag_uart'
+Info: jtag_uart:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=crypto_wallet2_nios_jtag_uart --dir=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0206_jtag_uart_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0206_jtag_uart_gen//crypto_wallet2_nios_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart: Done RTL generation for module 'crypto_wallet2_nios_jtag_uart'
+Info: jtag_uart: "crypto_wallet2_nios" instantiated altera_avalon_jtag_uart "jtag_uart"
+Info: onchip_memory2: Starting RTL generation for module 'crypto_wallet2_nios_onchip_memory2'
+Info: onchip_memory2:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=crypto_wallet2_nios_onchip_memory2 --dir=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0207_onchip_memory2_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0207_onchip_memory2_gen//crypto_wallet2_nios_onchip_memory2_component_configuration.pl  --do_build_sim=0  ]
+Info: onchip_memory2: Done RTL generation for module 'crypto_wallet2_nios_onchip_memory2'
+Info: onchip_memory2: "crypto_wallet2_nios" instantiated altera_avalon_onchip_memory2 "onchip_memory2"
+Info: pi_random_value: Starting RTL generation for module 'crypto_wallet2_nios_pi_random_value'
+Info: pi_random_value:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=crypto_wallet2_nios_pi_random_value --dir=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0208_pi_random_value_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0208_pi_random_value_gen//crypto_wallet2_nios_pi_random_value_component_configuration.pl  --do_build_sim=0  ]
+Info: pi_random_value: Done RTL generation for module 'crypto_wallet2_nios_pi_random_value'
+Info: pi_random_value: "crypto_wallet2_nios" instantiated altera_avalon_pio "pi_random_value"
+Info: po_led: Starting RTL generation for module 'crypto_wallet2_nios_po_led'
+Info: po_led:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=crypto_wallet2_nios_po_led --dir=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0209_po_led_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0209_po_led_gen//crypto_wallet2_nios_po_led_component_configuration.pl  --do_build_sim=0  ]
+Info: po_led: Done RTL generation for module 'crypto_wallet2_nios_po_led'
+Info: po_led: "crypto_wallet2_nios" instantiated altera_avalon_pio "po_led"
+Info: po_random_seed: Starting RTL generation for module 'crypto_wallet2_nios_po_random_seed'
+Info: po_random_seed:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=crypto_wallet2_nios_po_random_seed --dir=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0210_po_random_seed_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0210_po_random_seed_gen//crypto_wallet2_nios_po_random_seed_component_configuration.pl  --do_build_sim=0  ]
+Info: po_random_seed: Done RTL generation for module 'crypto_wallet2_nios_po_random_seed'
+Info: po_random_seed: "crypto_wallet2_nios" instantiated altera_avalon_pio "po_random_seed"
+Info: sdram: Starting RTL generation for module 'crypto_wallet2_nios_sdram'
+Info: sdram:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=crypto_wallet2_nios_sdram --dir=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0211_sdram_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0211_sdram_gen//crypto_wallet2_nios_sdram_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram: Done RTL generation for module 'crypto_wallet2_nios_sdram'
+Info: sdram: "crypto_wallet2_nios" instantiated altera_avalon_new_sdram_controller "sdram"
+Info: sysid: "crypto_wallet2_nios" instantiated altera_avalon_sysid_qsys "sysid"
+Info: uart: Starting RTL generation for module 'crypto_wallet2_nios_uart'
+Info: uart:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_uart -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_uart/generate_rtl.pl --name=crypto_wallet2_nios_uart --dir=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0213_uart_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0213_uart_gen//crypto_wallet2_nios_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: uart: Done RTL generation for module 'crypto_wallet2_nios_uart'
+Info: uart: "crypto_wallet2_nios" instantiated altera_avalon_uart "uart"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_006: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_007: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_008: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_009: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_010: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "crypto_wallet2_nios" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: irq_mapper: "crypto_wallet2_nios" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "crypto_wallet2_nios" instantiated altera_reset_controller "rst_controller"
+Info: cpu: Starting RTL generation for module 'crypto_wallet2_nios_cpu_cpu'
+Info: cpu:   Generation command is [exec C:/intelFPGA_lite/18.1/quartus/bin64//eperlcmd.exe -I C:/intelFPGA_lite/18.1/quartus/bin64//perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=crypto_wallet2_nios_cpu_cpu --dir=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0216_cpu_gen/ --quartus_bindir=C:/intelFPGA_lite/18.1/quartus/bin64/ --verilog --config=C:/Users/CLASS2~1/AppData/Local/Temp/alt7935_2757317496950240123.dir/0216_cpu_gen//crypto_wallet2_nios_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2019.02.09 12:18:45 (*) Starting Nios II generation
+Info: cpu: # 2019.02.09 12:18:45 (*)   Checking for plaintext license.
+Info: cpu: # 2019.02.09 12:18:47 (*)   Couldn't query license setup in Quartus directory C:/intelFPGA_lite/18.1/quartus/bin64/
+Info: cpu: # 2019.02.09 12:18:47 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: cpu: # 2019.02.09 12:18:47 (*)   LM_LICENSE_FILE environment variable is empty
+Info: cpu: # 2019.02.09 12:18:47 (*)   Plaintext license not found.
+Info: cpu: # 2019.02.09 12:18:47 (*)   No license required to generate encrypted Nios II/e.
+Info: cpu: # 2019.02.09 12:18:47 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2019.02.09 12:18:47 (*)   Creating all objects for CPU
+Info: cpu: # 2019.02.09 12:18:48 (*)   Generating RTL from CPU objects
+Info: cpu: # 2019.02.09 12:18:48 (*)   Creating plain-text RTL
+Info: cpu: # 2019.02.09 12:18:49 (*) Done Nios II generation
+Info: cpu: Done RTL generation for module 'crypto_wallet2_nios_cpu_cpu'
+Info: cpu: "cpu" instantiated altera_nios2_gen2_unit "cpu"
+Info: cpu_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "cpu_data_master_translator"
+Info: jtag_uart_avalon_jtag_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "jtag_uart_avalon_jtag_slave_translator"
+Info: cpu_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "cpu_data_master_agent"
+Info: jtag_uart_avalon_jtag_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "jtag_uart_avalon_jtag_slave_agent"
+Info: jtag_uart_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "jtag_uart_avalon_jtag_slave_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: router_004: "mm_interconnect_0" instantiated altera_merlin_router "router_004"
+Info: router_008: "mm_interconnect_0" instantiated altera_merlin_router "router_008"
+Info: sdram_s1_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "sdram_s1_burst_adapter"
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: cmd_mux_002: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_002"
+Info: Reusing file C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet2_nios/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_demux_002: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_002"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet2_nios/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
+Info: Reusing file C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet2_nios/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: sdram_s1_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "sdram_s1_rsp_width_adapter"
+Info: Reusing file C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet2_nios/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet2_nios/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: avalon_st_adapter_006: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_006"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: error_adapter_0: "avalon_st_adapter_006" instantiated error_adapter "error_adapter_0"
+Info: crypto_wallet2_nios: Done "crypto_wallet2_nios" with 39 modules, 62 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

@@ -142,8 +142,9 @@ ACDS_VERSION := 18.1
 ELF := nios_proj.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS += ../../software/Source/wallet_main.c
-C_SRCS += ../../software/Source/rand.c
+C_SRCS += main.c
+C_SRCS += uart_usb.c
+C_SRCS += rand.c
 CXX_SRCS :=
 ASM_SRCS :=
 

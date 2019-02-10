@@ -1,0 +1,10 @@
+Start time: 13:55:52 on Feb 09,2019
+vlog -f ..\random.f -l compile.log -lint -nologo 
+-- Compiling module tb_random
+** Warning: ..\..\test\tb_random.v(5): (vlog-2605) empty port name in port list.
+-- Compiling module random
+
+Top level modules:
+	tb_random
+End time: 13:55:53 on Feb 09,2019, Elapsed time: 0:00:01
+Errors: 0, Warnings: 1

@@ -1,0 +1,32 @@
+#include "rand.h"
+
+#include "system.h"
+#include "altera_avalon_pio_regs.h"
+#include "sys/alt_sys_wrappers.h"
+
+
+void initRandom(alt_64 seed)
+{
+	IOWR_ALTERA_AVALON_PIO_DATA(PO_RANDOM_SEED)BASE, seed);
+
+	IOWR_ALTERA_AVALON_PIO_DATA(PO_SYSTEM_CONTROL_BASE, 0x01);
+	ALT_USLEEP(100);
+	IOWR_ALTERA_AVALON_PIO_DATA(PO_SYSTEM_CONTROL_BASE, 0x00);
+}
+
+alt_u32 u32getRandom()
+{
+	alt_u32 u32random;
+	for (int i = 0; i < 4; ++i)
+	{
+        print(hexString)
+
+	}
+	return IORD_ALTERA_AVALON_PIO_DATA(PI_RANDOM_VALUE_BASE);
+}
+
+
+alt_u8 u08getRandom()
+{
+	return (IORD_ALTERA_AVALON_PIO_DATA(PI_RANDOM_VALUE_BASE) & 0xFF);
+}

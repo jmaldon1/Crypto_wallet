@@ -8,160 +8,192 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/Class2018/Documents/Projects/Crypto_wallet/sim/sha256
-Esha256
-Z1 w1543634442
-Z2 DPx4 work 16 sha256_functions 0 22 9>>>jz=AhBH^5:^Q28f?53
-Z3 DPx4 work 16 sha256_constants 0 22 dSc;XaX=CIJnHWm>J:_zI2
-Z4 DPx4 work 12 sha256_types 0 22 UVfX6HDI_BP7Sd5>ECE:P0
-Z5 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z6 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z7 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-R0
-Z8 8..\..\firmware\sha256.vhd
-Z9 F..\..\firmware\sha256.vhd
-l0
-L15
-VVLF19VWKABP>@5U6?JJ_61
-!s100 UBVmN4PBLjYg<lH03VV5M1
-Z10 OV;C;10.5b;63
-33
-Z11 !s110 1543634708
+vch
+Z1 !s110 1549652942
 !i10b 1
-Z12 !s108 1543634708.000000
-Z13 !s90 -f|..\sha256.f|-2008|-l|compile.log|-lint|-nologo|
-Z14 !s107 ..\..\test\tb_sha256.vhd|..\..\firmware\sha256.vhd|..\..\firmware\sha256_functions.vhd|..\..\firmware\sha256_constants.vhd|..\..\firmware\sha256_types.vhd|
+!s100 ;_e1mIc58C>7VCd<7Bh<;1
+IgT]@[:3mb8I_cjkMXg?OC0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1549652319
+Z4 8..\..\firmware\sha256_functions.v
+Z5 F..\..\firmware\sha256_functions.v
+L0 23
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1549652942.000000
+Z8 !s107 ..\..\firmware\sha256_functions.v|..\..\firmware\sha256_transform.v|..\..\test\tb_sha256.v|
+Z9 !s90 -f|..\sha256.f|-l|compile.log|-lint|-nologo|
 !i113 1
-Z15 o-nologo -2008 -lint
-Z16 tExplicit 1 CvgOpt 0
-Abehaviour
+Z10 o-nologo -lint
+Z11 tCvgOpt 0
+ve0
+R1
+!i10b 1
+!s100 F:Gk0MX<UNXE<dS[9FG8g0
+IP^cTZ9nWA^WX`kd@CZ9Wn3
 R2
+R0
 R3
 R4
 R5
+L0 3
 R6
+r1
+!s85 0
+31
 R7
-DEx4 work 6 sha256 0 22 VLF19VWKABP>@5U6?JJ_61
-l55
-L37
-V<8gJ]EMR^9P`iF2l5AKPV3
-!s100 nfEnC`NV2b8lMXHG4?6PU3
-R10
-33
-R11
-!i10b 1
-R12
-R13
-R14
+R8
+R9
 !i113 1
-R15
-R16
-Psha256_constants
-R4
-R6
-R7
-w1543634488
-R0
-8..\..\firmware\sha256_constants.vhd
-F..\..\firmware\sha256_constants.vhd
-l0
-L9
-VdSc;XaX=CIJnHWm>J:_zI2
-!s100 D8ePZ2lR4MBF4e]eXA`<61
 R10
-33
 R11
+ve1
+R1
 !i10b 1
-R12
-R13
-R14
-!i113 1
-R15
-R16
-Psha256_functions
-R3
-R4
-R5
-R6
-R7
-Z17 w1543634467
-R0
-Z18 8..\..\firmware\sha256_functions.vhd
-Z19 F..\..\firmware\sha256_functions.vhd
-l0
-L9
-V9>>>jz=AhBH^5:^Q28f?53
-!s100 =<VCUQ8RDH1U6QBL_RONg3
-R10
-33
-b1
-R11
-!i10b 1
-R12
-R13
-R14
-!i113 1
-R15
-R16
-Bbody
+!s100 L=hzaFhAiFKL6;DB`ACPl0
+I?d<RdXZ78j<Yg[iPPS9<F3
 R2
+R0
 R3
 R4
 R5
+L0 13
 R6
+r1
+!s85 0
+31
 R7
-l0
-L45
-V5]N1k^kZBZSbmWPSUlnTH3
-!s100 B3MeC;bj[n?mTJ31lijMH0
-R10
-33
-R11
-!i10b 1
-R12
-R13
-R14
+R8
+R9
 !i113 1
-R15
-R16
-Psha256_types
-R6
-R7
-w1543634464
+R10
+R11
+vmaj
+R1
+!i10b 1
+!s100 >Ho3XMGNFMRzL[^g>L`nX3
+IDM;Nf2D?cb:ZNIoIf;>zh1
+R2
 R0
-8..\..\firmware\sha256_types.vhd
-F..\..\firmware\sha256_types.vhd
-l0
-L7
-VUVfX6HDI_BP7Sd5>ECE:P0
-!s100 313[=A^RQkRYU5=fb:kg91
-R10
-33
-R11
-!i10b 1
-R12
-R13
-R14
-!i113 1
-R15
-R16
-Etb_sha256
-w1543634704
+R3
+R4
+R5
+L0 33
 R6
+r1
+!s85 0
+31
 R7
-R0
-8..\..\test\tb_sha256.vhd
-F..\..\test\tb_sha256.vhd
-l0
-L15
-VadbdSmEL8HI9aM6BRL`oX1
-!s100 P7[eQ=3@H]jdkn952mE8D1
+R8
+R9
+!i113 1
 R10
-33
 R11
+vs0
+R1
 !i10b 1
+!s100 :KPna5Ce`6OZDUddLhCe51
+I7TSnRjXz`9^N9=5@z2K]J3
+R2
+R0
+R3
+R4
+R5
+L0 43
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vs1
+R1
+!i10b 1
+!s100 CdC]4kk]R9e:0@MzQoD2H1
+I:Dh3>@MkW1E`OFzmXZ4Md0
+R2
+R0
+R3
+R4
+R5
+L0 54
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vsha256_digester
+R1
+!i10b 1
+!s100 zXD_`01Ml7BCZDIh[ZFPP2
+IXXXz4WMJZjMXcVR^lEMiY3
+R2
+R0
+Z12 w1549652320
+Z13 8..\..\firmware\sha256_transform.v
+Z14 F..\..\firmware\sha256_transform.v
+L0 96
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+vsha256_transform
+R1
+!i10b 1
+!s100 YU?ZSGkkWOG@nAJABEIZ40
+I;GbJ9_a^EhjMd7Y[SJkWX0
+R2
+R0
 R12
 R13
 R14
+L0 16
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
 !i113 1
-R15
-R16
+R10
+R11
+vtb_sha256
+R1
+!i10b 1
+!s100 oE2A?^k[mDCJmCB_E[z?V0
+ImTShomj>cko?3L<G4M<h10
+R2
+R0
+w1549652931
+8..\..\test\tb_sha256.v
+F..\..\test\tb_sha256.v
+L0 4
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11

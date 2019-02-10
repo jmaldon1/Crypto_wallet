@@ -1,0 +1,10 @@
+#ifndef __RAND_H__
+#define __RAND_H__
+
+#include "alt_types.h"
+
+void initRandom(alt_64 seed);
+
+alt_u32 u32getRandom();
+
+#endif

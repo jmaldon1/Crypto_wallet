@@ -1,0 +1,14 @@
+#ifndef __UART_USB_H__
+#define __UART_USB_H__
+
+#define UART_USB_BAUD_RATE 115200
+
+char uartRxChar();
+
+void uartTxChar(char *c);
+
+void uartTxString(char *str);
+
+
+
+#endif

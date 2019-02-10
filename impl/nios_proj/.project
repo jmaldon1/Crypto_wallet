@@ -37,11 +37,4 @@
 		<nature>com.altera.sbtgui.project.SBTGUIAppNature</nature>
 		<nature>com.altera.sbtgui.project.SBTGUIManagedNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>Source</name>
-			<type>2</type>
-			<location>C:/Users/Class2018/Documents/Projects/Crypto_wallet/software/Source</location>
-		</link>
-	</linkedResources>
 </projectDescription>

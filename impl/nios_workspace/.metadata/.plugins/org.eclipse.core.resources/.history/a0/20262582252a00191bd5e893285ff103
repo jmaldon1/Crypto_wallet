@@ -1,0 +1,37 @@
+#include "uart_usb.h"
+
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+
+#include "sys/alt_stdio.h"
+#include "system.h"
+#include "altera_avalon_uart_regs.h"
+#include "altera_avalon_uart.h"
+
+
+char uartRxChar()
+{
+	return IORD_ALTERA_AVALON_UART_RXDATA(UART_BASE);
+}
+
+
+void uartTxChar(char * c)
+{
+	printf("%c", *c);
+    IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, (*c));
+}
+
+
+void uartTxString(char *str)
+{
+	static char *txStr;
+
+	txStr = str;
+
+	while(*txStr != 0)
+	{
+		uartTxChar(txStr);
+		txStr++;
+	}
+}

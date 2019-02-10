@@ -1,0 +1,7 @@
+#include "bip39.h"
+#include "rand.h"
+
+const char *mnemonic_generate(int strength)
+{
+
+}

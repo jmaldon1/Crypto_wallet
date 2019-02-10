@@ -1,0 +1,86 @@
+#include "uart_usb.h"
+
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+
+#include "sys/alt_stdio.h"
+#include "system.h"
+#include "altera_avalon_uart_regs.h"
+#include "altera_avalon_uart.h"
+
+
+static void SerialPort_ISR(int * PintContextPtr)
+{
+	static structUartPort * LSstrUartPortPtr;
+	static int LSintReturn = 0;
+	static char LScharAscii = 0;
+	static unsigned int LSuintDirectIo = 0;
+
+	LSstrUartPortPtr = (structUartPort *)PintContextPtr;
+	LSintReturn = IORD_ALTERA_AVALON_UART_STATUS(LSstrUartPortPtr->intUartBase);
+	if (LSintReturn & UART_ERROR)
+	{
+		SuintSerialPort_Status |= UART_ERROR;
+		LScharAscii = (char)IORD_ALTERA_AVALON_UART_RXDATA(LSstrUartPortPtr->intUartBase);
+		/* log error? */
+		/* Clear the interrupt */
+		IOWR_ALTERA_AVALON_UART_STATUS(LSstrUartPortPtr->intUartBase, 0);
+	}
+	else if (LSintReturn & UART_RX_READY)
+	{
+		LScharAscii = (char)IORD_ALTERA_AVALON_UART_RXDATA(LSstrUartPortPtr->intUartBase);
+		/* Buffer isn't full */
+		if (SuintRingBufferIdx_RxOutput_USB != RING_BUFFER_NEXT_IDX(SuintRingBufferIdx_RxInput_USB))
+		{
+			SAchrRingBuffer_Rx_USB[SuintRingBufferIdx_RxInput_USB] = LScharAscii;
+			SuintRingBufferIdx_RxInput_USB = RING_BUFFER_NEXT_IDX(SuintRingBufferIdx_RxInput_USB);
+		}
+		/* Buffer wrapped around */
+		else
+		{
+			/* Log error? */
+		}
+	}
+	else if (LSintReturn & UART_TX_READY)
+	{
+		/* Character is waiting to send */
+		if (SuintRingBufferIdx_TxInput_USB != SuintRingBufferIdx_TxOutput_USB)
+		{
+			LSuintDirectIo = (unsigned int)SAchrRingBuffer_Tx_USB[SuintRingBufferIdx_TxOutput_USB];
+			SuintRingBufferIdx_TxOutput_USB = RING_BUFFER_NEXT_IDX(SuintRingBufferIdx_TxOutput_USB);
+			IOWR_ALTERA_AVALON_UART_TXDATA(LSstrUartPortPtr->intUartBase, LSuintDirectIo);
+		}
+		/* Nothing to send, disable transmit interrupt */
+		else
+		{
+			LSuintDirectIo = IORD_ALTERA_AVALON_UART_CONTROL(LSstrUartPortPtr->intUartBase);
+			IOWR_ALTERA_AVALON_UART_CONTROL(LSstrUartPortPtr->intUartBase, LSuintDirectIo & ~UART_TX_READY);
+		}
+	}
+}
+
+char uartRxChar()
+{
+	return IORD_ALTERA_AVALON_UART_RXDATA(UART_BASE);
+}
+
+
+void uartTxChar(char * c)
+{
+    IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, (*c));
+}
+
+
+void uartTxString(char *str)
+{
+	static char *txStr;
+
+	txStr = str;
+
+	while(*txStr != 0)
+	{
+		uartTxChar(txStr);
+		txStr++;
+	}
+}

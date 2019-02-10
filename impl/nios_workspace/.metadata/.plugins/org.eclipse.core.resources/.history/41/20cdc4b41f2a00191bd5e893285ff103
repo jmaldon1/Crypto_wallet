@@ -1,0 +1,98 @@
+/*
+ * "Hello World" example.
+ *
+ * This example prints 'Hello from Nios II' to the STDOUT stream. It runs on
+ * the Nios II 'standard', 'full_featured', 'fast', and 'low_cost' example
+ * designs. It runs with or without the MicroC/OS-II RTOS and requires a STDOUT
+ * device in your system's hardware.
+ * The memory footprint of this hosted application is ~69 kbytes by default
+ * using the standard reference design.
+ *
+ * For a reduced footprint version of this template, and an explanation of how
+ * to reduce the memory footprint for a given application, see the
+ * "small_hello_world" template.
+ *
+ */
+
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+
+#include "sys/alt_stdio.h"
+#include "system.h"
+#include "altera_avalon_pio_regs.h"
+#include "altera_avalon_uart_regs.h"
+#include "altera_avalon_uart.h"
+
+void uartTxChar(char c)
+{
+    IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, c);
+}
+
+
+void uartTxString(char *string)
+{
+	for(int i = 0; i < strlen(string); ++i)
+	{
+		uartTxChar(string[i]);
+	}
+}
+
+
+int main()
+{
+    printf("Hello from Nios II!\n");
+
+    uartTxString("Hello from Nios II UART Console\n");
+    uartTxChar("H");
+    uartTxChar("e");
+    uartTxChar("l");
+    uartTxChar("l");
+    uartTxChar("o");
+    uartTxChar(" ");
+    uartTxChar("f");
+    uartTxChar("r");
+    uartTxChar("o");
+    uartTxChar("m");
+    uartTxChar(" ");
+    uartTxChar("N");
+    uartTxChar("i");
+    uartTxChar("o");
+    uartTxChar("s");
+    uartTxChar(" ");
+    uartTxChar("I");
+    uartTxChar("I");
+    uartTxChar(" ");
+    uartTxChar("U");
+    uartTxChar("A");
+    uartTxChar("R");
+    uartTxChar("T");
+    uartTxChar(" ");
+    uartTxChar("C");
+    uartTxChar("o");
+    uartTxChar("n");
+    uartTxChar("s");
+    uartTxChar("o");
+    uartTxChar("l");
+    uartTxChar("e");
+    uartTxChar("\n");
+
+
+
+    int count = 0;
+    int delay;
+    while(1) {
+
+        IOWR_ALTERA_AVALON_PIO_DATA(PO_LED_BASE, count & 0xFF);
+
+        usleep(100);
+
+        delay = 0;
+        while(delay < 100000)
+            delay++;
+        count++;
+    }
+
+  return 0;
+}

@@ -1,0 +1,36 @@
+#include "uart_usb.h"
+
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+
+#include "sys/alt_stdio.h"
+#include "system.h"
+#include "altera_avalon_pio_regs.h"
+#include "altera_avalon_uart_regs.h"
+#include "altera_avalon_uart.h"
+
+
+
+
+
+void uartTxChar(char c)
+{
+    IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, (unsigned int)c);
+}
+
+
+void uartTxString(char *str)
+{
+	static int LSintReturn;
+	static char *LSchrInputPtr;
+
+	txStr = str;
+
+	while(*txStr != 0)
+	{
+		LSintReturn = uartTxChar(txStr);
+		uartTxChar++;
+	}
+	return LSintReturn;
+}

@@ -1,0 +1,277 @@
+#include "uart_usb.h"
+
+#include "alt_types.h"
+#include "system.h"
+#include "altera_avalon_uart_regs.h"
+#include "sys/alt_irq.h"
+
+#define UART_TX_INT		0x0001
+#define UART_RX_INT		0x0002
+#define UART_TX_EMPTY	ALTERA_AVALON_UART_STATUS_TMT_MSK	// 0x0020
+#define UART_TX_READY	ALTERA_AVALON_UART_STATUS_TRDY_MSK	// 0x0040
+#define UART_RX_READY	ALTERA_AVALON_UART_STATUS_RRDY_MSK	// 0x0080
+#define UART_ERROR		ALTERA_AVALON_UART_STATUS_E_MSK		// 0x0100
+
+typedef struct
+{
+	int intUartBase;
+	int intUartIrq;
+	int intUartIrqControllerID;
+} structUartPort;
+
+static structUartPort SstrUartPort_USB;
+static unsigned int SuintSerialPort_Status;
+static int SintInterruptAltIrqContext = 0;
+
+/* File Variable Allocation */
+#define RING_BUFFER_SIZE						1024
+#define RING_BUFFER_NEXT_IDX(P_CURRENT_IDX)		( (P_CURRENT_IDX + 1) & (RING_BUFFER_SIZE - 1) )
+
+static char SAchrRingBuffer_Rx_USB[RING_BUFFER_SIZE];
+static char SAchrRingBuffer_Tx_USB[RING_BUFFER_SIZE];
+static unsigned int SuintRingBufferIdx_RxOutput_USB;
+static unsigned int SuintRingBufferIdx_RxInput_USB;
+static unsigned int SuintRingBufferIdx_TxOutput_USB;
+static unsigned int SuintRingBufferIdx_TxInput_USB;
+
+
+/* Local Functions */
+static void SerialPort_ISR(int * PintContextPtr)
+{
+	static structUartPort * LSstrUartPortPtr;
+	static int LSintReturn = 0;
+	static char LScharAscii = 0;
+	static unsigned int LSuintDirectIo = 0;
+
+	LSstrUartPortPtr = (structUartPort *)PintContextPtr;
+	LSintReturn = IORD_ALTERA_AVALON_UART_STATUS(LSstrUartPortPtr->intUartBase);
+	if (LSintReturn & UART_ERROR)
+	{
+		SuintSerialPort_Status |= UART_ERROR;
+		LScharAscii = (char)IORD_ALTERA_AVALON_UART_RXDATA(LSstrUartPortPtr->intUartBase);
+		/* log error? */
+		/* Clear the interrupt */
+		IOWR_ALTERA_AVALON_UART_STATUS(LSstrUartPortPtr->intUartBase, 0);
+	}
+	else if (LSintReturn & UART_RX_READY)
+	{
+		LScharAscii = (char)IORD_ALTERA_AVALON_UART_RXDATA(LSstrUartPortPtr->intUartBase);
+		/* Buffer isn't full */
+		if (SuintRingBufferIdx_RxOutput_USB != RING_BUFFER_NEXT_IDX(SuintRingBufferIdx_RxInput_USB))
+		{
+			SAchrRingBuffer_Rx_USB[SuintRingBufferIdx_RxInput_USB] = LScharAscii;
+			SuintRingBufferIdx_RxInput_USB = RING_BUFFER_NEXT_IDX(SuintRingBufferIdx_RxInput_USB);
+		}
+		/* Buffer wrapped around */
+		else
+		{
+			/* Log error? */
+		}
+	}
+	else if (LSintReturn & UART_TX_READY)
+	{
+		/* Character is waiting to send */
+		if (SuintRingBufferIdx_TxInput_USB != SuintRingBufferIdx_TxOutput_USB)
+		{
+			LSuintDirectIo = (unsigned int)SAchrRingBuffer_Tx_USB[SuintRingBufferIdx_TxOutput_USB];
+			SuintRingBufferIdx_TxOutput_USB = RING_BUFFER_NEXT_IDX(SuintRingBufferIdx_TxOutput_USB);
+			IOWR_ALTERA_AVALON_UART_TXDATA(LSstrUartPortPtr->intUartBase, LSuintDirectIo);
+		}
+		/* Nothing to send, disable transmit interrupt */
+		else
+		{
+			LSuintDirectIo = IORD_ALTERA_AVALON_UART_CONTROL(LSstrUartPortPtr->intUartBase);
+			IOWR_ALTERA_AVALON_UART_CONTROL(LSstrUartPortPtr->intUartBase, LSuintDirectIo & ~UART_TX_READY);
+		}
+	}
+}
+
+static void SerialPort_OpenComm(structUartPort * PstrUartPortPtr, alt_isr_func * PstrAltIsrFuncPtr, alt_u16 Pu16UartControlData)
+{
+	SuintRingBufferIdx_RxOutput_USB = 0;
+	SuintRingBufferIdx_RxInput_USB = 0;
+	SuintRingBufferIdx_TxOutput_USB = 0;
+	SuintRingBufferIdx_TxInput_USB = 0;
+	SuintSerialPort_Status = 0;
+
+	IOWR_ALTERA_AVALON_UART_STATUS(PstrUartPortPtr->intUartBase, 0);
+#ifdef ALT_LEGACY_INTERRUPT_API_PRESENT
+	alt_irq_register((PstrUartPortPtr->intUartIrq), (void *)PstrUartPortPtr, (alt_isr_func)PstrAltIsrFuncPtr);
+#else
+	alt_ic_isr_register(  (PstrUartPortPtr->intUartIrqControllerID)
+						, (PstrUartPortPtr->intUartIrq)
+						, (alt_isr_func) PstrAltIsrFuncPtr
+						, (void *) PstrUartPortPtr
+						, 0x0);
+#endif
+	IOWR_ALTERA_AVALON_UART_CONTROL(PstrUartPortPtr->intUartBase, Pu16UartControlData);
+}
+
+
+static void SerialPort_CloseComm(structUartPort *PstrUartPortPtr)
+{
+	SintInterruptAltIrqContext = alt_irq_disable_all();
+
+	SuintRingBufferIdx_RxOutput_USB = 0;
+	SuintRingBufferIdx_RxInput_USB = 0;
+	SuintRingBufferIdx_TxOutput_USB = 0;
+	SuintRingBufferIdx_TxInput_USB = 0;
+
+	alt_irq_enable_all(SintInterruptAltIrqContext);
+	IOWR_ALTERA_AVALON_UART_CONTROL(PstrUartPortPtr->intUartBase, 0);
+#ifdef ALT_LEGACY_INTERRUPT_API_PRESENT
+	alt_irq_register((PstrUartPortPtr->intUartIrq), 0, 0);
+#else
+	alt_ic_isr_register(  (PstrUartPortPtr->intUartIrqControllerID)
+						, (PstrUartPortPtr->intUartIrq)
+						, 0
+						, 0
+						, 0x0);
+#endif
+}
+
+
+
+static int SSerialPort_PutChar(structUartPort * PstrUartPortPtr, char * PchrPutPtr)
+{
+	static int LSintReturn = 0;
+	if (SuintRingBufferIdx_TxOutput_USB == RING_BUFFER_NEXT_IDX(SuintRingBufferIdx_TxInput_USB))
+	{
+		return -1;
+	}
+	else
+	{
+		SAchrRingBuffer_Tx_USB[SuintRingBufferIdx_TxInput_USB] = *PchrPutPtr;
+		SuintRingBufferIdx_TxInput_USB = RING_BUFFER_NEXT_IDX(SuintRingBufferIdx_TxInput_USB);
+
+		SintInterruptAltIrqContext = alt_irq_disable_all();
+		LSintReturn = IORD_ALTERA_AVALON_UART_STATUS(PstrUartPortPtr->intUartBase);
+		/* If the transmitter is idle then start transmission */
+		if (LSintReturn & UART_TX_EMPTY)
+		{
+			IOWR_ALTERA_AVALON_UART_TXDATA(  PstrUartPortPtr->intUartBase
+											,(unsigned int)SAchrRingBuffer_Tx_USB[SuintRingBufferIdx_TxOutput_USB]);
+			SuintRingBufferIdx_TxOutput_USB = RING_BUFFER_NEXT_IDX(SuintRingBufferIdx_TxOutput_USB);
+		}
+		/* Transmitter is active, put it in the buffer */
+		else
+		{
+			LSintReturn = IORD_ALTERA_AVALON_UART_CONTROL(PstrUartPortPtr->intUartBase);
+			IOWR_ALTERA_AVALON_UART_CONTROL(PstrUartPortPtr->intUartBase, (LSintReturn | UART_TX_READY));
+		}
+		alt_irq_enable_all(SintInterruptAltIrqContext);
+	}
+	return 0;
+}
+
+
+
+
+/* Public Functions */
+void uartUSBInitializeOpen()
+{
+	SstrUartPort_USB.intUartBase = UART_BASE;
+	SstrUartPort_USB.intUartIrq = UART_IRQ;
+	SstrUartPort_USB.intUartIrqControllerID = UART_IRQ_INTERRUPT_CONTROLLER_ID;
+
+	SerialPort_OpenComm(
+			  &SstrUartPort_USB
+			, (alt_isr_func *) SerialPort_ISR
+			, (UART_TX_READY + UART_RX_READY + UART_ERROR));
+}
+
+
+
+void uartUSBClose()
+{
+	SerialPort_CloseComm(&SstrUartPort_USB);
+}
+
+
+
+int uartUSBTxInProgress()
+{
+	if(SuintRingBufferIdx_TxOutput_USB == SuintRingBufferIdx_TxInput_USB)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+}
+
+
+int uartUSBPutChar(char* PchrPutPtr)
+{
+	return SSerialPort_PutChar(&SstrUartPort_USB, PchrPutPtr);
+}
+
+
+
+int uartUSBPutString(char* PstrPutPtr)
+{
+	static int LSintReturn;
+	static char *LSchrInputPtr;
+
+	LSchrInputPtr = PstrPutPtr;
+
+	while(*LSchrInputPtr != 0)
+	{
+		LSintReturn = SSerialPort_PutChar(&SstrUartPort_USB, LSchrInputPtr);
+		if (LSintReturn != 0)
+		{
+			LSchrInputPtr++;
+		}
+		else
+		{
+			return LSintReturn;
+		}
+	}
+	return LSintReturn;
+}
+
+
+
+int uartUSBGetChar(char* PchrGetPtr)
+{
+	/* Buffer is empty */
+	if(SuintRingBufferIdx_RxOutput_USB == SuintRingBufferIdx_RxInput_USB)
+	{
+		return 0;
+	}
+	else
+	{
+		*PchrGetPtr = SAchrRingBuffer_Rx_USB[SuintRingBufferIdx_RxOutput_USB];
+		SuintRingBufferIdx_RxOutput_USB = RING_BUFFER_NEXT_IDX(SuintRingBufferIdx_RxOutput_USB);
+		return 1;
+	}
+}
+
+
+
+#if 0
+char uartRxChar()
+{
+	return IORD_ALTERA_AVALON_UART_RXDATA(UART_BASE);
+}
+
+
+void uartTxChar(char * c)
+{
+    IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, (*c));
+}
+
+
+void uartTxString(char *str)
+{
+	static char *txStr;
+	txStr = str;
+
+	while(*txStr != 0)
+	{
+		uartTxChar(txStr);
+		txStr++;
+	}
+}
+#endif

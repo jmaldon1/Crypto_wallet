@@ -1,0 +1,18 @@
+#ifndef __UART_USB_H__
+#define __UART_USB_H__
+
+#define UART_USB_BAUD_RATE 115200
+
+#if 0
+void uartUSBInitializeOpen();
+void uartUSBClose();
+
+int uartUSBTxInProgress();
+
+int uartUSBPutChar(char* PchrPutPtr);
+int uartUSBPutString(char* PstrPutPtr);
+
+int uartUSBGetChar(char* PchrGetPtr);
+#endif
+
+#endif

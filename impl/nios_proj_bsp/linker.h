@@ -1,10 +1,10 @@
 /*
  * linker.h - Linker script mapping information
  *
- * Machine generated for CPU 'cpu' in SOPC Builder design 'nios_wallet'
- * SOPC Builder design path: C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/nios_wallet.sopcinfo
+ * Machine generated for CPU 'cpu' in SOPC Builder design 'crypto_wallet2_nios'
+ * SOPC Builder design path: C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet2_nios.sopcinfo
  *
- * Generated: Wed Dec 05 19:29:06 EST 2018
+ * Generated: Fri Feb 08 12:39:24 EST 2019
  */
 
 /*
@@ -65,12 +65,14 @@
  *
  */
 
-#define ONCHIP_MEMORY2_REGION_BASE 0x4008000
-#define ONCHIP_MEMORY2_REGION_SPAN 26000
-#define RESET_REGION_BASE 0x2000000
+#define EPCS_FLASH_CONTROLLER_REGION_BASE 0x2011000
+#define EPCS_FLASH_CONTROLLER_REGION_SPAN 2048
+#define ONCHIP_MEMORY2_REGION_BASE 0x2008020
+#define ONCHIP_MEMORY2_REGION_SPAN 25968
+#define RESET_REGION_BASE 0x2008000
 #define RESET_REGION_SPAN 32
-#define SDRAM_REGION_BASE 0x2000020
-#define SDRAM_REGION_SPAN 33554400
+#define SDRAM_REGION_BASE 0x0
+#define SDRAM_REGION_SPAN 33554432
 
 
 /*
@@ -78,11 +80,11 @@
  *
  */
 
-#define ALT_EXCEPTIONS_DEVICE SDRAM
-#define ALT_RESET_DEVICE SDRAM
+#define ALT_EXCEPTIONS_DEVICE ONCHIP_MEMORY2
+#define ALT_RESET_DEVICE ONCHIP_MEMORY2
 #define ALT_RODATA_DEVICE SDRAM
 #define ALT_RWDATA_DEVICE SDRAM
-#define ALT_TEXT_DEVICE SDRAM
+#define ALT_TEXT_DEVICE ONCHIP_MEMORY2
 
 
 /*
@@ -98,6 +100,7 @@
  *
  */
 
+#define ALT_LOAD_COPY_RODATA
 #define ALT_LOAD_COPY_RWDATA
 
 #endif /* __LINKER_H_ */

@@ -7,7 +7,7 @@
 <td width="20%" bgcolor="#77BBFF">BSP Type:</td><td>hal</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">SOPC Design File:</td><td>C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\qsys\nios_wallet.sopcinfo</td>
+<td width="20%" bgcolor="#77BBFF">SOPC Design File:</td><td>C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\qsys\crypto_wallet2_nios.sopcinfo</td>
 </tr>
 <tr mode="wrap">
 <td width="20%" bgcolor="#77BBFF">Quartus JDI File:</td><td>default</td>
@@ -22,10 +22,10 @@
 <td width="20%" bgcolor="#77BBFF">BSP Version:</td><td>default</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Generated On:</td><td>Dec 5, 2018 7:40:15 PM</td>
+<td width="20%" bgcolor="#77BBFF">BSP Generated On:</td><td>Feb 9, 2019 12:19:05 PM</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Generated Timestamp:</td><td>1544056815444</td>
+<td width="20%" bgcolor="#77BBFF">BSP Generated Timestamp:</td><td>1549732745524</td>
 </tr>
 <tr mode="wrap">
 <td width="20%" bgcolor="#77BBFF">BSP Generated Location:</td><td>C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\nios_proj_bsp</td>
@@ -38,19 +38,34 @@
 <th align="left" width="20%">Slave Descriptor</th><th align="left" width="40%">Address Range</th><th align="left" width="20%">Size</th><th align="left" width="20%">Attributes</th>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>jtag_uart</td><td>0x04011018 - 0x0401101F</td><td>8</td><td class="listing">printable</td>
+<td>jtag_uart</td><td>0x02012068 - 0x0201206F</td><td>8</td><td class="listing">printable</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>sysid</td><td>0x04011010 - 0x04011017</td><td>8</td><td class="listing">&nbsp;</td>
+<td>sysid</td><td>0x02012060 - 0x02012067</td><td>8</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>po_led</td><td>0x04011000 - 0x0401100F</td><td>16</td><td class="listing">&nbsp;</td>
+<td>po_led</td><td>0x02012050 - 0x0201205F</td><td>16</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>onchip_memory2</td><td>0x04008000 - 0x0400E58F</td><td>26000</td><td class="listing">memory</td>
+<td>pi_random_value</td><td>0x02012040 - 0x0201204F</td><td>16</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>sdram</td><td>0x02000000 - 0x03FFFFFF</td><td>33554432</td><td class="listing">memory</td>
+<td>po_system_control</td><td>0x02012030 - 0x0201203F</td><td>16</td><td class="listing">&nbsp;</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>po_random_seed</td><td>0x02012020 - 0x0201202F</td><td>16</td><td class="listing">&nbsp;</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>uart</td><td>0x02012000 - 0x0201201F</td><td>32</td><td class="listing">printable</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>epcs_flash_controller</td><td>0x02011000 - 0x020117FF</td><td>2048</td><td class="listing">flash, memory, non-volatile</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>onchip_memory2</td><td>0x02008000 - 0x0200E58F</td><td>26000</td><td class="listing">memory</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>sdram</td><td>0x00000000 - 0x01FFFFFF</td><td>33554432</td><td class="listing">memory</td>
 </tr>
 </table>
 <br>
@@ -69,7 +84,7 @@
 <th align="left" width="50%">Section</th><th align="left" width="50%">Region</th>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>.text</td><td>sdram</td>
+<td>.text</td><td>onchip_memory2</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
 <td>.rodata</td><td>sdram</td>
@@ -121,6 +136,60 @@
 </tr>
 <tr>
 <td width="20%">Identifier:</td><td>ALTERA_AVALON_JTAG_UART_SMALL</td>
+</tr>
+<tr>
+<td width="20%">Default Value:</td><td>false</td>
+</tr>
+<tr>
+<td width="20%">Value:</td><td>false</td>
+</tr>
+<tr>
+<td width="20%">Type:</td><td>BooleanDefineOnly</td>
+</tr>
+<tr mode="wrap">
+<td width="20%">Destination:</td><td>public_mk_define</td>
+</tr>
+<tr mode="wrap">
+<td width="20%">Description:</td><td>Small-footprint (polled mode) driver</td>
+</tr>
+<tr mode="wrap">
+<td width="20%">Restrictions:</td><td>none</td>
+</tr>
+</table>
+<br>
+<table border="1" bgcolor="#FFFFCC" width="60%">
+<tr bgcolor="#77BBFF">
+<td align="left" width="15%">Setting Name:</td><td align="left">altera_avalon_uart_driver.enable_ioctl</td>
+</tr>
+<tr>
+<td width="20%">Identifier:</td><td>ALTERA_AVALON_UART_USE_IOCTL</td>
+</tr>
+<tr>
+<td width="20%">Default Value:</td><td>false</td>
+</tr>
+<tr>
+<td width="20%">Value:</td><td>false</td>
+</tr>
+<tr>
+<td width="20%">Type:</td><td>BooleanDefineOnly</td>
+</tr>
+<tr mode="wrap">
+<td width="20%">Destination:</td><td>public_mk_define</td>
+</tr>
+<tr mode="wrap">
+<td width="20%">Description:</td><td>Enable driver ioctl() support. This feature is not compatible with the 'small' driver; ioctl() support will not be compiled if either the UART 'enable_small_driver' or HAL 'enable_reduced_device_drivers' settings are enabled.</td>
+</tr>
+<tr mode="wrap">
+<td width="20%">Restrictions:</td><td>none</td>
+</tr>
+</table>
+<br>
+<table border="1" bgcolor="#FFFFCC" width="60%">
+<tr bgcolor="#77BBFF">
+<td align="left" width="15%">Setting Name:</td><td align="left">altera_avalon_uart_driver.enable_small_driver</td>
+</tr>
+<tr>
+<td width="20%">Identifier:</td><td>ALTERA_AVALON_UART_SMALL</td>
 </tr>
 <tr>
 <td width="20%">Default Value:</td><td>false</td>
@@ -585,7 +654,7 @@
 <td width="20%">Default Value:</td><td>0</td>
 </tr>
 <tr>
-<td width="20%">Value:</td><td>0</td>
+<td width="20%">Value:</td><td>1</td>
 </tr>
 <tr>
 <td width="20%">Type:</td><td>Boolean</td>

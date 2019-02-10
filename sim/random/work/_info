@@ -1,0 +1,52 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Class2018/Documents/Projects/Crypto_wallet/sim/random
+vrandom
+Z1 !s110 1549738553
+!i10b 1
+!s100 CC2AQLKVR4GIUDSbWXlOh1
+I6Ld8P@:1218IDXmz]EY?T0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1549665522
+8..\..\firmware\random.v
+F..\..\firmware\random.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1549738552.000000
+Z5 !s107 ..\..\firmware\random.v|..\..\test\tb_random.v|
+Z6 !s90 -f|..\random.f|-l|compile.log|-lint|-nologo|
+!i113 1
+Z7 o-nologo -lint
+Z8 tCvgOpt 0
+vtb_random
+R1
+!i10b 1
+!s100 XZoMTIC0m__n?Cm`U=I>>0
+IaR[<LbEVBNGU=8fL;aT_?1
+R2
+R0
+w1549738548
+8..\..\test\tb_random.v
+F..\..\test\tb_random.v
+L0 4
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+R8

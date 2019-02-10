@@ -1,7 +1,28 @@
-# vsim tb_sha256 -c -do "log -r /*; vcd file vsim.vcd; ; run -a; quit" -l vsim.log ..\sha256_wave.do 
-# Start time: 22:25:09 on Nov 30,2018
-# ** Error (suppressible): (vsim-19) Failed to access library '.' at ".".
-# No such file or directory. (errno = ENOENT)
-# Error loading design
-# End time: 22:25:09 on Nov 30,2018, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
+# Reading C:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# vsim tb_sha256 -gui -testname sha256 -do "log -r /*; vcd file vsim.vcd; ; run -a; " -l vsim.log 
+# Start time: 14:09:09 on Feb 08,2019
+# Loading work.tb_sha256
+# Loading work.sha256_transform
+# Loading work.sha256_digester
+# Loading work.e0
+# Loading work.e1
+# Loading work.ch
+# Loading work.maj
+# Loading work.s0
+# Loading work.s1
+# log -r /*
+#  vcd file vsim.vcd
+#  
+#  run -a
+# ** Note: $stop    : ../../test/tb_sha256.v(48)
+#    Time: 20 us  Iteration: 0  Instance: /tb_sha256
+# Break in Module tb_sha256 at ../../test/tb_sha256.v line 48
+#  
+add wave -position end  sim:/tb_sha256/hash
+add wave -position end  sim:/tb_sha256/data
+add wave -position end  sim:/tb_sha256/tb_clk
+add wave -position end  sim:/tb_sha256/cnt
+add wave -position end  sim:/tb_sha256/feedback
+add wave -position end  sim:/tb_sha256/state
+# End time: 14:44:11 on Feb 08,2019, Elapsed time: 0:35:02
+# Errors: 0, Warnings: 0

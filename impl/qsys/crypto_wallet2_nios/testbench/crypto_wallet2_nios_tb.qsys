@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system name="$${FILENAME}">
+ <component
+   name="$${FILENAME}"
+   displayName="$${FILENAME}"
+   version="1.0"
+   description=""
+   tags=""
+   categories="" />
+ <parameter name="bonusData"><![CDATA[bonusData 
+{
+   element crypto_wallet2_nios_inst
+   {
+      datum _sortIndex
+      {
+         value = "0";
+         type = "int";
+      }
+   }
+   element crypto_wallet2_nios_inst_clk_bfm
+   {
+      datum _sortIndex
+      {
+         value = "1";
+         type = "int";
+      }
+   }
+   element crypto_wallet2_nios_inst_epcs_flash_controller_external_bfm
+   {
+      datum _sortIndex
+      {
+         value = "3";
+         type = "int";
+      }
+   }
+   element crypto_wallet2_nios_inst_po_led_external_connection_bfm
+   {
+      datum _sortIndex
+      {
+         value = "4";
+         type = "int";
+      }
+   }
+   element crypto_wallet2_nios_inst_reset_bfm
+   {
+      datum _sortIndex
+      {
+         value = "2";
+         type = "int";
+      }
+   }
+   element crypto_wallet2_nios_inst_sdram_wire_bfm
+   {
+      datum _sortIndex
+      {
+         value = "5";
+         type = "int";
+      }
+   }
+   element crypto_wallet2_nios_inst_uart_external_connection_bfm
+   {
+      datum _sortIndex
+      {
+         value = "6";
+         type = "int";
+      }
+   }
+}
+]]></parameter>
+ <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
+ <parameter name="device" value="EP4CE22F17C6" />
+ <parameter name="deviceFamily" value="Cyclone IV E" />
+ <parameter name="deviceSpeedGrade" value="6" />
+ <parameter name="fabricMode" value="QSYS" />
+ <parameter name="generateLegacySim" value="false" />
+ <parameter name="generationId" value="0" />
+ <parameter name="globalResetBus" value="false" />
+ <parameter name="hdlLanguage" value="VERILOG" />
+ <parameter name="hideFromIPCatalog" value="false" />
+ <parameter name="lockedInterfaceDefinition" value="" />
+ <parameter name="maxAdditionalLatency" value="1" />
+ <parameter name="projectName" value="" />
+ <parameter name="sopcBorderPoints" value="false" />
+ <parameter name="systemHash" value="0" />
+ <parameter name="testBenchDutName" value="crypto_wallet2_nios" />
+ <parameter name="timeStamp" value="0" />
+ <parameter name="useTestBenchNamingPattern" value="true" />
+ <instanceScript></instanceScript>
+ <module
+   name="crypto_wallet2_nios_inst"
+   kind="crypto_wallet2_nios"
+   version="1.0"
+   enabled="1">
+  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="1" />
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="0" />
+  <parameter name="AUTO_CLK_RESET_DOMAIN" value="1" />
+  <parameter name="AUTO_DEVICE" value="EP4CE22F17C6" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone IV E" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="6" />
+  <parameter name="AUTO_GENERATION_ID" value="0" />
+  <parameter name="AUTO_UNIQUE_ID" value="crypto_wallet2_nios" />
+ </module>
+ <module
+   name="crypto_wallet2_nios_inst_clk_bfm"
+   kind="altera_avalon_clock_source"
+   version="18.1"
+   enabled="1">
+  <parameter name="CLOCK_RATE" value="50000000" />
+  <parameter name="CLOCK_UNIT" value="1" />
+ </module>
+ <module
+   name="crypto_wallet2_nios_inst_epcs_flash_controller_external_bfm"
+   kind="altera_conduit_bfm"
+   version="18.1"
+   enabled="1">
+  <parameter name="CLOCKED_SIGNAL" value="false" />
+  <parameter name="ENABLE_RESET" value="false" />
+  <parameter name="SIGNAL_DIRECTIONS">output,input,input,input</parameter>
+  <parameter name="SIGNAL_ROLES" value="data0,dclk,sce,sdo" />
+  <parameter name="SIGNAL_WIDTHS" value="1,1,1,1" />
+ </module>
+ <module
+   name="crypto_wallet2_nios_inst_po_led_external_connection_bfm"
+   kind="altera_conduit_bfm"
+   version="18.1"
+   enabled="1">
+  <parameter name="CLOCKED_SIGNAL" value="false" />
+  <parameter name="ENABLE_RESET" value="false" />
+  <parameter name="SIGNAL_DIRECTIONS" value="input" />
+  <parameter name="SIGNAL_ROLES" value="export" />
+  <parameter name="SIGNAL_WIDTHS" value="8" />
+ </module>
+ <module
+   name="crypto_wallet2_nios_inst_reset_bfm"
+   kind="altera_avalon_reset_source"
+   version="18.1"
+   enabled="1">
+  <parameter name="ASSERT_HIGH_RESET" value="0" />
+  <parameter name="INITIAL_RESET_CYCLES" value="50" />
+ </module>
+ <module
+   name="crypto_wallet2_nios_inst_sdram_wire_bfm"
+   kind="altera_conduit_bfm"
+   version="18.1"
+   enabled="1">
+  <parameter name="CLOCKED_SIGNAL" value="false" />
+  <parameter name="ENABLE_RESET" value="false" />
+  <parameter name="SIGNAL_DIRECTIONS">input,input,input,input,input,bidir,input,input,input</parameter>
+  <parameter name="SIGNAL_ROLES">addr,ba,cas_n,cke,cs_n,dq,dqm,ras_n,we_n</parameter>
+  <parameter name="SIGNAL_WIDTHS" value="13,2,1,1,1,16,2,1,1" />
+ </module>
+ <module
+   name="crypto_wallet2_nios_inst_uart_external_connection_bfm"
+   kind="altera_conduit_bfm"
+   version="18.1"
+   enabled="1">
+  <parameter name="CLOCKED_SIGNAL" value="false" />
+  <parameter name="ENABLE_RESET" value="false" />
+  <parameter name="SIGNAL_DIRECTIONS" value="output,input" />
+  <parameter name="SIGNAL_ROLES" value="rxd,txd" />
+  <parameter name="SIGNAL_WIDTHS" value="1,1" />
+ </module>
+ <connection
+   kind="clock"
+   version="18.1"
+   start="crypto_wallet2_nios_inst_clk_bfm.clk"
+   end="crypto_wallet2_nios_inst.clk" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="crypto_wallet2_nios_inst_clk_bfm.clk"
+   end="crypto_wallet2_nios_inst_reset_bfm.clk" />
+ <connection
+   kind="conduit"
+   version="18.1"
+   start="crypto_wallet2_nios_inst_epcs_flash_controller_external_bfm.conduit"
+   end="crypto_wallet2_nios_inst.epcs_flash_controller_external">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="18.1"
+   start="crypto_wallet2_nios_inst_po_led_external_connection_bfm.conduit"
+   end="crypto_wallet2_nios_inst.po_led_external_connection">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="18.1"
+   start="crypto_wallet2_nios_inst_sdram_wire_bfm.conduit"
+   end="crypto_wallet2_nios_inst.sdram_wire">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="18.1"
+   start="crypto_wallet2_nios_inst_uart_external_connection_bfm.conduit"
+   end="crypto_wallet2_nios_inst.uart_external_connection">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="reset"
+   version="18.1"
+   start="crypto_wallet2_nios_inst_reset_bfm.reset"
+   end="crypto_wallet2_nios_inst.reset" />
+ <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
+ <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
+ <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />
+ <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
+</system>
