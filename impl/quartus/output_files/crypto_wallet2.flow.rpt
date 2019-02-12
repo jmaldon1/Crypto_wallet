@@ -1,5 +1,5 @@
 Flow report for crypto_wallet2
-Sun Feb 10 16:33:55 2019
+Tue Feb 12 13:59:07 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,21 +40,21 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun Feb 10 16:33:55 2019       ;
+; Flow Status                        ; Successful - Tue Feb 12 13:59:00 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; crypto_wallet2                              ;
 ; Top-level Entity Name              ; crypto_wallet2_top                          ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE22F17C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 3,035 / 22,320 ( 14 % )                     ;
-;     Total combinational functions  ; 2,695 / 22,320 ( 12 % )                     ;
-;     Dedicated logic registers      ; 1,828 / 22,320 ( 8 % )                      ;
-; Total registers                    ; 1897                                        ;
+; Total logic elements               ; 4,823 / 22,320 ( 22 % )                     ;
+;     Total combinational functions  ; 4,192 / 22,320 ( 19 % )                     ;
+;     Dedicated logic registers      ; 3,030 / 22,320 ( 14 % )                     ;
+; Total registers                    ; 3099                                        ;
 ; Total pins                         ; 50 / 154 ( 32 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 227,456 / 608,256 ( 37 % )                  ;
-; Embedded Multiplier 9-bit elements ; 0 / 132 ( 0 % )                             ;
+; Total memory bits                  ; 281,280 / 608,256 ( 46 % )                  ;
+; Embedded Multiplier 9-bit elements ; 6 / 132 ( 5 % )                             ;
 ; Total PLLs                         ; 1 / 4 ( 25 % )                              ;
 +------------------------------------+---------------------------------------------+
 
@@ -64,48 +64,47 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/10/2019 16:29:31 ;
+; Start date & time ; 02/12/2019 13:57:29 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; crypto_wallet2      ;
 +-------------------+---------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                                       ;
-+-------------------------------------+--------------------------------------------------------------------------+----------------+---------------------+----------------+
-; Assignment Name                     ; Value                                                                    ; Default Value  ; Entity Name         ; Section Id     ;
-+-------------------------------------+--------------------------------------------------------------------------+----------------+---------------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 119580880346783.154983417001380                                          ; --             ; --                  ; --             ;
-; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                                                              ; --             ; --                  ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)                                                ; <None>         ; --                  ; --             ;
-; EDA_TIME_SCALE                      ; 1 ps                                                                     ; --             ; --                  ; eda_simulation ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                                                       ; --             ; --                  ; --             ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                                                        ; --             ; --                  ; --             ;
-; MISC_FILE                           ; ../qsys/crypto_wallet2_nios/synthesis/../crypto_wallet2_nios.cmp         ; --             ; --                  ; --             ;
-; MISC_FILE                           ; ../qsys/crypto_wallet2_nios/synthesis/../../crypto_wallet2_nios.qsys     ; --             ; --                  ; --             ;
-; MISC_FILE                           ; ../../firmware/altera_ip/sdram_pll_inst.v                                ; --             ; --                  ; --             ;
-; MISC_FILE                           ; ../../firmware/altera_ip/sdram_pll_bb.v                                  ; --             ; --                  ; --             ;
-; MISC_FILE                           ; ../../firmware/altera_ip/sdram_pll.ppf                                   ; --             ; --                  ; --             ;
-; MISC_FILE                           ; ../../firmware/altera_ip/bip39_table_inst.v                              ; --             ; --                  ; --             ;
-; MISC_FILE                           ; ../../firmware/altera_ip/bip39_table_bb.v                                ; --             ; --                  ; --             ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                                                     ; --             ; --                  ; --             ;
-; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                        ; --             ; --                  ; --             ;
-; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                        ; --             ; --                  ; --             ;
-; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                               ; --             ; --                  ; --             ;
-; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                               ; --             ; --                  ; --             ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family)                                   ; --             ; crypto_wallet2_top  ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                                   ; --             ; crypto_wallet2_top  ; Top            ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                                   ; --             ; crypto_wallet2_top  ; Top            ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                      ; --             ; --                  ; --             ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                    ; --             ; --                  ; --             ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                             ; --             ; --                  ; --             ;
-; SLD_FILE                            ; ../qsys/crypto_wallet2_nios/synthesis/crypto_wallet2_nios.regmap         ; --             ; --                  ; --             ;
-; SLD_FILE                            ; ../qsys/crypto_wallet2_nios/synthesis/crypto_wallet2_nios.debuginfo      ; --             ; --                  ; --             ;
-; SLD_INFO                            ; QSYS_NAME crypto_wallet2_nios HAS_SOPCINFO 1 GENERATION_ID 1549732693    ; --             ; crypto_wallet2_nios ; --             ;
-; SOPCINFO_FILE                       ; ../qsys/crypto_wallet2_nios/synthesis/../../crypto_wallet2_nios.sopcinfo ; --             ; --                  ; --             ;
-; SYNTHESIS_ONLY_QIP                  ; On                                                                       ; --             ; --                  ; --             ;
-; TOP_LEVEL_ENTITY                    ; crypto_wallet2_top                                                       ; crypto_wallet2 ; --                  ; --             ;
-+-------------------------------------+--------------------------------------------------------------------------+----------------+---------------------+----------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                                      ;
++-------------------------------------+------------------------------------------------------------------------------------+----------------+--------------------------+----------------+
+; Assignment Name                     ; Value                                                                              ; Default Value  ; Entity Name              ; Section Id     ;
++-------------------------------------+------------------------------------------------------------------------------------+----------------+--------------------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 119580880347955.154999784922144                                                    ; --             ; --                       ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; None                                                                               ; --             ; --                       ; eda_simulation ;
+; EDA_TIME_SCALE                      ; 1 ps                                                                               ; --             ; --                       ; eda_simulation ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                                                 ; --             ; --                       ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                                                  ; --             ; --                       ; --             ;
+; MISC_FILE                           ; ../qsys/crypto_wallet2_nios_fast/synthesis/../crypto_wallet2_nios_fast.cmp         ; --             ; --                       ; --             ;
+; MISC_FILE                           ; ../qsys/crypto_wallet2_nios_fast/synthesis/../../crypto_wallet2_nios_fast.qsys     ; --             ; --                       ; --             ;
+; MISC_FILE                           ; ../../firmware/altera_ip/sdram_pll_inst.v                                          ; --             ; --                       ; --             ;
+; MISC_FILE                           ; ../../firmware/altera_ip/sdram_pll_bb.v                                            ; --             ; --                       ; --             ;
+; MISC_FILE                           ; ../../firmware/altera_ip/sdram_pll.ppf                                             ; --             ; --                       ; --             ;
+; MISC_FILE                           ; ../../firmware/altera_ip/bip39_table_inst.v                                        ; --             ; --                       ; --             ;
+; MISC_FILE                           ; ../../firmware/altera_ip/bip39_table_bb.v                                          ; --             ; --                       ; --             ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                                                               ; --             ; --                       ; --             ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                                  ; --             ; --                       ; --             ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                                  ; --             ; --                       ; --             ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                                         ; --             ; --                       ; --             ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                                         ; --             ; --                       ; --             ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                                             ; --             ; crypto_wallet2_top       ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                                             ; --             ; crypto_wallet2_top       ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                                             ; --             ; crypto_wallet2_top       ; Top            ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                                ; --             ; --                       ; --             ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                              ; --             ; --                       ; --             ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                                       ; --             ; --                       ; --             ;
+; SLD_FILE                            ; ../qsys/crypto_wallet2_nios_fast/synthesis/crypto_wallet2_nios_fast.regmap         ; --             ; --                       ; --             ;
+; SLD_FILE                            ; ../qsys/crypto_wallet2_nios_fast/synthesis/crypto_wallet2_nios_fast.debuginfo      ; --             ; --                       ; --             ;
+; SLD_INFO                            ; QSYS_NAME crypto_wallet2_nios_fast HAS_SOPCINFO 1 GENERATION_ID 1549997543         ; --             ; crypto_wallet2_nios_fast ; --             ;
+; SOPCINFO_FILE                       ; ../qsys/crypto_wallet2_nios_fast/synthesis/../../crypto_wallet2_nios_fast.sopcinfo ; --             ; --                       ; --             ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                                                 ; --             ; --                       ; --             ;
+; TOP_LEVEL_ENTITY                    ; crypto_wallet2_top                                                                 ; crypto_wallet2 ; --                       ; --             ;
++-------------------------------------+------------------------------------------------------------------------------------+----------------+--------------------------+----------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -113,26 +112,24 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:30     ; 1.0                     ; 4941 MB             ; 00:01:31                           ;
-; Fitter               ; 00:01:06     ; 1.0                     ; 5587 MB             ; 00:00:29                           ;
-; Assembler            ; 00:00:11     ; 1.0                     ; 4700 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:41     ; 1.1                     ; 4842 MB             ; 00:00:09                           ;
-; EDA Netlist Writer   ; 00:00:19     ; 1.0                     ; 4712 MB             ; 00:00:09                           ;
-; Total                ; 00:03:47     ; --                      ; --                  ; 00:02:22                           ;
+; Analysis & Synthesis ; 00:00:56     ; 1.0                     ; 861 MB              ; 00:01:25                           ;
+; Fitter               ; 00:00:24     ; 1.1                     ; 1423 MB             ; 00:00:31                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 577 MB              ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:06     ; 1.5                     ; 716 MB              ; 00:00:07                           ;
+; Total                ; 00:01:28     ; --                      ; --                  ; 00:02:05                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                    ;
-+----------------------+------------------+------------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
-+----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; O507             ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; O507             ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; O507             ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; O507             ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; O507             ; Windows 10 ; 10.0       ; x86_64         ;
-+----------------------+------------------+------------+------------+----------------+
++-----------------------------------------------------------------------------------+
+; Flow OS Summary                                                                   ;
++----------------------+------------------+-----------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++----------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis ; O422             ; Windows 7 ; 6.1        ; x86_64         ;
+; Fitter               ; O422             ; Windows 7 ; 6.1        ; x86_64         ;
+; Assembler            ; O422             ; Windows 7 ; 6.1        ; x86_64         ;
+; Timing Analyzer      ; O422             ; Windows 7 ; 6.1        ; x86_64         ;
++----------------------+------------------+-----------+------------+----------------+
 
 
 ------------
@@ -142,7 +139,6 @@ quartus_map --read_settings_files=on --write_settings_files=off crypto_wallet2 -
 quartus_fit --read_settings_files=off --write_settings_files=off crypto_wallet2 -c crypto_wallet2
 quartus_asm --read_settings_files=off --write_settings_files=off crypto_wallet2 -c crypto_wallet2
 quartus_sta crypto_wallet2 -c crypto_wallet2
-quartus_eda --read_settings_files=off --write_settings_files=off crypto_wallet2 -c crypto_wallet2
 
 
 

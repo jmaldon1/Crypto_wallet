@@ -705,14 +705,14 @@
 </TR>
 <TR >
 <TD >u0|mm_interconnect_0|rsp_demux_006</TD>
-<TD >121</TD>
-<TD >1</TD>
+<TD >122</TD>
+<TD >4</TD>
 <TD >2</TD>
-<TD >1</TD>
-<TD >119</TD>
-<TD >1</TD>
-<TD >1</TD>
-<TD >1</TD>
+<TD >4</TD>
+<TD >237</TD>
+<TD >4</TD>
+<TD >4</TD>
+<TD >4</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -737,14 +737,14 @@
 </TR>
 <TR >
 <TD >u0|mm_interconnect_0|rsp_demux_004</TD>
-<TD >122</TD>
-<TD >4</TD>
+<TD >121</TD>
+<TD >1</TD>
 <TD >2</TD>
-<TD >4</TD>
-<TD >237</TD>
-<TD >4</TD>
-<TD >4</TD>
-<TD >4</TD>
+<TD >1</TD>
+<TD >119</TD>
+<TD >1</TD>
+<TD >1</TD>
+<TD >1</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -880,12 +880,44 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|mm_interconnect_0|cmd_mux_006</TD>
-<TD >121</TD>
+<TD >u0|mm_interconnect_0|cmd_mux_006|arb|adder</TD>
+<TD >8</TD>
+<TD >2</TD>
+<TD >0</TD>
+<TD >2</TD>
+<TD >4</TD>
+<TD >2</TD>
+<TD >2</TD>
+<TD >2</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >u0|mm_interconnect_0|cmd_mux_006|arb</TD>
+<TD >6</TD>
+<TD >0</TD>
+<TD >1</TD>
 <TD >0</TD>
 <TD >2</TD>
 <TD >0</TD>
-<TD >119</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >u0|mm_interconnect_0|cmd_mux_006</TD>
+<TD >239</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >120</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -912,44 +944,12 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|mm_interconnect_0|cmd_mux_004|arb|adder</TD>
-<TD >8</TD>
-<TD >2</TD>
-<TD >0</TD>
-<TD >2</TD>
-<TD >4</TD>
-<TD >2</TD>
-<TD >2</TD>
-<TD >2</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|mm_interconnect_0|cmd_mux_004|arb</TD>
-<TD >6</TD>
-<TD >0</TD>
-<TD >1</TD>
-<TD >0</TD>
-<TD >2</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
 <TD >u0|mm_interconnect_0|cmd_mux_004</TD>
-<TD >239</TD>
+<TD >121</TD>
 <TD >0</TD>
+<TD >2</TD>
 <TD >0</TD>
-<TD >0</TD>
-<TD >120</TD>
+<TD >119</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -1089,9 +1089,9 @@
 </TR>
 <TR >
 <TD >u0|mm_interconnect_0|cmd_demux_001</TD>
-<TD >123</TD>
+<TD >133</TD>
 <TD >9</TD>
-<TD >2</TD>
+<TD >10</TD>
 <TD >9</TD>
 <TD >355</TD>
 <TD >9</TD>
@@ -1105,7 +1105,7 @@
 </TR>
 <TR >
 <TD >u0|mm_interconnect_0|cmd_demux</TD>
-<TD >131</TD>
+<TD >141</TD>
 <TD >121</TD>
 <TD >2</TD>
 <TD >121</TD>
@@ -1142,6 +1142,38 @@
 <TD >0</TD>
 <TD >0</TD>
 <TD >101</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >u0|mm_interconnect_0|cpu_instruction_master_limiter</TD>
+<TD >240</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >248</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >u0|mm_interconnect_0|cpu_data_master_limiter</TD>
+<TD >240</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >248</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2323,9 +2355,9 @@
 <TD >u0|mm_interconnect_0|cpu_instruction_master_translator</TD>
 <TD >110</TD>
 <TD >51</TD>
-<TD >0</TD>
+<TD >2</TD>
 <TD >51</TD>
-<TD >102</TD>
+<TD >103</TD>
 <TD >51</TD>
 <TD >51</TD>
 <TD >51</TD>
@@ -2339,9 +2371,9 @@
 <TD >u0|mm_interconnect_0|cpu_data_master_translator</TD>
 <TD >110</TD>
 <TD >12</TD>
-<TD >0</TD>
+<TD >2</TD>
 <TD >12</TD>
-<TD >102</TD>
+<TD >103</TD>
 <TD >12</TD>
 <TD >12</TD>
 <TD >12</TD>
@@ -2357,7 +2389,7 @@
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
-<TD >425</TD>
+<TD >427</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2368,7 +2400,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|uart|the_crypto_wallet2_nios_uart_regs</TD>
+<TD >u0|uart|the_crypto_wallet2_nios_fast_uart_regs</TD>
 <TD >41</TD>
 <TD >13</TD>
 <TD >6</TD>
@@ -2384,7 +2416,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|uart|the_crypto_wallet2_nios_uart_rx|the_crypto_wallet2_nios_uart_rx_stimulus_source</TD>
+<TD >u0|uart|the_crypto_wallet2_nios_fast_uart_rx|the_crypto_wallet2_nios_fast_uart_rx_stimulus_source</TD>
 <TD >18</TD>
 <TD >0</TD>
 <TD >17</TD>
@@ -2400,7 +2432,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|uart|the_crypto_wallet2_nios_uart_rx</TD>
+<TD >u0|uart|the_crypto_wallet2_nios_fast_uart_rx</TD>
 <TD >20</TD>
 <TD >1</TD>
 <TD >0</TD>
@@ -2416,7 +2448,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|uart|the_crypto_wallet2_nios_uart_tx</TD>
+<TD >u0|uart|the_crypto_wallet2_nios_fast_uart_tx</TD>
 <TD >28</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2464,7 +2496,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|sdram|the_crypto_wallet2_nios_sdram_input_efifo_module</TD>
+<TD >u0|sdram|the_crypto_wallet2_nios_fast_sdram_input_efifo_module</TD>
 <TD >47</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2592,7 +2624,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|wr_ptr</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|wr_ptr</TD>
 <TD >4</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2608,7 +2640,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|rd_ptr_count</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|rd_ptr_count</TD>
 <TD >4</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2624,7 +2656,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|FIFOram</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|FIFOram</TD>
 <TD >24</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2640,7 +2672,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw</TD>
 <TD >5</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2656,7 +2688,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state</TD>
 <TD >5</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2672,7 +2704,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo</TD>
 <TD >13</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2688,7 +2720,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_r|rfifo|auto_generated</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_r|rfifo|auto_generated</TD>
 <TD >12</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2704,7 +2736,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_r</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_r</TD>
 <TD >13</TD>
 <TD >0</TD>
 <TD >1</TD>
@@ -2720,7 +2752,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|wr_ptr</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|wr_ptr</TD>
 <TD >4</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2736,7 +2768,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|rd_ptr_count</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|rd_ptr_count</TD>
 <TD >4</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2752,7 +2784,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|FIFOram</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|FIFOram</TD>
 <TD >24</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2768,7 +2800,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw</TD>
 <TD >5</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2784,7 +2816,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state</TD>
 <TD >5</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2800,7 +2832,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo</TD>
 <TD >13</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2816,7 +2848,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_w|wfifo|auto_generated</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_w|wfifo|auto_generated</TD>
 <TD >12</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2832,7 +2864,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|jtag_uart|the_crypto_wallet2_nios_jtag_uart_scfifo_w</TD>
+<TD >u0|jtag_uart|the_crypto_wallet2_nios_fast_jtag_uart_scfifo_w</TD>
 <TD >12</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2880,7 +2912,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|epcs_flash_controller|the_crypto_wallet2_nios_epcs_flash_controller_sub</TD>
+<TD >u0|epcs_flash_controller|the_crypto_wallet2_nios_fast_epcs_flash_controller_sub</TD>
 <TD >25</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -2912,431 +2944,15 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_debug_slave_wrapper|the_crypto_wallet2_nios_cpu_cpu_debug_slave_sysclk</TD>
-<TD >43</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >48</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_debug_slave_wrapper|the_crypto_wallet2_nios_cpu_cpu_debug_slave_tck</TD>
-<TD >130</TD>
-<TD >0</TD>
-<TD >1</TD>
-<TD >0</TD>
-<TD >43</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_debug_slave_wrapper</TD>
-<TD >123</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >50</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_ocimem|crypto_wallet2_nios_cpu_cpu_ociram_sp_ram|the_altsyncram|auto_generated</TD>
-<TD >47</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >32</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_ocimem|crypto_wallet2_nios_cpu_cpu_ociram_sp_ram</TD>
-<TD >47</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >32</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_ocimem</TD>
-<TD >92</TD>
-<TD >0</TD>
-<TD >6</TD>
-<TD >0</TD>
-<TD >65</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_avalon_reg</TD>
-<TD >48</TD>
-<TD >0</TD>
-<TD >28</TD>
-<TD >0</TD>
-<TD >68</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_im</TD>
-<TD >54</TD>
-<TD >38</TD>
-<TD >51</TD>
-<TD >38</TD>
-<TD >47</TD>
-<TD >38</TD>
-<TD >38</TD>
-<TD >38</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_pib</TD>
-<TD >0</TD>
-<TD >36</TD>
-<TD >0</TD>
-<TD >36</TD>
-<TD >36</TD>
-<TD >36</TD>
-<TD >36</TD>
-<TD >36</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_fifo|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_fifo_cnt_inc</TD>
-<TD >5</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >5</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_fifo|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_fifo_wrptr_inc</TD>
-<TD >4</TD>
-<TD >2</TD>
-<TD >0</TD>
-<TD >2</TD>
-<TD >4</TD>
-<TD >2</TD>
-<TD >2</TD>
-<TD >2</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_fifo|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_compute_input_tm_cnt</TD>
-<TD >3</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >2</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_fifo</TD>
-<TD >115</TD>
-<TD >0</TD>
-<TD >65</TD>
-<TD >0</TD>
-<TD >36</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_dtrace|crypto_wallet2_nios_cpu_cpu_nios2_oci_trc_ctrl_td_mode</TD>
-<TD >9</TD>
-<TD >0</TD>
-<TD >6</TD>
-<TD >0</TD>
-<TD >4</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_dtrace</TD>
-<TD >111</TD>
-<TD >0</TD>
-<TD >100</TD>
-<TD >0</TD>
-<TD >72</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_itrace</TD>
-<TD >24</TD>
-<TD >53</TD>
-<TD >24</TD>
-<TD >53</TD>
-<TD >53</TD>
-<TD >53</TD>
-<TD >53</TD>
-<TD >53</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_dbrk</TD>
-<TD >96</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >100</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_xbrk</TD>
-<TD >62</TD>
-<TD >5</TD>
-<TD >59</TD>
-<TD >5</TD>
-<TD >6</TD>
-<TD >5</TD>
-<TD >5</TD>
-<TD >5</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_break</TD>
-<TD >51</TD>
-<TD >36</TD>
-<TD >6</TD>
-<TD >36</TD>
-<TD >71</TD>
-<TD >36</TD>
-<TD >36</TD>
-<TD >36</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci|the_crypto_wallet2_nios_cpu_cpu_nios2_oci_debug</TD>
-<TD >50</TD>
-<TD >1</TD>
-<TD >30</TD>
-<TD >1</TD>
-<TD >7</TD>
-<TD >1</TD>
-<TD >1</TD>
-<TD >1</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_nios2_oci</TD>
-<TD >172</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >69</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|crypto_wallet2_nios_cpu_cpu_register_bank_b|the_altsyncram|auto_generated</TD>
-<TD >44</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >32</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|crypto_wallet2_nios_cpu_cpu_register_bank_b</TD>
-<TD >44</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >32</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|crypto_wallet2_nios_cpu_cpu_register_bank_a|the_altsyncram|auto_generated</TD>
-<TD >44</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >32</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|crypto_wallet2_nios_cpu_cpu_register_bank_a</TD>
-<TD >44</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >32</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >u0|cpu|cpu|the_crypto_wallet2_nios_cpu_cpu_test_bench</TD>
-<TD >312</TD>
-<TD >3</TD>
-<TD >278</TD>
-<TD >3</TD>
-<TD >33</TD>
-<TD >3</TD>
-<TD >3</TD>
-<TD >3</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
 <TD >u0|cpu|cpu</TD>
-<TD >149</TD>
-<TD >1</TD>
-<TD >29</TD>
-<TD >1</TD>
-<TD >127</TD>
-<TD >1</TD>
-<TD >1</TD>
-<TD >1</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -3345,7 +2961,7 @@
 </TR>
 <TR >
 <TD >u0|cpu</TD>
-<TD >149</TD>
+<TD >151</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
