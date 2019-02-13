@@ -2,6 +2,10 @@
 #include <unistd.h>
 #include <string.h>
 
+/*libbtc includes*/
+#include <btc.h>
+#include <tx.h>
+
 #include "system.h"
 #include "altera_avalon_pio_regs.h"
 #include "sys/alt_sys_wrappers.h"
@@ -10,7 +14,17 @@
 #include "uart_usb.h"
 //#include "bip39.h"
 
+#define BUF_SIZE 1024 * 1024
 
+const btc_chainparams* chain = &btc_chainparams_test;
+
+
+void append(char *s, char c)
+{
+	int len = strlen(s);
+	s[len] = c;
+	s[len+1] = '\0';
+}
 
 void initialize()
 {
@@ -23,10 +37,32 @@ void initialize()
 }
 
 
+void create_priv_key()
+{
+	size_t sizeout = 128;
+	char newprivkey_wif[sizeout];
+	char newprivkey_hex[sizeout];
+
+	/* generate a new private key */
+	gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+	printf("privatekey WIF: %s\n", newprivkey_wif);
+	printf("privatekey HEX: %s\n", newprivkey_hex);
+	memset(newprivkey_wif, 0, strlen(newprivkey_wif));
+	memset(newprivkey_hex, 0, strlen(newprivkey_hex));
+}
+
 
 int main()
 {
+	/* start ECC context */
+//	btc_ecc_start();
+
     initialize();
+//    create_priv_key();
+//    void *memory_test = malloc(1024 * 1024 * 10);
+//    printf("SDRAM malloc returned 0x%08lx\n", (alt_u32)memory_test);
+
+
 	PutStrUart("FPGA Cryptocurreny Wallet\n");
 
 	alt_u8 data[32];
@@ -52,10 +88,30 @@ int main()
 
 	alt_u8 count = 0;
 	alt_u32 randVal;
-//	char buffer[1024];
+	char buf[BUF_SIZE] = {'\0'};
+
     while(1)
     {
-    	uartGetLine();
+    	uartGetLine(&buf);
+    	if (strlen(buf) > 0) {
+    		printf("Buf: %s\n", buf);
+    		memset(buf, 0, 1024 * 1024);
+    	}
+//    	char c = uartGetChar();
+//    	if(c != 0){
+//    		append(buf, c);
+//    	}
+//    	if (c == '\n') {
+//    		printf("got a new line\n");
+//    		printf("Buf: %s", buf);
+//    		memset(buf, 0, BUF_SIZE);
+//    	}
+
+//    	if (strlen(test) > 0) {
+//    		printf("%s", test);
+//    		printf("Length: %d", strlen(test));
+//    	}
+
 		count++;
 		if ((count % 1000000000) == 0)
 		{
@@ -66,7 +122,9 @@ int main()
 		}
 		ALT_USLEEP(100);
     }
+
     closeUart();
+//    btc_ecc_stop();
     return 0;
 }
 

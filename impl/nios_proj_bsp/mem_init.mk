@@ -161,7 +161,7 @@ ACDS_VERSION := 18.1
 SIM_OPTIMIZE ?= 0
 
 # The CPU reset address as needed by elf2flash
-RESET_ADDRESS ?= 0x02008000
+RESET_ADDRESS ?= 0x00000000
 
 # The specific Nios II ELF file format to use.
 NIOS2_ELF_FORMAT ?= elf32-littlenios2
@@ -171,7 +171,7 @@ NIOS2_ELF_FORMAT ?= elf32-littlenios2
 #-------------------------------------
 
 # Memory: epcs_flash_controller
-MEM_0 := crypto_wallet2_nios_epcs_flash_controller_boot_rom
+MEM_0 := crypto_wallet2_nios_fast_epcs_flash_controller_boot_rom
 $(MEM_0)_NAME := epcs_flash_controller
 $(MEM_0)_MEM_INIT_FILE_PARAM_NAME := INIT_FILE
 HEX_FILES += $(HDL_SIM_DIR)/$(MEM_0).hex
@@ -196,7 +196,7 @@ $(MEM_0)_NO_ZERO_FILL_FLAG := --no-zero-fill
 epcs_flash_controller: check_elf_exists $(HDL_SIM_DIR)/$(MEM_0).hex $(HDL_SIM_DIR)/$(MEM_0).dat $(HDL_SIM_DIR)/$(MEM_0).sym $(MEM_0).flash
 
 # Memory: onchip_memory2
-MEM_1 := crypto_wallet2_nios_onchip_memory2
+MEM_1 := crypto_wallet2_nios_fast_onchip_memory2
 $(MEM_1)_NAME := onchip_memory2
 $(MEM_1)_MEM_INIT_FILE_PARAM_NAME := INIT_FILE
 HEX_FILES += $(MEM_INIT_DIR)/$(MEM_1).hex

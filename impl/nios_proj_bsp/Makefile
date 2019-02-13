@@ -101,7 +101,7 @@ ACDS_VERSION := 18.1
 # BUILD_NUMBER: 625
 
 SETTINGS_FILE := settings.bsp
-SOPC_FILE := C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet2_nios.sopcinfo
+SOPC_FILE := ../qsys/crypto_wallet2_nios_fast.sopcinfo
 
 #-------------------------------------------------------------------------------
 #                             TOOL & COMMAND DEFINITIONS

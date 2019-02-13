@@ -3,8 +3,9 @@
 
 #define UART_USB_BAUD_RATE 115200
 
+char uartGetChar();
 
-void uartGetLine();
+void uartGetLine(char *buf);
 
 #if 0
 void uartRxChar(char *c);

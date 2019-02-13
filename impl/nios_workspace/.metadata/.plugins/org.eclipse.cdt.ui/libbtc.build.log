@@ -1,0 +1,9 @@
+01:17:42 **** Incremental Build of configuration Default for project libbtc ****
+make all 
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+
+01:17:43 Build Finished (took 1s.85ms)
+

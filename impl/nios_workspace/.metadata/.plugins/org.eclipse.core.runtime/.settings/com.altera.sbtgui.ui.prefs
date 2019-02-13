@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+newBspWizardPage.defaultLocation=C\:\\Users\\Class2018\\Documents\\Projects\\Crypto_wallet\\impl\\nios_proj_bsp
+newBspWizardPage.sopcinfoFile=C\:\\Users\\Class2018\\Documents\\Projects\\Crypto_wallet\\impl\\qsys\\crypto_wallet2_nios_fast.sopcinfo
 newSoftwareExampleWizardPage.defaultLocation=C\:\\Users\\Class2018\\Documents\\Projects\\Crypto_wallet\\impl\\nios_proj
 newSoftwareExampleWizardPage.sopcinfoFile=C\:\\Users\\Class2018\\Documents\\Projects\\Crypto_wallet\\impl\\qsys\\crypto_wallet2_nios.sopcinfo
 newSoftwareExampleWizardPage2.newBspLocation=C\:\\Users\\Class2018\\Documents\\Projects\\Crypto_wallet\\impl\\nios_proj_bsp

@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "sys/alt_stdio.h"
 #include "system.h"
@@ -10,29 +11,50 @@
 #include "altera_avalon_uart.h"
 #include "sys/alt_irq.h"
 
+void uartGetLine(char *buf) {
+	if (!EmptyUart()) {
+		while (1) {
+			char c = uartGetChar();
+			if(c != 0){
+				append(buf, c);
+			}
+			if (c == '\n') {
+//				printf("got a new line\n");
+				PutStrUart(buf);
+				return;
+			}
+		}
+	}
+}
 
-void uartGetLine()
+
+char uartGetChar()
 {
 	if (!EmptyUart())
 	{
 		unsigned char c = GetCUart();
 
-		switch(c)
-		{
-		case '\r':
-		case '\n':
-			PutCUart(c);
-			break;
-
-		case '\b':
-			PutCUart('\b');
-			PutCUart(' ');
-			PutCUart('\b');
-			break;
-
-		default:
-			PutCUart(c);
-		}
+//		switch(c)
+//		{
+//		case '\r':
+//		case '\n':
+////			printf("%c", c);
+////			PutCUart(c);
+//			break;
+//
+//		case '\b':
+////			PutCUart('\b');
+////			PutCUart(' ');
+////			PutCUart('\b');
+//			break;
+//
+//		default:
+////			printf("%c", c);
+////			PutCUart(c);
+//		}
+		return c;
+	}else{
+		return 0;
 	}
 }
 

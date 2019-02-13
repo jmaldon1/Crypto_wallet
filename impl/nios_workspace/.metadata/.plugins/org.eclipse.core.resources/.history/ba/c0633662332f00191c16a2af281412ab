@@ -1,0 +1,102 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+
+/*libbtc includes*/
+#include <btc.h>
+#include <tx.h>
+
+#include "system.h"
+#include "altera_avalon_pio_regs.h"
+#include "sys/alt_sys_wrappers.h"
+#include "alt_types.h"
+
+#include "uart_usb.h"
+//#include "bip39.h"
+
+const btc_chainparams* chain = &btc_chainparams_test;
+
+void initialize()
+{
+	/* initialize hardware random number generator */
+	alt_u32 randSeed = 0x12345678;
+    initRandom(randSeed);
+
+    /* initialize uart to usb */
+    initUart();
+}
+
+
+void create_priv_key()
+{
+	size_t sizeout = 128;
+	char newprivkey_wif[sizeout];
+	char newprivkey_hex[sizeout];
+
+	/* generate a new private key */
+	gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+	printf("privatekey WIF: %s\n", newprivkey_wif);
+	printf("privatekey HEX: %s\n", newprivkey_hex);
+	memset(newprivkey_wif, 0, strlen(newprivkey_wif));
+	memset(newprivkey_hex, 0, strlen(newprivkey_hex));
+}
+
+
+int main()
+{
+	/* start ECC context */
+//	btc_ecc_start();
+
+    initialize();
+//    create_priv_key();
+//    void *memory_test = malloc(1024 * 1024 * 10);
+//    printf("SDRAM malloc returned 0x%08lx\n", (alt_u32)memory_test);
+
+
+	PutStrUart("FPGA Cryptocurreny Wallet\n");
+
+	alt_u8 data[32];
+	getRandomBuffer(&(data[0]), 32);
+
+
+//	const char *mnemonic_phrase = mnemonic_generate(128);
+//	printf("MNEMONIC PHRASE: %s\n", mnemonic_phrase);
+
+	char buffer[2048];
+
+	sprintf(buffer, "Random Buffer:\n");
+	PutStrUart((char *)&(buffer[0]));
+
+	for(int i = 0; i < 32; ++i)
+	{
+		sprintf(buffer, "0x%02x\n", data[i]);
+		PutStrUart((char *)&(buffer[0]));
+	}
+
+//	sprintf(buffer, "Menmonic phrase: %s\n", mnemonic_phrase);
+//	PutStrUart((char *)&(buffer[0]));
+
+	alt_u8 count = 0;
+	alt_u32 randVal;
+//	char buffer[1024];
+    while(1)
+    {
+    	char *test = uartGetLine(16);
+    	printf("%s\n", test);
+    	free(test);
+		count++;
+		if ((count % 1000000000) == 0)
+		{
+	    	randVal = u32getRandom();
+	    	IOWR_ALTERA_AVALON_PIO_DATA(PO_LED_BASE, randVal & 0xFF);
+//	    	sprintf(buffer, "Random value: 0x%08x\n", randVal);
+//	    	PutStrUart((char *)&(buffer[0]));
+		}
+		ALT_USLEEP(100);
+    }
+
+    closeUart();
+//    btc_ecc_stop();
+    return 0;
+}
+

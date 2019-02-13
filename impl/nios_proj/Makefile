@@ -182,7 +182,7 @@ SYS_LIB :=
 BSP_ROOT_DIR := C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
 
 # List of application specific include directories, library directories and library names
-APP_INCLUDE_DIRS :=
+APP_INCLUDE_DIRS := ../../software/libbtc/btc/include/btc
 APP_LIBRARY_DIRS :=
 APP_LIBRARY_NAMES :=
 
@@ -193,6 +193,8 @@ BUILD_POST_PROCESS :=
 QUARTUS_PROJECT_DIR := C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/
 
 
+ALT_LIBRARY_ROOT_DIR := ../../software/libbtc
+include ../../software/libbtc/public.mk
 #END GENERATED
 
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
