@@ -4324,3 +4324,2514 @@ Info:                 32380 KBytes free for stack + heap.
 Info: Creating nios_proj.objdump
 nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
 [nios_proj build complete]
+12:50:29 **** Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling uart_usb.c to obj/default/uart_usb.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/uart_usb.o uart_usb.c
+uart_usb.c: In function 'uartGetLine':
+uart_usb.c:19:5: warning: implicit declaration of function 'append' [-Wimplicit-function-declaration]
+     append(buf, c);
+     ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 379 KBytes program size (code + initialized data).
+Info:                 32380 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+13:48:42 **** Build of configuration Default for project libbtc ****
+make all 
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+13:48:44 **** Build of configuration Nios II for project nios_bsp ****
+make all 
+[BSP build complete]
+13:48:45 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'main':
+main.c:61:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:87:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:110:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:118:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+Info: Compiling uart_usb.c to obj/default/uart_usb.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/uart_usb.o uart_usb.c
+uart_usb.c: In function 'uartGetLine':
+uart_usb.c:19:5: warning: implicit declaration of function 'append' [-Wimplicit-function-declaration]
+     append(buf, c);
+     ^
+uart_usb.c: At top level:
+uart_usb.c:30:6: warning: conflicting types for 'append'
+ void append(char *s, char c)
+      ^
+uart_usb.c:19:5: note: previous implicit declaration of 'append' was here
+     append(buf, c);
+     ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 379 KBytes program size (code + initialized data).
+Info:                 32380 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+13:50:30 **** Incremental Build of configuration Default for project libbtc ****
+make all 
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+13:50:32 **** Incremental Build of configuration Nios II for project nios_bsp ****
+make all 
+[BSP build complete]
+13:50:32 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling uart_usb.c to obj/default/uart_usb.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/uart_usb.o uart_usb.c
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 379 KBytes program size (code + initialized data).
+Info:                 32380 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+13:50:45 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 379 KBytes program size (code + initialized data).
+Info:                 32380 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+14:31:09 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'main':
+main.c:61:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:89:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:92:25: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+       key = strtok(buf, ':');
+                         ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from main.c:1:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+main.c:118:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:126:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:85:8: warning: unused variable 'val' [-Wunused-variable]
+  char *val;
+        ^
+main.c:84:8: warning: variable 'key' set but not used [-Wunused-but-set-variable]
+  char *key;
+        ^
+Info: Compiling uart_usb.c to obj/default/uart_usb.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/uart_usb.o uart_usb.c
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 379 KBytes program size (code + initialized data).
+Info:                 32380 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+14:36:02 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling uart_usb.c to obj/default/uart_usb.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/uart_usb.o uart_usb.c
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 379 KBytes program size (code + initialized data).
+Info:                 32380 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+15:09:47 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'main':
+main.c:61:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:89:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:92:25: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+       key = strtok(buf, ':');
+                         ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from main.c:1:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+main.c:118:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:126:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:85:8: warning: unused variable 'val' [-Wunused-variable]
+  char *val;
+        ^
+main.c:84:8: warning: variable 'key' set but not used [-Wunused-but-set-variable]
+  char *key;
+        ^
+main.c:67:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 365 KBytes program size (code + initialized data).
+Info:                 32394 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+16:08:26 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'main':
+main.c:97:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:126:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:156:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:164:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:121:8: warning: unused variable 'val' [-Wunused-variable]
+  char *val;
+        ^
+main.c:120:8: warning: unused variable 'key' [-Wunused-variable]
+  char *key;
+        ^
+main.c:103:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32394 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+16:51:15 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'main':
+main.c:93:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:123:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:131:14: error: switch quantity not an integer
+       switch(key)
+              ^
+main.c:133:13: warning: character constant too long for its type
+        case 'keypath':
+             ^
+main.c:134:12: warning: the address of 'masterkey' will always evaluate as 'true' [-Waddress]
+         if(!masterkey){
+            ^
+main.c:151:8: error: label at end of compound statement
+        default:
+        ^
+main.c:164:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:172:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:117:8: warning: variable 'val' set but not used [-Wunused-but-set-variable]
+  char *val;
+        ^
+main.c:116:8: warning: variable 'key' set but not used [-Wunused-but-set-variable]
+  char *key;
+        ^
+main.c:99:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+make: *** [obj/default/main.o] Error 1
+16:54:09 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'main':
+main.c:93:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:123:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:130:17: warning: character constant too long for its type
+       if(key == 'keypath'){
+                 ^
+main.c:130:14: warning: comparison between pointer and integer
+       if(key == 'keypath'){
+              ^
+main.c:131:11: warning: the address of 'masterkey' will always evaluate as 'true' [-Waddress]
+        if(!masterkey){
+           ^
+main.c:170:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:178:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:99:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32394 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+16:58:30 **** Incremental Build of configuration Default for project libbtc ****
+make all 
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+16:58:32 **** Incremental Build of configuration Nios II for project nios_bsp ****
+make all 
+[BSP build complete]
+16:58:32 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'main':
+main.c:93:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:123:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:131:17: warning: character constant too long for its type
+       if(key == 'keypath'){
+                 ^
+main.c:131:14: warning: comparison between pointer and integer
+       if(key == 'keypath'){
+              ^
+main.c:132:11: warning: the address of 'masterkey' will always evaluate as 'true' [-Waddress]
+        if(!masterkey){
+           ^
+main.c:171:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:179:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:99:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32394 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+16:59:33 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'main':
+main.c:93:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:123:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:132:11: warning: the address of 'masterkey' will always evaluate as 'true' [-Waddress]
+        if(!masterkey){
+           ^
+main.c:171:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:179:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:99:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32394 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+17:01:03 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'main':
+main.c:93:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:123:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:171:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:179:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:99:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32394 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+12:48:42 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'main':
+main.c:93:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:123:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:170:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:178:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:99:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32394 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+13:11:53 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:52:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'main':
+main.c:92:2: warning: implicit declaration of function 'btc_ecc_start' [-Wimplicit-function-declaration]
+  btc_ecc_start();
+  ^
+main.c:103:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:134:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:184:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:192:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:193:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c:109:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Compiling uart_usb.c to obj/default/uart_usb.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/uart_usb.o uart_usb.c
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32393 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+13:24:07 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:52:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'main':
+main.c:92:2: warning: implicit declaration of function 'btc_ecc_start' [-Wimplicit-function-declaration]
+  btc_ecc_start();
+  ^
+main.c:103:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:134:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:185:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:193:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:194:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c:109:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Compiling uart_usb.c to obj/default/uart_usb.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/uart_usb.o uart_usb.c
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32393 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+13:31:05 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:52:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'main':
+main.c:92:2: warning: implicit declaration of function 'btc_ecc_start' [-Wimplicit-function-declaration]
+  btc_ecc_start();
+  ^
+main.c:103:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:134:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:185:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:193:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:194:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c:109:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32393 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+11:53:25 **** Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:52:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'main':
+main.c:103:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:134:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:187:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:195:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:196:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c:109:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32393 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+11:54:56 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:52:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'main':
+main.c:103:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:134:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:189:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:197:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:198:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c:109:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32393 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+11:58:03 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:52:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'main':
+main.c:103:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:134:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:189:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:197:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:198:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c:109:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Compiling uart_usb.c to obj/default/uart_usb.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/uart_usb.o uart_usb.c
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32393 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+12:02:03 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:52:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'main':
+main.c:103:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:134:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:192:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:200:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:201:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c:109:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Compiling uart_usb.c to obj/default/uart_usb.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/uart_usb.o uart_usb.c
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32393 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+12:04:25 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:52:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'main':
+main.c:103:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:134:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:192:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:200:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:201:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c:109:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32393 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+12:04:59 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling uart_usb.c to obj/default/uart_usb.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/uart_usb.o uart_usb.c
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32393 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+12:07:21 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling uart_usb.c to obj/default/uart_usb.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/uart_usb.o uart_usb.c
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32393 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+12:09:32 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:52:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'main':
+main.c:103:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:134:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:192:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:200:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:201:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c:109:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32393 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+15:54:58 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:52:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'main':
+main.c:103:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:134:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:192:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:200:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:201:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c:109:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 366 KBytes program size (code + initialized data).
+Info:                 32393 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+17:59:01 **** Build of configuration Default for project libbtc ****
+make all 
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+Info: Compiling btc/src/commontools.c to obj/default/btc/src/commontools.o
+nios2-elf-gcc -xc -MP -MMD -c -Ibtc/include -I../../impl/nios_proj_bsp/HAL/inc -I../../impl/nios_proj_bsp -I../../impl/nios_proj_bsp/drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/btc/src/commontools.o btc/src/commontools.c
+btc/src/commontools.c: In function 'hd_print_node':
+btc/src/commontools.c:121:12: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+     printf("depth: %d\n", node.depth);
+            ^
+btc/src/commontools.c:121:12: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+btc/src/commontools.c:122:12: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+     printf("child index: %d\n", node.child_num);
+            ^
+btc/src/commontools.c:122:12: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+Info: Compiling btc/src/tools/bitcointool.c to obj/default/btc/src/tools/bitcointool.o
+nios2-elf-gcc -xc -MP -MMD -c -Ibtc/include -I../../impl/nios_proj_bsp/HAL/inc -I../../impl/nios_proj_bsp -I../../impl/nios_proj_bsp/drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/btc/src/tools/bitcointool.o btc/src/tools/bitcointool.c
+btc/src/tools/bitcointool.c: In function 'main':
+btc/src/tools/bitcointool.c:228:14: error: too few arguments to function 'hd_print_node'
+         if (!hd_print_node(chain, pkey))
+              ^
+In file included from btc/src/tools/bitcointool.c:34:0:
+btc/src/tools/..\..\include\btc\tool.h:45:21: note: declared here
+ LIBBTC_API btc_bool hd_print_node(const btc_chainparams* chain, const char* nodeser, char* pubkey);
+                     ^
+btc/src/tools/bitcointool.c:301:21: error: too few arguments to function 'hd_print_node'
+                     hd_print_node(chain, newextkey);
+                     ^
+In file included from btc/src/tools/bitcointool.c:34:0:
+btc/src/tools/..\..\include\btc\tool.h:45:21: note: declared here
+ LIBBTC_API btc_bool hd_print_node(const btc_chainparams* chain, const char* nodeser, char* pubkey);
+                     ^
+btc/src/tools/bitcointool.c:308:17: error: too few arguments to function 'hd_print_node'
+                 hd_print_node(chain, newextkey);
+                 ^
+In file included from btc/src/tools/bitcointool.c:34:0:
+btc/src/tools/..\..\include\btc\tool.h:45:21: note: declared here
+ LIBBTC_API btc_bool hd_print_node(const btc_chainparams* chain, const char* nodeser, char* pubkey);
+                     ^
+btc/src/tools/bitcointool.c:336:20: warning: unused variable 'tx_in' [-Wunused-variable]
+         btc_tx_in *tx_in = vector_idx(tx->vin, inputindex);
+                    ^
+make: *** [obj/default/btc/src/tools/bitcointool.o] Error 1
+17:59:03 **** Build of configuration Nios II for project nios_bsp ****
+make all 
+[BSP build complete]
+17:59:04 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+Info: Compiling btc/src/tools/bitcointool.c to obj/default/btc/src/tools/bitcointool.o
+nios2-elf-gcc -xc -MP -MMD -c -Ibtc/include -I../../impl/nios_proj_bsp/HAL/inc -I../../impl/nios_proj_bsp -I../../impl/nios_proj_bsp/drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/btc/src/tools/bitcointool.o btc/src/tools/bitcointool.c
+btc/src/tools/bitcointool.c: In function 'main':
+btc/src/tools/bitcointool.c:228:14: error: too few arguments to function 'hd_print_node'
+         if (!hd_print_node(chain, pkey))
+              ^
+In file included from btc/src/tools/bitcointool.c:34:0:
+btc/src/tools/..\..\include\btc\tool.h:45:21: note: declared here
+ LIBBTC_API btc_bool hd_print_node(const btc_chainparams* chain, const char* nodeser, char* pubkey);
+                     ^
+btc/src/tools/bitcointool.c:301:21: error: too few arguments to function 'hd_print_node'
+                     hd_print_node(chain, newextkey);
+                     ^
+In file included from btc/src/tools/bitcointool.c:34:0:
+btc/src/tools/..\..\include\btc\tool.h:45:21: note: declared here
+ LIBBTC_API btc_bool hd_print_node(const btc_chainparams* chain, const char* nodeser, char* pubkey);
+                     ^
+btc/src/tools/bitcointool.c:308:17: error: too few arguments to function 'hd_print_node'
+                 hd_print_node(chain, newextkey);
+                 ^
+In file included from btc/src/tools/bitcointool.c:34:0:
+btc/src/tools/..\..\include\btc\tool.h:45:21: note: declared here
+ LIBBTC_API btc_bool hd_print_node(const btc_chainparams* chain, const char* nodeser, char* pubkey);
+                     ^
+btc/src/tools/bitcointool.c:336:20: warning: unused variable 'tx_in' [-Wunused-variable]
+         btc_tx_in *tx_in = vector_idx(tx->vin, inputindex);
+                    ^
+make[1]: *** [obj/default/btc/src/tools/bitcointool.o] Error 1
+make: *** [../../software/libbtc-recurs-make-lib] Error 2
+17:59:44 **** Incremental Build of configuration Default for project libbtc ****
+make all 
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+Info: Compiling btc/src/tools/bitcointool.c to obj/default/btc/src/tools/bitcointool.o
+nios2-elf-gcc -xc -MP -MMD -c -Ibtc/include -I../../impl/nios_proj_bsp/HAL/inc -I../../impl/nios_proj_bsp -I../../impl/nios_proj_bsp/drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/btc/src/tools/bitcointool.o btc/src/tools/bitcointool.c
+btc/src/tools/bitcointool.c: In function 'main':
+btc/src/tools/bitcointool.c:228:41: error: 'p2pkh_address' undeclared (first use in this function)
+         if (!hd_print_node(chain, pkey, p2pkh_address))
+                                         ^
+btc/src/tools/bitcointool.c:228:41: note: each undeclared identifier is reported only once for each function it appears in
+btc/src/tools/bitcointool.c:336:20: warning: unused variable 'tx_in' [-Wunused-variable]
+         btc_tx_in *tx_in = vector_idx(tx->vin, inputindex);
+                    ^
+make: *** [obj/default/btc/src/tools/bitcointool.o] Error 1
+17:59:45 **** Incremental Build of configuration Nios II for project nios_bsp ****
+make all 
+[BSP build complete]
+17:59:46 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+Info: Compiling btc/src/tools/bitcointool.c to obj/default/btc/src/tools/bitcointool.o
+nios2-elf-gcc -xc -MP -MMD -c -Ibtc/include -I../../impl/nios_proj_bsp/HAL/inc -I../../impl/nios_proj_bsp -I../../impl/nios_proj_bsp/drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/btc/src/tools/bitcointool.o btc/src/tools/bitcointool.c
+btc/src/tools/bitcointool.c: In function 'main':
+btc/src/tools/bitcointool.c:228:41: error: 'p2pkh_address' undeclared (first use in this function)
+         if (!hd_print_node(chain, pkey, p2pkh_address))
+                                         ^
+btc/src/tools/bitcointool.c:228:41: note: each undeclared identifier is reported only once for each function it appears in
+btc/src/tools/bitcointool.c:336:20: warning: unused variable 'tx_in' [-Wunused-variable]
+         btc_tx_in *tx_in = vector_idx(tx->vin, inputindex);
+                    ^
+make[1]: *** [obj/default/btc/src/tools/bitcointool.o] Error 1
+make: *** [../../software/libbtc-recurs-make-lib] Error 2
+18:00:29 **** Incremental Build of configuration Default for project libbtc ****
+make all 
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+Info: Compiling btc/src/tools/bitcointool.c to obj/default/btc/src/tools/bitcointool.o
+nios2-elf-gcc -xc -MP -MMD -c -Ibtc/include -I../../impl/nios_proj_bsp/HAL/inc -I../../impl/nios_proj_bsp -I../../impl/nios_proj_bsp/drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/btc/src/tools/bitcointool.o btc/src/tools/bitcointool.c
+btc/src/tools/bitcointool.c: In function 'main':
+btc/src/tools/bitcointool.c:339:20: warning: unused variable 'tx_in' [-Wunused-variable]
+         btc_tx_in *tx_in = vector_idx(tx->vin, inputindex);
+                    ^
+Info: Compiling btc/test/tool_tests.c to obj/default/btc/test/tool_tests.o
+nios2-elf-gcc -xc -MP -MMD -c -Ibtc/include -I../../impl/nios_proj_bsp/HAL/inc -I../../impl/nios_proj_bsp -I../../impl/nios_proj_bsp/drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/btc/test/tool_tests.o btc/test/tool_tests.c
+In file included from btc/test/tool_tests.c:13:0:
+btc/test/tool_tests.c: In function 'test_tool':
+btc/test/tool_tests.c:47:21: error: too few arguments to function 'hd_print_node'
+     u_assert_int_eq(hd_print_node(&btc_chainparams_main, masterkey), true);
+                     ^
+btc/test/utest.h:94:19: note: in definition of macro 'u_assert_int_eq'
+         int r_ = (R);                                                    \
+                   ^
+In file included from btc/test/tool_tests.c:9:0:
+btc/test/..\include\btc\tool.h:45:21: note: declared here
+ LIBBTC_API btc_bool hd_print_node(const btc_chainparams* chain, const char* nodeser, char* pubkey);
+                     ^
+btc/test/tool_tests.c:37:12: warning: unused variable 'outlen' [-Wunused-variable]
+     size_t outlen = btc_base58_decode_check(privkeywif, privkey_data, sizeof(privkey_data));
+            ^
+make: *** [obj/default/btc/test/tool_tests.o] Error 1
+18:00:30 **** Incremental Build of configuration Nios II for project nios_bsp ****
+make all 
+[BSP build complete]
+18:00:31 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+Info: Compiling btc/test/tool_tests.c to obj/default/btc/test/tool_tests.o
+nios2-elf-gcc -xc -MP -MMD -c -Ibtc/include -I../../impl/nios_proj_bsp/HAL/inc -I../../impl/nios_proj_bsp -I../../impl/nios_proj_bsp/drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/btc/test/tool_tests.o btc/test/tool_tests.c
+In file included from btc/test/tool_tests.c:13:0:
+btc/test/tool_tests.c: In function 'test_tool':
+btc/test/tool_tests.c:47:21: error: too few arguments to function 'hd_print_node'
+     u_assert_int_eq(hd_print_node(&btc_chainparams_main, masterkey), true);
+                     ^
+btc/test/utest.h:94:19: note: in definition of macro 'u_assert_int_eq'
+         int r_ = (R);                                                    \
+                   ^
+In file included from btc/test/tool_tests.c:9:0:
+btc/test/..\include\btc\tool.h:45:21: note: declared here
+ LIBBTC_API btc_bool hd_print_node(const btc_chainparams* chain, const char* nodeser, char* pubkey);
+                     ^
+btc/test/tool_tests.c:37:12: warning: unused variable 'outlen' [-Wunused-variable]
+     size_t outlen = btc_base58_decode_check(privkeywif, privkey_data, sizeof(privkey_data));
+            ^
+make[1]: *** [obj/default/btc/test/tool_tests.o] Error 1
+make: *** [../../software/libbtc-recurs-make-lib] Error 2
+18:01:43 **** Incremental Build of configuration Default for project libbtc ****
+make all 
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+Info: Compiling btc/test/tool_tests.c to obj/default/btc/test/tool_tests.o
+nios2-elf-gcc -xc -MP -MMD -c -Ibtc/include -I../../impl/nios_proj_bsp/HAL/inc -I../../impl/nios_proj_bsp -I../../impl/nios_proj_bsp/drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/btc/test/tool_tests.o btc/test/tool_tests.c
+btc/test/tool_tests.c: In function 'test_tool':
+btc/test/tool_tests.c:37:12: warning: unused variable 'outlen' [-Wunused-variable]
+     size_t outlen = btc_base58_decode_check(privkeywif, privkey_data, sizeof(privkey_data));
+            ^
+Info: Compiling btc/test/tx_tests.c to obj/default/btc/test/tx_tests.o
+nios2-elf-gcc -xc -MP -MMD -c -Ibtc/include -I../../impl/nios_proj_bsp/HAL/inc -I../../impl/nios_proj_bsp -I../../impl/nios_proj_bsp/drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/btc/test/tx_tests.o btc/test/tx_tests.c
+btc/test/tx_tests.c: In function 'test_tx_serialization':
+btc/test/tx_tests.c:888:9: warning: unused variable 'tstd' [-Wunused-variable]
+     int tstd = 1;
+         ^
+btc/test/tx_tests.c: In function 'test_tx_sighash_ext':
+btc/test/tx_tests.c:894:9: warning: unused variable 'arrylen' [-Wunused-variable]
+     int arrylen = (sizeof(txvalid_sighash) / sizeof(txvalid_sighash[0]));
+         ^
+btc/test/tx_tests.c: In function 'test_tx_sighash':
+btc/test/tx_tests.c:923:16: warning: variable 'success' set but not used [-Wunused-but-set-variable]
+     int fails, success;
+                ^
+btc/test/tx_tests.c:923:9: warning: variable 'fails' set but not used [-Wunused-but-set-variable]
+     int fails, success;
+         ^
+btc/test/tx_tests.c: In function 'test_script_parse':
+btc/test/tx_tests.c:1020:30: warning: unused variable 'type' [-Wunused-variable]
+         enum btc_tx_out_type type = btc_script_classify_ops(vec);
+                              ^
+btc/test/tx_tests.c: In function 'test_tx_sign_p2sh_p2wpkh':
+btc/test/tx_tests.c:1245:29: warning: unused variable 'res' [-Wunused-variable]
+     enum btc_tx_sign_result res = btc_tx_sign_input(tx, script, amount, &pkey, inputindex, sighashtype, sigcomp, sigder, &sigder_len);
+                             ^
+btc/test/tx_tests.c: In function 'test_tx_sign_p2pkh':
+btc/test/tx_tests.c:1293:29: warning: unused variable 'res' [-Wunused-variable]
+     enum btc_tx_sign_result res = btc_tx_sign_input(tx, script, amount, &pkey, inputindex, sighashtype, sigcomp, sigder, &sigder_len);
+                             ^
+btc/test/tx_tests.c:1266:17: warning: unused variable 'expected_sigcomp' [-Wunused-variable]
+     const char *expected_sigcomp = "685849941f583fe4a54b77fbe7963a2f7fdb9fefc661f9e43d9c6c213f6a4c9c7da98e43af69d2c616c489eb22657e62a1360eeb5a86d8a31bd8a33dd9de21f1";
+                 ^
+Info: Archiving obj/default/libbtclib.a
+rm -f obj/default/libbtclib.a
+mkdir -p obj/default
+nios2-elf-ar  -src obj/default/libbtclib.a obj/default/btc/src/aes256_cbc.o obj/default/btc/src/base58.o obj/default/btc/src/bip32.o obj/default/btc/src/block.o obj/default/btc/src/buffer.o obj/default/btc/src/chainparams.o obj/default/btc/src/commontools.o obj/default/btc/src/cstr.o obj/default/btc/src/ctaes.o obj/default/btc/src/ecc_key.o obj/default/btc/src/ecc_libsecp256k1.o obj/default/btc/src/headersdb.o obj/default/btc/src/headersdb_file.o obj/default/btc/src/logdb/logdb_core.o obj/default/btc/src/logdb/logdb_memdb_llist.o obj/default/btc/src/logdb/logdb_memdb_rbtree.o obj/default/btc/src/logdb/logdb_rec.o obj/default/btc/src/logdb/red_black_tree.o obj/default/btc/src/logdb/test/logdb_tests.o obj/default/btc/src/logdb/test/tests_red_black_tree.o obj/default/btc/src/memory.o obj/default/btc/src/net.o obj/default/btc/src/netspv.o obj/default/btc/src/protocol.o obj/default/btc/src/random.o obj/default/btc/src/ripemd160.o obj/default/btc/src/script.o obj/default/btc/src/secp256k1/contrib/lax_der_parsing.o obj/default/btc/src/secp256k1/contrib/lax_der_privatekey_parsing.o obj/default/btc/src/secp256k1/src/bench_ecdh.o obj/default/btc/src/secp256k1/src/bench_internal.o obj/default/btc/src/secp256k1/src/bench_recover.o obj/default/btc/src/secp256k1/src/bench_schnorr_verify.o obj/default/btc/src/secp256k1/src/bench_sign.o obj/default/btc/src/secp256k1/src/bench_verify.o obj/default/btc/src/secp256k1/src/gen_context.o obj/default/btc/src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.o obj/default/btc/src/secp256k1/src/java/org_bitcoin_Secp256k1Context.o obj/default/btc/src/secp256k1/src/secp256k1.o obj/default/btc/src/secp256k1/src/tests.o obj/default/btc/src/segwit_addr.o obj/default/btc/src/serialize.o obj/default/btc/src/sha2.o obj/default/btc/src/tools/bitcoin-send-tx.o obj/default/btc/src/tools/bitcoin-spv.o obj/default/btc/src/tools/bitcointool.o obj/default/btc/src/tx.o obj/default/btc/src/utils.o obj/default/btc/src/vector.o obj/default/btc/src/wallet.o obj/default/btc/test/aes_tests.o obj/default/btc/test/base58check_tests.o obj/default/btc/test/bip32_tests.o obj/default/btc/test/block_tests.o obj/default/btc/test/buffer_tests.o obj/default/btc/test/cstr_tests.o obj/default/btc/test/ecc_tests.o obj/default/btc/test/eckey_tests.o obj/default/btc/test/hash_tests.o obj/default/btc/test/memory_tests.o obj/default/btc/test/net_tests.o obj/default/btc/test/netspv_tests.o obj/default/btc/test/protocol_tests.o obj/default/btc/test/random_tests.o obj/default/btc/test/serialize_tests.o obj/default/btc/test/sha2_tests.o obj/default/btc/test/tool_tests.o obj/default/btc/test/tx_tests.o obj/default/btc/test/unittester.o obj/default/btc/test/utils_tests.o obj/default/btc/test/vector_tests.o obj/default/btc/test/wallet_tests.o obj/default/.force_rearchive
+cp -f obj/default/libbtclib.a libbtclib.a
+18:01:45 **** Incremental Build of configuration Nios II for project nios_bsp ****
+make all 
+[BSP build complete]
+18:01:46 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:52:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'hdderive':
+main.c:56:6: warning: type of 'pkey' defaults to 'int' [-Wimplicit-int]
+ void hdderive(pkey, keypath, p2pkh_address)
+      ^
+main.c:56:6: warning: type of 'keypath' defaults to 'int' [-Wimplicit-int]
+main.c:56:6: warning: type of 'p2pkh_address' defaults to 'int' [-Wimplicit-int]
+main.c:59:10: warning: implicit declaration of function 'showError' [-Wimplicit-function-declaration]
+   return showError("Missing extended key (use -p)");
+          ^
+main.c:59:10: warning: 'return' with a value, in function returning void
+main.c:61:10: warning: 'return' with a value, in function returning void
+   return showError("Missing keypath (use -m)");
+          ^
+main.c:74:36: warning: passing argument 1 of 'strlen' makes pointer from integer without a cast [-Wint-conversion]
+  for (unsigned int i = 0; i<strlen(keypath); i++) {
+                                    ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from main.c:1:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:33:9: note: expected 'const char *' but argument is of type 'int'
+ size_t  _EXFUN(strlen,(const char *));
+         ^
+main.c:79:15: error: subscripted value is neither array nor pointer nor vector
+    if (keypath[i] == '-') {
+               ^
+main.c:85:26: error: subscripted value is neither array nor pointer nor vector
+     memcpy (buf, &keypath[posanum], i-posanum);
+                          ^
+main.c:88:36: error: subscripted value is neither array nor pointer nor vector
+    else if (!strchr(digits, keypath[i])) {
+                                    ^
+main.c:94:15: error: subscripted value is neither array nor pointer nor vector
+    if (keypath[i] == ']' || keypath[i] == ')') {
+               ^
+main.c:94:36: error: subscripted value is neither array nor pointer nor vector
+    if (keypath[i] == ']' || keypath[i] == ')') {
+                                    ^
+main.c:99:26: error: subscripted value is neither array nor pointer nor vector
+     memcpy (buf, &keypath[posbnum], i-posbnum);
+                          ^
+main.c:104:36: error: subscripted value is neither array nor pointer nor vector
+    else if (!strchr(digits, keypath[i])) {
+                                    ^
+main.c:110:14: error: subscripted value is neither array nor pointer nor vector
+   if (keypath[i] == '[' || keypath[i] == '(') {
+              ^
+main.c:110:35: error: subscripted value is neither array nor pointer nor vector
+   if (keypath[i] == '[' || keypath[i] == '(') {
+                                   ^
+main.c:117:27: warning: passing argument 1 of 'strlen' makes pointer from integer without a cast [-Wint-conversion]
+    char keypathnew[strlen(keypath)+16];
+                           ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from main.c:1:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:33:9: note: expected 'const char *' but argument is of type 'int'
+ size_t  _EXFUN(strlen,(const char *));
+         ^
+main.c:118:23: warning: passing argument 2 of 'memcpy' makes pointer from integer without a cast [-Wint-conversion]
+    memcpy(keypathnew, keypath, posanum-1);
+                       ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from main.c:1:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:23:8: note: expected 'const void * restrict' but argument is of type 'int'
+ _PTR   _EXFUN(memcpy,(_PTR __restrict, const _PTR __restrict, size_t));
+        ^
+main.c:122:55: error: subscripted value is neither array nor pointer nor vector
+    memcpy(keypathnew+posanum-1+strlen(index), &keypath[end], strlen(keypath)-end);
+                                                       ^
+main.c:122:69: warning: passing argument 1 of 'strlen' makes pointer from integer without a cast [-Wint-conversion]
+    memcpy(keypathnew+posanum-1+strlen(index), &keypath[end], strlen(keypath)-end);
+                                                                     ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from main.c:1:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:33:9: note: expected 'const char *' but argument is of type 'int'
+ size_t  _EXFUN(strlen,(const char *));
+         ^
+main.c:125:9: warning: implicit declaration of function 'hd_derive' [-Wimplicit-function-declaration]
+    if (!hd_derive(chain, pkey, keypathnew, newextkey, sizeout))
+         ^
+main.c:126:12: warning: 'return' with a value, in function returning void
+     return showError("Deriving child key failed\n");
+            ^
+main.c:128:5: warning: implicit declaration of function 'hd_print_node' [-Wimplicit-function-declaration]
+     hd_print_node(chain, newextkey, p2pkh_address);
+     ^
+main.c:133:11: warning: 'return' with a value, in function returning void
+    return showError("Deriving child key failed\n");
+           ^
+main.c: In function 'main':
+main.c:186:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:218:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:255:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:263:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:264:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c:192:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+make: *** [obj/default/main.o] Error 1
+18:03:06 **** Incremental Build of configuration Default for project libbtc ****
+make all 
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+18:03:07 **** Incremental Build of configuration Nios II for project nios_bsp ****
+make all 
+[BSP build complete]
+18:03:08 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:25:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'create_priv_key':
+main.c:39:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:52:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'hdderive':
+main.c:59:10: warning: implicit declaration of function 'showError' [-Wimplicit-function-declaration]
+   return showError("Missing extended key (use -p)");
+          ^
+main.c:59:10: warning: 'return' with a value, in function returning void
+main.c:61:10: warning: 'return' with a value, in function returning void
+   return showError("Missing keypath (use -m)");
+          ^
+main.c:125:9: warning: implicit declaration of function 'hd_derive' [-Wimplicit-function-declaration]
+    if (!hd_derive(chain, pkey, keypathnew, newextkey, sizeout))
+         ^
+main.c:126:12: warning: 'return' with a value, in function returning void
+     return showError("Deriving child key failed\n");
+            ^
+main.c:128:5: warning: implicit declaration of function 'hd_print_node' [-Wimplicit-function-declaration]
+     hd_print_node(chain, newextkey, p2pkh_address);
+     ^
+main.c:133:11: warning: 'return' with a value, in function returning void
+    return showError("Deriving child key failed\n");
+           ^
+main.c: In function 'main':
+main.c:186:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:218:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:14:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:255:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:263:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:264:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c:192:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+obj/default/main.o: In function `hdderive':
+C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\nios_proj/main.c:59: undefined reference to `showError'
+C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\nios_proj/main.c:61: undefined reference to `showError'
+C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\nios_proj/main.c:126: undefined reference to `showError'
+C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\nios_proj/main.c:133: undefined reference to `showError'
+collect2.exe: error: ld returned 1 exit status
+make: *** [nios_proj.elf] Error 1
+18:04:16 **** Incremental Build of configuration Default for project libbtc ****
+make all 
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+18:04:17 **** Incremental Build of configuration Nios II for project nios_bsp ****
+make all 
+[BSP build complete]
+18:04:18 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c:4:20: fatal error: stdboo.h: No such file or directory
+compilation terminated.
+make: *** [obj/default/main.o] Error 1
+18:04:26 **** Incremental Build of configuration Default for project libbtc ****
+make all 
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+18:04:27 **** Incremental Build of configuration Nios II for project nios_bsp ****
+make all 
+[BSP build complete]
+18:04:28 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:26:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'showError':
+main.c:36:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c: In function 'create_priv_key':
+main.c:48:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:61:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'hdderive':
+main.c:68:10: warning: 'return' with a value, in function returning void
+   return showError("Missing extended key (use -p)");
+          ^
+main.c:70:10: warning: 'return' with a value, in function returning void
+   return showError("Missing keypath (use -m)");
+          ^
+main.c:134:9: warning: implicit declaration of function 'hd_derive' [-Wimplicit-function-declaration]
+    if (!hd_derive(chain, pkey, keypathnew, newextkey, sizeout))
+         ^
+main.c:135:12: warning: 'return' with a value, in function returning void
+     return showError("Deriving child key failed\n");
+            ^
+main.c:137:5: warning: implicit declaration of function 'hd_print_node' [-Wimplicit-function-declaration]
+     hd_print_node(chain, newextkey, p2pkh_address);
+     ^
+main.c:142:11: warning: 'return' with a value, in function returning void
+    return showError("Deriving child key failed\n");
+           ^
+main.c: In function 'main':
+main.c:195:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:227:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:15:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:264:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:272:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:201:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 382 KBytes program size (code + initialized data).
+Info:                 32377 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+18:06:14 **** Incremental Build of configuration Default for project libbtc ****
+make all 
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+18:06:15 **** Incremental Build of configuration Nios II for project nios_bsp ****
+make all 
+[BSP build complete]
+18:06:16 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:26:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'showError':
+main.c:36:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c: In function 'create_priv_key':
+main.c:48:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:61:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'hdderive':
+main.c:134:9: warning: implicit declaration of function 'hd_derive' [-Wimplicit-function-declaration]
+    if (!hd_derive(chain, pkey, keypathnew, newextkey, sizeout))
+         ^
+main.c:137:5: warning: implicit declaration of function 'hd_print_node' [-Wimplicit-function-declaration]
+     hd_print_node(chain, newextkey, p2pkh_address);
+     ^
+main.c: In function 'main':
+main.c:196:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:228:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:15:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:265:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:273:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:202:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 382 KBytes program size (code + initialized data).
+Info:                 32377 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+18:06:55 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 382 KBytes program size (code + initialized data).
+Info:                 32377 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+18:07:29 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:26:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'showError':
+main.c:36:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c: In function 'create_priv_key':
+main.c:48:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:61:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'hdderive':
+main.c:134:9: warning: implicit declaration of function 'hd_derive' [-Wimplicit-function-declaration]
+    if (!hd_derive(chain, pkey, keypathnew, newextkey, sizeout))
+         ^
+main.c:137:5: warning: implicit declaration of function 'hd_print_node' [-Wimplicit-function-declaration]
+     hd_print_node(chain, newextkey, p2pkh_address);
+     ^
+main.c: In function 'main':
+main.c:185:2: warning: implicit declaration of function 'btc_ecc_start' [-Wimplicit-function-declaration]
+  btc_ecc_start();
+  ^
+main.c:196:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:228:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:15:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:265:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:273:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:202:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 382 KBytes program size (code + initialized data).
+Info:                 32377 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+18:27:52 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:26:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'showError':
+main.c:36:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c: In function 'create_priv_key':
+main.c:48:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:61:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'hdderive':
+main.c:134:9: warning: implicit declaration of function 'hd_derive' [-Wimplicit-function-declaration]
+    if (!hd_derive(chain, pkey, keypathnew, newextkey, sizeout))
+         ^
+main.c:137:5: warning: implicit declaration of function 'hd_print_node' [-Wimplicit-function-declaration]
+     hd_print_node(chain, newextkey, p2pkh_address);
+     ^
+main.c: In function 'main':
+main.c:185:2: warning: implicit declaration of function 'btc_ecc_start' [-Wimplicit-function-declaration]
+  btc_ecc_start();
+  ^
+main.c:196:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:228:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:15:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:266:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:274:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:202:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 382 KBytes program size (code + initialized data).
+Info:                 32377 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+18:39:26 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:26:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'showError':
+main.c:36:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c: In function 'create_priv_key':
+main.c:48:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:61:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'hdderive':
+main.c:134:9: warning: implicit declaration of function 'hd_derive' [-Wimplicit-function-declaration]
+    if (!hd_derive(chain, pkey, keypathnew, newextkey, sizeout))
+         ^
+main.c:137:5: warning: implicit declaration of function 'hd_print_node' [-Wimplicit-function-declaration]
+     hd_print_node(chain, newextkey, p2pkh_address);
+     ^
+main.c: In function 'main':
+main.c:185:2: warning: implicit declaration of function 'btc_ecc_start' [-Wimplicit-function-declaration]
+  btc_ecc_start();
+  ^
+main.c:196:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:228:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:15:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:235:24: warning: passing argument 2 of 'strcspn' makes pointer from integer without a cast [-Wint-conversion]
+       val[strcspn(val, '\n')] = 0;
+                        ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from main.c:1:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:31:9: note: expected 'const char *' but argument is of type 'int'
+ size_t  _EXFUN(strcspn,(const char *, const char *));
+         ^
+main.c:268:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:276:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:202:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 383 KBytes program size (code + initialized data).
+Info:                 32377 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+18:40:04 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:26:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'showError':
+main.c:36:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c: In function 'create_priv_key':
+main.c:48:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:61:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'hdderive':
+main.c:134:9: warning: implicit declaration of function 'hd_derive' [-Wimplicit-function-declaration]
+    if (!hd_derive(chain, pkey, keypathnew, newextkey, sizeout))
+         ^
+main.c:137:5: warning: implicit declaration of function 'hd_print_node' [-Wimplicit-function-declaration]
+     hd_print_node(chain, newextkey, p2pkh_address);
+     ^
+main.c: In function 'main':
+main.c:185:2: warning: implicit declaration of function 'btc_ecc_start' [-Wimplicit-function-declaration]
+  btc_ecc_start();
+  ^
+main.c:196:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:228:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:15:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:268:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:276:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:202:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 383 KBytes program size (code + initialized data).
+Info:                 32377 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+18:50:44 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:26:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'showError':
+main.c:36:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c: In function 'create_priv_key':
+main.c:48:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:61:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'hdderive':
+main.c:134:9: warning: implicit declaration of function 'hd_derive' [-Wimplicit-function-declaration]
+    if (!hd_derive(chain, pkey, keypathnew, newextkey, sizeout))
+         ^
+main.c:137:5: warning: implicit declaration of function 'hd_print_node' [-Wimplicit-function-declaration]
+     hd_print_node(chain, newextkey, p2pkh_address);
+     ^
+main.c: In function 'main':
+main.c:185:2: warning: implicit declaration of function 'btc_ecc_start' [-Wimplicit-function-declaration]
+  btc_ecc_start();
+  ^
+main.c:196:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:228:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:15:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:269:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:277:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:202:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 383 KBytes program size (code + initialized data).
+Info:                 32377 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+18:50:54 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:26:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'showError':
+main.c:36:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c: In function 'create_priv_key':
+main.c:48:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:61:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'hdderive':
+main.c:134:9: warning: implicit declaration of function 'hd_derive' [-Wimplicit-function-declaration]
+    if (!hd_derive(chain, pkey, keypathnew, newextkey, sizeout))
+         ^
+main.c:137:5: warning: implicit declaration of function 'hd_print_node' [-Wimplicit-function-declaration]
+     hd_print_node(chain, newextkey, p2pkh_address);
+     ^
+main.c: In function 'main':
+main.c:185:2: warning: implicit declaration of function 'btc_ecc_start' [-Wimplicit-function-declaration]
+  btc_ecc_start();
+  ^
+main.c:196:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:228:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:15:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:269:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:277:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:202:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 383 KBytes program size (code + initialized data).
+Info:                 32377 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+18:57:00 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//HAL/inc -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/ -IC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//drivers/inc -I../../software/libbtc/btc/include/btc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'initialize':
+main.c:26:5: warning: implicit declaration of function 'initRandom' [-Wimplicit-function-declaration]
+     initRandom(randSeed);
+     ^
+main.c: In function 'showError':
+main.c:36:5: warning: implicit declaration of function 'btc_ecc_stop' [-Wimplicit-function-declaration]
+     btc_ecc_stop();
+     ^
+main.c: In function 'create_priv_key':
+main.c:48:2: warning: implicit declaration of function 'gen_privatekey' [-Wimplicit-function-declaration]
+  gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+  ^
+main.c: In function 'hdgenmaster':
+main.c:61:2: warning: implicit declaration of function 'hd_gen_master' [-Wimplicit-function-declaration]
+  hd_gen_master(chain, masterkey, sizeout);
+  ^
+main.c: In function 'hdderive':
+main.c:134:9: warning: implicit declaration of function 'hd_derive' [-Wimplicit-function-declaration]
+    if (!hd_derive(chain, pkey, keypathnew, newextkey, sizeout))
+         ^
+main.c:137:5: warning: implicit declaration of function 'hd_print_node' [-Wimplicit-function-declaration]
+     hd_print_node(chain, newextkey, p2pkh_address);
+     ^
+main.c: In function 'main':
+main.c:185:2: warning: implicit declaration of function 'btc_ecc_start' [-Wimplicit-function-declaration]
+  btc_ecc_start();
+  ^
+main.c:196:2: warning: implicit declaration of function 'getRandomBuffer' [-Wimplicit-function-declaration]
+  getRandomBuffer(&(data[0]), 32);
+  ^
+main.c:228:18: warning: passing argument 1 of 'uartGetLine' from incompatible pointer type [-Wincompatible-pointer-types]
+      uartGetLine(&buf);
+                  ^
+In file included from main.c:15:0:
+uart_usb.h:8:6: note: expected 'char *' but argument is of type 'char (*)[1048576]'
+ void uartGetLine(char *buf);
+      ^
+main.c:270:17: warning: implicit declaration of function 'u32getRandom' [-Wimplicit-function-declaration]
+       randVal = u32getRandom();
+                 ^
+main.c:278:5: warning: implicit declaration of function 'closeUart' [-Wimplicit-function-declaration]
+     closeUart();
+     ^
+main.c:202:7: warning: unused variable 'buffer' [-Wunused-variable]
+  char buffer[2048];
+       ^
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 383 KBytes program size (code + initialized data).
+Info:                 32377 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+20:13:59 **** Incremental Build of configuration Default for project libbtc ****
+make all 
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+Info: Compiling btc/src/commontools.c to obj/default/btc/src/commontools.o
+nios2-elf-gcc -xc -MP -MMD -c -Ibtc/include -I../../impl/nios_proj_bsp/HAL/inc -I../../impl/nios_proj_bsp -I../../impl/nios_proj_bsp/drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/btc/src/commontools.o btc/src/commontools.c
+btc/src/commontools.c: In function 'hd_print_node':
+btc/src/commontools.c:121:12: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+     printf("depth: %d\n", node.depth);
+            ^
+btc/src/commontools.c:121:12: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+btc/src/commontools.c:122:12: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+     printf("child index: %d\n", node.child_num);
+            ^
+btc/src/commontools.c:122:12: warning: format '%d' expects argument of type 'int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+btc/src/commontools.c: In function 'hd_derive':
+btc/src/commontools.c:143:12: warning: passing argument 1 of 'printf' makes pointer from integer without a cast [-Wint-conversion]
+     printf('1');
+            ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from btc/src/..\include\btc\btc.h:32,
+                 from btc/src/..\include\btc\base58.h:27,
+                 from btc/src/commontools.c:7:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:215:5: note: expected 'const char * restrict' but argument is of type 'int'
+ int _EXFUN(printf, (const char *__restrict, ...)
+     ^
+btc/src/commontools.c:150:12: warning: passing argument 1 of 'printf' makes pointer from integer without a cast [-Wint-conversion]
+     printf('2');
+            ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from btc/src/..\include\btc\btc.h:32,
+                 from btc/src/..\include\btc\base58.h:27,
+                 from btc/src/commontools.c:7:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:215:5: note: expected 'const char * restrict' but argument is of type 'int'
+ int _EXFUN(printf, (const char *__restrict, ...)
+     ^
+Info: Archiving obj/default/libbtclib.a
+rm -f obj/default/libbtclib.a
+mkdir -p obj/default
+nios2-elf-ar  -src obj/default/libbtclib.a obj/default/btc/src/aes256_cbc.o obj/default/btc/src/base58.o obj/default/btc/src/bip32.o obj/default/btc/src/block.o obj/default/btc/src/buffer.o obj/default/btc/src/chainparams.o obj/default/btc/src/commontools.o obj/default/btc/src/cstr.o obj/default/btc/src/ctaes.o obj/default/btc/src/ecc_key.o obj/default/btc/src/ecc_libsecp256k1.o obj/default/btc/src/headersdb.o obj/default/btc/src/headersdb_file.o obj/default/btc/src/logdb/logdb_core.o obj/default/btc/src/logdb/logdb_memdb_llist.o obj/default/btc/src/logdb/logdb_memdb_rbtree.o obj/default/btc/src/logdb/logdb_rec.o obj/default/btc/src/logdb/red_black_tree.o obj/default/btc/src/logdb/test/logdb_tests.o obj/default/btc/src/logdb/test/tests_red_black_tree.o obj/default/btc/src/memory.o obj/default/btc/src/net.o obj/default/btc/src/netspv.o obj/default/btc/src/protocol.o obj/default/btc/src/random.o obj/default/btc/src/ripemd160.o obj/default/btc/src/script.o obj/default/btc/src/secp256k1/contrib/lax_der_parsing.o obj/default/btc/src/secp256k1/contrib/lax_der_privatekey_parsing.o obj/default/btc/src/secp256k1/src/bench_ecdh.o obj/default/btc/src/secp256k1/src/bench_internal.o obj/default/btc/src/secp256k1/src/bench_recover.o obj/default/btc/src/secp256k1/src/bench_schnorr_verify.o obj/default/btc/src/secp256k1/src/bench_sign.o obj/default/btc/src/secp256k1/src/bench_verify.o obj/default/btc/src/secp256k1/src/gen_context.o obj/default/btc/src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.o obj/default/btc/src/secp256k1/src/java/org_bitcoin_Secp256k1Context.o obj/default/btc/src/secp256k1/src/secp256k1.o obj/default/btc/src/secp256k1/src/tests.o obj/default/btc/src/segwit_addr.o obj/default/btc/src/serialize.o obj/default/btc/src/sha2.o obj/default/btc/src/tools/bitcoin-send-tx.o obj/default/btc/src/tools/bitcoin-spv.o obj/default/btc/src/tools/bitcointool.o obj/default/btc/src/tx.o obj/default/btc/src/utils.o obj/default/btc/src/vector.o obj/default/btc/src/wallet.o obj/default/btc/test/aes_tests.o obj/default/btc/test/base58check_tests.o obj/default/btc/test/bip32_tests.o obj/default/btc/test/block_tests.o obj/default/btc/test/buffer_tests.o obj/default/btc/test/cstr_tests.o obj/default/btc/test/ecc_tests.o obj/default/btc/test/eckey_tests.o obj/default/btc/test/hash_tests.o obj/default/btc/test/memory_tests.o obj/default/btc/test/net_tests.o obj/default/btc/test/netspv_tests.o obj/default/btc/test/protocol_tests.o obj/default/btc/test/random_tests.o obj/default/btc/test/serialize_tests.o obj/default/btc/test/sha2_tests.o obj/default/btc/test/tool_tests.o obj/default/btc/test/tx_tests.o obj/default/btc/test/unittester.o obj/default/btc/test/utils_tests.o obj/default/btc/test/vector_tests.o obj/default/btc/test/wallet_tests.o obj/default/.force_rearchive
+cp -f obj/default/libbtclib.a libbtclib.a
+20:14:00 **** Incremental Build of configuration Nios II for project nios_bsp ****
+make all 
+[BSP build complete]
+20:14:01 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 383 KBytes program size (code + initialized data).
+Info:                 32377 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]
+20:14:08 **** Incremental Build of configuration Nios II for project nios_proj ****
+make all 
+Info: Building ../../software/libbtc
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../software/libbtc
+Info: Building ../../impl/nios_proj_bsp
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../../impl/nios_proj_bsp
+[BSP build complete]
+cp -f obj/default/libbtclib.a libbtclib.a
+Info: Building C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/
+[BSP build complete]
+Info: Linking nios_proj.elf
+nios2-elf-g++  -T'C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//linker.x' -msys-crt0='C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../../software/libbtc -LC:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/   -Wl,-Map=nios_proj.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o nios_proj.elf obj/default/main.o obj/default/rand.o obj/default/uart_usb.o -lbtclib -lm -msys-lib=m
+nios2-elf-insert nios_proj.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x2012060 --timestamp 1549997543 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name crypto_wallet2_nios_fast --quartus_project_dir "c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys" --sopcinfo c:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/../qsys/crypto_wallet2_nios_fast.sopcinfo
+Info: (nios_proj.elf) 383 KBytes program size (code + initialized data).
+Info:                 32377 KBytes free for stack + heap.
+Info: Creating nios_proj.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_proj.elf >nios_proj.objdump
+[nios_proj build complete]

@@ -7,6 +7,8 @@ char uartGetChar();
 
 void uartGetLine(char *buf);
 
+void append(char *s, char c);
+
 #if 0
 void uartRxChar(char *c);
 

@@ -1,0 +1,197 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+
+/*libbtc includes*/
+#include <btc.h>
+#include <tx.h>
+
+#include "system.h"
+#include "altera_avalon_pio_regs.h"
+#include "sys/alt_sys_wrappers.h"
+#include "alt_types.h"
+
+#include "uart_usb.h"
+//#include "bip39.h"
+
+#define BUF_SIZE 1024 * 1024
+
+const btc_chainparams* chain = &btc_chainparams_test;
+
+void initialize()
+{
+	/* initialize hardware random number generator */
+	alt_u32 randSeed = 0x12345678;
+    initRandom(randSeed);
+
+    /* initialize uart to usb */
+    initUart();
+}
+
+
+void create_priv_key()
+{
+	size_t sizeout = 128;
+	char newprivkey_wif[sizeout];
+	char newprivkey_hex[sizeout];
+
+	/* generate a new private key */
+	gen_privatekey(chain, newprivkey_wif, sizeout, newprivkey_hex);
+	printf("privatekey WIF: %s\n", newprivkey_wif);
+	printf("privatekey HEX: %s\n", newprivkey_hex);
+	memset(newprivkey_wif, 0, strlen(newprivkey_wif));
+	memset(newprivkey_hex, 0, strlen(newprivkey_hex));
+}
+
+void hdgenmaster(char *masterkey, size_t sizeout)
+{
+//	size_t sizeout = 128;
+//	char masterkey[sizeout];
+
+	/* generate a new hd master key */
+	hd_gen_master(chain, masterkey, sizeout);
+	printf("masterkey: %s\n", masterkey);
+}
+
+char **parseData(char *str)
+{
+	char ** res  = NULL;
+	char *  p    = strtok (str, ":");
+	int n_spaces = 0, i;
+
+	/* split string and append tokens to 'res' */
+	while (p) {
+	  res = realloc (res, sizeof (char*) * ++n_spaces);
+
+	  if (res == NULL)
+	    exit (-1); /* memory allocation failed */
+
+	  res[n_spaces-1] = p;
+
+	  p = strtok (NULL, ":");
+	}
+
+	/* realloc one extra element for the last NULL */
+	res = realloc (res, sizeof (char*) * (n_spaces+1));
+	res[n_spaces] = 0;
+
+	/* print the result */
+	for (i = 0; i < (n_spaces+1); ++i)
+	  printf ("res[%d] = %s\n", i, res[i]);
+
+	return res;
+//	/* free the memory allocated */
+//
+//	free (res);
+}
+
+
+int main()
+{
+	/* start ECC context */
+//	btc_ecc_start();
+
+    initialize();
+//    create_priv_key();
+//    void *memory_test = malloc(1024 * 1024 * 10);
+//    printf("SDRAM malloc returned 0x%08lx\n", (alt_u32)memory_test);
+
+
+//	PutStrUart("FPGA Cryptocurreny Wallet\n");
+
+	alt_u8 data[32];
+	getRandomBuffer(&(data[0]), 32);
+
+
+//	const char *mnemonic_phrase = mnemonic_generate(128);
+//	printf("MNEMONIC PHRASE: %s\n", mnemonic_phrase);
+
+	char buffer[2048];
+
+//	sprintf(buffer, "Random Buffer:\n");
+//	PutStrUart((char *)&(buffer[0]));
+//
+//	for(int i = 0; i < 32; ++i)
+//	{
+//		sprintf(buffer, "0x%02x\n", data[i]);
+//		PutStrUart((char *)&(buffer[0]));
+//	}
+
+//	sprintf(buffer, "Menmonic phrase: %s\n", mnemonic_phrase);
+//	PutStrUart((char *)&(buffer[0]));
+
+	alt_u8 count = 0;
+	alt_u32 randVal;
+	char buf[BUF_SIZE] = {'\0'};
+	char *key;
+	char *val;
+	char **res;
+	size_t sizeout = 128;
+	char masterkey[sizeout];
+
+    while(1)
+    {
+    	uartGetLine(&buf);
+    	if (strlen(buf) > 0) {
+    		printf("Buf: %s", buf);
+    		res = parseData(buf);
+    		key = res[0];
+    		val = res[1];
+
+    		if(!strcmp(key, "keypath")){
+    			if(strlen(masterkey) == 0){
+//    				hdgenmaster(masterkey, sizeout);
+    				append(masterkey, '\n');
+    				PutStrUart(masterkey);
+//    				printf("create master key\n");
+    			}
+
+    			printf("derive HD child node: %s\n", val);
+    		}
+//    		switch(key)
+//    			{
+//    			case 'keypath':
+//    				if(!masterkey){
+//    					printf("create master key");
+//    				}
+//    				printf("derive HD child node");
+//
+//    				break;
+//    			case '\n':
+//    	//			printf("%c", c);
+//    	//			PutCUart(c);
+//    				break;
+//
+//    			case '\b':
+//    	//			PutCUart('\b');
+//    	//			PutCUart(' ');
+//    	//			PutCUart('\b');
+//    				break;
+//
+////    			default:
+//    	//			printf("%c", c);
+//    	//			PutCUart(c);
+//    			}
+
+    		/* free the memory allocated */
+    		free(res);
+    		memset(buf, 0, BUF_SIZE);
+//    		memset(masterkey, 0, strlen(masterkey));
+    	}
+
+		count++;
+		if ((count % 1000000000) == 0)
+		{
+	    	randVal = u32getRandom();
+	    	IOWR_ALTERA_AVALON_PIO_DATA(PO_LED_BASE, randVal & 0xFF);
+//	    	sprintf(buffer, "Random value: 0x%08x\n", randVal);
+//	    	PutStrUart((char *)&(buffer[0]));
+		}
+		ALT_USLEEP(100);
+    }
+
+    closeUart();
+    btc_ecc_stop();
+    return 0;
+}
+

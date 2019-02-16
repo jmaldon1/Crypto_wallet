@@ -1550,3 +1550,296 @@ java.lang.Exception
 
 !ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 01:53:18.607
 !MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+!SESSION 2019-02-13 12:45:36.515 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.core.resources 2 10035 2019-02-13 12:45:43.234
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 12:50:37.890
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 12:50:39.924
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 13:50:50.679
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 13:50:51.323
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 13:50:53.453
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 14:31:15.529
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 14:31:16.125
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 14:31:18.096
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 14:36:08.177
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 14:36:08.748
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 14:36:10.712
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 15:09:53.829
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 15:09:54.405
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 15:09:56.383
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 16:08:32.460
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 16:08:33.034
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 16:08:35.029
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 16:54:15.723
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 16:54:16.331
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 16:54:18.337
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 16:59:38.606
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 16:59:39.188
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 16:59:41.165
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 17:01:08.908
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 17:01:09.488
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-13 17:01:11.429
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-14 12:48:49.935
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-14 12:48:50.538
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-14 12:48:52.609
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-14 13:12:25.295
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-14 13:12:25.949
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-14 13:12:28.112
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-14 13:24:14.063
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-14 13:24:14.655
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-14 13:24:16.701
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-14 13:31:10.820
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-14 13:31:11.404
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-14 13:31:13.369
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+!SESSION 2019-02-15 11:51:34.676 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization C:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.core.resources 2 10035 2019-02-15 11:51:37.443
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 11:53:34.725
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 11:53:36.819
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 11:55:01.735
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 11:55:02.303
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 11:55:04.245
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 11:58:09.518
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 11:58:10.076
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 11:58:12.068
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 12:02:09.702
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 12:02:10.284
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 12:02:12.329
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 12:04:30.729
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 12:04:31.299
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 12:04:33.255
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 12:05:04.711
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 12:05:05.267
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 12:05:07.236
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 12:07:27.056
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 12:07:27.617
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 12:07:29.536
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 12:09:38.624
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 12:09:39.193
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 12:09:41.133
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 15:55:04.776
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 15:55:05.387
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 15:55:07.457
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:07:00.581
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:07:01.149
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:07:03.175
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:07:35.590
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:07:36.163
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:07:38.127
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:27:57.721
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:27:58.279
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:28:00.235
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:39:32.951
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:39:33.518
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:39:35.511
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:40:09.859
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:40:10.452
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:40:12.402
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:50:50.250
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:50:50.817
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:50:52.824
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:51:00.472
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:51:01.038
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:51:02.985
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:57:06.351
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:57:06.940
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 18:57:08.910
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 20:14:14.501
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 20:14:15.073
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --accept-bad-sysid --sidp=0x2012060]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-02-15 20:14:17.083
+!MESSAGE Executing: [C:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --accept-bad-sysid --sidp=0x2012060 /cygdrive/c/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj/nios_proj.elf]

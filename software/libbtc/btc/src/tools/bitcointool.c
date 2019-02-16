@@ -225,7 +225,9 @@ int main(int argc, char* argv[])
     } else if (strcmp(cmd, "hdprintkey") == 0) {
         if (!pkey)
             return showError(pkey_error);
-        if (!hd_print_node(chain, pkey))
+        size_t sizeout = 128;
+        char p2pkh_address[sizeout];
+        if (!hd_print_node(chain, pkey, p2pkh_address))
             return showError("Failed. Probably invalid extended key.\n");
     } else if (strcmp(cmd, "hdderive") == 0) {
         if (!pkey)
@@ -234,6 +236,7 @@ int main(int argc, char* argv[])
             return showError("Missing keypath (use -m)");
         size_t sizeout = 128;
         char newextkey[sizeout];
+        char p2pkh_address[sizeout];
 
         //check if we derive a range of keys
         unsigned int maxlen = 1024;
@@ -298,14 +301,14 @@ int main(int argc, char* argv[])
                 if (!hd_derive(chain, pkey, keypathnew, newextkey, sizeout))
                     return showError("Deriving child key failed\n");
                 else
-                    hd_print_node(chain, newextkey);
+                    hd_print_node(chain, newextkey, p2pkh_address);
             }
         }
         else {
             if (!hd_derive(chain, pkey, keypath, newextkey, sizeout))
                 return showError("Deriving child key failed\n");
             else
-                hd_print_node(chain, newextkey);
+                hd_print_node(chain, newextkey, p2pkh_address);
         }
     } else if (strcmp(cmd, "sign") == 0) {
         if(!txhex || !scripthex) {

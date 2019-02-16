@@ -42,9 +42,11 @@ void test_tool()
     u_assert_str_eq(privkeyhex,privkey_hex_or_null);
 
     size_t masterkeysize = 200;
+    size_t sizeout = 128;
     char masterkey[masterkeysize];
+    char p2pkh_address[sizeout];
     u_assert_int_eq(hd_gen_master(&btc_chainparams_main, masterkey, masterkeysize), true);
-    u_assert_int_eq(hd_print_node(&btc_chainparams_main, masterkey), true);
+    u_assert_int_eq(hd_print_node(&btc_chainparams_main, masterkey, p2pkh_address), true);
 
     size_t extoutsize = 200;
     char extout[extoutsize];

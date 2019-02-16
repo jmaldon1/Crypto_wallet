@@ -11,6 +11,13 @@
 #include "altera_avalon_uart.h"
 #include "sys/alt_irq.h"
 
+void append(char *s, char c)
+{
+	int len = strlen(s);
+	s[len] = c;
+	s[len+1] = '\0';
+}
+
 void uartGetLine(char *buf) {
 	if (!EmptyUart()) {
 		while (1) {
@@ -19,14 +26,14 @@ void uartGetLine(char *buf) {
 				append(buf, c);
 			}
 			if (c == '\n') {
+//				append(buf, c);
 //				printf("got a new line\n");
-				PutStrUart(buf);
+//				PutStrUart(buf);
 				return;
 			}
 		}
 	}
 }
-
 
 char uartGetChar()
 {

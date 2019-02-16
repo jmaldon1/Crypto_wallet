@@ -94,7 +94,7 @@ btc_bool hd_gen_master(const btc_chainparams* chain, char* masterkeyhex, size_t 
     return true;
 }
 
-btc_bool hd_print_node(const btc_chainparams* chain, const char* nodeser)
+btc_bool hd_print_node(const btc_chainparams* chain, const char* nodeser, char* pubkey)
 {
     btc_hdnode node;
     if (!btc_hdnode_deserialize(nodeser, chain, &node))
@@ -122,6 +122,7 @@ btc_bool hd_print_node(const btc_chainparams* chain, const char* nodeser)
     printf("child index: %d\n", node.child_num);
     printf("p2pkh address: %s\n", str);
     printf("p2wpkh address: %s\n", str);
+    strcpy(pubkey, str);
 
     if (!btc_hdnode_get_pub_hex(&node, str, &strsize))
         return false;
@@ -139,12 +140,14 @@ btc_bool hd_derive(const btc_chainparams* chain, const char* masterkey, const ch
         return false;
     }
     btc_hdnode node, nodenew;
+    printf('1');
     if (!btc_hdnode_deserialize(masterkey, chain, &node))
         return false;
 
     //check if we only have the publickey
     bool pubckd = !btc_hdnode_has_privkey(&node);
 
+    printf('2');
     //derive child key, use pubckd or privckd
     if (!btc_hd_generate_key(&nodenew, keypath, pubckd ? node.public_key : node.private_key, node.chain_code, pubckd))
         return false;
