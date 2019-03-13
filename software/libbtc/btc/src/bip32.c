@@ -41,6 +41,34 @@
 
 #include "..\include\btc\memory.h"
 
+
+void print_node(btc_hdnode* hdnode)
+{
+    printf("depth: %d\n", hdnode -> depth);
+    printf("fingerprint: %d\n", hdnode -> fingerprint);
+    printf("child_num: %d\n", hdnode -> child_num);
+    printf("depth: %d\n", hdnode -> depth);
+
+    printf("chaincode: ");
+    for (int i = 0; i < 32; i++) {
+        printf("%d", hdnode->chain_code[i]);
+    }
+    printf("\n");
+
+    printf("private key: ");
+    for (int i = 0; i < 32; i++) {
+        printf("%d", hdnode->private_key[i]);
+    }
+    printf("\n");
+
+    printf("public_key: ");
+    for (int i = 0; i < 33; i++) {
+        printf("%d", hdnode->public_key[i]);
+    }
+    printf("\n\n");
+}
+
+
 // write 4 big endian bytes
 static void write_be(uint8_t* data, uint32_t x)
 {
@@ -96,6 +124,7 @@ btc_bool btc_hdnode_from_seed(const uint8_t* seed, int seed_len, btc_hdnode* out
     out->depth = 0;
     out->fingerprint = 0x00000000;
     out->child_num = 0;
+
     hmac_sha512((const uint8_t*)"Bitcoin seed", 12, seed, seed_len, I);
     memcpy(out->private_key, I, BTC_ECKEY_PKEY_LENGTH);
 
@@ -104,8 +133,13 @@ btc_bool btc_hdnode_from_seed(const uint8_t* seed, int seed_len, btc_hdnode* out
         return false;
     }
 
+//    print_node(out);
+
     memcpy(out->chain_code, I + BTC_ECKEY_PKEY_LENGTH, BTC_BIP32_CHAINCODE_SIZE);
     btc_hdnode_fill_public_key(out);
+
+//    print_node(out);
+
     memset(I, 0, sizeof(I));
     return true;
 }
@@ -227,7 +261,17 @@ static void btc_hdnode_serialize(const btc_hdnode* node, uint32_t version, char 
         node_data[45] = 0;
         memcpy(node_data + 46, node->private_key, BTC_ECKEY_PKEY_LENGTH);
     }
+//    printf("node_data: ");
+//	for (int i = 0; i < 78; i++) {
+//		printf("%d", node_data[i]);
+//	}
+//	printf("\n");
     btc_base58_encode_check(node_data, 78, str, strsize);
+//    printf("node_data_AFTER: ");
+//	for (int i = 0; i < 78; i++) {
+//		printf("%d", node_data[i]);
+//	}
+//	printf("\n");
 }
 
 

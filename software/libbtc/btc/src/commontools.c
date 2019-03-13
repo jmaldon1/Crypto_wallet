@@ -87,6 +87,7 @@ btc_bool hd_gen_master(const btc_chainparams* chain, char* masterkeyhex, size_t 
     uint8_t seed[32];
     assert(btc_random_bytes(seed, 32, true));
 //    random_buffer(seed, 32);
+//    uint8_t seed[32] = {0};
     btc_hdnode_from_seed(seed, 32, &node);
     memset(seed, 0, 32);
     btc_hdnode_serialize_private(&node, chain, masterkeyhex, strsize);
@@ -140,17 +141,16 @@ btc_bool hd_derive(const btc_chainparams* chain, const char* masterkey, const ch
         return false;
     }
     btc_hdnode node, nodenew;
-    printf('1');
     if (!btc_hdnode_deserialize(masterkey, chain, &node))
         return false;
 
     //check if we only have the publickey
     bool pubckd = !btc_hdnode_has_privkey(&node);
 
-    printf('2');
     //derive child key, use pubckd or privckd
     if (!btc_hd_generate_key(&nodenew, keypath, pubckd ? node.public_key : node.private_key, node.chain_code, pubckd))
         return false;
+
 
     if (pubckd)
         btc_hdnode_serialize_public(&nodenew, chain, extkeyout, extkeyout_size);

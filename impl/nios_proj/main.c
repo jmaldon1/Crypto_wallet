@@ -2,17 +2,24 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdbool.h>
+#include <assert.h>
 
 /*libbtc includes*/
 #include <btc.h>
 #include <tx.h>
+#include <bip32.h>
+#include <base58.h>
+#include <ecc.h>
+#include <tool.h>
 
 #include "system.h"
 #include "altera_avalon_pio_regs.h"
 #include "sys/alt_sys_wrappers.h"
 #include "alt_types.h"
 
+#include "hashmap.h"
 #include "uart_usb.h"
+#include "rand.h"
 //#include "bip39.h"
 
 #define BUF_SIZE 1024 * 1024
@@ -24,6 +31,7 @@ void initialize()
 	/* initialize hardware random number generator */
 	alt_u32 randSeed = 0x12345678;
     initRandom(randSeed);
+
 
     /* initialize uart to usb */
     initUart();
@@ -52,17 +60,50 @@ void create_priv_key()
 	memset(newprivkey_hex, 0, strlen(newprivkey_hex));
 }
 
-void hdgenmaster(char* masterkey, size_t sizeout)
+btc_bool hdgenmaster(char* masterkey, size_t sizeout)
 {
-//	size_t sizeout = 128;
-//	char masterkey[sizeout];
-
-	/* generate a new hd master key */
-	hd_gen_master(chain, masterkey, sizeout);
-//	printf("masterkey: %s\n", masterkey);
+	btc_hdnode node;
+	alt_u8 seed[32];
+	getRandomBuffer(&(seed[0]), 32);
+	btc_hdnode_from_seed(seed, 32, &node);
+	memset(seed, 0, 32);
+	btc_hdnode_serialize_private(&node, chain, masterkey, sizeout);
+	memset(&node, 0, sizeof(node));
+	return true;
 }
 
-int hdderive(char* pkey, char* keypath, char* p2pkh_address)
+btc_bool hd_save_node(const btc_chainparams* chain, const char* nodeser, map_t keymap)
+{
+	btc_hdnode node;
+	if (!btc_hdnode_deserialize(nodeser, chain, &node))
+		return false;
+
+	/* Make Public Key */
+	size_t strsize = 128;
+	char str[strsize];
+	btc_hdnode_get_p2pkh_address(&node, chain, str, strsize);
+
+	/* Make Private Key */
+	size_t privkey_wif_size_bin = 34;
+	uint8_t pkeybase58c[privkey_wif_size_bin];
+	pkeybase58c[0] = chain->b58prefix_secret_address;
+	pkeybase58c[33] = 1; /* always use compressed keys */
+	size_t privkey_wif_size = 128;
+	char privkey_wif[privkey_wif_size];
+	memcpy(&pkeybase58c[1], node.private_key, BTC_ECKEY_PKEY_LENGTH);
+	assert(btc_base58_encode_check(pkeybase58c, privkey_wif_size_bin, privkey_wif, privkey_wif_size) != 0);
+	if (btc_hdnode_has_privkey(&node)) {
+		printf("privatekey WIF: %s\n", privkey_wif);
+		hashmap_put(keymap, str, privkey_wif);
+//		if(!valueForKeyInHashTable(ht, str, &value)){
+//			addToHashTable(ht, str, privkey_wif);
+//		}
+//		addToHashTable(ht, str, privkey_wif);
+	}
+	return true;
+}
+
+int hdderive(char* pkey, char* keypath, char* p2pkh_address, map_t keymap)
 {
 	if (!pkey)
 		return showError("Missing extended key (use -p)");
@@ -135,6 +176,7 @@ int hdderive(char* pkey, char* keypath, char* p2pkh_address)
 				return showError("Deriving child key failed\n");
 			else
 				hd_print_node(chain, newextkey, p2pkh_address);
+				hd_save_node(chain, newextkey, keymap);
 		}
 	}
 	else {
@@ -142,7 +184,105 @@ int hdderive(char* pkey, char* keypath, char* p2pkh_address)
 			return showError("Deriving child key failed\n");
 		else
 			hd_print_node(chain, newextkey, p2pkh_address);
+			hd_save_node(chain, newextkey, keymap);
 	}
+	return 0;
+}
+
+int sign_tx(char* txhex, char* scripthex, char* pkey, uint64_t amount, int inputindex, int sighashtype)
+{
+	if(!txhex || !scripthex) {
+		return showError("Missing tx-hex or script-hex (use -x, -s)\n");
+	}
+
+	if (strlen(txhex) > 1024*100) { //don't accept tx larger then 100kb
+		return showError("tx too large (max 100kb)\n");
+	}
+
+	//deserialize transaction
+	btc_tx* tx = btc_tx_new();
+	uint8_t* data_bin = btc_malloc(strlen(txhex) / 2 + 1);
+	int outlen = 0;
+	utils_hex_to_bin(txhex, data_bin, strlen(txhex), &outlen);
+	if (!btc_tx_deserialize(data_bin, outlen, tx, NULL, true)) {
+		free(data_bin);
+		btc_tx_free(tx);
+		return showError("Invalid tx hex");
+	}
+	free(data_bin);
+
+	if ((size_t)inputindex >= tx->vin->len) {
+		btc_tx_free(tx);
+		return showError("Inputindex out of range");
+	}
+
+	btc_tx_in *tx_in = vector_idx(tx->vin, inputindex);
+
+	uint8_t script_data[strlen(scripthex) / 2 + 1];
+	utils_hex_to_bin(scripthex, script_data, strlen(scripthex), &outlen);
+	cstring* script = cstr_new_buf(script_data, outlen);
+
+	uint256 sighash;
+	memset(sighash, 0, sizeof(sighash));
+	btc_tx_sighash(tx, script, inputindex, sighashtype, 0, SIGVERSION_BASE, sighash);
+
+	char *hex = utils_uint8_to_hex(sighash, 32);
+	utils_reverse_hex(hex, 64);
+
+	enum btc_tx_out_type type = btc_script_classify(script, NULL);
+	printf("script: %s\n", scripthex);
+	printf("script-type: %s\n", btc_tx_out_type_to_str(type));
+	printf("inputindex: %d\n", inputindex);
+	printf("sighashtype: %d\n", sighashtype);
+	printf("hash: %s\n", hex);
+
+	// sign
+	btc_bool sign = false;
+	btc_key key;
+	btc_privkey_init(&key);
+	if (btc_privkey_decode_wif(pkey, chain, &key)) {
+		sign = true;
+	}
+	else {
+		if (strlen(pkey) > 50) {
+			btc_tx_free(tx);
+			cstr_free(script, true);
+			return showError("Invalid wif privkey\n");
+		}
+		printf("No private key provided, signing will not happen\n");
+	}
+	if (sign) {
+		uint8_t sigcompact[64] = {0};
+		int sigderlen = 74+1; //&hashtype
+		uint8_t sigder_plus_hashtype[75] = {0};
+		enum btc_tx_sign_result res = btc_tx_sign_input(tx, script, amount, &key, inputindex, sighashtype, sigcompact, sigder_plus_hashtype, &sigderlen);
+		cstr_free(script, true);
+
+		if (res != BTC_SIGN_OK) {
+			printf("!!!Sign error:%s\n", btc_tx_sign_result_to_str(res));
+		}
+
+		char sigcompacthex[64*2+1] = {0};
+		utils_bin_to_hex((unsigned char *)sigcompact, 64, sigcompacthex);
+
+		char sigderhex[74*2+2+1]; //74 der, 2 hashtype, 1 nullbyte
+		memset(sigderhex, 0, sizeof(sigderhex));
+		utils_bin_to_hex((unsigned char *)sigder_plus_hashtype, sigderlen, sigderhex);
+
+		printf("\nSignature created:\n");
+		printf("signature compact: %s\n", sigcompacthex);
+		printf("signature DER (+hashtype): %s\n", sigderhex);
+
+		cstring* signed_tx = cstr_new_sz(1024);
+		btc_tx_serialize(signed_tx, tx, true);
+
+		char signed_tx_hex[signed_tx->len*2+1];
+		utils_bin_to_hex((unsigned char *)signed_tx->str, signed_tx->len, signed_tx_hex);
+		printf("signed TX: %s\n", signed_tx_hex);
+		cstr_free(signed_tx, true);
+	}
+	btc_tx_free(tx);
+//	return true;
 	return 0;
 }
 
@@ -182,9 +322,19 @@ char **parseData(char *str)
 int main()
 {
 	/* start ECC context */
+	printf("Setting up...\n");
 	btc_ecc_start();
+	printf("Done!\n");
 
     initialize();
+
+    //Create Hash Table
+	map_t keymap;
+	keymap = hashmap_new();
+
+	//PUBKEY = mgxLW5AswYzNfoNFHh6jFRdz8MGdaXtKMY
+	//PRIVKEY = cUjWugtfxwtDHsc6US3ApoccUTVLkkk5Kx4JsT65BC9tyk3mDbGZ
+
 //    create_priv_key();
 //    void *memory_test = malloc(1024 * 1024 * 10);
 //    printf("SDRAM malloc returned 0x%08lx\n", (alt_u32)memory_test);
@@ -192,14 +342,14 @@ int main()
 
 //	PutStrUart("FPGA Cryptocurreny Wallet\n");
 
-	alt_u8 data[32];
-	getRandomBuffer(&(data[0]), 32);
+//	alt_u8 data[32];
+//	getRandomBuffer(&(data[0]), 32);
 
 
 //	const char *mnemonic_phrase = mnemonic_generate(128);
 //	printf("MNEMONIC PHRASE: %s\n", mnemonic_phrase);
 
-	char buffer[2048];
+//	char buffer[2048];
 
 //	sprintf(buffer, "Random Buffer:\n");
 //	PutStrUart((char *)&(buffer[0]));
@@ -219,9 +369,15 @@ int main()
 	char *key;
 	char *val;
 	char **res;
-	size_t sizeout = 128;
+	const size_t sizeout = 128;
 	char masterkey[sizeout];
+	masterkey[0] = '\0';
 	char p2pkh_address[sizeout];
+
+//	hdgenmaster(masterkey, sizeout);
+//	hdderive(masterkey, "m/44h", p2pkh_address);
+
+
 
     while(1)
     {
@@ -238,20 +394,19 @@ int main()
     		if(!strcmp(key, "masterkey")){
     			if(masterkey[0] == '\0'){
     				hdgenmaster(masterkey, sizeout);
-//    				append(masterkey, '\n');
-//    				PutStrUart(masterkey);
-    				printf("masterkey len: %d", strlen(masterkey));
-    				printf("created master key: %s\n", masterkey);
     			}
-    			printf("keypath: %s\n", val);
-    			hdderive("tprv8ZgxMBicQKsPenpKWDfinxYMdQQS2HxdvqaXhy6mNdY2R56XQ6dhCGBdEquDR7QHM4tBbCRzFadMW3TB9sQB8rE5iMCvJ6fhF2FEgYDjeMw", "m/44h/1h/0h/0/0", p2pkh_address);
+//    			printf("keypath: %s\n", val);
+    			hdderive(masterkey, val, p2pkh_address, keymap);
+    			char* temp;
+    			hashmap_get(keymap, p2pkh_address, &temp);
+    			printf("PRVKEY FROM HASHMAP: %s\n", temp);
     			append(p2pkh_address, '\n');
     			PutStrUart(p2pkh_address);
-//    			printf("derive FIRST HD child node: %s\n", val);
-//    			PutStrUart("FIRST Address\n");
-
     		}else if(!strcmp(key, "keypath")){
-    			hdderive(masterkey, val, p2pkh_address);
+    			hdderive(masterkey, val, p2pkh_address, keymap);
+    			char* temp;
+				hashmap_get(keymap, p2pkh_address, &temp);
+				printf("PRVKEY FROM HASHMAP: %s\n", temp);
     			append(p2pkh_address, '\n');
     			PutStrUart(p2pkh_address);
 //    			printf("derive FOLLOWING HD child node: %s\n", val);

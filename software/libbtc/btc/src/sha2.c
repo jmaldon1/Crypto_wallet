@@ -85,12 +85,17 @@
 
 #ifndef LITTLE_ENDIAN
 #define LITTLE_ENDIAN 1234
-#define BIG_ENDIAN 4321
+//#define BIG_ENDIAN 4321
 #endif
 
 #ifndef BYTE_ORDER
 #define BYTE_ORDER LITTLE_ENDIAN
+//#define BYTE_ORDER BIG_ENDIAN
 #endif
+
+//#ifndef SHA2_UNROLL_TRANSFORM
+//#define SHA2_UNROLL_TRANSFORM
+//#endif
 
 #if !defined(BYTE_ORDER) || (BYTE_ORDER != LITTLE_ENDIAN && BYTE_ORDER != BIG_ENDIAN)
 #error Define BYTE_ORDER to be equal to either LITTLE_ENDIAN or BIG_ENDIAN
@@ -632,11 +637,18 @@ void sha256_Final(sha2_byte digest[], SHA256_CTX* context)
 
 #if BYTE_ORDER == LITTLE_ENDIAN
         {
+        	for(int i=0; i < 32; i++){
+				digest[i] = 0;
+			}
             /* Convert TO host byte order */
             int j;
             for (j = 0; j < 8; j++) {
                 REVERSE32(context->state[j], context->state[j]);
-                *d++ = context->state[j];
+//                *d++ = context->state[j];
+//                *(sha2_word32 *)d++ = context->state[j];
+
+                //Above code does not correctly convert all 32bit integers into 8 bit integers
+                memcpy(d++, &context->state[j], sizeof(context->state[j]));
             }
         }
 #else
@@ -943,7 +955,7 @@ void sha512_Final(sha2_byte digest[], SHA512_CTX* context)
             int j;
             for (j = 0; j < 8; j++) {
                 REVERSE64(context->state[j], context->state[j]);
-                *d++ = context->state[j];
+                memcpy(d++, &context->state[j], sizeof(context->state[j]));
             }
         }
 #else

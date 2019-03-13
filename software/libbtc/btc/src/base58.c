@@ -134,8 +134,10 @@ int btc_b58check(const void* bin, size_t binsz, const char* base58str)
     if (binsz < 4) {
         return -4;
     }
+
     sha256_Raw(bin, binsz - 4, buf);
     sha256_Raw(buf, sizeof(buf), buf);
+
     if (memcmp(&binc[binsz - 4], buf, 4)) {
         return -1;
     }
@@ -209,6 +211,7 @@ int btc_base58_encode_check(const uint8_t* data, int datalen, char* str, int str
     memcpy(buf, data, datalen);
     sha256_Raw(data, datalen, hash);
     sha256_Raw(hash, 32, hash);
+
     size_t res = strsize;
     if (btc_base58_encode(str, &res, buf, datalen + 4) != true) {
         ret = 0;

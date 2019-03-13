@@ -145,6 +145,7 @@ ELF := nios_proj.elf
 C_SRCS += main.c
 C_SRCS += uart_usb.c
 C_SRCS += rand.c
+C_SRCS += hashmap.c
 CXX_SRCS :=
 ASM_SRCS :=
 

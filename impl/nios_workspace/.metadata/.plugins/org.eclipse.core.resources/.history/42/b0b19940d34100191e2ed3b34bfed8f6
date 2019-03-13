@@ -1,0 +1,16 @@
+/*
+ * hash_table.h
+ *
+ *  Created on: Mar 8, 2019
+ *      Author: O422
+ */
+
+#ifndef HASH_TABLE_H_
+#define HASH_TABLE_H_
+
+struct DataItem *search(int key);
+void insert(int key,int data);
+
+
+
+#endif /* HASH_TABLE_H_ */

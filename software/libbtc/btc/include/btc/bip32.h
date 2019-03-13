@@ -48,6 +48,7 @@ typedef struct
 
 #define btc_hdnode_private_ckd_prime(X, I) btc_hdnode_private_ckd((X), ((I) | 0x80000000))
 
+void print_node(btc_hdnode* hdnode);
 
 LIBBTC_API btc_hdnode* btc_hdnode_new();
 LIBBTC_API btc_hdnode* btc_hdnode_copy(const btc_hdnode* hdnode);
