@@ -4,6 +4,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "sys/alt_stdio.h"
 #include "system.h"
@@ -16,6 +17,22 @@ void append(char *s, char c)
 	int len = strlen(s);
 	s[len] = c;
 	s[len+1] = '\0';
+}
+
+//char add_newline(char *s, char c)
+//{
+////	char* newstr = malloc(strlen(s) + 2);
+////	strcpy(newstr, s);
+////	strcat(newstr, c);
+////	return newstr;
+//
+//}
+
+char* add_newline(const char* a, const char* b){
+    size_t len = strlen(a) + strlen(b);
+    char *ret = (char*)malloc(len * sizeof(char) + 1);
+    *ret = '\0';
+    return strcat(strcat(ret, a) ,b);
 }
 
 void uartGetLine(char *buf) {
@@ -40,6 +57,7 @@ char uartGetChar()
 	if (!EmptyUart())
 	{
 		unsigned char c = GetCUart();
+//		printf("%c\n", c);
 
 //		switch(c)
 //		{
@@ -98,8 +116,8 @@ void uartTxString(char *str)
 
 
 
-#define RX_BUFFER_SIZE 1024
-#define TX_BUFFER_SIZE 1024
+#define RX_BUFFER_SIZE 4096
+#define TX_BUFFER_SIZE 4096
 
 unsigned short TxHead = 0;
 unsigned short TxTail = 0;
@@ -208,12 +226,27 @@ unsigned char GetCUart(void)
 
 
 
-unsigned char PutStrUart(char *str)
+unsigned char PutStrUart(char *str, int chunksize)
 {
-	for(int i = 0; i < strlen(str); ++i)
-	{
+//	for(int i = 0; i < strlen(str); ++i)
+//	{
+//		PutCUart(str[i]);
+//	}
+//	return 0;
+
+	int chunks = strlen(str) / chunksize;
+	for(int i = 0; i < chunks; i++){
+		for (int j = 0; j < chunksize; j++) {
+			PutCUart(str[i * chunksize + j]);
+		}
+		usleep(500 * 1000);
+	}
+
+	int last = chunks * chunksize;
+	for (int i = last; i < strlen(str); i++) {
 		PutCUart(str[i]);
 	}
+	PutCUart('\n');
 	return 0;
 }
 

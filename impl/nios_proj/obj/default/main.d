@@ -14,6 +14,7 @@ obj/default/main.o: main.c ../../software/libbtc/btc/include/btc/btc.h \
  ../../software/libbtc/btc/include/btc/ecc.h \
  ../../software/libbtc/btc/include/btc/tool.h \
  ../../software/libbtc/btc/include/btc/tx.h \
+ ../../software/libbtc/btc/include/btc/utils.h \
  C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/system.h \
  C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/linker.h \
  c:\users\class2018\documents\projects\crypto_wallet\impl\nios_proj_bsp\drivers\inc\altera_avalon_pio_regs.h \
@@ -55,6 +56,8 @@ obj/default/main.o: main.c ../../software/libbtc/btc/include/btc/btc.h \
 ../../software/libbtc/btc/include/btc/tool.h:
 
 ../../software/libbtc/btc/include/btc/tx.h:
+
+../../software/libbtc/btc/include/btc/utils.h:
 
 C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/nios_proj_bsp/system.h:
 
