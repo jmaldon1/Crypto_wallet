@@ -28,6 +28,8 @@ How to use USB:
 
 <img src="https://github.com/jmaldon1/Crypto_wallet/blob/master/readme_images/USB_device_cables.jpg" alt="USB device cables" width="400"/>
 
+<img src="https://github.com/jmaldon1/Crypto_wallet/blob/master/readme_images/Pin_assignment.png" alt="DE-0 Nano Pin assignment" width="400"/>
+
 ### Quartus
 
 [Quartus Prime Lite Edition](http://fpgasoftware.intel.com/?edition=lite) was used to program the FPGA.
