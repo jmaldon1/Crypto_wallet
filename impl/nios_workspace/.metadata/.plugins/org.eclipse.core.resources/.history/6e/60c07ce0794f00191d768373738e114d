@@ -1,0 +1,277 @@
+#include "uart_usb.h"
+
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "sys/alt_stdio.h"
+#include "system.h"
+#include "altera_avalon_uart_regs.h"
+#include "altera_avalon_uart.h"
+#include "sys/alt_irq.h"
+
+void append(char *s, char c)
+{
+	int len = strlen(s);
+	s[len] = c;
+	s[len+1] = '\0';
+}
+
+//char add_newline(char *s, char c)
+//{
+////	char* newstr = malloc(strlen(s) + 2);
+////	strcpy(newstr, s);
+////	strcat(newstr, c);
+////	return newstr;
+//
+//}
+
+char* add_newline(const char* a, const char* b){
+    size_t len = strlen(a) + strlen(b);
+    char *ret = (char*)malloc(len * sizeof(char) + 1);
+    *ret = '\0';
+    return strcat(strcat(ret, a) ,b);
+}
+
+void uartGetLine(char *buf) {
+	if (!EmptyUart()) {
+		while (1) {
+			char c = uartGetChar();
+			if(c != 0){
+				append(buf, c);
+			}
+			if (c == '\n') {
+//				append(buf, c);
+//				printf("got a new line\n");
+//				PutStrUart(buf);
+				return;
+			}
+		}
+	}
+}
+
+char uartGetChar()
+{
+	if (!EmptyUart())
+	{
+		unsigned char c = GetCUart();
+//		printf("%c\n", c);
+
+//		switch(c)
+//		{
+//		case '\r':
+//		case '\n':
+////			printf("%c", c);
+////			PutCUart(c);
+//			break;
+//
+//		case '\b':
+////			PutCUart('\b');
+////			PutCUart(' ');
+////			PutCUart('\b');
+//			break;
+//
+//		default:
+////			printf("%c", c);
+////			PutCUart(c);
+//		}
+		return c;
+	}else{
+		return 0;
+	}
+}
+
+
+#if 0
+void uartRxChar(char *c)
+{
+	while (ALTERA_AVALON_UART_STATUS_RRDY_MSK != 0);
+	*c = IORD_ALTERA_AVALON_UART_RXDATA(UART_BASE);
+}
+
+
+void uartTxChar(char * c)
+{
+	while (ALTERA_AVALON_UART_STATUS_TRDY_MSK != 0);
+    IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, (*c));
+}
+
+
+void uartTxString(char *str)
+{
+	static char *txStr;
+
+	txStr = str;
+
+	while(*txStr != 0)
+	{
+		uartTxChar(txStr);
+		txStr++;
+	}
+}
+#endif
+
+
+
+
+#define RX_BUFFER_SIZE 2048
+#define TX_BUFFER_SIZE 2048
+
+unsigned short TxHead = 0;
+unsigned short TxTail = 0;
+unsigned char tx_buffer[TX_BUFFER_SIZE];
+
+unsigned short RxHead = 0;
+unsigned short RxTail = 0;
+unsigned char rx_buffer[RX_BUFFER_SIZE];
+
+
+static void IsrUart(void* context, unsigned int id)
+{
+	int sr = IORD_ALTERA_AVALON_UART_STATUS(UART_BASE);
+
+	if(sr & ALTERA_AVALON_UART_STATUS_RRDY_MSK)
+	{
+		rx_buffer[RxHead] = IORD_ALTERA_AVALON_UART_RXDATA(UART_BASE);
+
+		IOWR_ALTERA_AVALON_UART_STATUS(UART_BASE, 0);
+
+		if (++RxHead > (RX_BUFFER_SIZE - 1))
+		{
+			RxHead = 0;
+		}
+	}
+
+	if(sr & ALTERA_AVALON_UART_STATUS_TRDY_MSK)
+	{
+		if(IORD_ALTERA_AVALON_UART_CONTROL(UART_BASE) & ALTERA_AVALON_UART_CONTROL_TRDY_MSK)
+		{
+			if (TxTail != TxHead)
+			{
+				IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, tx_buffer[TxTail]);
+
+				if (++TxTail > (TX_BUFFER_SIZE - 1))
+				{
+					TxTail = 0;
+				}
+			}
+			else
+			{
+				IOWR_ALTERA_AVALON_UART_CONTROL(UART_BASE, ALTERA_AVALON_UART_CONTROL_RRDY_MSK);
+			}
+		}
+	}
+}
+
+
+void initUart(unsigned int BaudRate)
+{
+	int context_uart;
+	unsigned int divisor = (ALT_CPU_FREQ/UART_USB_BAUD_RATE) +1;
+
+	IOWR_ALTERA_AVALON_UART_DIVISOR(UART_BASE, divisor);
+	IOWR_ALTERA_AVALON_UART_CONTROL(UART_BASE, ALTERA_AVALON_UART_CONTROL_RRDY_MSK);
+
+
+#ifdef ALT_ENHANCED_INTERRUPT_API_PRESENT
+	alt_ic_isr_register(UART_IRQ_INTERRUPT_CONTROLLER_ID, UART_IRQ, (alt_isr_func) IsrUart, &context_uart, NULL);
+	alt_ic_irq_enable (UART_IRQ_INTERRUPT_CONTROLLER_ID, UART_IRQ);
+#else
+	alt_irq_register(UART_IRQ, &context_uart, IsrUart);
+	alt_irq_enable(UART_IRQ);
+#endif
+}
+
+
+
+void closeUart()
+{
+#ifdef ALT_ENHANCED_INTERRUPT_API_PRESENT
+	alt_ic_irq_disable (UART_IRQ_INTERRUPT_CONTROLLER_ID, UART_IRQ);
+
+#else
+	alt_irq_disable(UART_IRQ);
+#endif
+}
+
+
+
+unsigned char EmptyUart()
+{
+	if(RxHead == RxTail)
+	{
+		return 1;
+	}
+	return 0;
+}
+
+
+
+unsigned char GetCUart(void)
+{
+	unsigned char rxChar;
+
+	/* buffer is empty */
+	rxChar = rx_buffer[RxTail];
+
+	if (++RxTail > (RX_BUFFER_SIZE - 1))
+	{
+		RxTail = 0;
+	}
+
+	return rxChar;
+}
+
+
+
+unsigned char PutStrUart(char *str)
+{
+	for(int i = 0; i < strlen(str); ++i)
+	{
+		PutCUart(str[i]);
+	}
+	return 0;
+}
+
+
+
+unsigned char PutCUart(unsigned char in_char)
+{
+	unsigned short size;
+	unsigned int z = IORD_ALTERA_AVALON_UART_STATUS(UART_BASE) & ALTERA_AVALON_UART_STATUS_TRDY_MSK;
+
+	if ((TxHead == TxTail) && z)
+	{
+		IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE, in_char);
+	}
+	else
+	{
+		if (TxHead >= TxTail)
+		{
+			size = TxHead - TxTail;
+		}
+
+		else
+		{
+			size = ((TX_BUFFER_SIZE - 1) - TxTail) + TxHead;
+		}
+
+		if (size > (TX_BUFFER_SIZE - 3))
+		{
+			return (-1);
+		}
+
+		tx_buffer[TxHead] = in_char;
+
+		if (++TxHead > (TX_BUFFER_SIZE - 1))
+		{
+			TxHead = 0;
+		}
+
+		z = IORD_ALTERA_AVALON_UART_CONTROL(UART_BASE) | ALTERA_AVALON_UART_CONTROL_TRDY_MSK;
+		IOWR_ALTERA_AVALON_UART_CONTROL(UART_BASE, z);
+	}
+	return(1);
+}

@@ -1,0 +1,61 @@
+src/libbtc_la-ecc_libsecp256k1.lo: src/ecc_libsecp256k1.c \
+ src/secp256k1/include/secp256k1.h \
+ c:\mingw\lib\gcc\mingw32\8.2.0\include\stddef.h \
+ src/secp256k1/include/secp256k1_recovery.h \
+ src/secp256k1/include/secp256k1.h c:\mingw\include\assert.h \
+ c:\mingw\include\_mingw.h c:\mingw\include\msvcrtver.h \
+ c:\mingw\include\w32api.h c:\mingw\include\sdkddkver.h \
+ c:\mingw\lib\gcc\mingw32\8.2.0\include\stdint.h \
+ c:\mingw\include\stdint.h c:\mingw\include\string.h \
+ c:\mingw\include\strings.h c:\mingw\include\wchar.h \
+ src/..\include\btc\btc.h c:\mingw\include\limits.h \
+ c:\mingw\include\stdio.h c:\mingw\include\sys/types.h \
+ c:\mingw\lib\gcc\mingw32\8.2.0\include\stdarg.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\alloca.h \
+ src/..\include\btc\random.h src/..\include\btc\btc.h
+
+src/secp256k1/include/secp256k1.h:
+
+c:\mingw\lib\gcc\mingw32\8.2.0\include\stddef.h:
+
+src/secp256k1/include/secp256k1_recovery.h:
+
+src/secp256k1/include/secp256k1.h:
+
+c:\mingw\include\assert.h:
+
+c:\mingw\include\_mingw.h:
+
+c:\mingw\include\msvcrtver.h:
+
+c:\mingw\include\w32api.h:
+
+c:\mingw\include\sdkddkver.h:
+
+c:\mingw\lib\gcc\mingw32\8.2.0\include\stdint.h:
+
+c:\mingw\include\stdint.h:
+
+c:\mingw\include\string.h:
+
+c:\mingw\include\strings.h:
+
+c:\mingw\include\wchar.h:
+
+src/..\include\btc\btc.h:
+
+c:\mingw\include\limits.h:
+
+c:\mingw\include\stdio.h:
+
+c:\mingw\include\sys/types.h:
+
+c:\mingw\lib\gcc\mingw32\8.2.0\include\stdarg.h:
+
+c:\mingw\include\stdlib.h:
+
+c:\mingw\include\alloca.h:
+
+src/..\include\btc\random.h:
+
+src/..\include\btc\btc.h:

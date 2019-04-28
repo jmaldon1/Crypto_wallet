@@ -47,11 +47,9 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
-set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_SIMULATION_TOOL "<None>"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
-set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
-set_global_assignment -name QIP_FILE ../qsys/crypto_wallet2_nios/synthesis/crypto_wallet2_nios.qip
-set_global_assignment -name VERILOG_FILE ../../firmware/crypto_wallet2_top.v
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT NONE -section_id eda_simulation
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
@@ -79,8 +77,6 @@ set_location_assignment PIN_B1 -to LED[6]
 set_location_assignment PIN_L3 -to LED[7]
 
 
-set_global_assignment -name SDC_FILE output_files/timing.sdc
-set_global_assignment -name QIP_FILE ../../firmware/altera_ip/sdram_pll.qip
 set_location_assignment PIN_P2 -to DRAM_ADDR[0]
 set_location_assignment PIN_N5 -to DRAM_ADDR[1]
 set_location_assignment PIN_N6 -to DRAM_ADDR[2]
@@ -122,6 +118,10 @@ set_location_assignment PIN_N3 -to DRAM_DQ[14]
 set_location_assignment PIN_K1 -to DRAM_DQ[15]
 set_location_assignment PIN_C3 -to UART_RX
 set_location_assignment PIN_D3 -to UART_TX
+set_global_assignment -name QIP_FILE ../qsys/crypto_wallet2_nios_fast/synthesis/crypto_wallet2_nios_fast.qip
+set_global_assignment -name VERILOG_FILE ../../firmware/crypto_wallet2_top.v
+set_global_assignment -name SDC_FILE output_files/timing.sdc
+set_global_assignment -name QIP_FILE ../../firmware/altera_ip/sdram_pll.qip
 set_global_assignment -name VERILOG_FILE ../../firmware/random.v
 set_global_assignment -name VERILOG_FILE ../../firmware/sha256_transform.v
 set_global_assignment -name VERILOG_FILE ../../firmware/sha256_functions.v

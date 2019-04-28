@@ -65,7 +65,7 @@ module crypto_wallet2_top (
 	 
 
     /* nios qsys */
-    crypto_wallet2_nios u0 (
+    crypto_wallet2_nios_fast u0 (
         .clk_clk                                        (CLOCK_50),             //                                     clk.clk
         .epcs_flash_controller_external_dclk            (),                     //          epcs_flash_controller_external.dclk
         .epcs_flash_controller_external_sce             (),                     //                                        .sce

@@ -3,8 +3,13 @@
 
 #define UART_USB_BAUD_RATE 115200
 
+char uartGetChar();
 
-void uartGetLine();
+void uartGetLine(char *buf);
+
+void append(char *s, char c);
+
+char* add_newline(const char* a, const char* b);
 
 #if 0
 void uartRxChar(char *c);
@@ -21,7 +26,8 @@ unsigned char EmptyUart();
 
 unsigned char GetCUart(void);
 
-unsigned char PutStrUart(char *str);
+//unsigned char PutStrUart(char *str);
+unsigned char PutStrUart(char *str, int chunksize);
 
 unsigned char PutCUart(unsigned char in_char);
 

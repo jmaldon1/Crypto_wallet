@@ -1,10 +1,10 @@
 /*
  * alt_sys_init.c - HAL initialization source
  *
- * Machine generated for CPU 'cpu' in SOPC Builder design 'crypto_wallet2_nios'
- * SOPC Builder design path: C:/Users/Class2018/Documents/Projects/Crypto_wallet/impl/qsys/crypto_wallet2_nios.sopcinfo
+ * Machine generated for CPU 'cpu' in SOPC Builder design 'crypto_wallet2_nios_fast'
+ * SOPC Builder design path: ../qsys/crypto_wallet2_nios_fast.sopcinfo
  *
- * Generated: Fri Feb 08 12:39:24 EST 2019
+ * Generated: Tue Feb 12 14:30:21 EST 2019
  */
 
 /*

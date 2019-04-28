@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;nios_proj/hash_table.h&apos; to &apos;hashmap.h&apos;" description="Rename resource &apos;hash_table.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="hash_table.h" name="hashmap.h" stamp="1552198513151" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;nios_proj/hash_table.c&apos; to &apos;hashmap.c&apos;" description="Rename resource &apos;hash_table.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="hash_table.c" name="hashmap.c" stamp="1552198523113" updateReferences="true"/>
+</session>
