@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'crypto_wallet2_nios_fast'
  * SOPC Builder design path: ../qsys/crypto_wallet2_nios_fast.sopcinfo
  *
- * Generated: Tue Feb 12 14:30:21 EST 2019
+ * Generated: Sat Apr 27 22:45:32 EDT 2019
  */
 
 /*

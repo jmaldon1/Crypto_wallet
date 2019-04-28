@@ -9,8 +9,8 @@ obj/default/btc/src/headersdb_file.o: btc/src/headersdb_file.c \
  btc/src/..\include\btc\..\..\src\logdb\include\logdb\logdb_core.h \
  btc/src/..\include\btc\..\..\src\logdb\include\logdb\logdb_base.h \
  btc/src/..\include\btc\..\..\src\logdb\include\logdb\logdb_rec.h \
- c:\users\class2018\documents\projects\btclib\btc\include\btc\cstr.h \
- c:\users\class2018\documents\projects\btclib\btc\include\btc\sha2.h \
+ btc/src/..\include\btc\..\..\src\logdb\include\logdb\..\..\..\..\include\btc\cstr.h \
+ btc/src/..\include\btc\..\..\src\logdb\include\logdb\..\..\..\..\include\btc\sha2.h \
  btc/src/..\include\btc\..\..\src\logdb\include\logdb\logdb_memdb_llist.h \
  btc/src/..\include\btc\..\..\src\logdb\include\logdb\logdb_memdb_rbtree.h \
  btc/src/..\include\btc\..\..\src\logdb\include\logdb\red_black_tree.h \
@@ -50,9 +50,9 @@ btc/src/..\include\btc\..\..\src\logdb\include\logdb\logdb_base.h:
 
 btc/src/..\include\btc\..\..\src\logdb\include\logdb\logdb_rec.h:
 
-c:\users\class2018\documents\projects\btclib\btc\include\btc\cstr.h:
+btc/src/..\include\btc\..\..\src\logdb\include\logdb\..\..\..\..\include\btc\cstr.h:
 
-c:\users\class2018\documents\projects\btclib\btc\include\btc\sha2.h:
+btc/src/..\include\btc\..\..\src\logdb\include\logdb\..\..\..\..\include\btc\sha2.h:
 
 btc/src/..\include\btc\..\..\src\logdb\include\logdb\logdb_memdb_llist.h:
 

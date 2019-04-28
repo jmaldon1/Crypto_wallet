@@ -33,7 +33,6 @@ void initialize()
 	alt_u32 randSeed = 0x12345678;
     initRandom(randSeed);
 
-
     /* initialize uart to usb */
     initUart();
 }
@@ -104,12 +103,8 @@ btc_bool hd_save_node(const btc_chainparams* chain, const char* nodeser, map_t k
 		printf("pubkey: %s\n", str);
 		printf("privatekey WIF: %s\n", privkey_wif);
 
-
+		/* Store Pubkey and Privkey into hashmap */
 		hashmap_put(keymap, pubaddr_copy, privkey_wif_copy);
-//		if(!valueForKeyInHashTable(ht, str, &value)){
-//			addToHashTable(ht, str, privkey_wif);
-//		}
-//		addToHashTable(ht, str, privkey_wif);
 	}
 	return true;
 }
@@ -209,7 +204,6 @@ int sign_tx(btc_tx *tx, char* txhex, char* scripthex, char* pkey, uint64_t amoun
 	if (strlen(txhex) > 1024*100) { //don't accept tx larger then 100kb
 		return showError("tx too large (max 100kb)\n");
 	}
-//	memset()
 	printf("PRIVKEY INSIDE SIGN: %s\n", pkey);
 	size_t privkey_wif_size = 128;
 	char* pkey_wif = malloc(sizeof(char) * privkey_wif_size);
@@ -300,13 +294,10 @@ int sign_tx(btc_tx *tx, char* txhex, char* scripthex, char* pkey, uint64_t amoun
 		char signed_tx_hex[signed_tx->len*2+1];
 		utils_bin_to_hex((unsigned char *)signed_tx->str, signed_tx->len, signed_tx_hex);
 //		printf("signed TX: %s\n", signed_tx_hex);
-//		memset(signed_txhex, 0, signed_tx ->len*2+1);
 		strcpy(signed_txhex, signed_tx_hex);
 		cstr_free(signed_tx, true);
 
 	}
-//	btc_tx_free(tx);
-//	return true;
 	return 0;
 }
 
@@ -337,9 +328,6 @@ char **parseData(char *str)
 	  printf ("res[%d] = %s\n", i, res[i]);
 
 	return res;
-//	/* free the memory allocated */
-//
-//	free (res);
 }
 
 
@@ -356,12 +344,6 @@ int main()
 	map_t keymap;
 	keymap = hashmap_new();
 
-//	sign_tx(txhex, script, privkey, 0, 0, 1);
-
-	//PUBKEY = mgxLW5AswYzNfoNFHh6jFRdz8MGdaXtKMY
-	//PRIVKEY = cUjWugtfxwtDHsc6US3ApoccUTVLkkk5Kx4JsT65BC9tyk3mDbGZ
-
-//    create_priv_key();
 //    void *memory_test = malloc(1024 * 1024 * 10);
 //    printf("SDRAM malloc returned 0x%08lx\n", (alt_u32)memory_test);
 
@@ -388,6 +370,7 @@ int main()
 
 //	sprintf(buffer, "Menmonic phrase: %s\n", mnemonic_phrase);
 //	PutStrUart((char *)&(buffer[0]));
+
 	//Hardcoding some addresses that have value in them
 	hashmap_put(keymap, "mx97R1ymecapsDH8t7jVNH9henf8vxzuGD", "cRGz9MNtZHKPQ4Y1hvz5ncXHj3zzup7W6G4LCFw728JrHtnYKa6P");
 	hashmap_put(keymap, "mp8hL5KPhy71XU8Q1HfaYtJYJHcBMciFKN", "cNMfHuYtJRePmTnzeaDKXZ64wu9DMJWnu1f8S7s96vDrnnZozjw2");
@@ -454,7 +437,6 @@ int main()
 				/* Free memory */
 				btc_tx_free(tx);
     		}
-
     		/* free the memory allocated */
     		free(res);
     		memset(buf, 0, BUF_SIZE);

@@ -2,10 +2,10 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Feb 12, 2019 2:30:21 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1549999821266</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Apr 27, 2019 10:45:29 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1556419529551</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\Class2018\Documents\Projects\Crypto_wallet\impl\nios_proj_bsp</BspGeneratedLocation>
-        <BspSettingsFile>.\settings.bsp</BspSettingsFile>
+        <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\qsys\crypto_wallet2_nios_fast.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>cpu</Cpu>
